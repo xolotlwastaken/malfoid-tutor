@@ -1,0 +1,2402 @@
+[
+  {
+    "title": "Introduction and OS foundations",
+    "slug": "introduction-and-os-foundations",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Introduction and OS foundations: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "The primary role of an operating system is to:",
+        "correct": "act as an intermediary between users/applications and hardware",
+        "why": "The correct answer is B: act as an intermediary between users/applications and hardware.",
+        "difficulty": "Easy",
+        "options": [
+          "replace all application programs",
+          "act as an intermediary between users/applications and hardware",
+          "manufacture CPU instructions",
+          "eliminate I/O"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "Which is not one of the four broad components of a computer system?",
+        "correct": "Compiler optimisations only",
+        "why": "The correct answer is D: Compiler optimisations only.",
+        "difficulty": "Easy",
+        "options": [
+          "Hardware",
+          "Operating system",
+          "Application programs",
+          "Compiler optimisations only"
+        ],
+        "answer": "D"
+      },
+      {
+        "stem": "The kernel is best described as:",
+        "correct": "the core OS program that remains ready to handle requests and hardware events",
+        "why": "The correct answer is B: the core OS program that remains ready to handle requests and hardware events.",
+        "difficulty": "Easy",
+        "options": [
+          "a user document",
+          "the core OS program that remains ready to handle requests and hardware events",
+          "a device cable",
+          "a batch job"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "A simple batch system can waste CPU time when the current job:",
+        "correct": "waits for I/O",
+        "why": "The correct answer is B: waits for I/O.",
+        "difficulty": "Easy",
+        "options": [
+          "computes continuously",
+          "waits for I/O",
+          "terminates",
+          "is loaded"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "A real-time system is characterised mainly by:",
+        "correct": "fixed timing constraints and deadlines",
+        "why": "The correct answer is B: fixed timing constraints and deadlines.",
+        "difficulty": "Easy",
+        "options": [
+          "unlimited memory",
+          "fixed timing constraints and deadlines",
+          "no interrupts",
+          "no hardware"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "Multiprogramming improves CPU utilisation primarily by:",
+        "correct": "running another ready job while one job waits for I/O",
+        "why": "The correct answer is B: running another ready job while one job waits for I/O.",
+        "difficulty": "Medium",
+        "options": [
+          "running only one job",
+          "running another ready job while one job waits for I/O",
+          "removing memory management",
+          "disabling interrupts"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "Which OS function chooses among ready jobs for the CPU?",
+        "correct": "CPU scheduling",
+        "why": "The correct answer is B: CPU scheduling.",
+        "difficulty": "Medium",
+        "options": [
+          "File organisation",
+          "CPU scheduling",
+          "Compilation",
+          "Linking"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "In a tightly coupled multiprocessor system, processors commonly communicate through:",
+        "correct": "shared memory",
+        "why": "The correct answer is A: shared memory.",
+        "difficulty": "Medium",
+        "options": [
+          "shared memory",
+          "punched cards",
+          "separate keyboards only",
+          "the file extension"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The main focus of a desktop OS is generally:",
+        "correct": "user convenience and responsiveness",
+        "why": "The correct answer is A: user convenience and responsiveness.",
+        "difficulty": "Medium",
+        "options": [
+          "user convenience and responsiveness",
+          "guaranteeing every task a hard deadline",
+          "zero storage",
+          "no protection"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A device controller usually:",
+        "correct": "controls a device and has a local buffer",
+        "why": "The correct answer is B: controls a device and has a local buffer.",
+        "difficulty": "Medium",
+        "options": [
+          "executes application source code",
+          "controls a device and has a local buffer",
+          "replaces the kernel",
+          "schedules processes"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "The goals of convenience and efficient hardware use can conflict because:",
+        "correct": "sophisticated allocation may require information and overhead that reduce simplicity",
+        "why": "The correct answer is B: sophisticated allocation may require information and overhead that reduce simplicity.",
+        "difficulty": "Hard",
+        "options": [
+          "convenience requires no hardware",
+          "sophisticated allocation may require information and overhead that reduce simplicity",
+          "hardware cannot run programs",
+          "users cannot issue commands"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "A CPU and an I/O device can operate concurrently because:",
+        "correct": "the device controller can transfer data through its buffer while the CPU executes",
+        "why": "The correct answer is A: the device controller can transfer data through its buffer while the CPU executes.",
+        "difficulty": "Hard",
+        "options": [
+          "the device controller can transfer data through its buffer while the CPU executes",
+          "the CPU becomes part of the disk",
+          "I/O never needs memory",
+          "interrupts stop all execution permanently"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Which combination best explains why multiprocessors can be more reliable?",
+        "correct": "redundancy and the possibility of continued service after one component fails",
+        "why": "The correct answer is A: redundancy and the possibility of continued service after one component fails.",
+        "difficulty": "Hard",
+        "options": [
+          "redundancy and the possibility of continued service after one component fails",
+          "they have no shared resources",
+          "they require no OS",
+          "they never interrupt"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A handheld OS must particularly account for:",
+        "correct": "limited memory, processing power and display area",
+        "why": "The correct answer is B: limited memory, processing power and display area.",
+        "difficulty": "Hard",
+        "options": [
+          "unlimited battery and display size",
+          "limited memory, processing power and display area",
+          "absence of users",
+          "only batch workloads"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "In a time-sharing system, swapping is used chiefly to:",
+        "correct": "keep several jobs available and support interactive users",
+        "why": "The correct answer is A: keep several jobs available and support interactive users.",
+        "difficulty": "Hard",
+        "options": [
+          "keep several jobs available and support interactive users",
+          "prevent context switches",
+          "make all programs kernel code",
+          "remove the ready queue"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "An embedded controller must react within a deadline, share one CPU among multiple activities, and protect device state. Which OS design concern is most central?",
+        "correct": "combining predictable scheduling, interrupt handling and protection under resource constraints",
+        "why": "The correct answer is B: combining predictable scheduling, interrupt handling and protection under resource constraints.",
+        "difficulty": "Baka",
+        "options": [
+          "maximising average batch throughput only",
+          "combining predictable scheduling, interrupt handling and protection under resource constraints",
+          "replacing all interrupts with polling only",
+          "maximising virtual address size regardless of timing"
+        ],
+        "answer": "B"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Define an operating system and state its two broad goals.",
+        "key": "intermediary between users/applications and hardware; user convenience; efficient hardware utilisation/resource allocation."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Explain how a simple batch system differs from a multiprogrammed/time-sharing system.",
+        "key": "one job vs several in memory; automatic job sequencing vs interactive communication; CPU idle during I/O vs another job can run; need for memory/CPU/I/O scheduling."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Explain why OS abstractions, policies and mechanisms are useful, and give one example of each.",
+        "key": "abstraction hides complexity; policy decides what should happen; mechanism implements how; examples such as files/CPU scheduling policy/context-switch mechanism."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Design a high-level OS strategy for a medical embedded controller that must meet deadlines but also log data and support updates.",
+        "key": "hard/soft real-time distinction; priority/deadline scheduling; bounded interrupt and I/O paths; memory protection; isolation/update recovery; logging must not block critical work; explain trade-offs."
+      }
+    ]
+  },
+  {
+    "title": "Processes and threads",
+    "slug": "processes-and-threads",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Processes and threads: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "A process is:",
+        "correct": "a program in execution",
+        "why": "The correct answer is A: a program in execution.",
+        "difficulty": "Easy",
+        "options": [
+          "a program in execution",
+          "only source code",
+          "a disk sector",
+          "a CPU register"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A process waiting for an I/O completion is in the:",
+        "correct": "waiting/blocked state",
+        "why": "The correct answer is B: waiting/blocked state.",
+        "difficulty": "Easy",
+        "options": [
+          "running state",
+          "waiting/blocked state",
+          "new state",
+          "terminated state"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "The PCB normally stores:",
+        "correct": "process state, program counter and registers among other information",
+        "why": "The correct answer is B: process state, program counter and registers among other information.",
+        "difficulty": "Easy",
+        "options": [
+          "only the file name",
+          "process state, program counter and registers among other information",
+          "monitor pixels",
+          "source comments only"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "A context switch requires the OS to:",
+        "correct": "save the old process context and load the new one",
+        "why": "The correct answer is A: save the old process context and load the new one.",
+        "difficulty": "Easy",
+        "options": [
+          "save the old process context and load the new one",
+          "delete both processes",
+          "recompile the kernel",
+          "format the disk"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A thread is best viewed as:",
+        "correct": "a unit of execution within a process",
+        "why": "The correct answer is A: a unit of execution within a process.",
+        "difficulty": "Easy",
+        "options": [
+          "a unit of execution within a process",
+          "a disk partition",
+          "a directory entry",
+          "a page table entry"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A process in the ready state is:",
+        "correct": "able to execute but waiting for CPU allocation",
+        "why": "The correct answer is B: able to execute but waiting for CPU allocation.",
+        "difficulty": "Medium",
+        "options": [
+          "executing on a CPU",
+          "able to execute but waiting for CPU allocation",
+          "waiting for a disk only",
+          "already terminated"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "The short-term scheduler selects from the:",
+        "correct": "ready queue",
+        "why": "The correct answer is B: ready queue.",
+        "difficulty": "Medium",
+        "options": [
+          "disk job pool only",
+          "ready queue",
+          "file directory",
+          "interrupt vector only"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "The long-term scheduler mainly controls:",
+        "correct": "the degree of multiprogramming by admitting jobs to memory",
+        "why": "The correct answer is A: the degree of multiprogramming by admitting jobs to memory.",
+        "difficulty": "Medium",
+        "options": [
+          "the degree of multiprogramming by admitting jobs to memory",
+          "each instruction’s arithmetic",
+          "file names",
+          "page offsets"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The medium-term scheduler is associated with:",
+        "correct": "swapping partially executed processes out and back in",
+        "why": "The correct answer is A: swapping partially executed processes out and back in.",
+        "difficulty": "Medium",
+        "options": [
+          "swapping partially executed processes out and back in",
+          "compiling source code",
+          "choosing a file’s extension",
+          "handling only keyboard input"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "If a parent calls `wait()` after creating a child, the parent generally:",
+        "correct": "waits for child termination/status",
+        "why": "The correct answer is A: waits for child termination/status.",
+        "difficulty": "Medium",
+        "options": [
+          "waits for child termination/status",
+          "becomes a kernel thread permanently",
+          "deletes the child immediately",
+          "bypasses the PCB"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A context switch is overhead because during the switch:",
+        "correct": "no useful user-process work is performed",
+        "why": "The correct answer is A: no useful user-process work is performed.",
+        "difficulty": "Hard",
+        "options": [
+          "no useful user-process work is performed",
+          "the CPU is destroyed",
+          "all memory is erased",
+          "the new process cannot ever run"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "In a many-to-one user-thread model, a blocking system call by one user thread can:",
+        "correct": "block the entire process because the kernel sees one schedulable thread",
+        "why": "The correct answer is A: block the entire process because the kernel sees one schedulable thread.",
+        "difficulty": "Hard",
+        "options": [
+          "block the entire process because the kernel sees one schedulable thread",
+          "block no one",
+          "create a new CPU",
+          "guarantee parallelism"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "If a child performs `exec` after `fork`, the usual effect is that it:",
+        "correct": "replaces its process image with a new program",
+        "why": "The correct answer is A: replaces its process image with a new program.",
+        "difficulty": "Hard",
+        "options": [
+          "replaces its process image with a new program",
+          "becomes the parent’s PCB",
+          "changes only its PID",
+          "terminates before loading code"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A zombie process is one that:",
+        "correct": "has exited but remains in the process table until its status is collected",
+        "why": "The correct answer is B: has exited but remains in the process table until its status is collected.",
+        "difficulty": "Hard",
+        "options": [
+          "is still running invisibly",
+          "has exited but remains in the process table until its status is collected",
+          "has never been created",
+          "owns no PID"
+        ],
+        "answer": "B"
+      },
+      {
+        "stem": "On one core with preemptive Round Robin, when a quantum expires, the running process normally moves to:",
+        "correct": "ready, unless it has terminated or blocked",
+        "why": "The correct answer is A: ready, unless it has terminated or blocked.",
+        "difficulty": "Hard",
+        "options": [
+          "ready, unless it has terminated or blocked",
+          "new only",
+          "terminated always",
+          "the file queue"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A parent creates a child at t=0; the child immediately sends a blocking IPC message at t=6; the parent’s CPU quantum expires at t=7. Assuming the child was made ready by the send and the scheduler runs immediately, which event must be true?",
+        "correct": "the child can enter the ready queue before t=7 and may be selected at the next scheduling opportunity",
+        "why": "The correct answer is B: the child can enter the ready queue before t=7 and may be selected at the next scheduling opportunity.",
+        "difficulty": "Baka",
+        "options": [
+          "the child cannot run until the parent exits",
+          "the child can enter the ready queue before t=7 and may be selected at the next scheduling opportunity",
+          "the parent remains running despite blocking",
+          "`fork` makes both processes share one PCB"
+        ],
+        "answer": "B"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Draw the five basic process states and explain the ready-to-running and running-to-waiting transitions.",
+        "key": "new, ready, running, waiting, terminated; scheduler dispatches ready→running; I/O/event request causes running→waiting."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Explain the contents of a PCB and why each of the program counter, registers and memory-management information is needed during a context switch.",
+        "key": "identify fields; PC resumes next instruction; registers restore execution state; base/limit or equivalent protects/translates memory; state and scheduling data choose/resume process."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Compare long-, medium- and short-term schedulers in trigger frequency, input/output and purpose.",
+        "key": "long-term disk→memory and admission, infrequent; short-term ready queue→CPU, frequent; medium-term swap out/in under load; degree of multiprogramming."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Analyse a `fork`/`wait`/IPC process tree in which the parent and child have different CPU quanta and one blocks on receive. State possible process-state transitions and explain why exact execution order may be nondeterministic.",
+        "key": "separate PCBs/address spaces; scheduler/preemption; blocking receive; wake-up on send; parent may wait or run; race/order depends on timing and queue policy."
+      }
+    ]
+  },
+  {
+    "title": "CPU scheduling and algorithms",
+    "slug": "cpu-scheduling-and-algorithms",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "CPU scheduling and algorithms: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "FCFS scheduling is normally:",
+        "correct": "nonpreemptive",
+        "why": "The correct answer is A: nonpreemptive.",
+        "difficulty": "Easy",
+        "options": [
+          "nonpreemptive",
+          "always preemptive",
+          "random",
+          "disk-only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Round Robin is defined by a:",
+        "correct": "time quantum",
+        "why": "The correct answer is A: time quantum.",
+        "difficulty": "Easy",
+        "options": [
+          "time quantum",
+          "page size",
+          "file inode",
+          "base register only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "SJF chooses the process with the smallest predicted:",
+        "correct": "CPU burst",
+        "why": "The correct answer is A: CPU burst.",
+        "difficulty": "Easy",
+        "options": [
+          "CPU burst",
+          "PID",
+          "file name",
+          "page number"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Throughput is the number of processes completed per:",
+        "correct": "unit time",
+        "why": "The correct answer is A: unit time.",
+        "difficulty": "Easy",
+        "options": [
+          "unit time",
+          "page",
+          "context switch",
+          "byte"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Response time ends when a process:",
+        "correct": "first enters running",
+        "why": "The correct answer is A: first enters running.",
+        "difficulty": "Easy",
+        "options": [
+          "first enters running",
+          "terminates",
+          "finishes all I/O",
+          "is admitted to disk"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "FCFS’s convoy effect means:",
+        "correct": "short jobs wait behind a long job",
+        "why": "The correct answer is A: short jobs wait behind a long job.",
+        "difficulty": "Medium",
+        "options": [
+          "short jobs wait behind a long job",
+          "every job has the same burst",
+          "pages convoy in memory",
+          "all jobs run simultaneously"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "SRTF is the preemptive version of:",
+        "correct": "SJF",
+        "why": "The correct answer is A: SJF.",
+        "difficulty": "Medium",
+        "options": [
+          "SJF",
+          "FCFS",
+          "multilevel feedback only",
+          "FIFO page replacement"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Increasing a Round Robin quantum until it is very large makes RR approach:",
+        "correct": "FCFS",
+        "why": "The correct answer is A: FCFS.",
+        "difficulty": "Medium",
+        "options": [
+          "FCFS",
+          "SRTF",
+          "optimal paging",
+          "priority inversion"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Waiting time is calculated as turnaround time minus:",
+        "correct": "CPU bursts and I/O/event-wait time",
+        "why": "The correct answer is A: CPU bursts and I/O/event-wait time.",
+        "difficulty": "Medium",
+        "options": [
+          "CPU bursts and I/O/event-wait time",
+          "PID",
+          "response time only",
+          "arrival time only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A preemptive scheduler may take the CPU from a running process:",
+        "correct": "before it voluntarily blocks or terminates",
+        "why": "The correct answer is A: before it voluntarily blocks or terminates.",
+        "difficulty": "Medium",
+        "options": [
+          "before it voluntarily blocks or terminates",
+          "only after termination",
+          "only during boot",
+          "never"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "P1, P2, P3 arrive at 0 with burst lengths 8, 4, 2. Nonpreemptive SJF’s average waiting time is:",
+        "correct": "2",
+        "why": "order P3,P2,P1; waits 0,2,6",
+        "difficulty": "Hard",
+        "options": [
+          "2",
+          "4",
+          "6",
+          "14/3"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "For FCFS order P1(5), P2(3), P3(2), all at 0, the average waiting time is:",
+        "correct": "13/3",
+        "why": "The correct answer is A: 13/3.",
+        "difficulty": "Hard",
+        "options": [
+          "13/3",
+          "3",
+          "5",
+          "10"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "With RR quantum 2 and ready queue P1(5), P2(3), both at 0, after P1’s first slice the next process is:",
+        "correct": "P2",
+        "why": "The correct answer is A: P2.",
+        "difficulty": "Hard",
+        "options": [
+          "P2",
+          "P1 again",
+          "neither",
+          "a new process"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A scheduler that prioritises short jobs minimises average waiting time under the standard assumptions because:",
+        "correct": "completing short bursts earlier reduces time imposed on later jobs",
+        "why": "The correct answer is A: completing short bursts earlier reduces time imposed on later jobs.",
+        "difficulty": "Hard",
+        "options": [
+          "completing short bursts earlier reduces time imposed on later jobs",
+          "it eliminates all context switches",
+          "it guarantees no starvation",
+          "it ignores arrivals"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "On a two-core system, CPU utilisation is total busy core-time divided by:",
+        "correct": "elapsed time × 2",
+        "why": "The correct answer is A: elapsed time × 2.",
+        "difficulty": "Hard",
+        "options": [
+          "elapsed time × 2",
+          "elapsed time only",
+          "number of processes",
+          "quantum"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "P1 arrives at 0 with burst 7; P2 at 2 with burst 3; P3 at 4 with burst 1. Under SRTF, which execution sequence is correct (ignoring switch cost)?",
+        "correct": "P1(0–2), P2(2–4), P3(4–5), P2(5–6), P1(6–11)",
+        "why": "The correct answer is A: P1(0–2), P2(2–4), P3(4–5), P2(5–6), P1(6–11).",
+        "difficulty": "Baka",
+        "options": [
+          "P1(0–2), P2(2–4), P3(4–5), P2(5–6), P1(6–11)",
+          "P1(0–7), P2, P3",
+          "P3 first, P2, P1",
+          "P1(0–2), P3(2–3), P2(3–6), P1"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Define turnaround, waiting and response time.",
+        "key": "admission/arrival to termination; time in ready queue; admission/arrival to first running."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Compute the FCFS and nonpreemptive-SJF schedules and average waiting time for P1=6, P2=2, P3=4, all arriving at 0.",
+        "key": "FCFS order P1,P2,P3, waits 0,6,8, average 14/3; SJF order P2,P3,P1, waits 0,2,6, average 8/3."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Explain the trade-off when choosing a Round Robin quantum.",
+        "key": "small quantum improves response/fairness but increases context-switch overhead; large quantum reduces overhead but approaches FCFS and harms response; workload and switch cost matter."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Given an arrival/burst table, compare FCFS, SJF, SRTF and RR, showing Gantt charts, waiting/turnaround/response times, and one fairness/starvation observation.",
+        "key": "correct event-by-event schedule; definitions and arithmetic; explain preemption on arrivals; identify SJF starvation risk and RR fairness/overhead."
+      }
+    ]
+  },
+  {
+    "title": "Process synchronization",
+    "slug": "process-synchronization",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Process synchronization: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "A race condition occurs when the result depends on:",
+        "correct": "the timing/interleaving of concurrent accesses",
+        "why": "The correct answer is A: the timing/interleaving of concurrent accesses.",
+        "difficulty": "Easy",
+        "options": [
+          "the timing/interleaving of concurrent accesses",
+          "file extension only",
+          "page size only",
+          "CPU brand"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The part of a program accessing shared data is the:",
+        "correct": "critical section",
+        "why": "The correct answer is A: critical section.",
+        "difficulty": "Easy",
+        "options": [
+          "critical section",
+          "boot sector",
+          "ready queue",
+          "text file"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Mutual exclusion means:",
+        "correct": "at most one process is in a critical section at a time",
+        "why": "The correct answer is A: at most one process is in a critical section at a time.",
+        "difficulty": "Easy",
+        "options": [
+          "at most one process is in a critical section at a time",
+          "no process can run",
+          "all processes run together",
+          "every lock is recursive"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A semaphore wait operation generally:",
+        "correct": "decrements/claims a permit and may block",
+        "why": "The correct answer is A: decrements/claims a permit and may block.",
+        "difficulty": "Easy",
+        "options": [
+          "decrements/claims a permit and may block",
+          "always increments",
+          "deletes the semaphore",
+          "disables memory"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A binary semaphore used for mutual exclusion is commonly initialised to:",
+        "correct": "1",
+        "why": "The correct answer is A: 1.",
+        "difficulty": "Easy",
+        "options": [
+          "1",
+          "0 always",
+          "-1",
+          "the page size"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The three classic critical-section requirements are:",
+        "correct": "mutual exclusion, progress and bounded waiting",
+        "why": "The correct answer is A: mutual exclusion, progress and bounded waiting.",
+        "difficulty": "Medium",
+        "options": [
+          "mutual exclusion, progress and bounded waiting",
+          "paging, swapping and linking",
+          "throughput, disk and files",
+          "fork, exec and exit"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "In a bounded buffer, `empty` counts:",
+        "correct": "unused slots",
+        "why": "The correct answer is A: unused slots.",
+        "difficulty": "Medium",
+        "options": [
+          "unused slots",
+          "filled slots",
+          "CPUs",
+          "waiting processes only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A producer should normally wait for `empty` before entering the buffer’s critical update because:",
+        "correct": "it must not insert into a full buffer",
+        "why": "The correct answer is A: it must not insert into a full buffer.",
+        "difficulty": "Medium",
+        "options": [
+          "it must not insert into a full buffer",
+          "it must avoid all CPU use",
+          "it is a consumer",
+          "it needs a page fault"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A mutex lock is released by:",
+        "correct": "the owner after leaving the critical section",
+        "why": "The correct answer is A: the owner after leaving the critical section.",
+        "difficulty": "Medium",
+        "options": [
+          "the owner after leaving the critical section",
+          "any unrelated process at any time",
+          "the disk controller",
+          "the compiler only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A monitor provides:",
+        "correct": "mutual exclusion around its procedures plus condition synchronisation",
+        "why": "The correct answer is A: mutual exclusion around its procedures plus condition synchronisation.",
+        "difficulty": "Medium",
+        "options": [
+          "mutual exclusion around its procedures plus condition synchronisation",
+          "only a disk cache",
+          "no shared state",
+          "CPU scheduling only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "If a process executes `wait(mutex)` twice without a matching signal and mutex starts at 1, it will most likely:",
+        "correct": "block on the second wait",
+        "why": "The correct answer is A: block on the second wait.",
+        "difficulty": "Hard",
+        "options": [
+          "block on the second wait",
+          "enter twice safely",
+          "increment the value",
+          "terminate normally"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "In a bounded-buffer solution, the usual semaphore wait order `wait(empty); wait(mutex)` prevents:",
+        "correct": "a producer holding the mutex while waiting for space, which could block consumers from freeing space",
+        "why": "The correct answer is A: a producer holding the mutex while waiting for space, which could block consumers from freeing space.",
+        "difficulty": "Hard",
+        "options": [
+          "a producer holding the mutex while waiting for space, which could block consumers from freeing space",
+          "all mutual exclusion",
+          "the buffer from ever filling",
+          "page replacement"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "If two increments are implemented as read–modify–write and interleave, the final value can lose an update because:",
+        "correct": "both processes can read the same old value",
+        "why": "The correct answer is A: both processes can read the same old value.",
+        "difficulty": "Hard",
+        "options": [
+          "both processes can read the same old value",
+          "the CPU cannot add 1",
+          "the variable is immutable",
+          "interrupts cannot occur"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Busy waiting differs from blocking because a busy-waiting process:",
+        "correct": "repeatedly checks while consuming CPU",
+        "why": "The correct answer is A: repeatedly checks while consuming CPU.",
+        "difficulty": "Hard",
+        "options": [
+          "repeatedly checks while consuming CPU",
+          "is always terminated",
+          "is swapped to disk immediately",
+          "cannot be preempted"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A correct lock-free-looking algorithm that violates bounded waiting may cause:",
+        "correct": "starvation",
+        "why": "The correct answer is A: starvation.",
+        "difficulty": "Hard",
+        "options": [
+          "starvation",
+          "a file rename",
+          "a page hit",
+          "compilation"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Producer code is `wait(mutex); wait(empty); insert(); signal(empty); signal(mutex)`, consumer code is `wait(mutex); wait(full); remove(); signal(full); signal(mutex)`. If the buffer is full, what can happen?",
+        "correct": "producer holds mutex waiting for empty while consumer cannot acquire mutex to remove, causing deadlock",
+        "why": "The correct answer is A: producer holds mutex waiting for empty while consumer cannot acquire mutex to remove, causing deadlock.",
+        "difficulty": "Baka",
+        "options": [
+          "producer holds mutex waiting for empty while consumer cannot acquire mutex to remove, causing deadlock",
+          "it is always correct",
+          "only the consumer starves but never deadlocks",
+          "the buffer becomes empty automatically"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Explain race condition and critical section using a shared counter.",
+        "key": "concurrent read–modify–write; different interleavings yield different final counts; counter update is critical section."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Write semaphore pseudocode for a bounded buffer of size N and explain `empty`, `full` and `mutex`.",
+        "key": "producer waits empty/mutex, inserts, signals mutex/full; consumer waits full/mutex, removes, signals mutex/empty; initial values N, 0, 1."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Show how incorrect semaphore order can deadlock the bounded-buffer solution.",
+        "key": "producer/consumer each hold mutex then wait on unavailable resource; opposite party needs mutex to create that resource; demonstrate cycle; correct order releases/claims counting semaphore before mutex."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Compare mutex, binary semaphore, counting semaphore and monitor for a shared resource with multiple conditions.",
+        "key": "ownership vs permit semantics; counting capacity; monitor encapsulation and condition variables; waking semantics; misuse and deadlock risks; justify a design."
+      }
+    ]
+  },
+  {
+    "title": "Deadlocks and starvation",
+    "slug": "deadlocks-and-starvation",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Deadlocks and starvation: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "A deadlock is a state where processes:",
+        "correct": "wait forever for events/resources held by one another",
+        "why": "The correct answer is A: wait forever for events/resources held by one another.",
+        "difficulty": "Easy",
+        "options": [
+          "wait forever for events/resources held by one another",
+          "all terminate",
+          "use no resources",
+          "execute only I/O"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Which is a necessary deadlock condition?",
+        "correct": "mutual exclusion",
+        "why": "The correct answer is A: mutual exclusion.",
+        "difficulty": "Easy",
+        "options": [
+          "mutual exclusion",
+          "infinite memory",
+          "zero processes",
+          "no waiting"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Hold-and-wait means a process:",
+        "correct": "holds at least one resource while waiting for another",
+        "why": "The correct answer is A: holds at least one resource while waiting for another.",
+        "difficulty": "Easy",
+        "options": [
+          "holds at least one resource while waiting for another",
+          "holds nothing",
+          "waits only after termination",
+          "releases everything before requesting"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Starvation means:",
+        "correct": "indefinite postponement while other processes continue to progress",
+        "why": "The correct answer is A: indefinite postponement while other processes continue to progress.",
+        "difficulty": "Easy",
+        "options": [
+          "indefinite postponement while other processes continue to progress",
+          "all processes are blocked in a cycle necessarily",
+          "memory is full",
+          "a process has terminated"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A resource-allocation graph can represent:",
+        "correct": "processes, resources and request/assignment edges",
+        "why": "The correct answer is A: processes, resources and request/assignment edges.",
+        "difficulty": "Easy",
+        "options": [
+          "processes, resources and request/assignment edges",
+          "only file names",
+          "CPU bursts only",
+          "page offsets"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The four Coffman conditions are mutual exclusion, hold-and-wait, no preemption and:",
+        "correct": "circular wait",
+        "why": "The correct answer is A: circular wait.",
+        "difficulty": "Medium",
+        "options": [
+          "circular wait",
+          "paging",
+          "response time",
+          "compilation"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Deadlock prevention works by:",
+        "correct": "denying at least one necessary condition",
+        "why": "The correct answer is A: denying at least one necessary condition.",
+        "difficulty": "Medium",
+        "options": [
+          "denying at least one necessary condition",
+          "increasing every queue",
+          "removing all processes",
+          "guaranteeing starvation"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A safe state is one in which:",
+        "correct": "there exists an order allowing all processes to finish with available resources",
+        "why": "The correct answer is A: there exists an order allowing all processes to finish with available resources.",
+        "difficulty": "Medium",
+        "options": [
+          "there exists an order allowing all processes to finish with available resources",
+          "a deadlock has occurred",
+          "no resources are allocated",
+          "all processes are terminated"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Banker’s algorithm grants a request only if the resulting state is:",
+        "correct": "safe",
+        "why": "The correct answer is A: safe.",
+        "difficulty": "Medium",
+        "options": [
+          "safe",
+          "necessarily fastest",
+          "empty",
+          "preemptive"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Deadlock detection differs from prevention because detection:",
+        "correct": "allows deadlock to occur and then searches for it",
+        "why": "The correct answer is A: allows deadlock to occur and then searches for it.",
+        "difficulty": "Medium",
+        "options": [
+          "allows deadlock to occur and then searches for it",
+          "forbids all resource requests",
+          "applies only to files",
+          "eliminates scheduling"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "If P1 holds R1 and requests R2 while P2 holds R2 and requests R1, the graph contains:",
+        "correct": "a cycle and a deadlock under single-instance resources",
+        "why": "The correct answer is A: a cycle and a deadlock under single-instance resources.",
+        "difficulty": "Hard",
+        "options": [
+          "a cycle and a deadlock under single-instance resources",
+          "no dependency",
+          "only starvation",
+          "a page fault"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A safe sequence is best described as:",
+        "correct": "an ordering in which each process can obtain its remaining need and release resources",
+        "why": "The correct answer is A: an ordering in which each process can obtain its remaining need and release resources.",
+        "difficulty": "Hard",
+        "options": [
+          "an ordering in which each process can obtain its remaining need and release resources",
+          "the order processes arrived",
+          "any CPU schedule",
+          "a list of terminated files"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Requiring processes to request all resources before execution can prevent hold-and-wait but may cause:",
+        "correct": "low utilisation and possible starvation",
+        "why": "The correct answer is A: low utilisation and possible starvation.",
+        "difficulty": "Hard",
+        "options": [
+          "low utilisation and possible starvation",
+          "guaranteed maximum throughput",
+          "no waiting at all",
+          "faster response always"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "If a process can be forcibly deprived of a resource without invalidating its work, allowing preemption can break:",
+        "correct": "no-preemption",
+        "why": "The correct answer is A: no-preemption.",
+        "difficulty": "Hard",
+        "options": [
+          "no-preemption",
+          "mutual exclusion always",
+          "circular wait only",
+          "progress"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A cycle in a resource-allocation graph proves deadlock:",
+        "correct": "when each resource type has one instance; with multiple instances it indicates possible deadlock",
+        "why": "The correct answer is A: when each resource type has one instance; with multiple instances it indicates possible deadlock.",
+        "difficulty": "Hard",
+        "options": [
+          "when each resource type has one instance; with multiple instances it indicates possible deadlock",
+          "always, regardless of instances",
+          "never",
+          "only for files"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Available=(3,2), Allocation P1=(1,0), P2=(1,1), P3=(1,0), Max P1=(2,1), P2=(1,2), P3=(3,1). Which is a safe sequence?",
+        "correct": "P1 then P2 then P3",
+        "why": "The correct answer is A: P1 then P2 then P3.",
+        "difficulty": "Baka",
+        "options": [
+          "P1 then P2 then P3",
+          "P2 then P1 then P3",
+          "P3 then P2 then P1",
+          "none"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "State and explain the four necessary conditions for deadlock.",
+        "key": "mutual exclusion, hold-and-wait, no preemption, circular wait; one-sentence explanation each."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Distinguish deadlock, starvation and livelock.",
+        "key": "deadlock: circular waiting/no progress; starvation: one waits indefinitely while system progresses; livelock: active state changes but no useful progress."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Explain prevention, avoidance, detection/recovery and the trade-off of each.",
+        "key": "prevention structurally breaks condition; avoidance uses future maximum claims/safe state; detection permits then finds; recovery preemption/rollback/termination; overhead vs utilisation."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Run Banker’s algorithm on a supplied Allocation/Max/Available table, either approve or reject a request, and justify the result.",
+        "key": "compute Need=Max−Allocation; simulate Work/Finish; safe sequence; then compare request to Need/Available; only commit if post-request state remains safe."
+      }
+    ]
+  },
+  {
+    "title": "Real-time operating systems",
+    "slug": "real-time-operating-systems",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Real-time operating systems: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "A hard real-time task must:",
+        "correct": "meet its deadline or the result may be invalid",
+        "why": "The correct answer is A: meet its deadline or the result may be invalid.",
+        "difficulty": "Easy",
+        "options": [
+          "meet its deadline or the result may be invalid",
+          "maximise average waiting time",
+          "avoid all interrupts",
+          "use virtual memory always"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "An example of a real-time control system is:",
+        "correct": "airbag control",
+        "why": "The correct answer is A: airbag control.",
+        "difficulty": "Easy",
+        "options": [
+          "airbag control",
+          "text formatting only",
+          "offline archive compression",
+          "a directory listing"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A deadline is:",
+        "correct": "the latest acceptable completion time",
+        "why": "The correct answer is A: the latest acceptable completion time.",
+        "difficulty": "Easy",
+        "options": [
+          "the latest acceptable completion time",
+          "the process PID",
+          "a disk block",
+          "a page offset"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "RTOS design prioritises:",
+        "correct": "predictable timing",
+        "why": "The correct answer is A: predictable timing.",
+        "difficulty": "Easy",
+        "options": [
+          "predictable timing",
+          "unlimited throughput only",
+          "large GUIs only",
+          "random scheduling"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A sensor interrupt is generated by:",
+        "correct": "an external/device event",
+        "why": "The correct answer is A: an external/device event.",
+        "difficulty": "Easy",
+        "options": [
+          "an external/device event",
+          "a linker",
+          "a file extension",
+          "a page table alone"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "In a hard real-time system, average response time is insufficient because:",
+        "correct": "a single missed deadline may be unacceptable",
+        "why": "The correct answer is A: a single missed deadline may be unacceptable.",
+        "difficulty": "Medium",
+        "options": [
+          "a single missed deadline may be unacceptable",
+          "averages are always zero",
+          "deadlines do not exist",
+          "CPU bursts are impossible"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A soft real-time task generally:",
+        "correct": "benefits from timely completion but tolerates occasional lateness",
+        "why": "The correct answer is A: benefits from timely completion but tolerates occasional lateness.",
+        "difficulty": "Medium",
+        "options": [
+          "benefits from timely completion but tolerates occasional lateness",
+          "must never miss any deadline",
+          "cannot be preempted",
+          "cannot use I/O"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "To improve predictability, an RTOS may avoid:",
+        "correct": "unbounded blocking and unpredictable paging",
+        "why": "The correct answer is A: unbounded blocking and unpredictable paging.",
+        "difficulty": "Medium",
+        "options": [
+          "unbounded blocking and unpredictable paging",
+          "all priority information",
+          "interrupts",
+          "timers"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Priority inversion occurs when:",
+        "correct": "a high-priority task waits for a resource held by a low-priority task, while medium-priority work delays release",
+        "why": "The correct answer is A: a high-priority task waits for a resource held by a low-priority task, while medium-priority work delays release.",
+        "difficulty": "Medium",
+        "options": [
+          "a high-priority task waits for a resource held by a low-priority task, while medium-priority work delays release",
+          "priorities are all equal",
+          "a page is replaced",
+          "a process exits"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A timer is useful in RTOS scheduling because it:",
+        "correct": "provides a predictable preemption/deadline reference",
+        "why": "The correct answer is A: provides a predictable preemption/deadline reference.",
+        "difficulty": "Medium",
+        "options": [
+          "provides a predictable preemption/deadline reference",
+          "stores file attributes",
+          "links libraries",
+          "allocates disk blocks"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A feasible schedule requires each task to complete:",
+        "correct": "by its deadline under the assumed execution and release constraints",
+        "why": "The correct answer is A: by its deadline under the assumed execution and release constraints.",
+        "difficulty": "Hard",
+        "options": [
+          "by its deadline under the assumed execution and release constraints",
+          "in PID order",
+          "after all lower-priority work",
+          "only at shutdown"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A long nonpreemptible critical section is dangerous in RTOS because it can:",
+        "correct": "delay a higher-priority task past its deadline",
+        "why": "The correct answer is A: delay a higher-priority task past its deadline.",
+        "difficulty": "Hard",
+        "options": [
+          "delay a higher-priority task past its deadline",
+          "reduce all memory use to zero",
+          "remove the timer",
+          "guarantee fairness"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Priority inheritance addresses priority inversion by:",
+        "correct": "temporarily raising the resource holder’s priority",
+        "why": "The correct answer is A: temporarily raising the resource holder’s priority.",
+        "difficulty": "Hard",
+        "options": [
+          "temporarily raising the resource holder’s priority",
+          "deleting the high-priority task",
+          "lowering every priority permanently",
+          "disabling resource protection"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A periodic task with period T and deadline D needs analysis of:",
+        "correct": "worst-case execution time, release/period and deadline",
+        "why": "The correct answer is A: worst-case execution time, release/period and deadline.",
+        "difficulty": "Hard",
+        "options": [
+          "worst-case execution time, release/period and deadline",
+          "filename and extension only",
+          "page table length only",
+          "directory depth only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "An RTOS may sacrifice average throughput to:",
+        "correct": "guarantee bounded response and deadline behaviour",
+        "why": "The correct answer is A: guarantee bounded response and deadline behaviour.",
+        "difficulty": "Hard",
+        "options": [
+          "guarantee bounded response and deadline behaviour",
+          "maximise fragmentation",
+          "increase deadlock",
+          "eliminate protection"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A high-priority control task is released every 10 ms, has WCET 3 ms, and can be blocked for 8 ms by a lower-priority task; a medium task is always ready. Which design issue is most urgent?",
+        "correct": "priority inversion and blocking analysis may make the 10 ms deadline infeasible; use bounded critical sections/protocols",
+        "why": "The correct answer is A: priority inversion and blocking analysis may make the 10 ms deadline infeasible; use bounded critical sections/protocols.",
+        "difficulty": "Baka",
+        "options": [
+          "priority inversion and blocking analysis may make the 10 ms deadline infeasible; use bounded critical sections/protocols",
+          "increase the medium task priority",
+          "disable all interrupts forever",
+          "use FCFS only"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Distinguish hard and soft real-time systems with one example each.",
+        "key": "hard deadline miss unacceptable; soft late result degrades service; examples airbag vs multimedia playback."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Explain why predictability is often more important than peak throughput in an RTOS.",
+        "key": "deadlines; worst-case rather than average; bounded interrupt/scheduling/locking delays; safety/correctness consequences."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Explain priority inversion and two ways to mitigate it.",
+        "key": "low-priority holder blocks high priority; medium task preempts holder; priority inheritance/ceiling; bound critical sections and blocking."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Given periodic tasks with release times, WCETs and deadlines, construct or reject a priority schedule and identify the first missed deadline.",
+        "key": "timeline; account for preemption, blocking and interrupt overhead; justify feasibility, not just average utilisation."
+      }
+    ]
+  },
+  {
+    "title": "Virtualization",
+    "slug": "virtualization",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Virtualization: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "A virtual machine is an isolated duplicate of a:",
+        "correct": "real machine/system",
+        "why": "The correct answer is A: real machine/system.",
+        "difficulty": "Easy",
+        "options": [
+          "real machine/system",
+          "file name",
+          "page offset",
+          "semaphore"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The hypervisor/VMM is responsible for:",
+        "correct": "controlling and multiplexing the underlying hardware for guests",
+        "why": "The correct answer is A: controlling and multiplexing the underlying hardware for guests.",
+        "difficulty": "Easy",
+        "options": [
+          "controlling and multiplexing the underlying hardware for guests",
+          "writing application essays",
+          "replacing every device physically",
+          "deleting guest OSs"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "An OS running inside a VM is the:",
+        "correct": "guest OS",
+        "why": "The correct answer is A: guest OS.",
+        "difficulty": "Easy",
+        "options": [
+          "guest OS",
+          "host hardware",
+          "linker",
+          "device buffer"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Emulation exposes a virtual resource that may differ from:",
+        "correct": "the underlying physical resource",
+        "why": "The correct answer is A: the underlying physical resource.",
+        "difficulty": "Easy",
+        "options": [
+          "the underlying physical resource",
+          "the file name only",
+          "the user’s password only",
+          "the scheduler queue"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Server consolidation means:",
+        "correct": "running workloads previously on several machines on fewer physical machines, often as VMs",
+        "why": "The correct answer is A: running workloads previously on several machines on fewer physical machines, often as VMs.",
+        "difficulty": "Easy",
+        "options": [
+          "running workloads previously on several machines on fewer physical machines, often as VMs",
+          "deleting all servers",
+          "removing isolation",
+          "replacing RAM with files"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A Java VM mainly presents:",
+        "correct": "a virtual bytecode execution environment",
+        "why": "The correct answer is A: a virtual bytecode execution environment.",
+        "difficulty": "Medium",
+        "options": [
+          "a virtual bytecode execution environment",
+          "a physical disk head",
+          "a semaphore queue",
+          "a process state only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A host OS runs:",
+        "correct": "directly on hardware in the host-based terminology",
+        "why": "The correct answer is A: directly on hardware in the host-based terminology.",
+        "difficulty": "Medium",
+        "options": [
+          "directly on hardware in the host-based terminology",
+          "only inside a guest",
+          "only on a disk image",
+          "after all guests terminate"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Virtualization is useful for cloud multi-tenancy because it provides:",
+        "correct": "isolation and flexible provisioning between users",
+        "why": "The correct answer is A: isolation and flexible provisioning between users.",
+        "difficulty": "Medium",
+        "options": [
+          "isolation and flexible provisioning between users",
+          "one shared address space with no protection",
+          "no resource accounting",
+          "no scheduling"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A RAM disk is an example of:",
+        "correct": "emulating storage using DRAM",
+        "why": "The correct answer is A: emulating storage using DRAM.",
+        "difficulty": "Medium",
+        "options": [
+          "emulating storage using DRAM",
+          "emulating CPU using a disk only",
+          "deadlock detection",
+          "file indexing"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A VMM must remain in control to:",
+        "correct": "enforce isolation and mediate privileged hardware operations",
+        "why": "The correct answer is A: enforce isolation and mediate privileged hardware operations.",
+        "difficulty": "Medium",
+        "options": [
+          "enforce isolation and mediate privileged hardware operations",
+          "allow a guest to overwrite all guests",
+          "remove protection",
+          "avoid all context switches"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Virtualization can incur overhead because:",
+        "correct": "guest operations may require mediation, translation or scheduling by the VMM",
+        "why": "The correct answer is A: guest operations may require mediation, translation or scheduling by the VMM.",
+        "difficulty": "Hard",
+        "options": [
+          "guest operations may require mediation, translation or scheduling by the VMM",
+          "hardware disappears",
+          "all instructions are deleted",
+          "guests cannot execute"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A virtual NIC is:",
+        "correct": "an emulated/virtual interface presented to a guest, backed by physical networking",
+        "why": "The correct answer is A: an emulated/virtual interface presented to a guest, backed by physical networking.",
+        "difficulty": "Hard",
+        "options": [
+          "an emulated/virtual interface presented to a guest, backed by physical networking",
+          "necessarily a second physical cable",
+          "a page table",
+          "a CPU burst"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A VM snapshot is useful because it:",
+        "correct": "captures recoverable VM state at a point in time",
+        "why": "The correct answer is A: captures recoverable VM state at a point in time.",
+        "difficulty": "Hard",
+        "options": [
+          "captures recoverable VM state at a point in time",
+          "guarantees no future bugs",
+          "replaces the hypervisor",
+          "removes isolation"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Dynamic binary translation can help an emulator by:",
+        "correct": "translating guest instructions into host instructions",
+        "why": "The correct answer is A: translating guest instructions into host instructions.",
+        "difficulty": "Hard",
+        "options": [
+          "translating guest instructions into host instructions",
+          "translating filenames into PIDs",
+          "allocating semaphores",
+          "scheduling disks only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A key distinction between emulation and ordinary virtualization is that emulation may:",
+        "correct": "present a different architecture/resource model than the physical one",
+        "why": "The correct answer is A: present a different architecture/resource model than the physical one.",
+        "difficulty": "Hard",
+        "options": [
+          "present a different architecture/resource model than the physical one",
+          "require identical guest and host instruction sets always",
+          "forbid isolation",
+          "eliminate software"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A cloud operator wants strong tenant isolation, oversubscription and migration between x86 hosts, but a guest expects a different CPU architecture. Which combination is most appropriate?",
+        "correct": "VM isolation/resource scheduling plus emulation or translation for the architecture mismatch, accepting performance cost",
+        "why": "The correct answer is A: VM isolation/resource scheduling plus emulation or translation for the architecture mismatch, accepting performance cost.",
+        "difficulty": "Baka",
+        "options": [
+          "VM isolation/resource scheduling plus emulation or translation for the architecture mismatch, accepting performance cost",
+          "FCFS scheduling only",
+          "a shared kernel with no isolation",
+          "a RAM disk only"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Define host OS, guest OS and hypervisor.",
+        "key": "host directly manages hardware in host-based model; guest runs within VM; hypervisor/VMM controls and isolates virtual machines."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Explain three reasons organisations use VMs.",
+        "key": "compatibility, server consolidation, isolation/multi-tenancy, easy provisioning, cloud foundation, snapshots/migration."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Compare virtualization and emulation.",
+        "key": "virtualization usually leverages same/similar hardware and aims for near-native execution; emulation models a different resource/architecture through software; emulation broader but slower."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Design a VM platform for two mutually untrusted tenants with bursty CPU and storage workloads.",
+        "key": "CPU/memory/device virtualisation; quotas and scheduling; isolation/protection; virtual networking/storage; noisy-neighbour control; snapshots/migration; overhead and threat assumptions."
+      }
+    ]
+  },
+  {
+    "title": "Memory organization",
+    "slug": "memory-organization",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Memory organization: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "The process image normally contains text/code, data, heap and:",
+        "correct": "stack",
+        "why": "The correct answer is A: stack.",
+        "difficulty": "Easy",
+        "options": [
+          "stack",
+          "directory only",
+          "semaphore only",
+          "disk head"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The linker primarily:",
+        "correct": "combines object modules and resolves references",
+        "why": "The correct answer is A: combines object modules and resolves references.",
+        "difficulty": "Easy",
+        "options": [
+          "combines object modules and resolves references",
+          "schedules CPU bursts",
+          "handles page faults",
+          "locks a mutex"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Compile-time binding assumes:",
+        "correct": "the memory location is known in advance",
+        "why": "The correct answer is A: the memory location is known in advance.",
+        "difficulty": "Easy",
+        "options": [
+          "the memory location is known in advance",
+          "the process moves every instruction",
+          "no addresses exist",
+          "all code is virtual"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "External fragmentation means:",
+        "correct": "free memory exists but is split into separated holes",
+        "why": "The correct answer is A: free memory exists but is split into separated holes.",
+        "difficulty": "Easy",
+        "options": [
+          "free memory exists but is split into separated holes",
+          "a file is too long",
+          "a page is invalid",
+          "CPU is idle"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Paging divides logical memory into pages and physical memory into:",
+        "correct": "frames",
+        "why": "The correct answer is A: frames.",
+        "difficulty": "Easy",
+        "options": [
+          "frames",
+          "files",
+          "queues",
+          "sectors only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Load-time binding uses:",
+        "correct": "relocatable code and binds addresses when loading",
+        "why": "The correct answer is A: relocatable code and binds addresses when loading.",
+        "difficulty": "Medium",
+        "options": [
+          "relocatable code and binds addresses when loading",
+          "only absolute addresses fixed at compilation",
+          "no loader",
+          "page replacement"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Execution-time binding permits a process to:",
+        "correct": "be moved during execution, with run-time address translation",
+        "why": "The correct answer is A: be moved during execution, with run-time address translation.",
+        "difficulty": "Medium",
+        "options": [
+          "be moved during execution, with run-time address translation",
+          "avoid protection",
+          "use no base register",
+          "remove the MMU"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "With base and limit registers, a generated address is valid if it is:",
+        "correct": "≥ base and < base+limit",
+        "why": "The correct answer is A: ≥ base and < base+limit.",
+        "difficulty": "Medium",
+        "options": [
+          "≥ base and < base+limit",
+          "equal to limit",
+          "less than base",
+          "any value"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Fixed partitioning can suffer from:",
+        "correct": "internal fragmentation",
+        "why": "The correct answer is A: internal fragmentation.",
+        "difficulty": "Medium",
+        "options": [
+          "internal fragmentation",
+          "no allocation at all",
+          "no protection",
+          "only deadlock"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Paging removes external fragmentation mainly because:",
+        "correct": "pages can occupy any free frame",
+        "why": "The correct answer is A: pages can occupy any free frame.",
+        "difficulty": "Medium",
+        "options": [
+          "pages can occupy any free frame",
+          "all memory becomes contiguous",
+          "page size is zero",
+          "it disables allocation"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A 16-bit logical address with 4 KB pages has:",
+        "correct": "4-bit offset and 12-bit page number",
+        "why": "The correct answer is A: 4-bit offset and 12-bit page number.",
+        "difficulty": "Hard",
+        "options": [
+          "4-bit offset and 12-bit page number",
+          "12-bit offset and 4-bit page number",
+          "16-bit offset",
+          "no page number"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A page table maps:",
+        "correct": "logical page numbers to physical frame numbers",
+        "why": "The correct answer is A: logical page numbers to physical frame numbers.",
+        "difficulty": "Hard",
+        "options": [
+          "logical page numbers to physical frame numbers",
+          "files to extensions",
+          "PIDs to priorities only",
+          "CPU bursts to deadlines"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A two-level page table is useful mainly because it:",
+        "correct": "avoids allocating page-table space for unused portions of a sparse address space",
+        "why": "The correct answer is A: avoids allocating page-table space for unused portions of a sparse address space.",
+        "difficulty": "Hard",
+        "options": [
+          "avoids allocating page-table space for unused portions of a sparse address space",
+          "removes all translation cost",
+          "prevents page faults",
+          "stores file attributes"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Segmentation reflects:",
+        "correct": "logical variable-sized units such as code, data and stack with protection per segment",
+        "why": "The correct answer is A: logical variable-sized units such as code, data and stack with protection per segment.",
+        "difficulty": "Hard",
+        "options": [
+          "logical variable-sized units such as code, data and stack with protection per segment",
+          "fixed-size pages only",
+          "no logical structure",
+          "disk scheduling"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Internal fragmentation in paging occurs because:",
+        "correct": "the last allocated page may not be completely filled",
+        "why": "The correct answer is A: the last allocated page may not be completely filled.",
+        "difficulty": "Hard",
+        "options": [
+          "the last allocated page may not be completely filled",
+          "holes exist between frames",
+          "the process cannot be protected",
+          "pages are variable-sized"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A process generates logical address 2300, base=1000, limit=1500. Under base/limit relocation, which is correct?",
+        "correct": "valid; physical address 3300",
+        "why": "The correct answer is A: valid; physical address 3300.",
+        "difficulty": "Baka",
+        "options": [
+          "valid; physical address 3300",
+          "invalid because 2300≥limit",
+          "valid; physical address 2300",
+          "invalid because physical address exceeds base"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Describe the roles of compiler, linker and loader.",
+        "key": "compiler source→object; linker combines objects/libraries and resolves references; loader creates image, allocates memory and loads it."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Compare compile-time, load-time and execution-time address binding.",
+        "key": "when binding occurs; absolute vs relocatable code; whether process may move during execution; hardware/OS support."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Explain how paging translates a logical address and compare paging’s internal fragmentation with contiguous allocation’s external fragmentation.",
+        "key": "split page number/offset; page table gives frame; concatenate frame+offset; fixed pages/frames reduce external holes but may waste last page."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "For a given address width, page size and process size, derive page-number/offset bits, page-table size, maximum internal waste and a sample physical address translation.",
+        "key": "powers of two; entries/pages; valid frame mapping; offset unchanged; identify assumptions such as PTE size."
+      }
+    ]
+  },
+  {
+    "title": "Virtual memory and page replacement",
+    "slug": "virtual-memory-and-page-replacement",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "Virtual memory and page replacement: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "Virtual memory allows:",
+        "correct": "a logical address space larger than physical memory",
+        "why": "The correct answer is A: a logical address space larger than physical memory.",
+        "difficulty": "Easy",
+        "options": [
+          "a logical address space larger than physical memory",
+          "no address translation",
+          "all processes to share every page",
+          "no disk use ever"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Demand paging loads a page:",
+        "correct": "when it is referenced and not resident",
+        "why": "The correct answer is A: when it is referenced and not resident.",
+        "difficulty": "Easy",
+        "options": [
+          "when it is referenced and not resident",
+          "only at shutdown",
+          "before the program is written",
+          "never"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A page fault occurs when the page-table valid/invalid bit indicates the page is:",
+        "correct": "not in memory",
+        "why": "The correct answer is A: not in memory.",
+        "difficulty": "Easy",
+        "options": [
+          "not in memory",
+          "definitely dirty only",
+          "in a free frame",
+          "executable"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "FIFO replacement removes the page that:",
+        "correct": "has been in memory the longest",
+        "why": "The correct answer is A: has been in memory the longest.",
+        "difficulty": "Easy",
+        "options": [
+          "has been in memory the longest",
+          "was used most recently",
+          "has the smallest PID",
+          "is dirty always"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Thrashing is associated with:",
+        "correct": "excessive page faults and little useful execution",
+        "why": "The correct answer is A: excessive page faults and little useful execution.",
+        "difficulty": "Easy",
+        "options": [
+          "excessive page faults and little useful execution",
+          "no memory references",
+          "zero disk traffic",
+          "perfect locality"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "When a page fault occurs, the OS must first:",
+        "correct": "trap, save state and locate/load the requested page",
+        "why": "The correct answer is A: trap, save state and locate/load the requested page.",
+        "difficulty": "Medium",
+        "options": [
+          "trap, save state and locate/load the requested page",
+          "terminate every process",
+          "rewrite the source code",
+          "ignore the reference"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The Optimal page-replacement algorithm replaces the page whose next use is:",
+        "correct": "farthest in the future",
+        "why": "The correct answer is A: farthest in the future.",
+        "difficulty": "Medium",
+        "options": [
+          "farthest in the future",
+          "soonest",
+          "never considered",
+          "oldest by arrival"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "LRU replaces the page that:",
+        "correct": "has not been used for the longest time in the past",
+        "why": "The correct answer is A: has not been used for the longest time in the past.",
+        "difficulty": "Medium",
+        "options": [
+          "has not been used for the longest time in the past",
+          "entered first always",
+          "has the largest offset",
+          "is always clean"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A dirty victim page must generally be:",
+        "correct": "written back before its frame is reused",
+        "why": "The correct answer is A: written back before its frame is reused.",
+        "difficulty": "Medium",
+        "options": [
+          "written back before its frame is reused",
+          "discarded without write",
+          "promoted to kernel mode",
+          "made a semaphore"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Global replacement allows a process to take frames from:",
+        "correct": "other processes’ allocations",
+        "why": "The correct answer is A: other processes’ allocations.",
+        "difficulty": "Medium",
+        "options": [
+          "other processes’ allocations",
+          "only its own fixed set",
+          "the file directory",
+          "the CPU scheduler"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "For reference string 1,2,3,1 with 3 frames initially empty, FIFO causes:",
+        "correct": "3 page faults",
+        "why": "The correct answer is A: 3 page faults.",
+        "difficulty": "Hard",
+        "options": [
+          "3 page faults",
+          "1",
+          "4",
+          "0"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Belady’s anomaly is associated classically with:",
+        "correct": "FIFO sometimes having more faults with more frames",
+        "why": "The correct answer is A: FIFO sometimes having more faults with more frames.",
+        "difficulty": "Hard",
+        "options": [
+          "FIFO sometimes having more faults with more frames",
+          "Optimal always worsening",
+          "LRU requiring future knowledge",
+          "demand paging having no faults"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The effective access time is dominated by page-fault cost when:",
+        "correct": "the fault probability is even small because disk I/O is vastly slower than memory",
+        "why": "The correct answer is A: the fault probability is even small because disk I/O is vastly slower than memory.",
+        "difficulty": "Hard",
+        "options": [
+          "the fault probability is even small because disk I/O is vastly slower than memory",
+          "memory is slower than disk",
+          "p=0 only",
+          "no page is referenced"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "The working-set model estimates:",
+        "correct": "the pages actively used in a recent reference window",
+        "why": "The correct answer is A: the pages actively used in a recent reference window.",
+        "difficulty": "Hard",
+        "options": [
+          "the pages actively used in a recent reference window",
+          "all files in a directory",
+          "CPU priority only",
+          "disk cylinders"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Local replacement can prevent one process from:",
+        "correct": "taking frames directly from another process",
+        "why": "The correct answer is A: taking frames directly from another process.",
+        "difficulty": "Hard",
+        "options": [
+          "taking frames directly from another process",
+          "ever faulting",
+          "using its own page table",
+          "being scheduled"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "With three frames and reference string 1,2,3,4,1,2,5,1,2,3,4,5, which statement is safest without calculating every algorithm?",
+        "correct": "FIFO and LRU may differ because recency and age order diverge; Optimal is a lower-bound comparator requiring future references",
+        "why": "The correct answer is A: FIFO and LRU may differ because recency and age order diverge; Optimal is a lower-bound comparator requiring future references.",
+        "difficulty": "Baka",
+        "options": [
+          "FIFO and LRU may differ because recency and age order diverge; Optimal is a lower-bound comparator requiring future references",
+          "all algorithms must produce identical faults",
+          "FIFO is always optimal",
+          "LRU uses future knowledge"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Trace the steps of a page fault.",
+        "key": "detect invalid PTE; trap to OS; find free frame or victim; read page from backing store; update PTE; restart interrupted instruction."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Compare FIFO, Optimal and LRU.",
+        "key": "selection rule; Optimal theoretical minimum but needs future; FIFO simple but anomaly; LRU uses past recency and approximations."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Explain thrashing and two controls for it.",
+        "key": "too few frames/poor locality causes high fault rate and low CPU use; working-set or page-fault-frequency control; adjust degree of multiprogramming/frame allocation."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Given a reference string and frame count, produce FIFO, LRU and Optimal frame tables, count faults, and explain any anomaly or tie-breaking assumption.",
+        "key": "correct table; explicit initial state; victim rule; fault counts; identify why results differ."
+      }
+    ]
+  },
+  {
+    "title": "File systems and disk-space allocation",
+    "slug": "file-systems-and-disk-space-allocation",
+    "group": null,
+    "source": "SC2005 lecture slides, tutorial material, lab manuals and quiz screenshots.",
+    "context": "File systems and disk-space allocation: practise both conceptual explanations and exam-style traces/calculations.",
+    "graph": null,
+    "qs": [
+      {
+        "stem": "The logical file system manages:",
+        "correct": "directories, file creation, access and protection",
+        "why": "The correct answer is A: directories, file creation, access and protection.",
+        "difficulty": "Easy",
+        "options": [
+          "directories, file creation, access and protection",
+          "CPU burst prediction only",
+          "page replacement only",
+          "interrupts only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Sequential access processes bytes:",
+        "correct": "in order from the beginning",
+        "why": "The correct answer is A: in order from the beginning.",
+        "difficulty": "Easy",
+        "options": [
+          "in order from the beginning",
+          "at arbitrary positions only",
+          "from the last directory entry",
+          "by page fault"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Direct access permits:",
+        "correct": "reading bytes in any order using a byte number/position",
+        "why": "The correct answer is A: reading bytes in any order using a byte number/position.",
+        "difficulty": "Easy",
+        "options": [
+          "reading bytes in any order using a byte number/position",
+          "only beginning-to-end reads",
+          "no writes",
+          "no file pointer"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A directory entry commonly stores a file name and:",
+        "correct": "attributes or a pointer to file-control information",
+        "why": "The correct answer is A: attributes or a pointer to file-control information.",
+        "difficulty": "Easy",
+        "options": [
+          "attributes or a pointer to file-control information",
+          "CPU quantum only",
+          "semaphore value only",
+          "page fault count only"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "An inode is associated with:",
+        "correct": "indexed allocation and file metadata/block pointers",
+        "why": "The correct answer is A: indexed allocation and file metadata/block pointers.",
+        "difficulty": "Easy",
+        "options": [
+          "indexed allocation and file metadata/block pointers",
+          "CPU scheduling",
+          "real-time deadlines only",
+          "a user thread"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Contiguous allocation gives good sequential access but can suffer from:",
+        "correct": "external fragmentation and difficult file growth",
+        "why": "The correct answer is A: external fragmentation and difficult file growth.",
+        "difficulty": "Medium",
+        "options": [
+          "external fragmentation and difficult file growth",
+          "no locality",
+          "no file protection",
+          "no disk use"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "Linked allocation avoids external fragmentation but:",
+        "correct": "random/direct access is slow because pointers must be followed",
+        "why": "The correct answer is A: random/direct access is slow because pointers must be followed.",
+        "difficulty": "Medium",
+        "options": [
+          "random/direct access is slow because pointers must be followed",
+          "requires one contiguous extent",
+          "cannot grow",
+          "has no pointers"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "FAT improves linked allocation lookup by:",
+        "correct": "placing block-link information in a table",
+        "why": "The correct answer is A: placing block-link information in a table.",
+        "difficulty": "Medium",
+        "options": [
+          "placing block-link information in a table",
+          "removing all links",
+          "using CPU registers",
+          "storing only file names"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "An absolute path starts at:",
+        "correct": "the root directory",
+        "why": "The correct answer is A: the root directory.",
+        "difficulty": "Medium",
+        "options": [
+          "the root directory",
+          "the current directory",
+          "the last opened file",
+          "the disk cache"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A symbolic link usually stores:",
+        "correct": "a path name to the target",
+        "why": "The correct answer is A: a path name to the target.",
+        "difficulty": "Medium",
+        "options": [
+          "a path name to the target",
+          "a duplicate of all file data",
+          "a CPU register set",
+          "a page frame"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "If the current directory is `/spell/mail`, the relative path to `/spell/mail/prt/first` is:",
+        "correct": "`prt/first`",
+        "why": "The correct answer is A: `prt/first`.",
+        "difficulty": "Hard",
+        "options": [
+          "`prt/first`",
+          "`/spell/mail/prt/first` only",
+          "`first/prt`",
+          "`../prt/first`"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A hard link differs from a symbolic link because a hard link:",
+        "correct": "refers to the file’s underlying metadata/data rather than storing a path string",
+        "why": "The correct answer is A: refers to the file’s underlying metadata/data rather than storing a path string.",
+        "difficulty": "Hard",
+        "options": [
+          "refers to the file’s underlying metadata/data rather than storing a path string",
+          "always crosses file systems",
+          "is always slower",
+          "requires the target path to remain valid"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "In indexed allocation, a file’s index block contains:",
+        "correct": "pointers to its data blocks",
+        "why": "The correct answer is A: pointers to its data blocks.",
+        "difficulty": "Hard",
+        "options": [
+          "pointers to its data blocks",
+          "all CPU registers",
+          "only the file extension",
+          "process priorities"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A hash-table directory can be faster than a linear list but must handle:",
+        "correct": "collisions when names hash to the same location",
+        "why": "The correct answer is A: collisions when names hash to the same location.",
+        "difficulty": "Hard",
+        "options": [
+          "collisions when names hash to the same location",
+          "page faults only",
+          "CPU preemption only",
+          "deadlock conditions"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A larger allocation block tends to:",
+        "correct": "reduce metadata/lookup overhead but increase internal waste for small files",
+        "why": "The correct answer is A: reduce metadata/lookup overhead but increase internal waste for small files.",
+        "difficulty": "Hard",
+        "options": [
+          "reduce metadata/lookup overhead but increase internal waste for small files",
+          "eliminate all waste and overhead",
+          "prevent file growth",
+          "remove protection"
+        ],
+        "answer": "A"
+      },
+      {
+        "stem": "A workload contains huge sequential files plus many small files with frequent random reads and growth. Which allocation strategy is the best reasoned choice?",
+        "correct": "use an indexed/inode-based design, possibly with extents or direct pointers for locality, because it balances growth and random access better than pure linked allocation",
+        "why": "The correct answer is A: use an indexed/inode-based design, possibly with extents or direct pointers for locality, because it balances growth and random access better than pure linked allocation.",
+        "difficulty": "Baka",
+        "options": [
+          "use an indexed/inode-based design, possibly with extents or direct pointers for locality, because it balances growth and random access better than pure linked allocation",
+          "pure linked allocation for all files",
+          "one enormous contiguous region for every file",
+          "no allocation metadata"
+        ],
+        "answer": "A"
+      }
+    ],
+    "openEnded": [
+      {
+        "difficulty": "Easy",
+        "prompt": "Describe the main file-system layers from logical file system down to I/O control.",
+        "key": "logical file system; file-organisation module; basic file system; I/O control/device drivers and interrupt handlers."
+      },
+      {
+        "difficulty": "Medium",
+        "prompt": "Compare contiguous, linked and indexed allocation.",
+        "key": "layout; sequential/direct access; fragmentation; growth; metadata overhead; FAT/inode relationship."
+      },
+      {
+        "difficulty": "Hard",
+        "prompt": "Explain what happens internally during open, read, write and close.",
+        "key": "directory lookup and open-file table; current-position pointer; disk location; read/write through pointer; close updates persistent directory/metadata."
+      },
+      {
+        "difficulty": "Baka",
+        "prompt": "Design a file-system layout for a mixed workload and justify block size, free-space tracking, allocation method, directory structure and links.",
+        "key": "workload-driven trade-offs; locality/random access; growth/fragmentation; bitmap/free list; hash/tree/linear directory choice; protection and link semantics; crash/recovery consideration."
+      }
+    ]
+  }
+]
