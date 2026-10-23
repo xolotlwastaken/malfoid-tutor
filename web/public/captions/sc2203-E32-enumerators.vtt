@@ -1,0 +1,389 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.580
+Why is Turing-recognizable the same
+
+2
+00:00:02.580 --> 00:00:05.300
+as enumerable? A recognizer answers
+
+3
+00:00:05.300 --> 00:00:07.940
+membership positively, while an enumerator
+
+4
+00:00:07.940 --> 00:00:09.380
+prints language members from a
+
+5
+00:00:09.380 --> 00:00:11.840
+blank start. The equivalence relies
+
+6
+00:00:11.840 --> 00:00:13.340
+on a fair schedule so
+
+7
+00:00:13.340 --> 00:00:15.200
+a nonhalting test never prevents
+
+8
+00:00:15.200 --> 00:00:16.960
+later strings from being generated.
+
+9
+00:00:17.420 --> 00:00:19.200
+An enumerator may print words
+
+10
+00:00:19.200 --> 00:00:20.800
+in arbitrary order and may
+
+11
+00:00:20.800 --> 00:00:22.840
+repeat them. Its language is
+
+12
+00:00:22.840 --> 00:00:23.980
+the set of strings it
+
+13
+00:00:23.980 --> 00:00:25.720
+ever prints, not the set
+
+14
+00:00:25.720 --> 00:00:27.540
+of all intermediate tape contents.
+
+15
+00:00:28.120 --> 00:00:29.940
+It may run forever, print
+
+16
+00:00:29.940 --> 00:00:31.760
+finitely many words, or print
+
+17
+00:00:31.760 --> 00:00:33.280
+nothing for the empty language.
+
+18
+00:00:34.020 --> 00:00:35.560
+For equal zero and one
+
+19
+00:00:35.560 --> 00:00:37.700
+blocks, a direct enumerator is
+
+20
+00:00:37.700 --> 00:00:39.580
+simple. Let n start at
+
+21
+00:00:39.580 --> 00:00:41.820
+zero, print n zeros followed
+
+22
+00:00:41.820 --> 00:00:43.840
+by n ones, increment n
+
+23
+00:00:43.840 --> 00:00:46.020
+and repeat. The outputs begin
+
+24
+00:00:46.020 --> 00:00:48.500
+epsilon, zero one, zero zero
+
+25
+00:00:48.500 --> 00:00:50.300
+one one, with each language
+
+26
+00:00:50.300 --> 00:00:51.940
+member printed once because its
+
+27
+00:00:51.940 --> 00:00:52.840
+n is unique.
+
+28
+00:00:53.260 --> 00:00:56.440
+For the general enumerator-to-recognizer direction,
+
+29
+00:00:56.840 --> 00:00:58.460
+take the input word w
+
+30
+00:00:58.460 --> 00:01:01.580
+and simulate the enumerator. Whenever
+
+31
+00:01:01.580 --> 00:01:03.560
+a string is printed, compare
+
+32
+00:01:03.560 --> 00:01:05.340
+it with w and accept
+
+33
+00:01:05.340 --> 00:01:07.240
+if they match. If w
+
+34
+00:01:07.240 --> 00:01:09.420
+is never printed, the recognizer
+
+35
+00:01:09.420 --> 00:01:11.100
+may wait forever, which is
+
+36
+00:01:11.100 --> 00:01:12.440
+permitted for a nonmember.
+
+37
+00:01:13.220 --> 00:01:14.940
+For the other direction, list
+
+38
+00:01:14.940 --> 00:01:16.520
+all input strings in shortlex
+
+39
+00:01:16.700 --> 00:01:18.900
+order and consider a recognizer
+
+40
+00:01:18.900 --> 00:01:20.720
+on each. Running them one
+
+41
+00:01:20.720 --> 00:01:22.820
+after another is unsafe, because
+
+42
+00:01:22.820 --> 00:01:24.520
+the first nonmember might make
+
+43
+00:01:24.520 --> 00:01:26.860
+its recognizer loop. Instead at
+
+44
+00:01:26.860 --> 00:01:28.760
+stage t, simulate the first
+
+45
+00:01:28.760 --> 00:01:30.160
+t inputs for t steps
+
+46
+00:01:30.160 --> 00:01:31.960
+each and print any that
+
+47
+00:01:31.960 --> 00:01:32.540
+have accepted.
+
+48
+00:01:33.100 --> 00:01:34.700
+Every member has some finite
+
+49
+00:01:34.700 --> 00:01:36.900
+index j and some finite
+
+50
+00:01:36.900 --> 00:01:39.480
+accepting time k. Once a
+
+51
+00:01:39.480 --> 00:01:41.060
+stage reaches at least both
+
+52
+00:01:41.060 --> 00:01:43.120
+j and k, its accepting
+
+53
+00:01:43.120 --> 00:01:44.740
+run is included and has
+
+54
+00:01:44.740 --> 00:01:46.600
+enough steps, so that word
+
+55
+00:01:46.600 --> 00:01:48.860
+is printed. No nonmember is
+
+56
+00:01:48.860 --> 00:01:50.860
+printed because a correct recognizer
+
+57
+00:01:50.860 --> 00:01:51.980
+never accepts one.
+
+58
+00:01:52.340 --> 00:01:54.640
+These bounded simulations can restart
+
+59
+00:01:54.640 --> 00:01:56.240
+from scratch each stage without
+
+60
+00:01:56.240 --> 00:01:58.240
+changing the existence argument. A
+
+61
+00:01:58.240 --> 00:02:00.100
+more efficient implementation may retain
+
+62
+00:02:00.100 --> 00:02:02.320
+partial runs instead, but fairness
+
+63
+00:02:02.320 --> 00:02:04.220
+is the essential property. Never
+
+64
+00:02:04.220 --> 00:02:05.780
+let a possibly infinite run
+
+65
+00:02:05.780 --> 00:02:07.560
+occupy the only simulation slot
+
+66
+00:02:07.560 --> 00:02:08.040
+forever.
+
+67
+00:02:08.380 --> 00:02:10.120
+If the language is decidable,
+
+68
+00:02:10.480 --> 00:02:12.080
+its decider halts on every
+
+69
+00:02:12.080 --> 00:02:14.240
+tested word, so serial shortlex
+
+70
+00:02:14.240 --> 00:02:16.360
+testing becomes safe. Print a
+
+71
+00:02:16.360 --> 00:02:17.900
+word exactly when the decider
+
+72
+00:02:17.900 --> 00:02:19.540
+accepts and then continue to
+
+73
+00:02:19.540 --> 00:02:21.800
+the next word. This produces
+
+74
+00:02:21.800 --> 00:02:23.500
+members once in string order
+
+75
+00:02:23.500 --> 00:02:26.000
+without needing the general recognizable-language
+
+76
+00:02:26.300 --> 00:02:27.280
+dovetailing construction.
+
+77
+00:02:27.780 --> 00:02:31.120
+The converse sorted-enumeration characterization needs
+
+78
+00:02:31.120 --> 00:02:33.000
+a small qualification in its
+
+79
+00:02:33.000 --> 00:02:35.080
+proof. For an infinite language
+
+80
+00:02:35.080 --> 00:02:36.960
+printed in strict shortlex order,
+
+81
+00:02:37.360 --> 00:02:39.040
+waiting until w appears or
+
+82
+00:02:39.040 --> 00:02:40.600
+a larger word appears decides
+
+83
+00:02:40.600 --> 00:02:43.020
+membership. A finite language is
+
+84
+00:02:43.020 --> 00:02:44.840
+decidable by a fixed finite
+
+85
+00:02:44.840 --> 00:02:46.900
+table; blindly waiting for a
+
+86
+00:02:46.900 --> 00:02:48.520
+larger printed word could otherwise
+
+87
+00:02:48.520 --> 00:02:49.960
+hang after the last output.
+
+88
+00:02:50.380 --> 00:02:51.720
+Things to take note of.
+
+89
+00:02:52.180 --> 00:02:54.440
+Distinguish printing from tape contents,
+
+90
+00:02:54.620 --> 00:02:56.960
+allow repetition and arbitrary order
+
+91
+00:02:56.960 --> 00:02:58.820
+in the general definition, and
+
+92
+00:02:58.820 --> 00:03:00.960
+prove eventual printing using finite
+
+93
+00:03:00.960 --> 00:03:03.240
+index and finite accepting time.
+
+94
+00:03:03.940 --> 00:03:06.320
+Sorted enumeration uses stronger ordering
+
+95
+00:03:06.320 --> 00:03:08.800
+information, while a mere recognizer
+
+96
+00:03:08.800 --> 00:03:10.360
+cannot be run serially on
+
+97
+00:03:10.360 --> 00:03:11.560
+all candidates safely.

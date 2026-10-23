@@ -1,0 +1,769 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.960
+How does union-find work? It
+
+2
+00:00:02.960 --> 00:00:04.440
+keeps track of groups that
+
+3
+00:00:04.440 --> 00:00:06.540
+do not overlap, such as
+
+4
+00:00:06.540 --> 00:00:07.820
+which people are on the
+
+5
+00:00:07.820 --> 00:00:09.800
+same team. We will use
+
+6
+00:00:09.800 --> 00:00:11.560
+eight letters, starting with eight
+
+7
+00:00:11.560 --> 00:00:12.380
+separate groups.
+
+8
+00:00:12.860 --> 00:00:14.600
+Union means merge the groups
+
+9
+00:00:14.600 --> 00:00:17.040
+containing two elements. It first
+
+10
+00:00:17.040 --> 00:00:19.000
+locates their roots, then makes
+
+11
+00:00:19.000 --> 00:00:20.240
+one root point to the
+
+12
+00:00:20.240 --> 00:00:22.080
+other. Let us see the
+
+13
+00:00:22.080 --> 00:00:24.280
+merge first; afterwards, we will
+
+14
+00:00:24.280 --> 00:00:25.900
+learn how find locates a
+
+15
+00:00:25.900 --> 00:00:26.140
+root.
+
+16
+00:00:26.580 --> 00:00:28.660
+Call union on A and
+
+17
+00:00:28.660 --> 00:00:30.540
+B. Link root A under
+
+18
+00:00:30.540 --> 00:00:32.900
+root B, so A now
+
+19
+00:00:32.900 --> 00:00:35.100
+belongs to B's group. The
+
+20
+00:00:35.100 --> 00:00:36.840
+parent table changes from A
+
+21
+00:00:36.840 --> 00:00:38.300
+to B in A's column;
+
+22
+00:00:39.060 --> 00:00:40.560
+B still points to itself.
+
+23
+00:00:41.020 --> 00:00:42.500
+We use a score called
+
+24
+00:00:42.500 --> 00:00:43.760
+rank to keep the trees
+
+25
+00:00:43.760 --> 00:00:46.120
+shallow. Put a lower-rank root
+
+26
+00:00:46.120 --> 00:00:47.760
+below a higher-rank root; on
+
+27
+00:00:47.760 --> 00:00:49.520
+a tie, this course puts
+
+28
+00:00:49.520 --> 00:00:50.860
+the first root below the
+
+29
+00:00:50.860 --> 00:00:52.520
+second and increases the second
+
+30
+00:00:52.520 --> 00:00:55.080
+root's rank. These choices change
+
+31
+00:00:55.080 --> 00:00:56.980
+the shape, not which elements
+
+32
+00:00:56.980 --> 00:00:57.800
+share a group.
+
+33
+00:00:58.180 --> 00:01:00.080
+Now merge C with D.
+
+34
+00:01:00.560 --> 00:01:01.920
+Put root C below root
+
+35
+00:01:01.920 --> 00:01:03.560
+D, and raise D's rank
+
+36
+00:01:03.560 --> 00:01:05.560
+to one. Every arrow points
+
+37
+00:01:05.560 --> 00:01:07.020
+towards the root that represents
+
+38
+00:01:07.020 --> 00:01:07.500
+the group.
+
+39
+00:01:07.980 --> 00:01:10.000
+Now merge E with F.
+
+40
+00:01:10.560 --> 00:01:11.880
+Put root E below root
+
+41
+00:01:11.880 --> 00:01:13.520
+F, and raise F's rank
+
+42
+00:01:13.520 --> 00:01:15.660
+to one. Every arrow points
+
+43
+00:01:15.660 --> 00:01:17.240
+towards the root that represents
+
+44
+00:01:17.240 --> 00:01:17.740
+the group.
+
+45
+00:01:18.340 --> 00:01:20.300
+Now merge G with H.
+
+46
+00:01:20.740 --> 00:01:22.180
+Put root G below root
+
+47
+00:01:22.180 --> 00:01:24.040
+H, and raise H's rank
+
+48
+00:01:24.040 --> 00:01:26.240
+to one. Every arrow points
+
+49
+00:01:26.240 --> 00:01:27.700
+towards the root that represents
+
+50
+00:01:27.700 --> 00:01:28.160
+the group.
+
+51
+00:01:28.780 --> 00:01:30.320
+We now have four pairs:
+
+52
+00:01:30.780 --> 00:01:31.840
+A with B, C with
+
+53
+00:01:31.840 --> 00:01:32.940
+D, E with F, and
+
+54
+00:01:32.940 --> 00:01:35.317
+G with H. Each coloured
+
+55
+00:01:34.460 --> 00:01:36.200
+tree is one group. Union
+
+56
+00:01:36.200 --> 00:01:37.680
+only changes a root's parent
+
+57
+00:01:37.680 --> 00:01:39.700
+pointer; every descendant comes along.
+
+58
+00:01:40.420 --> 00:01:42.400
+Next merge the groups containing
+
+59
+00:01:42.400 --> 00:01:43.760
+B and D. Link root
+
+60
+00:01:43.760 --> 00:01:45.620
+B below root D, and
+
+61
+00:01:45.620 --> 00:01:47.380
+increase D's rank to two.
+
+62
+00:01:48.180 --> 00:01:49.380
+A still points to B,
+
+63
+00:01:49.900 --> 00:01:51.600
+so A comes along automatically;
+
+64
+00:01:52.140 --> 00:01:53.600
+we do not detach it.
+
+65
+00:01:53.900 --> 00:01:55.580
+Merge the groups containing F
+
+66
+00:01:55.580 --> 00:01:56.420
+and H in the same
+
+67
+00:01:56.420 --> 00:01:58.660
+way. Link F below H,
+
+68
+00:01:59.100 --> 00:02:01.300
+making H's rank two. E
+
+69
+00:02:01.300 --> 00:02:02.860
+stays below F, and G
+
+70
+00:02:02.860 --> 00:02:04.760
+stays below H; these four
+
+71
+00:02:04.760 --> 00:02:06.340
+elements now share one group.
+
+72
+00:02:06.740 --> 00:02:08.740
+Finally merge the two four-element
+
+73
+00:02:09.060 --> 00:02:10.780
+groups. Link D below H
+
+74
+00:02:10.780 --> 00:02:12.300
+and raise H's rank to
+
+75
+00:02:12.300 --> 00:02:14.500
+three. All eight elements now
+
+76
+00:02:14.500 --> 00:02:16.180
+share one root, even though
+
+77
+00:02:16.180 --> 00:02:18.040
+several arrows still form longer
+
+78
+00:02:18.040 --> 00:02:18.380
+paths.
+
+79
+00:02:19.100 --> 00:02:20.840
+Find means tell me which
+
+80
+00:02:20.840 --> 00:02:22.600
+group this element belongs to.
+
+81
+00:02:23.020 --> 00:02:24.540
+Start at that element and
+
+82
+00:02:24.540 --> 00:02:26.220
+follow its parent arrows until
+
+83
+00:02:26.220 --> 00:02:27.900
+a vertex points to itself.
+
+84
+00:02:28.480 --> 00:02:30.360
+That vertex is the representative;
+
+85
+00:02:30.880 --> 00:02:32.040
+it need not be the
+
+86
+00:02:32.040 --> 00:02:32.820
+smallest letter.
+
+87
+00:02:33.380 --> 00:02:34.960
+Let us find the representative
+
+88
+00:02:34.960 --> 00:02:36.640
+of A. Start at A
+
+89
+00:02:36.640 --> 00:02:37.920
+and follow its parent to
+
+90
+00:02:37.920 --> 00:02:39.540
+B. B is not a
+
+91
+00:02:39.540 --> 00:02:41.240
+root because B points to
+
+92
+00:02:41.240 --> 00:02:42.980
+D, so follow that arrow
+
+93
+00:02:42.980 --> 00:02:43.360
+too.
+
+94
+00:02:43.980 --> 00:02:46.300
+From D, follow the arrow
+
+95
+00:02:46.300 --> 00:02:48.340
+to H. H is its
+
+96
+00:02:48.340 --> 00:02:50.440
+own parent, so find stops
+
+97
+00:02:50.440 --> 00:02:53.080
+and returns H. This only
+
+98
+00:02:53.080 --> 00:02:55.220
+identifies A's group; it does
+
+99
+00:02:55.220 --> 00:02:56.580
+not merge any groups.
+
+100
+00:02:57.060 --> 00:02:59.240
+Path compression makes later finds
+
+101
+00:02:59.240 --> 00:03:01.960
+faster. Change A's parent directly
+
+102
+00:03:01.960 --> 00:03:04.140
+to H, and change B's
+
+103
+00:03:04.140 --> 00:03:06.340
+parent directly to H; D
+
+104
+00:03:06.340 --> 00:03:07.601
+already points there. We shortened
+
+105
+00:03:08.680 --> 00:03:10.340
+the path, but all eight
+
+106
+00:03:10.340 --> 00:03:11.540
+elements are still in the
+
+107
+00:03:11.540 --> 00:03:12.060
+same group.
+
+108
+00:03:12.860 --> 00:03:15.060
+Find A again. It now
+
+109
+00:03:15.060 --> 00:03:16.720
+takes just one arrow to
+
+110
+00:03:16.720 --> 00:03:18.980
+H instead of three. H's
+
+111
+00:03:18.980 --> 00:03:21.060
+rank stays three after compression:
+
+112
+00:03:21.660 --> 00:03:23.140
+rank is a historical upper
+
+113
+00:03:23.140 --> 00:03:24.880
+bound on height, not the
+
+114
+00:03:24.880 --> 00:03:25.560
+current height.
+
+115
+00:03:26.100 --> 00:03:28.040
+Now let us combine both
+
+116
+00:03:28.040 --> 00:03:29.820
+operations in a fresh example.
+
+117
+00:03:30.460 --> 00:03:31.780
+We have reset to two
+
+118
+00:03:31.780 --> 00:03:34.200
+groups: A, B, C, D
+
+119
+00:03:34.200 --> 00:03:36.200
+under root D, and E,
+
+120
+00:03:36.380 --> 00:03:38.060
+F, G, H under root
+
+121
+00:03:38.060 --> 00:03:40.340
+H. Suppose we call union
+
+122
+00:03:40.340 --> 00:03:42.360
+on A and E; neither
+
+123
+00:03:42.360 --> 00:03:43.360
+argument is a root.
+
+124
+00:03:43.740 --> 00:03:46.480
+First, find A by following
+
+125
+00:03:46.480 --> 00:03:48.600
+A to B, then B
+
+126
+00:03:48.600 --> 00:03:49.820
+to D. D is the
+
+127
+00:03:49.820 --> 00:03:51.080
+root of the first group.
+
+128
+00:03:51.080 --> 00:03:52.580
+Record D as the answer;
+
+129
+00:03:53.260 --> 00:03:55.100
+a compressing find can also
+
+130
+00:03:55.100 --> 00:03:56.820
+shorten A's parent pointer.
+
+131
+00:03:57.220 --> 00:03:59.520
+Next, find E by following
+
+132
+00:03:59.520 --> 00:04:01.500
+E to F, then F
+
+133
+00:04:01.500 --> 00:04:03.280
+to H. H is the
+
+134
+00:04:03.280 --> 00:04:04.580
+root of the second group.
+
+135
+00:04:05.180 --> 00:04:06.460
+The roots are different, so
+
+136
+00:04:06.460 --> 00:04:08.180
+union must merge these two
+
+137
+00:04:08.180 --> 00:04:08.480
+groups.
+
+138
+00:04:09.180 --> 00:04:11.280
+Both finds can also compress
+
+139
+00:04:11.280 --> 00:04:13.520
+their paths. Point A directly
+
+140
+00:04:13.520 --> 00:04:15.420
+to D, and E directly
+
+141
+00:04:15.420 --> 00:04:17.200
+to H. The groups are
+
+142
+00:04:17.200 --> 00:04:19.320
+still separate until union links
+
+143
+00:04:19.320 --> 00:04:19.820
+their roots.
+
+144
+00:04:20.420 --> 00:04:23.120
+After finding both roots, link
+
+145
+00:04:23.120 --> 00:04:25.040
+D under H and increase
+
+146
+00:04:25.040 --> 00:04:27.300
+H's rank to three. We
+
+147
+00:04:27.300 --> 00:04:28.420
+link the roots, not A
+
+148
+00:04:28.540 --> 00:04:30.820
+directly to E. This brings
+
+149
+00:04:30.820 --> 00:04:32.420
+every element of the first
+
+150
+00:04:32.420 --> 00:04:34.220
+group into the second group.
+
+151
+00:04:34.620 --> 00:04:36.020
+If we now call union
+
+152
+00:04:36.020 --> 00:04:38.020
+on B and G, both
+
+153
+00:04:38.020 --> 00:04:40.400
+finds return H. Because the
+
+154
+00:04:40.400 --> 00:04:43.020
+representatives match, do nothing: they
+
+155
+00:04:43.020 --> 00:04:45.280
+already share a group. Never
+
+156
+00:04:45.280 --> 00:04:46.460
+link a root back into
+
+157
+00:04:46.460 --> 00:04:47.200
+its own tree.
+
+158
+00:04:48.260 --> 00:04:50.640
+Why do these optimisations help?
+
+159
+00:04:51.440 --> 00:04:53.240
+A rank increase requires merging
+
+160
+00:04:53.240 --> 00:04:55.620
+two equally ranked groups, so
+
+161
+00:04:55.620 --> 00:04:57.020
+rank r needs at least
+
+162
+00:04:57.020 --> 00:04:58.480
+two to the power r
+
+163
+00:04:58.480 --> 00:05:00.820
+elements. That limits rank to
+
+164
+00:05:00.820 --> 00:05:03.220
+log n, giving logarithmic worst-case
+
+165
+00:05:03.540 --> 00:05:06.580
+single operations; compression also makes
+
+166
+00:05:06.580 --> 00:05:08.620
+repeated operations much faster.
+
+167
+00:05:09.100 --> 00:05:11.460
+Across many operations, union by
+
+168
+00:05:11.460 --> 00:05:13.300
+rank together with path compression
+
+169
+00:05:13.300 --> 00:05:15.847
+gives inverse Ackermann n amortised
+
+170
+00:05:15.740 --> 00:05:17.960
+time per operation. This function
+
+171
+00:05:17.960 --> 00:05:20.080
+grows extremely slowly, but is
+
+172
+00:05:20.080 --> 00:05:22.740
+not literally constant. Initialising n
+
+173
+00:05:22.740 --> 00:05:24.820
+singletons and performing q more
+
+174
+00:05:24.820 --> 00:05:27.080
+operations costs order n plus
+
+175
+00:05:27.080 --> 00:05:29.080
+q times inverse Ackermann n.
+
+176
+00:05:29.540 --> 00:05:31.180
+Things to take note of.
+
+177
+00:05:31.680 --> 00:05:33.640
+Find may shorten parent paths,
+
+178
+00:05:33.820 --> 00:05:35.080
+but it never merges groups;
+
+179
+00:05:35.800 --> 00:05:37.440
+union merges only when roots
+
+180
+00:05:37.440 --> 00:05:40.020
+differ. In Kruskal, different roots
+
+181
+00:05:40.020 --> 00:05:41.680
+mean accept the graph edge
+
+182
+00:05:41.680 --> 00:05:43.780
+and union the groups, while
+
+183
+00:05:43.780 --> 00:05:45.180
+equal roots mean the edge
+
+184
+00:05:45.180 --> 00:05:46.000
+would make a cycle.
+
+185
+00:05:46.540 --> 00:05:49.040
+Union joins groups by linking
+
+186
+00:05:49.040 --> 00:05:50.960
+their roots. Find follows parent
+
+187
+00:05:50.960 --> 00:05:52.810
+arrows to report a root,
+
+188
+00:05:52.680 --> 00:05:54.300
+and compression remembers a shorter
+
+189
+00:05:54.300 --> 00:05:56.680
+route. Watch the parent table
+
+190
+00:05:56.680 --> 00:05:58.760
+beside the trees: each changed
+
+191
+00:05:58.760 --> 00:06:00.540
+arrow is one precise update,
+
+192
+00:06:01.060 --> 00:06:02.820
+not a mysterious whole-tree operation.

@@ -1,0 +1,349 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.280
+How does a deterministic finite
+
+2
+00:00:02.280 --> 00:00:04.900
+automaton decide whether to accept?
+
+3
+00:00:05.660 --> 00:00:07.160
+It reads a finite input
+
+4
+00:00:07.160 --> 00:00:08.660
+one symbol at a time
+
+5
+00:00:08.660 --> 00:00:10.380
+while remembering only its current
+
+6
+00:00:10.380 --> 00:00:12.500
+state. We will trace the
+
+7
+00:00:12.500 --> 00:00:14.460
+language of binary strings ending
+
+8
+00:00:14.460 --> 00:00:16.300
+in one and see exactly
+
+9
+00:00:16.300 --> 00:00:17.820
+when acceptance is tested.
+
+10
+00:00:18.540 --> 00:00:21.160
+A deterministic finite automaton has
+
+11
+00:00:21.160 --> 00:00:23.460
+five formal components. They are
+
+12
+00:00:23.460 --> 00:00:25.460
+the finite state set, alphabet,
+
+13
+00:00:25.460 --> 00:00:27.740
+transition function, start state and
+
+14
+00:00:27.740 --> 00:00:30.400
+accepting-state set. The transition function
+
+15
+00:00:30.400 --> 00:00:32.300
+assigns exactly one next state
+
+16
+00:00:32.300 --> 00:00:34.020
+to each state and alphabet-symbol
+
+17
+00:00:34.020 --> 00:00:34.360
+pair.
+
+18
+00:00:34.900 --> 00:00:36.780
+Start in the nonaccepting state
+
+19
+00:00:36.780 --> 00:00:39.340
+before reading anything. That state
+
+20
+00:00:39.340 --> 00:00:40.760
+means the prefix does not
+
+21
+00:00:40.760 --> 00:00:42.580
+end in one, which includes
+
+22
+00:00:42.580 --> 00:00:44.680
+the empty prefix. An empty
+
+23
+00:00:44.680 --> 00:00:46.500
+word is accepted precisely when
+
+24
+00:00:46.500 --> 00:00:48.080
+the start state itself is
+
+25
+00:00:48.080 --> 00:00:50.620
+accepting, so this machine rejects
+
+26
+00:00:50.620 --> 00:00:51.040
+epsilon.
+
+27
+00:00:51.500 --> 00:00:53.280
+Read the first one of
+
+28
+00:00:53.280 --> 00:00:55.600
+one zero one. The transition
+
+29
+00:00:55.600 --> 00:00:57.160
+takes the state token from
+
+30
+00:00:57.160 --> 00:00:59.160
+the nonaccepting state into the
+
+31
+00:00:59.160 --> 00:01:01.700
+accepting state. The prefix now
+
+32
+00:01:01.700 --> 00:01:03.220
+ends in one, but we
+
+33
+00:01:03.220 --> 00:01:04.500
+have not yet decided the
+
+34
+00:01:04.500 --> 00:01:06.980
+entire input because two symbols
+
+35
+00:01:06.980 --> 00:01:07.360
+remain.
+
+36
+00:01:07.860 --> 00:01:10.400
+Read zero next. The token
+
+37
+00:01:10.400 --> 00:01:12.420
+returns to the nonaccepting state
+
+38
+00:01:12.420 --> 00:01:14.120
+because the latest symbol is
+
+39
+00:01:14.120 --> 00:01:15.820
+now zero. This move shows
+
+40
+00:01:15.820 --> 00:01:17.720
+why visiting an accepting state
+
+41
+00:01:17.720 --> 00:01:19.000
+somewhere along the run is
+
+42
+00:01:19.000 --> 00:01:20.380
+not sufficient for acceptance.
+
+43
+00:01:21.420 --> 00:01:23.780
+Read the final one. The
+
+44
+00:01:23.780 --> 00:01:25.780
+token enters the accepting state
+
+45
+00:01:25.780 --> 00:01:27.640
+again, and this time there
+
+46
+00:01:27.640 --> 00:01:29.820
+is no unread input. The
+
+47
+00:01:29.820 --> 00:01:31.580
+whole word one zero one
+
+48
+00:01:31.580 --> 00:01:33.360
+is accepted because its final
+
+49
+00:01:33.360 --> 00:01:35.400
+state belongs to the accepting-state
+
+50
+00:01:35.400 --> 00:01:35.760
+set.
+
+51
+00:01:36.340 --> 00:01:38.140
+Now compare the shorter word
+
+52
+00:01:38.140 --> 00:01:40.600
+one zero. Its run also
+
+53
+00:01:40.600 --> 00:01:42.260
+visits an accepting state after
+
+54
+00:01:42.260 --> 00:01:44.000
+its first symbol, but ends
+
+55
+00:01:44.000 --> 00:01:45.740
+in the other state. Therefore
+
+56
+00:01:45.980 --> 00:01:47.700
+it is rejected, even though
+
+57
+00:01:47.700 --> 00:01:49.600
+a careless early-stop rule would
+
+58
+00:01:49.600 --> 00:01:50.300
+have accepted it.
+
+59
+00:01:50.620 --> 00:01:52.560
+To justify the machine generally,
+
+60
+00:01:53.040 --> 00:01:55.120
+state its memory invariant. After
+
+61
+00:01:55.120 --> 00:01:57.380
+every nonempty prefix, it is
+
+62
+00:01:57.380 --> 00:01:59.080
+in the accepting state exactly
+
+63
+00:01:59.080 --> 00:02:00.380
+when the final symbol of
+
+64
+00:02:00.380 --> 00:02:02.520
+that prefix is one. The
+
+65
+00:02:02.520 --> 00:02:04.540
+empty-prefix base case and the
+
+66
+00:02:04.540 --> 00:02:06.440
+two possible next symbols prove
+
+67
+00:02:06.440 --> 00:02:07.960
+this invariant by induction.
+
+68
+00:02:08.580 --> 00:02:10.620
+A complete transition table must
+
+69
+00:02:10.620 --> 00:02:12.280
+also cover inputs that are
+
+70
+00:02:12.280 --> 00:02:13.560
+not part of your favourite
+
+71
+00:02:13.560 --> 00:02:15.040
+example. If a state has
+
+72
+00:02:15.040 --> 00:02:17.660
+no intended useful continuation, add
+
+73
+00:02:17.660 --> 00:02:19.040
+a rejecting sink with a
+
+74
+00:02:19.040 --> 00:02:21.060
+transition for every alphabet symbol.
+
+75
+00:02:21.580 --> 00:02:22.880
+A missing transition in an
+
+76
+00:02:22.880 --> 00:02:24.700
+informal drawing is not permission
+
+77
+00:02:24.700 --> 00:02:26.400
+to invent a different deterministic
+
+78
+00:02:26.400 --> 00:02:26.920
+semantics.
+
+79
+00:02:27.340 --> 00:02:28.620
+Things to take note of.
+
+80
+00:02:29.020 --> 00:02:31.320
+Name all five components, identify
+
+81
+00:02:31.320 --> 00:02:33.320
+what each state remembers, and
+
+82
+00:02:33.320 --> 00:02:35.220
+trace every symbol before testing
+
+83
+00:02:35.220 --> 00:02:38.160
+acceptance. Check epsilon, a shortest
+
+84
+00:02:38.160 --> 00:02:39.500
+accepted word and a word
+
+85
+00:02:39.500 --> 00:02:40.940
+that enters an accepting state
+
+86
+00:02:40.940 --> 00:02:42.700
+but later leaves it; those
+
+87
+00:02:42.700 --> 00:02:44.960
+cases expose remarkably many mistakes.

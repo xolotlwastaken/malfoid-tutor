@@ -1,0 +1,505 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.300
+How do Cook Levin constraints
+
+2
+00:00:02.300 --> 00:00:04.900
+prevent a fake computation? We
+
+3
+00:00:04.900 --> 00:00:06.320
+will use the course’s four
+
+4
+00:00:06.320 --> 00:00:08.580
+indicator families and explain all
+
+5
+00:00:08.580 --> 00:00:10.680
+eight groups of conditions. The
+
+6
+00:00:10.680 --> 00:00:11.980
+goal is a valid accepting
+
+7
+00:00:11.980 --> 00:00:14.580
+bounded machine run, not merely
+
+8
+00:00:14.580 --> 00:00:16.080
+a colourful grid that happens
+
+9
+00:00:16.080 --> 00:00:18.000
+to contain an accepting-state symbol.
+
+10
+00:00:18.700 --> 00:00:21.340
+The initial-configuration group fixes the
+
+11
+00:00:21.340 --> 00:00:23.220
+start state, initial head cell,
+
+12
+00:00:23.780 --> 00:00:25.340
+input symbols and all remaining
+
+13
+00:00:25.340 --> 00:00:27.440
+blank cells. Without these facts,
+
+14
+00:00:27.680 --> 00:00:29.400
+a satisfying tableau might describe
+
+15
+00:00:29.400 --> 00:00:30.620
+a machine started on the
+
+16
+00:00:30.620 --> 00:00:32.260
+wrong input or in a
+
+17
+00:00:32.260 --> 00:00:34.740
+helpful later configuration. The formula
+
+18
+00:00:34.740 --> 00:00:36.300
+is supposed to answer membership
+
+19
+00:00:36.300 --> 00:00:38.100
+for this particular input x.
+
+20
+00:00:38.500 --> 00:00:40.520
+The next groups require exactly
+
+21
+00:00:40.520 --> 00:00:42.380
+one state per time and
+
+22
+00:00:42.380 --> 00:00:44.380
+exactly one symbol in every
+
+23
+00:00:44.380 --> 00:00:46.440
+cell at every time. Exactly
+
+24
+00:00:46.440 --> 00:00:48.540
+one means at least one,
+
+25
+00:00:48.540 --> 00:00:51.120
+plus pairwise clauses forbidding two
+
+26
+00:00:51.120 --> 00:00:53.940
+simultaneously true choices. It is
+
+27
+00:00:53.940 --> 00:00:56.080
+not an exclusive-or parity condition,
+
+28
+00:00:56.080 --> 00:00:57.820
+which would allow three true
+
+29
+00:00:57.820 --> 00:00:58.400
+choices.
+
+30
+00:00:58.860 --> 00:01:01.160
+Head uniqueness requires one and
+
+31
+00:01:01.160 --> 00:01:02.720
+only one head position in
+
+32
+00:01:02.720 --> 00:01:05.740
+every configuration. An at-least-one head
+
+33
+00:01:05.740 --> 00:01:08.180
+clause prevents no-head rows, and
+
+34
+00:01:08.180 --> 00:01:10.180
+the pairwise negative clauses prevent
+
+35
+00:01:10.180 --> 00:01:12.160
+a machine from simultaneously reading
+
+36
+00:01:12.160 --> 00:01:14.820
+several distant cells. The head-position
+
+37
+00:01:14.820 --> 00:01:16.420
+indicators are separate from the
+
+38
+00:01:16.420 --> 00:01:18.140
+state and tape-symbol indicators in
+
+39
+00:01:18.140 --> 00:01:18.980
+the course’s encoding.
+
+40
+00:01:19.460 --> 00:01:22.100
+Acceptance requires an accepting state
+
+41
+00:01:22.100 --> 00:01:24.520
+at some configuration time, including
+
+42
+00:01:24.520 --> 00:01:26.260
+time zero if immediate acceptance
+
+43
+00:01:26.260 --> 00:01:29.360
+is possible. Instruction uniqueness chooses
+
+44
+00:01:29.360 --> 00:01:31.100
+one machine instruction at each
+
+45
+00:01:31.100 --> 00:01:33.180
+transition time, not after the
+
+46
+00:01:33.180 --> 00:01:35.580
+final configuration. For early halting,
+
+47
+00:01:36.040 --> 00:01:37.820
+normalize the bounded encoding with
+
+48
+00:01:37.820 --> 00:01:40.260
+a consistent absorbing continuation instead
+
+49
+00:01:40.260 --> 00:01:42.340
+of accidentally requiring an ordinary
+
+50
+00:01:42.340 --> 00:01:43.720
+halted machine to move.
+
+51
+00:01:44.140 --> 00:01:46.060
+Non-head cells must keep their
+
+52
+00:01:46.060 --> 00:01:48.480
+tape contents. A convenient clause
+
+53
+00:01:48.480 --> 00:01:49.540
+says that if the head
+
+54
+00:01:49.540 --> 00:01:50.560
+is not here and this
+
+55
+00:01:50.560 --> 00:01:52.660
+cell contains b now, it
+
+56
+00:01:52.660 --> 00:01:54.380
+still contains b next time.
+
+57
+00:01:54.920 --> 00:01:56.740
+In conjunctive normal form this
+
+58
+00:01:56.740 --> 00:01:58.980
+is head-here or not-current-b or
+
+59
+00:01:58.980 --> 00:02:01.420
+next-b, together with the unique-symbol
+
+60
+00:02:01.420 --> 00:02:01.860
+conditions.
+
+61
+00:02:02.580 --> 00:02:04.980
+The valid-transition group ties the
+
+62
+00:02:04.980 --> 00:02:06.620
+chosen instruction to the correct
+
+63
+00:02:06.620 --> 00:02:08.200
+old state and read symbol.
+
+64
+00:02:08.700 --> 00:02:10.100
+It also enforces the new
+
+65
+00:02:10.100 --> 00:02:11.700
+state, the written symbol at
+
+66
+00:02:11.700 --> 00:02:12.660
+the head cell and the
+
+67
+00:02:12.660 --> 00:02:14.760
+new head position. All these
+
+68
+00:02:14.760 --> 00:02:17.140
+implications are needed; checking only
+
+69
+00:02:17.140 --> 00:02:18.440
+the write would still permit
+
+70
+00:02:18.440 --> 00:02:20.140
+an impossible state change or
+
+71
+00:02:20.140 --> 00:02:20.600
+head jump.
+
+72
+00:02:21.020 --> 00:02:23.480
+Use the actual tape-boundary convention
+
+73
+00:02:23.480 --> 00:02:25.160
+when writing the new-head condition.
+
+74
+00:02:25.720 --> 00:02:26.760
+A left move at the
+
+75
+00:02:26.760 --> 00:02:28.280
+left end must not refer
+
+76
+00:02:28.280 --> 00:02:30.120
+to an undefined cell zero
+
+77
+00:02:30.460 --> 00:02:32.180
+if the encoding numbers cells
+
+78
+00:02:32.180 --> 00:02:34.800
+from one. Likewise, a constraint
+
+79
+00:02:34.800 --> 00:02:37.000
+mentioning time i plus one
+
+80
+00:02:37.000 --> 00:02:38.960
+must stop at i equal
+
+81
+00:02:38.960 --> 00:02:40.780
+to T minus one, not
+
+82
+00:02:40.780 --> 00:02:42.840
+create an unencoded T plus
+
+83
+00:02:42.840 --> 00:02:43.600
+one row.
+
+84
+00:02:44.180 --> 00:02:45.560
+For a fixed machine, the
+
+85
+00:02:45.560 --> 00:02:47.020
+numbers of states, symbols and
+
+86
+00:02:47.020 --> 00:02:49.400
+possible instructions are constants. With
+
+87
+00:02:49.400 --> 00:02:50.900
+order T times and order
+
+88
+00:02:50.900 --> 00:02:52.580
+T cells, the indicator count
+
+89
+00:02:52.580 --> 00:02:55.120
+is order T squared. However,
+
+90
+00:02:55.300 --> 00:02:57.160
+pairwise head uniqueness uses order
+
+91
+00:02:57.160 --> 00:02:58.380
+T squared pairs at each
+
+92
+00:02:58.380 --> 00:03:00.400
+time, yielding order T cubed
+
+93
+00:03:00.400 --> 00:03:02.220
+such clauses over all rows.
+
+94
+00:03:02.780 --> 00:03:05.380
+The at-least-one head clauses also
+
+95
+00:03:05.380 --> 00:03:06.880
+have length proportional to the
+
+96
+00:03:06.880 --> 00:03:08.620
+number of cells, so not
+
+97
+00:03:08.620 --> 00:03:10.560
+every displayed clause has constant
+
+98
+00:03:10.560 --> 00:03:13.320
+length. Including written variable indices
+
+99
+00:03:13.320 --> 00:03:16.520
+adds logarithmic representation factors, still
+
+100
+00:03:16.520 --> 00:03:18.780
+leaving a polynomial-size formula because
+
+101
+00:03:18.780 --> 00:03:21.520
+T itself is polynomial in
+
+102
+00:03:21.520 --> 00:03:23.460
+input length. The theorem survives;
+
+103
+00:03:23.460 --> 00:03:25.720
+the raw deck’s blanket quadratic
+
+104
+00:03:25.720 --> 00:03:28.220
+constant-clause summary does not describe
+
+105
+00:03:28.220 --> 00:03:30.020
+this literal expansion accurately.
+
+106
+00:03:30.660 --> 00:03:32.800
+For the forward correctness direction,
+
+107
+00:03:33.120 --> 00:03:34.900
+fill every indicator from a
+
+108
+00:03:34.900 --> 00:03:36.960
+legal padded accepting branch and
+
+109
+00:03:36.960 --> 00:03:39.020
+check each constraint group. For
+
+110
+00:03:39.020 --> 00:03:40.980
+the reverse, uniqueness gives actual
+
+111
+00:03:40.980 --> 00:03:43.380
+rows, initialization gives the right
+
+112
+00:03:43.380 --> 00:03:46.480
+input, and transition plus unchanged-cell
+
+113
+00:03:46.480 --> 00:03:48.160
+conditions give a legal run.
+
+114
+00:03:48.560 --> 00:03:50.840
+Acceptance then identifies a successful
+
+115
+00:03:50.840 --> 00:03:53.200
+branch, completing the required if
+
+116
+00:03:53.200 --> 00:03:54.400
+and only if.
+
+117
+00:03:54.700 --> 00:03:55.960
+Things to take note of.
+
+118
+00:03:56.260 --> 00:03:58.620
+Explain each constraint’s purpose and
+
+119
+00:03:58.620 --> 00:04:00.700
+a fake tableau it forbids,
+
+120
+00:04:00.700 --> 00:04:02.840
+rather than memorizing an overbar-sensitive
+
+121
+00:04:02.840 --> 00:04:04.900
+formula without meaning. Keep row
+
+122
+00:04:04.900 --> 00:04:07.880
+and transition indices consistent, define
+
+123
+00:04:07.880 --> 00:04:09.940
+padding and boundaries, and count
+
+124
+00:04:09.940 --> 00:04:11.880
+the particular encoding you use;
+
+125
+00:04:12.460 --> 00:04:14.500
+polynomial correctness matters more than
+
+126
+00:04:14.500 --> 00:04:16.160
+an unsupported tight exponent.

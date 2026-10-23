@@ -1,0 +1,325 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.080
+How does rate-monotonic scheduling work?
+
+2
+00:00:03.540 --> 00:00:05.640
+Assign higher fixed priority to
+
+3
+00:00:05.640 --> 00:00:06.740
+a task with a shorter
+
+4
+00:00:06.740 --> 00:00:09.240
+period, then run the highest-priority
+
+5
+00:00:09.240 --> 00:00:12.080
+ready instance. Preemption changes remaining
+
+6
+00:00:12.080 --> 00:00:13.940
+execution, but it does not
+
+7
+00:00:13.940 --> 00:00:15.860
+change a task period or
+
+8
+00:00:15.860 --> 00:00:17.020
+its instance deadline.
+
+9
+00:00:17.660 --> 00:00:19.540
+Use the lecture tasks: P
+
+10
+00:00:19.540 --> 00:00:21.360
+one has period ten and
+
+11
+00:00:21.360 --> 00:00:23.800
+execution six, P two period
+
+12
+00:00:23.800 --> 00:00:26.040
+nineteen and execution four, and
+
+13
+00:00:26.040 --> 00:00:27.680
+P three period twenty and
+
+14
+00:00:27.680 --> 00:00:30.320
+execution two. Initially their relative
+
+15
+00:00:30.320 --> 00:00:32.800
+deadlines equal their periods. All
+
+16
+00:00:32.800 --> 00:00:34.600
+first instances arrive at time
+
+17
+00:00:34.600 --> 00:00:35.000
+zero.
+
+18
+00:00:35.620 --> 00:00:37.220
+P one has the shortest
+
+19
+00:00:37.220 --> 00:00:38.860
+period and runs from zero
+
+20
+00:00:38.860 --> 00:00:40.900
+to six. P two then
+
+21
+00:00:40.900 --> 00:00:42.320
+runs from six to ten,
+
+22
+00:00:42.680 --> 00:00:44.060
+finishing its first four units
+
+23
+00:00:44.060 --> 00:00:45.480
+exactly when the next P
+
+24
+00:00:45.480 --> 00:00:47.860
+one instance arrives. P three
+
+25
+00:00:47.860 --> 00:00:49.640
+is ready throughout this interval
+
+26
+00:00:49.640 --> 00:00:51.140
+but has the lowest priority.
+
+27
+00:00:51.660 --> 00:00:53.400
+The second P one instance
+
+28
+00:00:53.400 --> 00:00:55.220
+runs from ten to sixteen.
+
+29
+00:00:55.740 --> 00:00:57.640
+P three finally runs from
+
+30
+00:00:57.640 --> 00:00:59.400
+sixteen to eighteen and completes
+
+31
+00:00:59.400 --> 00:01:01.320
+its first instance before deadline
+
+32
+00:01:01.320 --> 00:01:03.340
+twenty. With all released work
+
+33
+00:01:03.340 --> 00:01:05.620
+complete, the processor is idle
+
+34
+00:01:05.620 --> 00:01:06.880
+from eighteen to nineteen.
+
+35
+00:01:07.460 --> 00:01:09.360
+P two releases its second
+
+36
+00:01:09.360 --> 00:01:11.080
+instance at nineteen and runs
+
+37
+00:01:11.080 --> 00:01:12.980
+for one unit. At twenty,
+
+38
+00:01:13.260 --> 00:01:14.760
+P one releases again and
+
+39
+00:01:14.760 --> 00:01:17.100
+preempts it, running until twenty-six.
+
+40
+00:01:17.760 --> 00:01:19.440
+P two then resumes with
+
+41
+00:01:19.440 --> 00:01:21.280
+three units remaining and finishes
+
+42
+00:01:21.280 --> 00:01:22.120
+at twenty-nine.
+
+43
+00:01:22.940 --> 00:01:25.620
+P three second instance begins
+
+44
+00:01:25.620 --> 00:01:28.100
+at twenty-nine but is preempted
+
+45
+00:01:28.100 --> 00:01:29.300
+at thirty by another P
+
+46
+00:01:29.300 --> 00:01:31.640
+one release. Label the job
+
+47
+00:01:31.640 --> 00:01:33.380
+identity and the remaining one
+
+48
+00:01:33.380 --> 00:01:35.500
+unit rather than restarting its
+
+49
+00:01:35.500 --> 00:01:38.700
+full execution demand. Each instance
+
+50
+00:01:38.700 --> 00:01:39.940
+keeps its own deadline.
+
+51
+00:01:40.500 --> 00:01:42.200
+The next slide changes P
+
+52
+00:01:42.200 --> 00:01:44.460
+three relative deadline to fourteen
+
+53
+00:01:44.460 --> 00:01:46.140
+while keeping its period twenty.
+
+54
+00:01:46.700 --> 00:01:48.540
+Its first instance still has
+
+55
+00:01:48.540 --> 00:01:49.900
+not run at time fourteen
+
+56
+00:01:49.900 --> 00:01:52.200
+under the same rate-monotonic priority
+
+57
+00:01:52.200 --> 00:01:54.360
+order. It therefore misses deadline
+
+58
+00:01:54.360 --> 00:01:56.220
+fourteen even though it later
+
+59
+00:01:56.220 --> 00:01:57.320
+finishes at eighteen.
+
+60
+00:01:57.820 --> 00:01:59.840
+That deadline change does not
+
+61
+00:01:59.840 --> 00:02:02.700
+alter rate-monotonic task priorities because
+
+62
+00:02:02.700 --> 00:02:04.980
+this policy reads period. A
+
+63
+00:02:04.980 --> 00:02:07.060
+deadline-monotonic policy would read the
+
+64
+00:02:07.060 --> 00:02:09.660
+changed relative deadline instead. Keep
+
+65
+00:02:09.660 --> 00:02:11.620
+the comparison key separate from
+
+66
+00:02:11.620 --> 00:02:13.080
+the property you measure afterward.
+
+67
+00:02:13.460 --> 00:02:15.840
+A finite successful trace proves
+
+68
+00:02:15.840 --> 00:02:17.400
+only what was checked within
+
+69
+00:02:17.400 --> 00:02:19.140
+that interval and task model.
+
+70
+00:02:19.480 --> 00:02:20.800
+Do not add a universal
+
+71
+00:02:20.800 --> 00:02:23.000
+schedulability conclusion from one neat
+
+72
+00:02:23.000 --> 00:02:25.800
+utilization percentage. The supplied material
+
+73
+00:02:25.800 --> 00:02:28.880
+emphasizes tracing releases, preemption and
+
+74
+00:02:28.880 --> 00:02:29.980
+deadlines explicitly.
+
+75
+00:02:30.700 --> 00:02:31.980
+Things to take note of.
+
+76
+00:02:32.580 --> 00:02:35.180
+Shorter period wins, every periodic
+
+77
+00:02:35.180 --> 00:02:37.300
+release creates a distinct job,
+
+78
+00:02:37.660 --> 00:02:40.480
+and preemption preserves remaining execution.
+
+79
+00:02:41.020 --> 00:02:43.940
+In the changed-deadline example, identify
+
+80
+00:02:43.940 --> 00:02:45.400
+the missed P three instance
+
+81
+00:02:45.400 --> 00:02:47.640
+and the exact time fourteen.

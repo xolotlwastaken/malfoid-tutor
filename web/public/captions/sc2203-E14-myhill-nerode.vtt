@@ -1,0 +1,389 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.980
+How does the Myhill Nerode
+
+2
+00:00:01.980 --> 00:00:03.540
+theorem measure the memory a
+
+3
+00:00:03.540 --> 00:00:06.960
+deterministic automaton needs? Two prefixes
+
+4
+00:00:06.960 --> 00:00:09.080
+require different memories when some
+
+5
+00:00:09.080 --> 00:00:11.600
+common continuation makes exactly one
+
+6
+00:00:11.600 --> 00:00:13.160
+resulting word belong to the
+
+7
+00:00:13.160 --> 00:00:14.800
+language. We will use that
+
+8
+00:00:14.800 --> 00:00:17.140
+idea both for impossibility and
+
+9
+00:00:17.140 --> 00:00:18.600
+for an exact state lower
+
+10
+00:00:18.600 --> 00:00:18.900
+bound.
+
+11
+00:00:19.260 --> 00:00:21.200
+If a deterministic machine reaches
+
+12
+00:00:21.200 --> 00:00:22.680
+the same state after x
+
+13
+00:00:22.680 --> 00:00:24.300
+and y, it must react
+
+14
+00:00:24.300 --> 00:00:26.460
+identically to every later suffix.
+
+15
+00:00:27.000 --> 00:00:29.300
+Thus one distinguishing suffix proves
+
+16
+00:00:29.300 --> 00:00:31.220
+those prefixes cannot share a
+
+17
+00:00:31.220 --> 00:00:33.060
+state. A set of pairwise
+
+18
+00:00:33.060 --> 00:00:35.340
+distinguishable prefixes gives a lower
+
+19
+00:00:35.340 --> 00:00:36.360
+bound on the number of
+
+20
+00:00:36.360 --> 00:00:36.640
+states.
+
+21
+00:00:37.140 --> 00:00:38.600
+For equal zeros followed by
+
+22
+00:00:38.600 --> 00:00:41.200
+equal ones, consider every prefix
+
+23
+00:00:41.200 --> 00:00:43.540
+consisting only of zeros. Take
+
+24
+00:00:43.540 --> 00:00:45.240
+two different lengths n and
+
+25
+00:00:45.240 --> 00:00:47.040
+m, and append n ones
+
+26
+00:00:47.040 --> 00:00:48.980
+to both. The first result
+
+27
+00:00:48.980 --> 00:00:50.840
+has matching counts, while the
+
+28
+00:00:50.840 --> 00:00:52.760
+second does not, so this
+
+29
+00:00:52.760 --> 00:00:55.140
+single suffix distinguishes that arbitrary
+
+30
+00:00:55.140 --> 00:00:55.580
+pair.
+
+31
+00:00:56.220 --> 00:00:58.640
+There are infinitely many prefixes
+
+32
+00:00:58.640 --> 00:01:01.060
+in that pairwise distinguishable set.
+
+33
+00:01:01.660 --> 00:01:03.780
+No finite-state machine can assign
+
+34
+00:01:03.780 --> 00:01:05.260
+all of them different states,
+
+35
+00:01:05.620 --> 00:01:06.800
+so the language is nonregular.
+
+36
+00:01:07.560 --> 00:01:09.180
+Unlike a failed pumping attempt,
+
+37
+00:01:09.600 --> 00:01:12.360
+this directly establishes an unbounded
+
+38
+00:01:12.360 --> 00:01:13.280
+memory requirement.
+
+39
+00:01:13.700 --> 00:01:17.220
+Formally, indistinguishability means every appended
+
+40
+00:01:17.220 --> 00:01:19.080
+suffix gives the same membership
+
+41
+00:01:19.080 --> 00:01:21.000
+verdict. This is an equivalence
+
+42
+00:01:21.000 --> 00:01:23.040
+relation, partitioning all words into
+
+43
+00:01:23.040 --> 00:01:25.500
+classes. The theorem says regularity
+
+44
+00:01:25.500 --> 00:01:27.200
+is equivalent to finitely many
+
+45
+00:01:27.200 --> 00:01:28.780
+classes, and the number of
+
+46
+00:01:28.780 --> 00:01:30.900
+classes equals the smallest possible
+
+47
+00:01:30.900 --> 00:01:32.200
+deterministic-state count.
+
+48
+00:01:32.620 --> 00:01:34.600
+For an exact finite example,
+
+49
+00:01:35.000 --> 00:01:36.840
+take the language containing only
+
+50
+00:01:36.840 --> 00:01:38.440
+a over the unary alphabet.
+
+51
+00:01:39.100 --> 00:01:40.340
+A machine needs a start
+
+52
+00:01:40.340 --> 00:01:42.000
+state, a final state after
+
+53
+00:01:42.000 --> 00:01:43.420
+one a, and a sink
+
+54
+00:01:43.420 --> 00:01:45.620
+after too many symbols. This
+
+55
+00:01:45.620 --> 00:01:47.200
+gives a three-state upper bound,
+
+56
+00:01:47.680 --> 00:01:48.960
+but drawing three states alone
+
+57
+00:01:48.960 --> 00:01:49.960
+does not prove they are
+
+58
+00:01:49.960 --> 00:01:50.440
+necessary.
+
+59
+00:01:50.900 --> 00:01:52.960
+Use epsilon, a, and a
+
+60
+00:01:52.960 --> 00:01:54.720
+a as the three distinguishing
+
+61
+00:01:54.720 --> 00:01:57.540
+prefixes. The suffix epsilon separates
+
+62
+00:01:57.540 --> 00:01:59.200
+a from each other prefix,
+
+63
+00:01:59.660 --> 00:02:01.600
+because only a is already
+
+64
+00:02:01.600 --> 00:02:03.400
+in the language. The suffix
+
+65
+00:02:03.400 --> 00:02:05.720
+a separates epsilon from a
+
+66
+00:02:05.720 --> 00:02:07.640
+a, producing a versus three
+
+67
+00:02:07.640 --> 00:02:08.580
+copies of a.
+
+68
+00:02:08.860 --> 00:02:10.080
+Every pair in the three-element
+
+69
+00:02:10.340 --> 00:02:12.560
+set is distinguished, so every
+
+70
+00:02:12.560 --> 00:02:14.500
+deterministic machine for this language
+
+71
+00:02:14.500 --> 00:02:16.160
+needs at least three states.
+
+72
+00:02:16.580 --> 00:02:18.520
+Together with the three-state construction,
+
+73
+00:02:18.520 --> 00:02:20.260
+that proves the machine minimal.
+
+74
+00:02:20.980 --> 00:02:22.380
+A lower bound and matching
+
+75
+00:02:22.380 --> 00:02:24.120
+upper bound are both needed
+
+76
+00:02:24.120 --> 00:02:25.280
+for an exact answer.
+
+77
+00:02:25.620 --> 00:02:27.220
+The suffix may depend on
+
+78
+00:02:27.220 --> 00:02:29.000
+the chosen pair; there is
+
+79
+00:02:29.000 --> 00:02:31.080
+no requirement that one suffix
+
+80
+00:02:31.080 --> 00:02:32.580
+separate the entire set at
+
+81
+00:02:32.580 --> 00:02:34.980
+once. But distinguishing just adjacent
+
+82
+00:02:34.980 --> 00:02:36.940
+members of an infinite sequence
+
+83
+00:02:36.940 --> 00:02:39.400
+is insufficient unless you also
+
+84
+00:02:39.400 --> 00:02:41.220
+cover every other distinct pair.
+
+85
+00:02:41.740 --> 00:02:44.060
+Keep those quantifiers explicit in
+
+86
+00:02:44.060 --> 00:02:44.440
+your proof.
+
+87
+00:02:44.940 --> 00:02:46.320
+Things to take note of.
+
+88
+00:02:46.620 --> 00:02:48.580
+State the prefix set, take
+
+89
+00:02:48.580 --> 00:02:50.580
+an arbitrary distinct pair, and
+
+90
+00:02:50.580 --> 00:02:52.080
+give one common suffix with
+
+91
+00:02:52.080 --> 00:02:54.420
+opposite membership outcomes. Use an
+
+92
+00:02:54.420 --> 00:02:56.700
+infinite set for nonregularity, or
+
+93
+00:02:56.700 --> 00:02:58.360
+combine a finite lower bound
+
+94
+00:02:58.360 --> 00:02:59.840
+with a matching construction for
+
+95
+00:02:59.840 --> 00:03:02.500
+minimality; the excluded appendix proof
+
+96
+00:03:02.500 --> 00:03:03.740
+does not remove the need
+
+97
+00:03:03.740 --> 00:03:04.700
+to apply the theorem.

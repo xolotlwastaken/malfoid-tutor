@@ -1,0 +1,385 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.280
+How do you read and
+
+2
+00:00:01.280 --> 00:00:03.260
+trace a Turing machine? Its
+
+3
+00:00:03.260 --> 00:00:05.160
+finite control reads and writes
+
+4
+00:00:05.160 --> 00:00:06.860
+an unbounded tape while a
+
+5
+00:00:06.860 --> 00:00:09.040
+head moves between cells. We
+
+6
+00:00:09.040 --> 00:00:10.900
+will translate a configuration into
+
+7
+00:00:10.900 --> 00:00:12.580
+a picture and perform read,
+
+8
+00:00:13.140 --> 00:00:14.940
+write, state change and head
+
+9
+00:00:14.940 --> 00:00:16.660
+movement as separate operations.
+
+10
+00:00:17.180 --> 00:00:18.960
+The formal machine has state
+
+11
+00:00:18.960 --> 00:00:21.740
+set, input alphabet, tape alphabet,
+
+12
+00:00:22.240 --> 00:00:24.780
+transition function, start state, accept
+
+13
+00:00:24.780 --> 00:00:27.380
+state and reject state. The
+
+14
+00:00:27.380 --> 00:00:29.140
+basic course transition writes a
+
+15
+00:00:29.140 --> 00:00:30.700
+symbol and moves left or
+
+16
+00:00:30.700 --> 00:00:32.300
+right. The blank is a
+
+17
+00:00:32.300 --> 00:00:33.420
+tape symbol that can be
+
+18
+00:00:33.420 --> 00:00:35.020
+written, but it is not
+
+19
+00:00:35.020 --> 00:00:36.480
+an input-alphabet symbol.
+
+20
+00:00:36.820 --> 00:00:38.300
+In configuration notation u q
+
+21
+00:00:38.300 --> 00:00:41.160
+v, the head scans the
+
+22
+00:00:41.160 --> 00:00:43.020
+first symbol of v. The
+
+23
+00:00:43.020 --> 00:00:44.880
+whole tape segment represented is
+
+24
+00:00:44.880 --> 00:00:46.680
+u followed by v, and
+
+25
+00:00:46.680 --> 00:00:47.960
+q is a state marker
+
+26
+00:00:47.960 --> 00:00:49.420
+rather than a tape character.
+
+27
+00:00:49.680 --> 00:00:51.040
+Include a blank when needed
+
+28
+00:00:51.040 --> 00:00:52.280
+to show the scanned cell
+
+29
+00:00:52.280 --> 00:00:54.380
+beyond the rightmost nonblank symbol.
+
+30
+00:00:54.780 --> 00:00:56.620
+Use the lecture transition from
+
+31
+00:00:56.620 --> 00:00:58.540
+q two reading b: enter
+
+32
+00:00:58.540 --> 00:01:00.640
+q three, write x, and
+
+33
+00:01:00.640 --> 00:01:02.700
+move left. Starting with a
+
+34
+00:01:02.920 --> 00:01:04.500
+a, state q two, then
+
+35
+00:01:04.500 --> 00:01:06.380
+b a, the head initially
+
+36
+00:01:06.380 --> 00:01:08.580
+scans the b. First replace
+
+37
+00:01:08.580 --> 00:01:10.220
+that b with x; it
+
+38
+00:01:10.220 --> 00:01:11.260
+is not the a to
+
+39
+00:01:11.260 --> 00:01:12.740
+the left that gets overwritten.
+
+40
+00:01:13.220 --> 00:01:15.120
+After moving left, the head
+
+41
+00:01:15.120 --> 00:01:16.480
+scans the second a and
+
+42
+00:01:16.480 --> 00:01:17.500
+the state is q three.
+
+43
+00:01:18.140 --> 00:01:19.760
+The resulting notation is a,
+
+44
+00:01:20.260 --> 00:01:21.640
+then q three, then a
+
+45
+00:01:21.640 --> 00:01:23.140
+x a. This matches the
+
+46
+00:01:23.140 --> 00:01:24.800
+unchanged first a, the newly
+
+47
+00:01:24.800 --> 00:01:26.100
+scanned second a and the
+
+48
+00:01:26.100 --> 00:01:27.700
+overwritten x to its right.
+
+49
+00:01:28.140 --> 00:01:29.940
+For a right move, write
+
+50
+00:01:29.940 --> 00:01:31.260
+the replacement in the current
+
+51
+00:01:31.260 --> 00:01:32.900
+cell before advancing the head.
+
+52
+00:01:33.300 --> 00:01:34.480
+If the head reaches a
+
+53
+00:01:34.480 --> 00:01:37.060
+previously unshown cell, that cell
+
+54
+00:01:37.060 --> 00:01:39.020
+is blank. Never move the
+
+55
+00:01:39.020 --> 00:01:40.740
+state marker first and then
+
+56
+00:01:40.740 --> 00:01:42.840
+overwrite whichever symbol happens to
+
+57
+00:01:42.840 --> 00:01:44.080
+appear after it in your
+
+58
+00:01:44.080 --> 00:01:45.140
+new written notation.
+
+59
+00:01:46.020 --> 00:01:47.400
+At the left end of
+
+60
+00:01:47.400 --> 00:01:49.900
+the course’s semi-infinite tape, a
+
+61
+00:01:49.900 --> 00:01:51.620
+requested left move leaves the
+
+62
+00:01:51.620 --> 00:01:53.540
+head at that boundary. Therefore
+
+63
+00:01:53.760 --> 00:01:55.580
+consecutive configurations can have the
+
+64
+00:01:55.580 --> 00:01:57.580
+same head location even though
+
+65
+00:01:57.580 --> 00:01:59.500
+the ordinary transition directions are
+
+66
+00:01:59.500 --> 00:02:01.200
+only left and right. A
+
+67
+00:02:01.200 --> 00:02:03.100
+fully general stay operation is
+
+68
+00:02:03.100 --> 00:02:05.200
+a different model convention, though
+
+69
+00:02:05.200 --> 00:02:06.240
+it can be simulated.
+
+70
+00:02:06.700 --> 00:02:08.460
+Entering an accept or reject
+
+71
+00:02:08.460 --> 00:02:10.860
+state halts the computation immediately.
+
+72
+00:02:11.500 --> 00:02:12.940
+A machine that never reaches
+
+73
+00:02:12.940 --> 00:02:14.620
+either has a nonhalting run,
+
+74
+00:02:14.980 --> 00:02:16.040
+even if its tape and
+
+75
+00:02:16.040 --> 00:02:17.120
+head do not repeat a
+
+76
+00:02:17.120 --> 00:02:20.220
+previous complete configuration. An infinite
+
+77
+00:02:20.220 --> 00:02:22.140
+tape permits looping behaviour that
+
+78
+00:02:22.140 --> 00:02:23.880
+continually visits new cells.
+
+79
+00:02:24.340 --> 00:02:26.680
+A recognizer must accept every
+
+80
+00:02:26.680 --> 00:02:28.260
+member and never accept a
+
+81
+00:02:28.260 --> 00:02:30.340
+nonmember, but may loop on
+
+82
+00:02:30.340 --> 00:02:32.520
+nonmembers. A decider must halt
+
+83
+00:02:32.520 --> 00:02:34.420
+on every input, accepting or
+
+84
+00:02:34.420 --> 00:02:37.320
+rejecting correctly. Describing a machine
+
+85
+00:02:37.320 --> 00:02:39.260
+that works only on successful
+
+86
+00:02:39.260 --> 00:02:41.900
+examples is therefore insufficient to
+
+87
+00:02:41.900 --> 00:02:42.880
+prove decidability.
+
+88
+00:02:43.820 --> 00:02:45.140
+Things to take note of.
+
+89
+00:02:45.660 --> 00:02:47.180
+Keep state symbols separate from
+
+90
+00:02:47.180 --> 00:02:49.300
+tape symbols, overwrite the old
+
+91
+00:02:49.300 --> 00:02:50.940
+head cell, and apply the
+
+92
+00:02:50.940 --> 00:02:53.640
+stated boundary convention. Distinguish input
+
+93
+00:02:53.640 --> 00:02:55.360
+from tape alphabets and recognition
+
+94
+00:02:55.360 --> 00:02:57.180
+from decision, and stop tracing
+
+95
+00:02:57.180 --> 00:02:58.180
+as soon as a halting
+
+96
+00:02:58.180 --> 00:02:58.920
+state is entered.

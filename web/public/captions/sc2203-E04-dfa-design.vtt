@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.600
+How do you design a
+
+2
+00:00:01.600 --> 00:00:03.840
+deterministic automaton from the memory
+
+3
+00:00:03.840 --> 00:00:06.460
+it needs? Consider binary strings
+
+4
+00:00:06.460 --> 00:00:08.520
+containing zero zero one as
+
+5
+00:00:08.520 --> 00:00:10.440
+a substring. Instead of guessing
+
+6
+00:00:10.440 --> 00:00:12.820
+a picture, identify which useful
+
+7
+00:00:12.820 --> 00:00:14.520
+prefixes of that pattern have
+
+8
+00:00:14.520 --> 00:00:15.620
+already been matched.
+
+9
+00:00:15.980 --> 00:00:17.540
+Before a match is complete,
+
+10
+00:00:17.840 --> 00:00:19.520
+remember the longest suffix that
+
+11
+00:00:19.520 --> 00:00:21.100
+is also a prefix of
+
+12
+00:00:21.100 --> 00:00:23.360
+zero zero one. The possibilities
+
+13
+00:00:23.360 --> 00:00:25.180
+are no useful suffix, a
+
+14
+00:00:25.180 --> 00:00:27.180
+single zero, and two zeros.
+
+15
+00:00:27.480 --> 00:00:28.660
+Add a fourth state for
+
+16
+00:00:28.660 --> 00:00:30.540
+a pattern already found, because
+
+17
+00:00:30.540 --> 00:00:32.620
+future input cannot undo a
+
+18
+00:00:32.620 --> 00:00:33.560
+contained substring.
+
+19
+00:00:33.940 --> 00:00:35.960
+From no useful suffix, reading
+
+20
+00:00:35.960 --> 00:00:38.000
+zero starts a partial match.
+
+21
+00:00:38.560 --> 00:00:40.280
+Reading one leaves no useful
+
+22
+00:00:40.280 --> 00:00:41.800
+suffix, so stay in the
+
+23
+00:00:41.800 --> 00:00:44.320
+start state. These two transitions
+
+24
+00:00:44.320 --> 00:00:46.380
+cover both possible next symbols
+
+25
+00:00:46.380 --> 00:00:48.760
+without requiring any unbounded memory.
+
+26
+00:00:49.340 --> 00:00:51.700
+From the single-zero state, another
+
+27
+00:00:51.700 --> 00:00:53.620
+zero extends the remembered suffix
+
+28
+00:00:53.620 --> 00:00:55.040
+to two zeros. A one
+
+29
+00:00:55.040 --> 00:00:56.800
+would produce zero one, which
+
+30
+00:00:56.800 --> 00:00:58.600
+has no nonempty suffix matching
+
+31
+00:00:58.600 --> 00:00:59.560
+the start of our pattern.
+
+32
+00:01:00.200 --> 00:01:02.480
+Therefore that one-transition returns to
+
+33
+00:01:02.480 --> 00:01:03.960
+the no-useful-suffix state.
+
+34
+00:01:04.420 --> 00:01:06.480
+From two zeros, reading another
+
+35
+00:01:06.480 --> 00:01:08.460
+zero must keep the two-zero
+
+36
+00:01:08.460 --> 00:01:10.520
+state. The full prefix may
+
+37
+00:01:10.520 --> 00:01:12.300
+have three zeros, but its
+
+38
+00:01:12.300 --> 00:01:13.920
+last two zeros remain a
+
+39
+00:01:13.920 --> 00:01:16.620
+useful candidate. Resetting here would
+
+40
+00:01:16.620 --> 00:01:18.500
+lose the overlapping match in
+
+41
+00:01:18.500 --> 00:01:20.040
+zero zero zero one.
+
+42
+00:01:20.460 --> 00:01:22.020
+Now read one from that
+
+43
+00:01:22.020 --> 00:01:24.840
+two-zero state. The remembered zeros
+
+44
+00:01:24.840 --> 00:01:26.580
+followed by this one complete
+
+45
+00:01:26.580 --> 00:01:28.560
+the target substring, so enter
+
+46
+00:01:28.560 --> 00:01:30.620
+the accepting state. Both later
+
+47
+00:01:30.620 --> 00:01:32.200
+symbols loop there because the
+
+48
+00:01:32.200 --> 00:01:33.920
+occurrence we already found remains
+
+49
+00:01:33.920 --> 00:01:35.460
+inside every extension.
+
+50
+00:01:35.860 --> 00:01:37.580
+The proof follows the state
+
+51
+00:01:37.580 --> 00:01:39.000
+meanings rather than a list
+
+52
+00:01:39.000 --> 00:01:41.120
+of successful test words. The
+
+53
+00:01:41.120 --> 00:01:43.040
+start state correctly represents the
+
+54
+00:01:43.040 --> 00:01:45.300
+empty prefix, and each transition
+
+55
+00:01:45.300 --> 00:01:47.320
+updates the longest useful suffix
+
+56
+00:01:47.320 --> 00:01:49.200
+or preserves a completed match.
+
+57
+00:01:49.740 --> 00:01:51.240
+Thus the accepting state is
+
+58
+00:01:51.240 --> 00:01:53.440
+reached exactly for prefixes that
+
+59
+00:01:53.440 --> 00:01:54.460
+contain the pattern.
+
+60
+00:01:54.860 --> 00:01:57.180
+Other languages require different finite
+
+61
+00:01:57.180 --> 00:01:59.720
+memories. Odd parity needs only
+
+62
+00:01:59.720 --> 00:02:01.800
+even and odd states, while
+
+63
+00:02:01.800 --> 00:02:03.340
+equality of zero and one
+
+64
+00:02:03.340 --> 00:02:05.240
+counts modulo three needs the
+
+65
+00:02:05.240 --> 00:02:08.060
+count difference modulo three. Exact
+
+66
+00:02:08.060 --> 00:02:10.260
+unbounded equality cannot be replaced
+
+67
+00:02:10.260 --> 00:02:12.100
+by that modular test, because
+
+68
+00:02:12.100 --> 00:02:13.720
+counts differing by three would
+
+69
+00:02:13.720 --> 00:02:14.340
+pass it.
+
+70
+00:02:14.740 --> 00:02:16.300
+Change the task to strings
+
+71
+00:02:16.300 --> 00:02:17.980
+ending in zero zero one.
+
+72
+00:02:18.500 --> 00:02:19.760
+The pattern state can no
+
+73
+00:02:19.760 --> 00:02:22.140
+longer be permanently accepting, because
+
+74
+00:02:22.140 --> 00:02:23.680
+another symbol can change the
+
+75
+00:02:23.680 --> 00:02:25.940
+suffix. A small wording change
+
+76
+00:02:25.940 --> 00:02:27.440
+in the language therefore changes
+
+77
+00:02:27.440 --> 00:02:29.360
+the memory update, even when
+
+78
+00:02:29.360 --> 00:02:30.620
+the target pattern is the
+
+79
+00:02:30.620 --> 00:02:31.000
+same.
+
+80
+00:02:31.580 --> 00:02:32.900
+Things to take note of.
+
+81
+00:02:33.300 --> 00:02:35.500
+Define state meanings first, write
+
+82
+00:02:35.500 --> 00:02:37.760
+every alphabet transition, and use
+
+83
+00:02:37.760 --> 00:02:39.580
+the longest relevant suffix to
+
+84
+00:02:39.580 --> 00:02:42.000
+handle overlaps. Then test the
+
+85
+00:02:42.000 --> 00:02:43.520
+empty word and near misses,
+
+86
+00:02:43.940 --> 00:02:45.420
+and give an invariant explaining
+
+87
+00:02:45.420 --> 00:02:47.360
+why the machine accepts exactly
+
+88
+00:02:47.360 --> 00:02:48.500
+the required language.

@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.280
+How does breadth-first search work?
+
+2
+00:00:02.280 --> 00:00:04.300
+Use a first-in, first-out queue
+
+3
+00:00:04.300 --> 00:00:05.680
+to explore a graph one
+
+4
+00:00:05.680 --> 00:00:06.900
+distance layer at a time.
+
+5
+00:00:06.900 --> 00:00:08.960
+With unweighted edges, the first
+
+6
+00:00:08.960 --> 00:00:10.560
+discovery gives a shortest edge-count
+
+7
+00:00:10.800 --> 00:00:11.200
+distance.
+
+8
+00:00:11.820 --> 00:00:13.820
+Our directed graph has arrows
+
+9
+00:00:13.820 --> 00:00:15.080
+from A to B and
+
+10
+00:00:15.080 --> 00:00:16.820
+C, from B and C
+
+11
+00:00:16.820 --> 00:00:18.680
+to D, then from D
+
+12
+00:00:18.680 --> 00:00:21.873
+to E. We scan neighbours
+
+13
+00:00:20.060 --> 00:00:22.940
+alphabetically, initialise all other distances
+
+14
+00:00:22.940 --> 00:00:25.894
+to infinity, and enqueue A
+
+15
+00:00:25.240 --> 00:00:26.360
+at distance zero.
+
+16
+00:00:27.300 --> 00:00:28.760
+Remove A from the front
+
+17
+00:00:28.760 --> 00:00:31.060
+and inspect its neighbours. Discover
+
+18
+00:00:31.060 --> 00:00:33.060
+B and C, give each
+
+19
+00:00:33.060 --> 00:00:34.940
+distance one and parent A,
+
+20
+00:00:35.480 --> 00:00:36.500
+and enqueue them in that
+
+21
+00:00:36.500 --> 00:00:36.860
+order.
+
+22
+00:00:37.500 --> 00:00:40.140
+Remove B next, leaving C
+
+23
+00:00:40.140 --> 00:00:42.660
+waiting. Discover D at distance
+
+24
+00:00:42.660 --> 00:00:44.580
+two, set its parent to
+
+25
+00:00:44.580 --> 00:00:46.220
+B, and add it behind
+
+26
+00:00:46.220 --> 00:00:48.380
+C; the queue now contains
+
+27
+00:00:48.380 --> 00:00:50.180
+C followed by D.
+
+28
+00:00:50.660 --> 00:00:53.040
+Remove C and inspect its
+
+29
+00:00:53.040 --> 00:00:54.720
+arrow to D. D was
+
+30
+00:00:54.720 --> 00:00:56.619
+marked when it was enqueued,
+
+31
+00:00:56.500 --> 00:00:57.800
+so skip it rather than
+
+32
+00:00:57.800 --> 00:01:00.591
+adding a duplicate; the queue
+
+33
+00:00:59.840 --> 00:01:01.640
+now contains only D.
+
+34
+00:01:02.380 --> 00:01:04.260
+Remove D and discover E
+
+35
+00:01:04.260 --> 00:01:06.160
+at distance three, with parent
+
+36
+00:01:06.160 --> 00:01:08.700
+D. Then remove E, which
+
+37
+00:01:08.700 --> 00:01:10.960
+has no undiscovered neighbours, and
+
+38
+00:01:10.960 --> 00:01:12.280
+the queue becomes empty.
+
+39
+00:01:12.820 --> 00:01:14.220
+To recover a route to
+
+40
+00:01:14.220 --> 00:01:16.860
+E, follow parents backwards: E,
+
+41
+00:01:16.860 --> 00:01:18.720
+D, B, A, then reverse
+
+42
+00:01:18.720 --> 00:01:20.720
+that list. The route A,
+
+43
+00:01:20.720 --> 00:01:22.240
+B, D, E uses three
+
+44
+00:01:22.240 --> 00:01:24.380
+edges, matching the distance label.
+
+45
+00:01:25.020 --> 00:01:27.420
+Why is first discovery optimal?
+
+46
+00:01:28.180 --> 00:01:30.000
+The queue processes all vertices
+
+47
+00:01:30.000 --> 00:01:31.920
+at distance d before vertices
+
+48
+00:01:31.920 --> 00:01:33.580
+at distance d plus one.
+
+49
+00:01:34.240 --> 00:01:35.500
+Any shorter route to a
+
+50
+00:01:35.500 --> 00:01:37.220
+newly discovered vertex would have
+
+51
+00:01:37.220 --> 00:01:38.300
+offered it from an earlier
+
+52
+00:01:38.300 --> 00:01:39.020
+layer already.
+
+53
+00:01:40.100 --> 00:01:42.220
+Let n count vertices and
+
+54
+00:01:42.220 --> 00:01:45.260
+m count edges. Initialisation costs
+
+55
+00:01:45.260 --> 00:01:47.740
+order n, each vertex enters
+
+56
+00:01:47.740 --> 00:01:49.140
+the queue at most once,
+
+57
+00:01:49.540 --> 00:01:51.460
+and adjacency lists scan each
+
+58
+00:01:51.460 --> 00:01:54.020
+directed edge once; undirected lists
+
+59
+00:01:54.020 --> 00:01:55.520
+scan each edge twice.
+
+60
+00:01:55.900 --> 00:01:57.960
+Distances, parents, and the queue
+
+61
+00:01:57.960 --> 00:02:00.400
+together need order n auxiliary
+
+62
+00:02:00.400 --> 00:02:02.300
+space, separate from the graph
+
+63
+00:02:02.300 --> 00:02:05.480
+representation. An adjacency matrix instead
+
+64
+00:02:05.480 --> 00:02:07.480
+scans n entries per expanded
+
+65
+00:02:07.480 --> 00:02:09.460
+vertex, giving an n squared
+
+66
+00:02:09.460 --> 00:02:10.840
+worst-case time bound.
+
+67
+00:02:11.220 --> 00:02:12.820
+Things to take note of.
+
+68
+00:02:12.820 --> 00:02:14.780
+Mark vertices at enqueue time,
+
+69
+00:02:14.780 --> 00:02:17.220
+and distinguish discovery from expansion.
+
+70
+00:02:17.940 --> 00:02:19.600
+Another neighbour order may change
+
+71
+00:02:19.600 --> 00:02:22.560
+parents while preserving distances; unreachable
+
+72
+00:02:22.560 --> 00:02:24.100
+vertices remain at infinity.
+
+73
+00:02:24.620 --> 00:02:26.840
+Repeat from unvisited starts if
+
+74
+00:02:26.840 --> 00:02:28.660
+you need all undirected components.
+
+75
+00:02:29.380 --> 00:02:31.500
+Ordinary BFS does not solve
+
+76
+00:02:31.500 --> 00:02:34.000
+arbitrary weighted shortest paths, because
+
+77
+00:02:34.000 --> 00:02:35.580
+fewer edges need not mean
+
+78
+00:02:35.580 --> 00:02:37.400
+less weight. Keep the queue
+
+79
+00:02:37.400 --> 00:02:38.740
+honest, and the layers take
+
+80
+00:02:38.740 --> 00:02:39.520
+care of themselves.

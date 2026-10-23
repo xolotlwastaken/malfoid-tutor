@@ -1,0 +1,361 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.900
+How are user threads mapped
+
+2
+00:00:01.900 --> 00:00:04.560
+to kernel threads? The user-level
+
+3
+00:00:04.560 --> 00:00:06.720
+threading abstraction and the kernel
+
+4
+00:00:06.720 --> 00:00:08.820
+scheduling abstraction need not be
+
+5
+00:00:08.820 --> 00:00:10.940
+one to one. Follow four
+
+6
+00:00:10.940 --> 00:00:12.520
+user threads through the three
+
+7
+00:00:12.520 --> 00:00:14.280
+mappings, and keep the number
+
+8
+00:00:14.280 --> 00:00:16.260
+of physical processor cores visible.
+
+9
+00:00:16.940 --> 00:00:18.920
+In many to one, several
+
+10
+00:00:18.920 --> 00:00:20.940
+user threads share one kernel
+
+11
+00:00:20.940 --> 00:00:23.780
+thread. A user-level library selects
+
+12
+00:00:23.780 --> 00:00:25.380
+which logical thread uses that
+
+13
+00:00:25.380 --> 00:00:27.920
+kernel execution context. Since there
+
+14
+00:00:27.920 --> 00:00:29.440
+is only one such context
+
+15
+00:00:29.440 --> 00:00:31.240
+for these threads, they cannot
+
+16
+00:00:31.240 --> 00:00:33.620
+run simultaneously on two cores
+
+17
+00:00:33.620 --> 00:00:34.440
+through that mapping.
+
+18
+00:00:35.060 --> 00:00:36.660
+Suppose one of those user
+
+19
+00:00:36.660 --> 00:00:38.260
+threads makes a blocking kernel
+
+20
+00:00:38.260 --> 00:00:40.260
+call. If its sole kernel
+
+21
+00:00:40.260 --> 00:00:42.160
+thread blocks, the kernel has
+
+22
+00:00:42.160 --> 00:00:44.480
+no other runnable execution context
+
+23
+00:00:44.480 --> 00:00:46.000
+for the remaining user threads
+
+24
+00:00:46.000 --> 00:00:47.520
+in that group. They may
+
+25
+00:00:47.520 --> 00:00:49.340
+all lose progress even though
+
+26
+00:00:49.340 --> 00:00:50.820
+another user thread has work
+
+27
+00:00:50.820 --> 00:00:51.240
+to do.
+
+28
+00:00:51.740 --> 00:00:53.340
+Do not confuse that case
+
+29
+00:00:53.340 --> 00:00:55.740
+with a library-level wait. A
+
+30
+00:00:55.740 --> 00:00:57.560
+cooperative library can park one
+
+31
+00:00:57.560 --> 00:00:59.080
+logical thread and switch to
+
+32
+00:00:59.080 --> 00:01:00.640
+another without asking the kernel
+
+33
+00:01:00.640 --> 00:01:02.100
+to block the sole kernel
+
+34
+00:01:02.100 --> 00:01:04.140
+thread. Which layer performs the
+
+35
+00:01:04.140 --> 00:01:05.840
+wait determines whether the whole
+
+36
+00:01:05.840 --> 00:01:06.740
+group is stopped.
+
+37
+00:01:07.060 --> 00:01:08.980
+In one to one, each
+
+38
+00:01:08.980 --> 00:01:10.680
+user thread has a corresponding
+
+39
+00:01:10.680 --> 00:01:13.300
+kernel thread. The operating system
+
+40
+00:01:13.300 --> 00:01:14.880
+can schedule those kernel threads
+
+41
+00:01:14.880 --> 00:01:17.800
+independently, including on separate cores.
+
+42
+00:01:18.320 --> 00:01:20.280
+One blocked kernel thread therefore
+
+43
+00:01:20.280 --> 00:01:22.240
+does not inherently block every
+
+44
+00:01:22.240 --> 00:01:23.460
+peer thread in the process.
+
+45
+00:01:24.140 --> 00:01:25.580
+The cost is that creating
+
+46
+00:01:25.580 --> 00:01:27.980
+many logical threads also creates
+
+47
+00:01:27.980 --> 00:01:31.600
+many kernel-managed execution contexts. Their
+
+48
+00:01:31.600 --> 00:01:33.240
+stacks and management data consume
+
+49
+00:01:33.240 --> 00:01:35.780
+resources, and creation or switching
+
+50
+00:01:35.780 --> 00:01:37.340
+can cost more than a
+
+51
+00:01:37.340 --> 00:01:40.580
+lightweight library-only operation. Greater scheduling
+
+52
+00:01:40.580 --> 00:01:42.780
+freedom comes with implementation costs.
+
+53
+00:01:43.380 --> 00:01:44.980
+Many to many maps a
+
+54
+00:01:44.980 --> 00:01:46.400
+larger set of logical threads
+
+55
+00:01:46.400 --> 00:01:47.720
+onto a pool of kernel
+
+56
+00:01:47.720 --> 00:01:50.220
+threads. Here four user threads
+
+57
+00:01:50.220 --> 00:01:52.600
+share two kernel contexts, allowing
+
+58
+00:01:52.600 --> 00:01:53.980
+at most two of these
+
+59
+00:01:53.980 --> 00:01:55.440
+threads to execute at once
+
+60
+00:01:55.440 --> 00:01:57.000
+when two cores are available.
+
+61
+00:01:57.800 --> 00:01:59.800
+The runtime chooses the user-to-kernel
+
+62
+00:01:59.800 --> 00:02:01.040
+assignments over time.
+
+63
+00:02:01.820 --> 00:02:03.840
+If one kernel context blocks,
+
+64
+00:02:04.300 --> 00:02:05.840
+another may continue to run
+
+65
+00:02:05.840 --> 00:02:08.360
+logical work; the exact result
+
+66
+00:02:08.360 --> 00:02:09.980
+depends on the runtime design
+
+67
+00:02:09.980 --> 00:02:12.520
+and available contexts. The mapping
+
+68
+00:02:12.520 --> 00:02:14.720
+itself does not guarantee ideal
+
+69
+00:02:14.720 --> 00:02:16.680
+load balance. A language feature
+
+70
+00:02:16.680 --> 00:02:18.200
+such as a coroutine also
+
+71
+00:02:18.200 --> 00:02:20.460
+does not, by itself, specify
+
+72
+00:02:20.460 --> 00:02:22.600
+one universal kernel-thread mapping.
+
+73
+00:02:23.140 --> 00:02:25.400
+The slides ask why not
+
+74
+00:02:25.400 --> 00:02:27.460
+map one sequential user thread
+
+75
+00:02:27.460 --> 00:02:29.960
+to many simultaneous kernel executions.
+
+76
+00:02:30.560 --> 00:02:32.540
+One instruction stream cannot simply
+
+77
+00:02:32.540 --> 00:02:34.520
+be executed twice as independent
+
+78
+00:02:34.520 --> 00:02:36.660
+progress without changing its semantics.
+
+79
+00:02:37.240 --> 00:02:39.600
+Extra execution contexts are useful
+
+80
+00:02:39.600 --> 00:02:41.280
+when there are multiple schedulable
+
+81
+00:02:41.280 --> 00:02:42.960
+logical activities to run.
+
+82
+00:02:43.420 --> 00:02:44.740
+Things to take note of.
+
+83
+00:02:45.100 --> 00:02:47.420
+Count logical threads, kernel contexts
+
+84
+00:02:47.660 --> 00:02:49.820
+and physical cores separately. For
+
+85
+00:02:49.820 --> 00:02:51.800
+every blocking question, state whether
+
+86
+00:02:51.800 --> 00:02:53.320
+the library parks a logical
+
+87
+00:02:53.320 --> 00:02:55.080
+thread or the kernel blocks
+
+88
+00:02:55.080 --> 00:02:57.760
+an execution context, then show
+
+89
+00:02:57.760 --> 00:02:59.700
+which remaining path can actually
+
+90
+00:02:59.700 --> 00:03:00.020
+run.

@@ -1,0 +1,417 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.320
+What does polynomial time mean
+
+2
+00:00:02.320 --> 00:00:03.840
+when numbers are in binary?
+
+3
+00:00:04.440 --> 00:00:05.880
+A decision language is in
+
+4
+00:00:05.880 --> 00:00:08.120
+P when some deterministic decider
+
+5
+00:00:08.120 --> 00:00:10.300
+has a fixed-degree polynomial runtime
+
+6
+00:00:10.300 --> 00:00:11.960
+in its input length. A
+
+7
+00:00:11.960 --> 00:00:13.640
+number’s value can be exponentially
+
+8
+00:00:13.640 --> 00:00:15.120
+larger than the bits used
+
+9
+00:00:15.120 --> 00:00:16.900
+to represent it, so counting
+
+10
+00:00:16.900 --> 00:00:19.280
+value-sized iterations can be deceptive.
+
+11
+00:00:19.580 --> 00:00:21.660
+An integer N in binary
+
+12
+00:00:21.660 --> 00:00:23.420
+uses about log base two
+
+13
+00:00:23.420 --> 00:00:25.380
+N bits. A loop taking
+
+14
+00:00:25.380 --> 00:00:27.840
+N iterations therefore takes exponentially
+
+15
+00:00:27.840 --> 00:00:29.340
+many iterations as a function
+
+16
+00:00:29.340 --> 00:00:31.280
+of that bit count. Writing
+
+17
+00:00:31.280 --> 00:00:32.740
+the same value in unary
+
+18
+00:00:32.740 --> 00:00:34.320
+changes the input length to
+
+19
+00:00:34.320 --> 00:00:36.180
+N and changes this particular
+
+20
+00:00:36.180 --> 00:00:37.340
+complexity comparison.
+
+21
+00:00:37.860 --> 00:00:39.960
+Trial division up to square
+
+22
+00:00:39.960 --> 00:00:42.580
+root N correctly tests primality,
+
+23
+00:00:42.820 --> 00:00:44.260
+but its number of divisions
+
+24
+00:00:44.260 --> 00:00:46.320
+is not polynomial in binary
+
+25
+00:00:46.320 --> 00:00:48.600
+length. Arithmetic on the trial
+
+26
+00:00:48.600 --> 00:00:50.260
+divisors also has bit cost
+
+27
+00:00:50.260 --> 00:00:52.060
+rather than being literally free.
+
+28
+00:00:52.620 --> 00:00:54.220
+A slow algorithm does not
+
+29
+00:00:54.220 --> 00:00:55.700
+establish a lower bound against
+
+30
+00:00:55.700 --> 00:00:57.820
+all other algorithms, so it
+
+31
+00:00:57.820 --> 00:00:58.840
+does not prove that the
+
+32
+00:00:58.840 --> 00:01:00.820
+language lies outside polynomial time.
+
+33
+00:01:01.180 --> 00:01:03.000
+For a unary input, reading
+
+34
+00:01:03.000 --> 00:01:04.780
+its N symbols already takes
+
+35
+00:01:04.780 --> 00:01:06.360
+linear time in its length.
+
+36
+00:01:06.840 --> 00:01:08.300
+Counting the symbols and using
+
+37
+00:01:08.300 --> 00:01:10.460
+binary work counters still permits
+
+38
+00:01:10.460 --> 00:01:12.500
+a polynomial implementation of the
+
+39
+00:01:12.500 --> 00:01:15.400
+same trial-division idea. Do not
+
+40
+00:01:15.400 --> 00:01:18.120
+report a sublinear total input-processing
+
+41
+00:01:18.120 --> 00:01:20.460
+time while silently skipping the
+
+42
+00:01:20.460 --> 00:01:21.680
+full unary read.
+
+43
+00:01:22.500 --> 00:01:25.560
+The tutorial subset-sum dynamic program
+
+44
+00:01:25.560 --> 00:01:27.580
+runs in time proportional to
+
+45
+00:01:27.580 --> 00:01:29.080
+the number of entries times
+
+46
+00:01:29.080 --> 00:01:31.060
+the target value. If that
+
+47
+00:01:31.060 --> 00:01:32.580
+target is written in binary,
+
+48
+00:01:33.080 --> 00:01:35.080
+it may be exponentially large
+
+49
+00:01:35.080 --> 00:01:36.440
+in its own bit length.
+
+50
+00:01:36.980 --> 00:01:39.280
+Such a pseudopolynomial bound does
+
+51
+00:01:39.280 --> 00:01:41.260
+not establish membership in P
+
+52
+00:01:41.260 --> 00:01:43.040
+for binary-encoded instances.
+
+53
+00:01:43.580 --> 00:01:45.400
+With n input numbers of
+
+54
+00:01:45.400 --> 00:01:47.120
+order n bits, the full
+
+55
+00:01:47.120 --> 00:01:48.740
+input may have order n
+
+56
+00:01:48.740 --> 00:01:50.340
+squared bits. A target of
+
+57
+00:01:50.340 --> 00:01:51.560
+two to n then yields
+
+58
+00:01:51.560 --> 00:01:53.760
+runtime roughly n times two
+
+59
+00:01:53.760 --> 00:01:56.000
+to n, superpolynomial in that
+
+60
+00:01:56.000 --> 00:01:58.100
+total input size. Calling it
+
+61
+00:01:58.100 --> 00:01:59.420
+two to a linear function
+
+62
+00:01:59.420 --> 00:02:00.540
+of the total size would
+
+63
+00:02:00.540 --> 00:02:01.760
+be a stronger claim than
+
+64
+00:02:01.760 --> 00:02:02.860
+this example supports.
+
+65
+00:02:03.300 --> 00:02:04.940
+Some bounds that look unusual
+
+66
+00:02:04.940 --> 00:02:07.380
+are still polynomial. A fixed
+
+67
+00:02:07.380 --> 00:02:09.040
+power of log n is
+
+68
+00:02:09.040 --> 00:02:11.160
+bounded by a polynomial, and
+
+69
+00:02:11.160 --> 00:02:12.560
+n to one hundred times
+
+70
+00:02:12.560 --> 00:02:13.920
+log n is bounded by
+
+71
+00:02:13.920 --> 00:02:14.280
+n to one hundred and
+
+72
+00:02:14.280 --> 00:02:16.980
+one. In contrast, n to
+
+73
+00:02:16.980 --> 00:02:18.500
+log n has no constant
+
+74
+00:02:18.500 --> 00:02:20.200
+degree, and two to square
+
+75
+00:02:20.200 --> 00:02:21.700
+root n is also superpolynomial.
+
+76
+00:02:22.780 --> 00:02:24.620
+The photo quiz includes n
+
+77
+00:02:24.620 --> 00:02:25.960
+raised to two plus five
+
+78
+00:02:25.960 --> 00:02:27.680
+over log n. For a
+
+79
+00:02:27.680 --> 00:02:29.500
+fixed logarithm base, n raised
+
+80
+00:02:29.500 --> 00:02:30.800
+to five over log n
+
+81
+00:02:30.800 --> 00:02:32.500
+is a constant, so the
+
+82
+00:02:32.500 --> 00:02:34.260
+whole expression is a constant
+
+83
+00:02:34.260 --> 00:02:36.120
+multiple of n squared. An
+
+84
+00:02:36.120 --> 00:02:38.120
+exponent containing n is not
+
+85
+00:02:38.120 --> 00:02:41.640
+automatically superpolynomial; simplify the expression
+
+86
+00:02:41.640 --> 00:02:42.920
+before classifying it.
+
+87
+00:02:43.380 --> 00:02:44.760
+To prove a language in
+
+88
+00:02:44.760 --> 00:02:47.260
+P, provide an algorithm, show
+
+89
+00:02:47.260 --> 00:02:49.300
+correctness and halting, and bound
+
+90
+00:02:49.300 --> 00:02:51.580
+every operation polynomially in the
+
+91
+00:02:51.580 --> 00:02:54.040
+complete encoding. This includes number
+
+92
+00:02:54.040 --> 00:02:56.000
+sizes and any output generated
+
+93
+00:02:56.000 --> 00:02:58.580
+during intermediate work. Exhibiting a
+
+94
+00:02:58.580 --> 00:03:01.100
+nonpolynomial algorithm supplies no lower
+
+95
+00:03:01.100 --> 00:03:02.940
+bound against all alternative methods.
+
+96
+00:03:03.580 --> 00:03:05.080
+Things to take note of.
+
+97
+00:03:05.600 --> 00:03:07.620
+Always name the input length
+
+98
+00:03:07.620 --> 00:03:11.440
+before manipulating runtime, distinguish value-polynomial
+
+99
+00:03:11.440 --> 00:03:14.260
+from bit-polynomial time, and include
+
+100
+00:03:14.260 --> 00:03:17.920
+input-reading costs. A superpolynomial upper
+
+101
+00:03:17.920 --> 00:03:19.800
+bound fails to prove membership
+
+102
+00:03:19.800 --> 00:03:21.720
+in P, while it also
+
+103
+00:03:21.720 --> 00:03:24.180
+fails to prove nonmembership; those
+
+104
+00:03:24.180 --> 00:03:25.760
+are two different proof obligations.

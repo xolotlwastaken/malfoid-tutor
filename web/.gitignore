@@ -1,0 +1,7 @@
+.vercel
+.env*
+dist
+.cloud-build
+node_modules
+
+.hosting-media

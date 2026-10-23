@@ -1,0 +1,493 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.280
+How does insertion sort work?
+
+2
+00:00:02.800 --> 00:00:03.980
+We will sort these six
+
+3
+00:00:03.980 --> 00:00:06.040
+numbers, derive the time complexity,
+
+4
+00:00:06.040 --> 00:00:07.460
+and finish with the details
+
+5
+00:00:07.460 --> 00:00:09.240
+you should remember. Do keep
+
+6
+00:00:09.240 --> 00:00:09.460
+up.
+
+7
+00:00:09.820 --> 00:00:11.660
+Keep a sorted prefix on
+
+8
+00:00:11.660 --> 00:00:13.420
+the left. The first element,
+
+9
+00:00:13.640 --> 00:00:15.920
+one, is already sorted. Take
+
+10
+00:00:15.920 --> 00:00:17.460
+the next element and move
+
+11
+00:00:17.460 --> 00:00:19.368
+it left across larger neighbours,
+
+12
+00:00:19.660 --> 00:00:21.100
+one adjacent swap at a
+
+13
+00:00:21.100 --> 00:00:21.440
+time.
+
+14
+00:00:21.860 --> 00:00:24.200
+Start with four. Compare it
+
+15
+00:00:24.200 --> 00:00:26.480
+with one. One is smaller,
+
+16
+00:00:26.780 --> 00:00:29.000
+so four stays put. The
+
+17
+00:00:29.000 --> 00:00:31.140
+sorted prefix now contains one
+
+18
+00:00:31.140 --> 00:00:31.800
+and four.
+
+19
+00:00:32.300 --> 00:00:35.380
+Next, take three. Four is
+
+20
+00:00:35.380 --> 00:00:37.240
+larger, so swap the adjacent
+
+21
+00:00:37.240 --> 00:00:38.460
+four and three.
+
+22
+00:00:38.820 --> 00:00:41.380
+Compare three with one. One
+
+23
+00:00:41.380 --> 00:00:43.700
+is smaller, so stop. The
+
+24
+00:00:43.700 --> 00:00:46.280
+prefix is now one, three,
+
+25
+00:00:46.700 --> 00:00:47.280
+four.
+
+26
+00:00:47.820 --> 00:00:50.060
+Take six. Four is smaller,
+
+27
+00:00:50.320 --> 00:00:51.580
+so no swap is needed.
+
+28
+00:00:52.060 --> 00:00:53.700
+Extend the sorted prefix to
+
+29
+00:00:53.700 --> 00:00:54.380
+include six.
+
+30
+00:00:54.900 --> 00:00:57.540
+Take five. Six is larger,
+
+31
+00:00:57.960 --> 00:01:00.000
+so swap six and five.
+
+32
+00:01:00.540 --> 00:01:02.360
+Four is smaller than five,
+
+33
+00:01:02.600 --> 00:01:04.540
+so stop. The first five
+
+34
+00:01:04.540 --> 00:01:05.560
+elements are sorted.
+
+35
+00:01:06.260 --> 00:01:08.320
+Now take two. It must
+
+36
+00:01:08.320 --> 00:01:09.900
+travel left through the sorted
+
+37
+00:01:09.900 --> 00:01:12.940
+prefix. Watch each comparison and
+
+38
+00:01:12.940 --> 00:01:13.220
+swap.
+
+39
+00:01:13.740 --> 00:01:15.580
+Six is larger than two.
+
+40
+00:01:15.960 --> 00:01:17.760
+Swap them, moving two one
+
+41
+00:01:17.760 --> 00:01:18.600
+position left.
+
+42
+00:01:19.060 --> 00:01:20.920
+Five is larger than two.
+
+43
+00:01:21.500 --> 00:01:22.260
+Swap again.
+
+44
+00:01:23.020 --> 00:01:24.840
+Four is larger than two.
+
+45
+00:01:25.200 --> 00:01:25.980
+Swap again.
+
+46
+00:01:26.580 --> 00:01:28.380
+Three is larger than two.
+
+47
+00:01:28.980 --> 00:01:30.020
+Swap once more.
+
+48
+00:01:30.540 --> 00:01:32.280
+One is smaller than two,
+
+49
+00:01:32.620 --> 00:01:34.680
+so stop. All six numbers
+
+50
+00:01:34.680 --> 00:01:37.048
+are sorted. That took eleven
+
+51
+00:01:36.540 --> 00:01:38.620
+key comparisons and six adjacent
+
+52
+00:01:38.620 --> 00:01:41.386
+swaps. They are different counts,
+
+53
+00:01:41.386 --> 00:01:41.820
+darling.
+
+54
+00:01:42.020 --> 00:01:44.160
+Why is stopping safe? The
+
+55
+00:01:44.160 --> 00:01:46.200
+prefix was already sorted, so
+
+56
+00:01:46.200 --> 00:01:48.529
+everything before that smaller neighbour
+
+57
+00:01:48.180 --> 00:01:49.900
+is also no larger than
+
+58
+00:01:49.900 --> 00:01:52.720
+the inserted element. Each insertion
+
+59
+00:01:52.720 --> 00:01:55.100
+preserves every record and enlarges
+
+60
+00:01:55.100 --> 00:01:56.040
+the sorted prefix.
+
+61
+00:01:56.540 --> 00:01:58.480
+To derive the worst case,
+
+62
+00:01:59.040 --> 00:02:01.140
+reverse the six numbers. Each
+
+63
+00:02:01.140 --> 00:02:02.580
+new element is smaller than
+
+64
+00:02:02.580 --> 00:02:05.760
+the entire prefix. Successive insertions
+
+65
+00:02:05.760 --> 00:02:08.840
+need one, two, three, four,
+
+66
+00:02:08.960 --> 00:02:09.960
+then five swaps.
+
+67
+00:02:10.340 --> 00:02:12.500
+For n elements, add one
+
+68
+00:02:12.500 --> 00:02:14.540
+through n minus one. The
+
+69
+00:02:14.540 --> 00:02:16.080
+sum is n times n
+
+70
+00:02:16.080 --> 00:02:17.780
+minus one, divided by two.
+
+71
+00:02:17.780 --> 00:02:20.440
+That grows quadratically, giving theta
+
+72
+00:02:20.440 --> 00:02:22.400
+of n squared worst-case time.
+
+73
+00:02:22.780 --> 00:02:25.200
+For already sorted input, each
+
+74
+00:02:25.200 --> 00:02:27.420
+insertion makes one key comparison
+
+75
+00:02:27.420 --> 00:02:29.440
+and stops. There are n
+
+76
+00:02:29.235 --> 00:02:31.340
+minus one such comparisons and
+
+77
+00:02:31.387 --> 00:02:33.900
+zero swaps. The best-case time
+
+78
+00:02:33.900 --> 00:02:35.060
+is theta of n.
+
+79
+00:02:35.460 --> 00:02:37.540
+For a uniformly random ordering
+
+80
+00:02:37.540 --> 00:02:39.520
+of distinct keys, each pair
+
+81
+00:02:39.520 --> 00:02:41.400
+is inverted with probability one
+
+82
+00:02:41.400 --> 00:02:43.560
+half. The expected swap count
+
+83
+00:02:43.560 --> 00:02:44.980
+is n times n minus
+
+84
+00:02:44.980 --> 00:02:47.580
+one, divided by four. Average
+
+85
+00:02:47.580 --> 00:02:49.100
+time is still quadratic.
+
+86
+00:02:49.660 --> 00:02:52.240
+More precisely, an inversion is
+
+87
+00:02:52.240 --> 00:02:54.060
+an earlier element larger than
+
+88
+00:02:54.060 --> 00:02:55.980
+a later one. Every adjacent
+
+89
+00:02:55.980 --> 00:02:58.520
+swap removes exactly one inversion.
+
+90
+00:02:59.300 --> 00:03:01.200
+With I inversions, runtime is
+
+91
+00:03:01.200 --> 00:03:02.800
+theta of n plus I.
+
+92
+00:03:03.440 --> 00:03:05.360
+Few inversions explain why nearly
+
+93
+00:03:05.360 --> 00:03:06.900
+sorted data can be fast.
+
+94
+00:03:07.460 --> 00:03:08.940
+Things to take note of.
+
+95
+00:03:09.480 --> 00:03:10.920
+Swap only when the left
+
+96
+00:03:10.920 --> 00:03:13.280
+key is strictly greater. On
+
+97
+00:03:13.280 --> 00:03:15.881
+equal keys, stop. Two A
+
+98
+00:03:15.980 --> 00:03:17.986
+must stay before two B,
+
+99
+00:03:18.020 --> 00:03:19.840
+so this version is stable.
+
+100
+00:03:19.840 --> 00:03:21.640
+Greater than or equal would
+
+101
+00:03:21.640 --> 00:03:22.860
+break that guarantee.
+
+102
+00:03:23.660 --> 00:03:25.835
+This iterative version is in-place.
+
+103
+00:03:26.240 --> 00:03:28.240
+Its indices and one temporary
+
+104
+00:03:28.240 --> 00:03:30.540
+swap value use constant extra
+
+105
+00:03:30.540 --> 00:03:32.720
+space. An empty array or
+
+106
+00:03:32.720 --> 00:03:34.560
+a singleton needs no insertion.
+
+107
+00:03:35.200 --> 00:03:36.620
+The outer loop starts at
+
+108
+00:03:36.620 --> 00:03:37.340
+index one.
+
+109
+00:03:37.780 --> 00:03:39.580
+Binary search can find the
+
+110
+00:03:39.580 --> 00:03:41.780
+insertion position with fewer comparisons.
+
+111
+00:03:42.260 --> 00:03:43.460
+But elements in an array
+
+112
+00:03:43.460 --> 00:03:45.400
+still have to move. Binary
+
+113
+00:03:45.400 --> 00:03:47.620
+insertion therefore still has quadratic
+
+114
+00:03:48.125 --> 00:03:49.460
+worst-case movement and time.
+
+115
+00:03:49.980 --> 00:03:52.240
+When tracing, show every insertion
+
+116
+00:03:52.240 --> 00:03:53.720
+and mark the growing sorted
+
+117
+00:03:53.720 --> 00:03:56.300
+prefix. Count key comparisons separately
+
+118
+00:03:56.300 --> 00:03:58.900
+from swaps. Remember: linear best
+
+119
+00:03:58.900 --> 00:04:01.020
+case, quadratic average and worst
+
+120
+00:04:01.020 --> 00:04:03.720
+cases, constant extra space, and
+
+121
+00:04:03.720 --> 00:04:05.420
+stable with the strict comparison.
+
+122
+00:04:05.346 --> 00:04:07.500
+Hmph. Your turn to explain
+
+123
+00:04:07.500 --> 00:04:07.720
+it.

@@ -1,0 +1,602 @@
+{
+  "/media/quicksort.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/quicksort.mp4",
+    "size": 3545085,
+    "sha256": "de6a44dc7bf5ca8e79689707fc0722d6537007f1b914810664abb1a218f2e695",
+    "sourceSha256": "4a7227fedc2b0975c808311f90d3f150328ef203e234ea5bd3ffe907411e86da"
+  },
+  "/media/merge-sort.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/merge-sort.mp4",
+    "size": 5687284,
+    "sha256": "e7bdc6c0c655186e99f27117d950c644e940cbdf757fdcfb7d139d85f72fec84",
+    "sourceSha256": "286e552ea847635791af6c9f9cd8a93376b204cdf4e5eb60287e928d788e1162"
+  },
+  "/media/insertion-sort.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/insertion-sort.mp4",
+    "size": 6461871,
+    "sha256": "dc8e27364a4da8d47de67532396c6b6f4f03170901812ce3db186c892573f56a",
+    "sourceSha256": "2557d6a08168c7e0ca9c66e57508418a31900b30a6c1b87dcf7e62b57a725781"
+  },
+  "/media/counting-sort.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/counting-sort.mp4",
+    "size": 3416683,
+    "sha256": "3372d5447eeb7406e0cea0b383c046688509e37c3893507a8d6babe2853444c0",
+    "sourceSha256": "1cc7f7ef96fa72a985b6a993821892711ba940945f9baeea5668ff356278fbde"
+  },
+  "/media/radix-sort.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/radix-sort.mp4",
+    "size": 3397287,
+    "sha256": "508203410a6021ce7c705f955d3ac71546779ef3e20bb4f1ca0424375014794e",
+    "sourceSha256": "dcc9500958b8f00e30ef709077b6cee87bcb287867f300847892fcab88d5c452"
+  },
+  "/media/heapify.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/heapify.mp4",
+    "size": 3099841,
+    "sha256": "251103771ce715e884264eb41bfc9fe02f5d78818d1687f3453a23939b1f7da3",
+    "sourceSha256": "fb42de4246e44bcf95a0d34a50c9090c54b90abb86eeb5fdc0ed48c0f496bf4a"
+  },
+  "/media/build-heap.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/build-heap.mp4",
+    "size": 3288651,
+    "sha256": "33809567a3865731e6dcdc3ae4f454892204483628d6185081f6e051a8169de7",
+    "sourceSha256": "1c1f15cd7ebc3368cefbfacd0e829fb94e6f6e70886bd7fc92267c1f468f18a5"
+  },
+  "/media/priority-queue.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/priority-queue.mp4",
+    "size": 3363075,
+    "sha256": "5f2243903bb266734929b0ea65b5b74faddb163743662fd5c8e5ff76867f893e",
+    "sourceSha256": "dca36a273bfca14c5c6047b9fce4adcfc0b7edcabfdbf98e2cc7885168e8394b"
+  },
+  "/media/breadth-first-search.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/breadth-first-search.mp4",
+    "size": 3327898,
+    "sha256": "8f07fcbba139c5af9abd5c65d3d74a512ef801ee8d0e4614009c002b55577b7b",
+    "sourceSha256": "00d07ae69ffc797ec8d2ca8a341b94515563ec448efceea0c006126a41824de4"
+  },
+  "/media/heapsort.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/heapsort.mp4",
+    "size": 5226780,
+    "sha256": "4b33c32265ef023f863701bd4a3bc988820202e714c66545937a440b5517eeb2",
+    "sourceSha256": "e56dcc3cb28fe996fc4cc3f41e92e9bf1aaf1fd5a8b4344612e5609434b66d67"
+  },
+  "/media/depth-first-search.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/depth-first-search.mp4",
+    "size": 3390216,
+    "sha256": "ae82395e573b6f22d1bc13d060901fd5ac138cee42881d4f779d26d17f4bc219",
+    "sourceSha256": "24aa6a7e79a85340eacd2e63f6eaffcd512e98a8ffc29be597f77538265a04a5"
+  },
+  "/media/bellman-ford.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/bellman-ford.mp4",
+    "size": 3427272,
+    "sha256": "13877b34869ae4511e8edbc422acef52b00a3e44fb308c463d1bef0e6f3f1c68",
+    "sourceSha256": "bac466549060494155dbe5a9db0df78b2edc88dc0966bbc1f5da97a1bd8d97f0"
+  },
+  "/media/topological-sort.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/topological-sort.mp4",
+    "size": 3482932,
+    "sha256": "7582cc147e87f8dd97e015657d8195d10b681c742d0167cf1681fc23c1668dab",
+    "sourceSha256": "04e42156ac012c24839bac9ac0ab77071182234b436eac291918f71534c501b3"
+  },
+  "/media/dijkstra.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/dijkstra.mp4",
+    "size": 3512338,
+    "sha256": "e58dd9035646227184cd58d0e7d146e489d996b91467912acdf83f858a1e972a",
+    "sourceSha256": "b5276469ddaf5f4fd32d43cb925d24e94740e5b3023e95698a0fbe020b08955b"
+  },
+  "/media/dag-shortest-paths.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/dag-shortest-paths.mp4",
+    "size": 3457992,
+    "sha256": "322be3f17faa1c13eed564e59e85a93a51a9fd4579fa28474e5f221106e5ea3d",
+    "sourceSha256": "2efe0a12c75614483a1b2c98feb13a53b83023fce8157471f15a0f851c367082"
+  },
+  "/media/union-find.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/union-find.mp4",
+    "size": 7859428,
+    "sha256": "76211fbbb7d8476e6ca4afe0ea8ae74bd7bc20c326b5e1957d1d2b92dea166b7",
+    "sourceSha256": "61966a833e0512b23215a06a70f8020a79ae87b06e6c69ed39a58effa7225a7a"
+  },
+  "/media/prim.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/prim.mp4",
+    "size": 10302876,
+    "sha256": "db3f3908574c2dd3afb587a9647905d712a74845538142b193fd5e81fa4c4353",
+    "sourceSha256": "7f12a60f99f45ad3765db6a0334eda66c3ea777fc8934fafd27b5b0810e648f7"
+  },
+  "/media/sc2005-01-os-foundations.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-01-os-foundations.mp3",
+    "size": 2178861,
+    "sha256": "16ed1175d0478b8a6f954ec45bbf0ba52c22b450573ec9578cda27ab90404a5a",
+    "sourceSha256": "abfcd89f6a3773e840ce94c6f15b2865ae759f88c26bdc4f888425ff33c437b2"
+  },
+  "/media/sc2005-02-io-methods.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-02-io-methods.mp4",
+    "size": 4488733,
+    "sha256": "e06fed17697c65e315d1936fb698f11db7ee7a2e247669796e5fa919cd1f7762",
+    "sourceSha256": "5b3827658bce48e0ac84ce5d19411350a60793b0b04ebeb13a85e41ac1c4d47f"
+  },
+  "/media/sc2005-01-os-foundations.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-01-os-foundations.mp4",
+    "size": 6898047,
+    "sha256": "520fa561cea196653ad87526971e9add250a6789fadb390c96016d8e478c47f1",
+    "sourceSha256": "8f4ce4c74db05384ea7f13facc6bc6bafefed35572e2a05be13ebac6068ba6e7"
+  },
+  "/media/sc2005-02-io-methods.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-02-io-methods.mp3",
+    "size": 1414317,
+    "sha256": "14f53e45fa607924403ed74308b8a8954f81f3eddc3d928e059e7c8fdd862fa1",
+    "sourceSha256": "27825b981db5ae8d83ead93d62ba40afa98c34effa0729643b0f209b58666b18"
+  },
+  "/media/kruskal.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/kruskal.mp4",
+    "size": 12240634,
+    "sha256": "a91042c20b5474bef0835b317b2b05f33e83c25a01e96bc711820226bf2dc4eb",
+    "sourceSha256": "0f83adb65b44f23e8fcd31f7855de3bef64df4cf5940a20636131f19a0717b69"
+  },
+  "/media/sc2005-03-hardware-protection.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-03-hardware-protection.mp3",
+    "size": 1387437,
+    "sha256": "966ce991ce7f57bd628e3b1a827044e30418c5c5865503000cf3a827ac4e6402",
+    "sourceSha256": "af41654e639c16ee4b05c487444d772ed5c902a65aab71f049c9b28d3e3f9c15"
+  },
+  "/media/sc2005-04-system-calls.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-04-system-calls.mp3",
+    "size": 1397037,
+    "sha256": "19f179e59fb0fc222bae9d918ff44376c5ff3bbe3ec653bb38662e86f55460ae",
+    "sourceSha256": "9fd8aff51ff2e572ad380b1db23db5ecc54faf570f8bba130b51f204946ab263"
+  },
+  "/media/sc2005-03-hardware-protection.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-03-hardware-protection.mp4",
+    "size": 4357568,
+    "sha256": "d79e311f2b798c7b9de08fd19afd40effb2eabaee6733e6bd078b51e67c843d2",
+    "sourceSha256": "6ab36f3fa179b790d62cced4aa2eb44ebec8ffa77f5f2440ae4e924e58a33484"
+  },
+  "/media/sc2005-04-system-calls.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-04-system-calls.mp4",
+    "size": 4358018,
+    "sha256": "2f586b0c2c67462c4ca68e9eb55830962d674ad12f2362f500835657a4c1801f",
+    "sourceSha256": "9e99b09249805616ea8583f0a0c101e97f49295fa13bb31cd9f767234dea4ade"
+  },
+  "/media/sc2005-05-process-states.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-05-process-states.mp3",
+    "size": 1361133,
+    "sha256": "dd9ca40f6f3d7213f1b116b87fc21ca4bd6f930d495603cf9be2d87ac0553abe",
+    "sourceSha256": "4f77a562bb55c9ae7a0a3a1264cea5ec9fc7a2fa842c58d8b0a9eaf97bae6ad9"
+  },
+  "/media/sc2005-06-fork-exit-wait.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-06-fork-exit-wait.mp3",
+    "size": 1457133,
+    "sha256": "b5b27dec5400a7d384d1e435cb011bcb72ee00eb82b5db318d02e1fdc334966e",
+    "sourceSha256": "0d64d8532683902e17fc9e863dfa40ea103965b310aabccdf9265c263cbea085"
+  },
+  "/media/sc2005-05-process-states.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-05-process-states.mp4",
+    "size": 4298853,
+    "sha256": "e015cf40474f747f45e4a50ad7e2705dae5c97129e832fbd29c381f32bb6c570",
+    "sourceSha256": "a23ed4c84d7648bd799f0b2e0f7568208eb9c1e2e0b24ef3008cafe92757b9aa"
+  },
+  "/media/sc2005-07-interprocess-communication.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-07-interprocess-communication.mp3",
+    "size": 1412397,
+    "sha256": "5a01932a37338bf39e1810de27f67e36273e65644cf49d7a3642ac5993a6454c",
+    "sourceSha256": "d09ade1f9fdc1ec4e330cfcc60bf1dedf38386c790c4e7a38568ef549c15e2a8"
+  },
+  "/media/sc2005-06-fork-exit-wait.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-06-fork-exit-wait.mp4",
+    "size": 4469936,
+    "sha256": "951231b55787dbe0eb5ffa186b831c1010553f9e29f05cdcb2eddd7fad66577f",
+    "sourceSha256": "1ac9e539cb5d4aabdfa84831d1e11050953e230b425e74360dc4862c8983b3db"
+  },
+  "/media/sc2005-08-thread-resources.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-08-thread-resources.mp3",
+    "size": 1421421,
+    "sha256": "22dfea362520da9c49d176194f2895452d2ab91a31cf6fc0dba93e221a1fa8a3",
+    "sourceSha256": "fb781343cc201e0bd2ebfa3dd40d9ab6c2519f4243411ba173a6ee1419c0a766"
+  },
+  "/media/sc2005-07-interprocess-communication.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-07-interprocess-communication.mp4",
+    "size": 4419656,
+    "sha256": "af3eb245d7033cf6009a77561b7bc0d56d4638988f468fb5cafb93263fb010e4",
+    "sourceSha256": "bc19110c175f7800ca0a9a14df2dee88b1026cf4d9cf31e53379934261343933"
+  },
+  "/media/sc2005-09-thread-mappings.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-09-thread-mappings.mp3",
+    "size": 1455213,
+    "sha256": "1527a741c319b8abb35879726078283de339e7f392bf855e46bc69e95ab28121",
+    "sourceSha256": "e9f2f6e361aa6a2d34360b21f660834f59a68d9fb72b4b4b7a0c8858ff798da3"
+  },
+  "/media/sc2005-08-thread-resources.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-08-thread-resources.mp4",
+    "size": 4488404,
+    "sha256": "0f9745c3299bbb388d0ecbb3520f2c11ef77837f70e0fdfce330ae5dfa3dfa74",
+    "sourceSha256": "741497dd85ac7eeae0dede681f6ca853f7f332a17a195ee4e605eafb01d8091e"
+  },
+  "/media/sc2005-10-scheduling-metrics.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-10-scheduling-metrics.mp3",
+    "size": 1437933,
+    "sha256": "1cd17e4f21af968babf572ff985940764f0d50314389b16a98546ddfb625df6e",
+    "sourceSha256": "546159074aa89edfabcfda08919a20483df42dbce185ee54569b5d627888ef36"
+  },
+  "/media/sc2005-09-thread-mappings.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-09-thread-mappings.mp4",
+    "size": 4587100,
+    "sha256": "bce041406976881e0dfb256b7eb78e4a903dcc4b345c362104f5780a4360cd74",
+    "sourceSha256": "36b5ee0cd66cb62b83c8e3bd32aee4774fd960d6af2b245237fa9794e721706e"
+  },
+  "/media/sc2005-11-fcfs.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-11-fcfs.mp3",
+    "size": 1350381,
+    "sha256": "335d5ec2d40b293d373284c0e3457884f686107eab3c385a237b7ed3f4417173",
+    "sourceSha256": "352ca1f7da6874ad759ff5e0aa869f2bd8a138ba37a6267c30675c0341fafb6a"
+  },
+  "/media/sc2005-10-scheduling-metrics.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-10-scheduling-metrics.mp4",
+    "size": 4541183,
+    "sha256": "50cab3af1a5d63a9683e7c78cac09d6498aa563d255c92a0cd2e54ec1480385c",
+    "sourceSha256": "e43b20c784297eb52659d3670fb3ac92f69d90911bc2d6d44cee5ce4c28cabc5"
+  },
+  "/media/sc2005-11-fcfs.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-11-fcfs.mp4",
+    "size": 4218128,
+    "sha256": "a0b2cf975e8e20bdc7d3b741b0002a1788b5d9907042388f2d9bc13aa1e17cd7",
+    "sourceSha256": "1c7efbf90020611bd73abdc2a68582c6bdbcef435adb85b99eba696ae4b63062"
+  },
+  "/media/sc2005-12-sjf-srtf.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-12-sjf-srtf.mp3",
+    "size": 1444461,
+    "sha256": "75d3d3e003228607aa294d037f5b30b7fa552afa4bc9ae6070a9880ddd4a37af",
+    "sourceSha256": "cf22ada1e46b2ba77727b373a7f484787dcdb1616e3d081e32139233c7206673"
+  },
+  "/media/sc2005-13-priority-starvation.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-13-priority-starvation.mp3",
+    "size": 1448877,
+    "sha256": "de5ab28f84e3c89b29fb8598853291e254e885e0866470597568c148412aa7e0",
+    "sourceSha256": "4bfd00f16a53206c0b12849304cd64a389222c8cf7b066a99c9dff20af15a4f8"
+  },
+  "/media/sc2005-12-sjf-srtf.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-12-sjf-srtf.mp4",
+    "size": 4480785,
+    "sha256": "dae5cb982cf9fd075e0d485324f0865c360806e3d1a5a582ce4091d0b92b466f",
+    "sourceSha256": "187d48c6d731e765dfcb376db21d2794504799afc94301bc652309ff3ae6dedf"
+  },
+  "/media/sc2005-14-round-robin.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-14-round-robin.mp3",
+    "size": 1381101,
+    "sha256": "9d775b8c24849366cc970f7dad52e5551a63b0a2c839d04e8dd90573ac06d6c4",
+    "sourceSha256": "934b2a7da4a43aeea261d7704e01b43b82308e45d504168af4fb851fa36a1243"
+  },
+  "/media/sc2005-13-priority-starvation.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-13-priority-starvation.mp4",
+    "size": 4633500,
+    "sha256": "ebba84a6e4e5a0955f65a3ce633d35cdd024f0842fa7a1f0dfc916664353704b",
+    "sourceSha256": "dfaa3baab10fd41aedb32cb2974fba12ebd1375ef03ab7f7fe0cee5e69c3a114"
+  },
+  "/media/sc2005-14-round-robin.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-14-round-robin.mp4",
+    "size": 4383030,
+    "sha256": "fd6bd556fca4d47a3313a487e6fce096ad89af335df93dd62d70661b5c7c239b",
+    "sourceSha256": "67fdcfa485b8ea19da37e6c294515d329162ec5272269cb0a43a585c312477ea"
+  },
+  "/media/sc2005-15-queues-and-cores.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-15-queues-and-cores.mp3",
+    "size": 1489773,
+    "sha256": "6a0c06cb90fe423cf0be455ec468ad5c892ab4dc5ce067275271b0397fe9a395",
+    "sourceSha256": "f48c282cf77828173eef68b3c9529544e5259683dd018adb202294402bea04de"
+  },
+  "/media/sc2005-16-race-conditions.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-16-race-conditions.mp3",
+    "size": 1343853,
+    "sha256": "7370e776965a57b9826d3a7c0347378b0462abb1d7138a7cb98a2da6df50ffda",
+    "sourceSha256": "d9ca2d9a376b282131d5564d7c8e83a1a2ad700c2e1ece3be717b54985040e80"
+  },
+  "/media/sc2005-15-queues-and-cores.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-15-queues-and-cores.mp4",
+    "size": 4732263,
+    "sha256": "1e67c89a64b05aba4c5f4168e662b1c2709e514ced7da6ef36e72744396427e5",
+    "sourceSha256": "6ac098c65dbc1b5cb29ac1f0c8cdd7ea746e040bb89be7da5210c3c27f354fdd"
+  },
+  "/media/sc2005-16-race-conditions.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-16-race-conditions.mp4",
+    "size": 4288277,
+    "sha256": "fe1e68de8eb1fa56a1e9f30fa1cdb9689dcce35f2d3602cf353b1baf107a5979",
+    "sourceSha256": "b5e915b613eac0c9a550c68dce1d6c62681aba2d8f3c35cc0c343229db9ef67c"
+  },
+  "/media/sc2005-17-critical-section-properties.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-17-critical-section-properties.mp3",
+    "size": 1389933,
+    "sha256": "c9b51fc43542b430f08c52bedbd7b6905d987e4ae2bd8a39d8801348b4e697e0",
+    "sourceSha256": "59b59b5478ef82f6a7a2503c25ab78472f160182f73e748dac9115c98bd700a8"
+  },
+  "/media/sc2005-17-critical-section-properties.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-17-critical-section-properties.mp4",
+    "size": 4307026,
+    "sha256": "6c0e25636a9023252866783e79ceb4e78596c808979f546fd278472178224a5c",
+    "sourceSha256": "b747be7511bab1a4936af2e35e10e99ceb9913fbcd9a0be4454ae84c1133ff2b"
+  },
+  "/media/sc2005-18-peterson.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-18-peterson.mp3",
+    "size": 1477101,
+    "sha256": "75794ba36fe25ff687bcec5af19af0fe7058ee0384d45d5e26c71e02cd2b5e62",
+    "sourceSha256": "e976016b41531363417daa6ffc974783744594e8696d194170fab2f7070707e6"
+  },
+  "/media/sc2005-19-test-and-set.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-19-test-and-set.mp3",
+    "size": 1389357,
+    "sha256": "7d885b3dc5d95b09ab760f2a87233f04e0ed577047e20fbf7ef53d36032d1dd5",
+    "sourceSha256": "c2a1da1c12c8bd870fb53a1413e33c824bfcba3d0e039e1f9a46fb0251ee2536"
+  },
+  "/media/sc2005-18-peterson.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-18-peterson.mp4",
+    "size": 4549641,
+    "sha256": "8f7b7c263b5a6f2957337b06aef05c0d330981b08d5c794b4d99d6b4ff0c1fd1",
+    "sourceSha256": "2a88213669f6b0983c27eaf5754108ae3bb8a12ecd776c07588e8c6fb4daf518"
+  },
+  "/media/sc2005-20-blocking-semaphores.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-20-blocking-semaphores.mp3",
+    "size": 1402221,
+    "sha256": "19b0e61c7e42c62711c49f798ce76a658b5433493ba53cb632eed1981320c683",
+    "sourceSha256": "aa2aa5cf809a62405436e40938d6cd4dbd1862d009e05111b273d87663e0bafd"
+  },
+  "/media/sc2005-19-test-and-set.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-19-test-and-set.mp4",
+    "size": 4272022,
+    "sha256": "6ca9f4312537fabf8361d2a38ca3ff279c58aa9eb04f5d2574774cee7681833b",
+    "sourceSha256": "ce4fc00d974b56d29f1cf0a03756ebec94455a1b3075365d7e6c136f8c35e649"
+  },
+  "/media/sc2005-21-semaphore-design.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-21-semaphore-design.mp3",
+    "size": 1334253,
+    "sha256": "ec99184edfa4038dcc5b84c65848b8b24e6a1346da0289b922d2e36ebde1fa80",
+    "sourceSha256": "73c9807e21252519dd93134ea4eeae191776ef5dca839a3a78779b3765f3a286"
+  },
+  "/media/sc2005-20-blocking-semaphores.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-20-blocking-semaphores.mp4",
+    "size": 4376468,
+    "sha256": "47ccd7f56f5857c1a3cf67b566eedcbb3d111fa02932cefad346cf6e3fc0b6d6",
+    "sourceSha256": "fbd8ad4656d5809e3e45aa9fcaee60697ad5def666b5e47f361c57fb92dc311f"
+  },
+  "/media/sc2005-22-bounded-buffer.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-22-bounded-buffer.mp3",
+    "size": 1407213,
+    "sha256": "9c083f699f21b88ca6f418a8a8c8f4da214d6bf3c6e318deb15e57de5b88ebdb",
+    "sourceSha256": "28904362f6ca470bef040aa17f9ef9284e7baa9d1c914302937ab6f974406f7b"
+  },
+  "/media/sc2005-21-semaphore-design.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-21-semaphore-design.mp4",
+    "size": 4179496,
+    "sha256": "4ca6a58252411900072facc2b4eb8fb55672229d3b4f093a9d106980e5d70787",
+    "sourceSha256": "538691750ea68b5fe300aa795f9f41a91396c4658a181a80691bb169c5191fb9"
+  },
+  "/media/sc2005-23-dining-philosophers.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-23-dining-philosophers.mp3",
+    "size": 1312557,
+    "sha256": "f23d4f44427d60560e4886481ab962e56e899f5e3d46d899ed16b1621abe5a4d",
+    "sourceSha256": "35847a7f3d2df38d5b51bd3b2c323e6e0ce2798a387ffb4c80a239d687ffc3a6"
+  },
+  "/media/sc2005-22-bounded-buffer.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-22-bounded-buffer.mp4",
+    "size": 4428839,
+    "sha256": "f71d39a35e276dbc754742bc8b8c297d9fc8bf55b3970a13831a68d2a123e801",
+    "sourceSha256": "ae566006cf987aeafc3d21a4cc541e6221c1f86a3dc6c7574598e4404fa27032"
+  },
+  "/media/sc2005-23-dining-philosophers.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-23-dining-philosophers.mp4",
+    "size": 4135805,
+    "sha256": "3816426f9d39b6df41d9afd1f04d17cc6ca150ebe0f87e6eb54b49c8deac824c",
+    "sourceSha256": "7b3399cabc9d443ca60f99cb1daf954ef45aea9b7c0aadb6fe457cfb7cf59003"
+  },
+  "/media/sc2005-24-readers-writers.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-24-readers-writers.mp3",
+    "size": 1306221,
+    "sha256": "43b711207b13cd775428e29b912d16d0f421521cd734f2fa2bb7d4fa3bf8a16e",
+    "sourceSha256": "2d29fe647a3800d37f5a071a9761d7b6125ade4ea26bd6a861657805debf3887"
+  },
+  "/media/sc2005-25-deadlock-graphs.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-25-deadlock-graphs.mp3",
+    "size": 1229421,
+    "sha256": "e3390eb9b7b2a8a32ac0dcea1cb4f70500ea92991aa6fd5519b7f5bbace2d63b",
+    "sourceSha256": "837551c9a67cdc538b37bfa2cdcaa28f7515d1a9668c39264a6d798f791547b1"
+  },
+  "/media/sc2005-24-readers-writers.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-24-readers-writers.mp4",
+    "size": 4095004,
+    "sha256": "41ce2b328938461a0de77ad52fa2b55a19b3544c64f0c1cea4af56cdfe584716",
+    "sourceSha256": "8bc1365ccec2d7199752f279a6e893e692452c3fcae057e38634cd89f9559eee"
+  },
+  "/media/sc2005-26-deadlock-prevention.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-26-deadlock-prevention.mp3",
+    "size": 1368813,
+    "sha256": "6437df58e0a9f92f0d1d38d0cef94067570c92ca646a77f184c4b84a86104ca7",
+    "sourceSha256": "dba67dde8fc39738048b09265b5b98ed2e4874f2fc39ec7840a729edf2e2ca89"
+  },
+  "/media/sc2005-25-deadlock-graphs.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-25-deadlock-graphs.mp4",
+    "size": 3930478,
+    "sha256": "5b3b825eadbfc71af4c15ab9787a08f625ba6c15dc1812d8961508617cb2c7d9",
+    "sourceSha256": "e83a48c53814cd011062a3a4a4fcbc37d1fbc54f9a0fd8f938fd59efb68731ba"
+  },
+  "/media/sc2005-27-banker-safety.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-27-banker-safety.mp3",
+    "size": 1425837,
+    "sha256": "856a10d5813d48f01d20a2462f4bfc5a748f64a6dfe6dee24dabcfed072f5870",
+    "sourceSha256": "fa9f6c832eed1b010931c646a25d3349288e230c83311c4fdb8fc626b49591f2"
+  },
+  "/media/sc2005-26-deadlock-prevention.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-26-deadlock-prevention.mp4",
+    "size": 4218167,
+    "sha256": "7cb0d270df7838b24016cefc508df22df712eef769004e5d156fe4d0d2ca9d10",
+    "sourceSha256": "618178f76f4745ffeeecf21725a7bf893dab905fb054ad09da54ad933a7f8b14"
+  },
+  "/media/sc2005-28-banker-requests.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-28-banker-requests.mp3",
+    "size": 1335021,
+    "sha256": "11b14fbe943c7f26136acb034a06cbc4e3180ad84da7946f3b9639937114df18",
+    "sourceSha256": "725389c897924586d18c5421a8653b747f829bb36614165dc598aa1d96bff4e2"
+  },
+  "/media/sc2005-27-banker-safety.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-27-banker-safety.mp4",
+    "size": 4485311,
+    "sha256": "aa57bed3bc2be439980688d4b4a704bb1f0b69662739bc4313d3b4101dfebb81",
+    "sourceSha256": "0e4d21721872d1ac07e5789e216a0a4547b53534518bc0c2f5f83e2e052cc480"
+  },
+  "/media/sc2005-28-banker-requests.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-28-banker-requests.mp4",
+    "size": 4184788,
+    "sha256": "089356144562670a76273183ec297881990ad0b132d9ae4dc5a59be930d0b703",
+    "sourceSha256": "660bafffc5db61824ea42a9019ddeaa0c6597331f17a341ee99123a7c81eeb0c"
+  },
+  "/media/sc2005-29-real-time-model.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-29-real-time-model.mp3",
+    "size": 1386093,
+    "sha256": "a3507bc0690374cf6031a8ce5518fcf6731a93f0d482771626d31ffa3f3e55cd",
+    "sourceSha256": "1c0c29c9f578b1db134f66a1e82975f126e9ae54a77c18cd0cc56cf6e9855b17"
+  },
+  "/media/sc2005-30-rate-monotonic.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-30-rate-monotonic.mp3",
+    "size": 1357293,
+    "sha256": "2956598021cac1a67957452724e28d389a8ceba03b1683743faf01da300f6c5b",
+    "sourceSha256": "920f6d948dec150e0e9e0a9ad13c0a93f358de98655c02a0d46d789347733758"
+  },
+  "/media/sc2005-29-real-time-model.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-29-real-time-model.mp4",
+    "size": 4319144,
+    "sha256": "aa4fc39b84fcfd000e4f9a9028c65e758f685e6de259947a4040d467eee30123",
+    "sourceSha256": "0716f99dfe23d8126b719c20a7638dbbc6edd700f357f58ebb3994e0d1ec1070"
+  },
+  "/media/sc2005-31-earliest-deadline-first.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-31-earliest-deadline-first.mp3",
+    "size": 1440621,
+    "sha256": "3bdfe2e443361ffd6513efdccffabe286d0d3dd663db77d507b966e51855d0e2",
+    "sourceSha256": "2fd80451e7401ffca04fc953d0d1c0f5bd644ea674b363f4028d4d4901e0bc09"
+  },
+  "/media/sc2005-30-rate-monotonic.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-30-rate-monotonic.mp4",
+    "size": 4300537,
+    "sha256": "c95232bb8941a462b849e0759f238342ada5b36ea9282383db84cfdc49d52397",
+    "sourceSha256": "37b93bc2fe27f2a6c2a0c85a14e98b5062558f97374228774696e3f152b66ee6"
+  },
+  "/media/sc2005-32-virtualization-abstractions.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-32-virtualization-abstractions.mp3",
+    "size": 1409133,
+    "sha256": "ab300cf7600dea5e74d23b5ae5a2a2f1a00914285bf6f9cbfafb02b5df42fcd1",
+    "sourceSha256": "a5ae7420f5813962819eb83945d3a392c7d00bca04f01363c2d6efd4c9159e51"
+  },
+  "/media/sc2005-31-earliest-deadline-first.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-31-earliest-deadline-first.mp4",
+    "size": 4597392,
+    "sha256": "1c15417f90bb09818cda77b36dae05c303a24572b284e2fc2ba0b5fc7234a47e",
+    "sourceSha256": "323b53aaefb7952299239b73fa397eb4c8ac82849f1d0e5567286118983e5988"
+  },
+  "/media/sc2005-33-hypervisor-layers.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-33-hypervisor-layers.mp3",
+    "size": 1441197,
+    "sha256": "ef65d2447a6670b1b378081d26a0479f8fa1e7261b47a8748219ad3fb40d5e50",
+    "sourceSha256": "421631454f9908538f4e4afc7a9923cc8c09149e522c32f88ae5e7b71f0c4d13"
+  },
+  "/media/sc2005-32-virtualization-abstractions.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-32-virtualization-abstractions.mp4",
+    "size": 4897208,
+    "sha256": "068d36ba63283562ecd6bc82d05729dda2a8e9fafddd46a9dc1f5d68d58ab8da",
+    "sourceSha256": "5b20ad2baef8f26e7364c907cc4ade85ec74753cf7aebbe7f1b98c90dde606e5"
+  },
+  "/media/sc2005-34-virtualization-control.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-34-virtualization-control.mp3",
+    "size": 1458477,
+    "sha256": "7edcda75c66752c0ffeeb80a490616f1d2e842d9982a0d8ebafec768099a3d1f",
+    "sourceSha256": "5793e1acb04d7a1623dd02b15dd91d8ceef8a3b4c0b4e13ea4a6f662f2a88f99"
+  },
+  "/media/sc2005-33-hypervisor-layers.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-33-hypervisor-layers.mp4",
+    "size": 4947821,
+    "sha256": "b668be1b68f6d7cad9b79267460bde7d778614dba3735112b79133781e2a6055",
+    "sourceSha256": "64b03841e9f0f50e97798a20b3c00703515d26987f62e4681b605481010d77e9"
+  },
+  "/media/sc2005-X01-scheduling-event-clinic.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-X01-scheduling-event-clinic.mp3",
+    "size": 1418733,
+    "sha256": "cac27f96f88d7744905d4c5b2a544cc75517ad17ef00c520c8ee3507ab396b5b",
+    "sourceSha256": "1d214009cc7f8ca5429e86fba738e68358b8e66ea473bd5b6d9ad85cf63ebafb"
+  },
+  "/media/sc2005-34-virtualization-control.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-34-virtualization-control.mp4",
+    "size": 4703050,
+    "sha256": "4f980cca00e0d848a54363eed5c13ee5b20c55ae1347742a69b1c4d09c0373a7",
+    "sourceSha256": "87c1f32c1abc980e570aceff79c6495bd61792aca91ebe10f16981b02ad919ff"
+  },
+  "/media/sc2005-X02-reverse-banker-clinic.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-X02-reverse-banker-clinic.mp3",
+    "size": 1418157,
+    "sha256": "a76c6146ecaae9d400c468fd6f932c51717c1355614891e9a9b393ac2a7e559b",
+    "sourceSha256": "816f9f9fa6733363d77b6c9e6fa0faf155e900b465a4d6887852abf81da557f5"
+  },
+  "/media/sc2005-X01-scheduling-event-clinic.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-X01-scheduling-event-clinic.mp4",
+    "size": 4498852,
+    "sha256": "86d08d055d82d7861d9bdbd3a8a809cccd83a5711f5a920ae135f60c90e05f70",
+    "sourceSha256": "2598ba9c1057915fdff09c8b9d9508aaa5c94048ac7b597b5408210d674ad267"
+  },
+  "/media/sc2005-X03-deadline-policy-clinic.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-X03-deadline-policy-clinic.mp3",
+    "size": 1492461,
+    "sha256": "20df18070d5e63e29f955f00cea27b177ee7a474ae8e0d034cbfb5a33bf9368a",
+    "sourceSha256": "66b1dcf0f825d17132039fa8d5133f179cfe595aa1cd5edcd8a641796231f77d"
+  },
+  "/media/sc2005-X02-reverse-banker-clinic.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-X02-reverse-banker-clinic.mp4",
+    "size": 4518706,
+    "sha256": "a6c6ad4751d402613f522e49008ef9abeb4cc987156cc22a694d13d28628a064",
+    "sourceSha256": "63cce696e5cc829c0aa036f2c7a59a5c9a9015ec6b366dc1dc1a2f1b6dc3d5e3"
+  },
+  "/media/sc2005-L01-xv6-syscall-companion.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L01-xv6-syscall-companion.mp3",
+    "size": 1137261,
+    "sha256": "6a4f4d9c43863cdf281b803e97e3dbe1a6fc19c0a3bf2f9f46cb08ecd2caedfd",
+    "sourceSha256": "ba2cbe40bd33b97d686d5f6a2d2bb454f9f6a232670a16fc787d5ce37d71418e"
+  },
+  "/media/sc2005-L01-xv6-syscall-companion.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L01-xv6-syscall-companion.mp4",
+    "size": 3667406,
+    "sha256": "08a3a207381c2865997a3c52cd48d04965d8ac9a05088210310409f822c5f4fc",
+    "sourceSha256": "3d6980dd9a3c47a63059ae0ef3465b5795dbe920efba425f7b12ec14a77e1e4d"
+  },
+  "/media/sc2005-X03-deadline-policy-clinic.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-X03-deadline-policy-clinic.mp4",
+    "size": 4610103,
+    "sha256": "0a64a8c0daa2f10027e4e52dcc8af60e95f4d58cf5ccd17a84d6451df1d97523",
+    "sourceSha256": "87c60ba32a9a1e0a1e8973be90b68abb6f40edb9a5d77e31a01d606d52ac2d0b"
+  },
+  "/media/sc2005-L02-xv6-pipes-companion.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L02-xv6-pipes-companion.mp3",
+    "size": 1126317,
+    "sha256": "8b8181dc0272e9d9f1a3ae58855a7498cc1e725ff09bdf4f6f7b3e28c0149479",
+    "sourceSha256": "9050d339a58ac591c0b975e7af180e9dc7f52433f06b8552f65984efbd022e33"
+  },
+  "/media/sc2005-L03-xv6-context-scheduler.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L03-xv6-context-scheduler.mp3",
+    "size": 1196013,
+    "sha256": "9eba125bf7dbebc4300918d5dd69d72146d272d9e66ad9bb0cf80749059330eb",
+    "sourceSha256": "a6e186bbecbd544f952f1a10b322d50b5208949020d6e7b70f3f58189fc23cb0"
+  },
+  "/media/sc2005-L02-xv6-pipes-companion.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L02-xv6-pipes-companion.mp4",
+    "size": 3544205,
+    "sha256": "dbbd6c47d2ef9bcd294f227310e8766d360ba0cdf38f96d97369572c9856d457",
+    "sourceSha256": "55b64f7586bb680fa09e9d204e2becce533d029133af4eb65dfdc1eff26c1fc6"
+  },
+  "/media/sc2005-L04-user-thread-context.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L04-user-thread-context.mp3",
+    "size": 1097517,
+    "sha256": "5b3a70ede958acaf93f1b93a17e3f81f00f2fddff86ecc6b9328cc725ab5cbe3",
+    "sourceSha256": "6e7791e076e9b0fc7c1603eeb66b9a541e914bb3f510b045d868be21bcd837bf"
+  },
+  "/media/sc2005-L03-xv6-context-scheduler.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L03-xv6-context-scheduler.mp4",
+    "size": 3793084,
+    "sha256": "308b6aca8765c5b2068fa5bb82ae669a829c3ef38a8c2a156e6c104166bb690b",
+    "sourceSha256": "082de5b136c759240d444031fbff944a22e5b4cb8e65519cee880c7ac8306dec"
+  },
+  "/media/sc2005-L04-user-thread-context.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2005-L04-user-thread-context.mp4",
+    "size": 3477120,
+    "sha256": "0db39e22f9baab1efd58bde1538291bb8d83a3cf95d4661174e67780a34c6327",
+    "sourceSha256": "3dc486d7e129272d74730d4a18abde0b0b146e3dcd859fbfdf1dada422199cfe"
+  }
+}

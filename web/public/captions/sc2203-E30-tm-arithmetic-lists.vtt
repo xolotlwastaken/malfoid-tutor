@@ -1,0 +1,429 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.100
+How do Turing machines perform
+
+2
+00:00:02.100 --> 00:00:04.580
+arithmetic and manage lists? The
+
+3
+00:00:04.580 --> 00:00:06.660
+tape model can implement nested
+
+4
+00:00:06.660 --> 00:00:08.640
+loops and repeated comparisons using
+
+5
+00:00:08.640 --> 00:00:10.680
+only finite control plus marks.
+
+6
+00:00:11.100 --> 00:00:13.060
+We will verify multiplication of
+
+7
+00:00:13.060 --> 00:00:15.120
+block lengths, then detect duplicate
+
+8
+00:00:15.120 --> 00:00:17.580
+entries in a delimiter-separated binary
+
+9
+00:00:17.580 --> 00:00:18.080
+list.
+
+10
+00:00:18.540 --> 00:00:20.060
+For a to the i,
+
+11
+00:00:20.420 --> 00:00:21.700
+b to the j, c
+
+12
+00:00:21.700 --> 00:00:22.700
+to the k with i
+
+13
+00:00:22.700 --> 00:00:24.200
+times j equal to k,
+
+14
+00:00:24.660 --> 00:00:26.080
+first check the input has
+
+15
+00:00:26.080 --> 00:00:27.980
+nonempty ordered a, b and
+
+16
+00:00:27.980 --> 00:00:30.780
+c blocks. Choose one unprocessed
+
+17
+00:00:30.780 --> 00:00:32.360
+a, then scan the b
+
+18
+00:00:32.360 --> 00:00:34.100
+block. For each b in
+
+19
+00:00:34.100 --> 00:00:36.200
+that pass, mark one previously
+
+20
+00:00:36.200 --> 00:00:38.720
+unmarked c, rejecting if no
+
+21
+00:00:38.720 --> 00:00:39.580
+such c exists.
+
+22
+00:00:40.100 --> 00:00:41.180
+At the end of the
+
+23
+00:00:41.180 --> 00:00:43.360
+b pass, restore its temporary
+
+24
+00:00:43.360 --> 00:00:44.960
+marks so the next a
+
+25
+00:00:44.960 --> 00:00:47.260
+can reuse every b. Keep
+
+26
+00:00:47.260 --> 00:00:49.200
+the selected a permanently processed
+
+27
+00:00:49.200 --> 00:00:50.860
+and keep the c symbols
+
+28
+00:00:50.860 --> 00:00:53.480
+already consumed marked. Mixing up
+
+29
+00:00:53.480 --> 00:00:55.660
+permanent and temporary marks would
+
+30
+00:00:55.660 --> 00:00:57.480
+change the multiplication into a
+
+31
+00:00:57.480 --> 00:00:58.160
+different count.
+
+32
+00:00:58.700 --> 00:01:01.200
+On the lecture example a
+
+33
+00:01:01.460 --> 00:01:03.240
+a b c c, there
+
+34
+00:01:03.240 --> 00:01:04.740
+are two a symbols and
+
+35
+00:01:04.740 --> 00:01:06.360
+one b. The first outer
+
+36
+00:01:06.360 --> 00:01:07.820
+round uses that b to
+
+37
+00:01:07.820 --> 00:01:09.880
+consume one c, and after
+
+38
+00:01:09.880 --> 00:01:11.440
+restoring b the second outer
+
+39
+00:01:11.440 --> 00:01:13.040
+round consumes the other c.
+
+40
+00:01:13.600 --> 00:01:15.340
+No unprocessed a or c
+
+41
+00:01:15.340 --> 00:01:17.500
+remains, so the example accepts
+
+42
+00:01:17.500 --> 00:01:19.360
+because two times one equals
+
+43
+00:01:19.360 --> 00:01:19.760
+two.
+
+44
+00:01:20.260 --> 00:01:21.900
+After every symbol in the
+
+45
+00:01:21.900 --> 00:01:23.320
+first block has been processed,
+
+46
+00:01:23.840 --> 00:01:25.520
+reject if any unmarked c
+
+47
+00:01:25.520 --> 00:01:28.180
+remains. Also reject immediately if
+
+48
+00:01:28.180 --> 00:01:29.260
+the c block runs out
+
+49
+00:01:29.260 --> 00:01:30.320
+during a pass through the
+
+50
+00:01:30.320 --> 00:01:31.880
+b block. The outer loop
+
+51
+00:01:31.880 --> 00:01:33.660
+processes a fresh symbol each
+
+52
+00:01:33.660 --> 00:01:35.540
+round, and each round consumes
+
+53
+00:01:35.540 --> 00:01:37.580
+exactly j copies of c,
+
+54
+00:01:38.040 --> 00:01:39.700
+proving both termination and the
+
+55
+00:01:39.700 --> 00:01:40.800
+multiplication condition.
+
+56
+00:01:41.180 --> 00:01:43.560
+For element distinctness, the input
+
+57
+00:01:43.560 --> 00:01:44.800
+is a list of binary
+
+58
+00:01:44.800 --> 00:01:47.120
+strings separated by hash markers.
+
+59
+00:01:47.620 --> 00:01:49.080
+In the lecture example the
+
+60
+00:01:49.080 --> 00:01:50.760
+first entry is zero then
+
+61
+00:01:50.760 --> 00:01:52.640
+one, the second is one
+
+62
+00:01:52.780 --> 00:01:54.400
+then zero, and the third
+
+63
+00:01:54.400 --> 00:01:56.300
+is zero then one. The
+
+64
+00:01:56.300 --> 00:01:57.960
+first and third match, but
+
+65
+00:01:57.960 --> 00:01:59.640
+the machine must compare each
+
+66
+00:01:59.640 --> 00:02:01.320
+entry as a whole rather
+
+67
+00:02:01.320 --> 00:02:02.880
+than just comparing its first
+
+68
+00:02:02.880 --> 00:02:04.000
+character or length.
+
+69
+00:02:04.660 --> 00:02:06.580
+Place distinguishable marks on the
+
+70
+00:02:06.580 --> 00:02:08.160
+delimiters of the current pair
+
+71
+00:02:08.160 --> 00:02:11.080
+of entries. Zig-zag between corresponding
+
+72
+00:02:11.080 --> 00:02:13.020
+characters, recording a bit in
+
+73
+00:02:13.020 --> 00:02:15.460
+finite control, until a mismatch
+
+74
+00:02:15.460 --> 00:02:16.820
+or both ends are reached.
+
+75
+00:02:17.380 --> 00:02:19.380
+Restore comparison marks before moving
+
+76
+00:02:19.380 --> 00:02:20.880
+the second delimiter mark to
+
+77
+00:02:20.880 --> 00:02:21.700
+the next entry.
+
+78
+00:02:22.220 --> 00:02:23.940
+Comparing zero one with one
+
+79
+00:02:23.940 --> 00:02:25.740
+zero finds a mismatch, so
+
+80
+00:02:25.740 --> 00:02:27.660
+that pair is different. Move
+
+81
+00:02:27.660 --> 00:02:29.260
+the second-entry selection to the
+
+82
+00:02:29.260 --> 00:02:30.940
+third entry and compare zero
+
+83
+00:02:30.940 --> 00:02:33.000
+one with zero one; both
+
+84
+00:02:33.000 --> 00:02:34.820
+end together with all symbols
+
+85
+00:02:34.820 --> 00:02:37.160
+matching. That equality proves a
+
+86
+00:02:37.160 --> 00:02:39.220
+duplicate and the machine rejects
+
+87
+00:02:39.220 --> 00:02:41.360
+immediately without needing further pair
+
+88
+00:02:41.360 --> 00:02:41.760
+tests.
+
+89
+00:02:42.260 --> 00:02:43.960
+If no equality is found,
+
+90
+00:02:44.380 --> 00:02:46.280
+advance the outer delimiter selection
+
+91
+00:02:46.280 --> 00:02:48.480
+and compare every remaining pair.
+
+92
+00:02:48.480 --> 00:02:49.960
+With a finite number of
+
+93
+00:02:49.960 --> 00:02:51.980
+entries and finite per-pair scans,
+
+94
+00:02:52.380 --> 00:02:55.200
+the algorithm halts. Equal-length but
+
+95
+00:02:55.200 --> 00:02:57.320
+different entries must pass, while
+
+96
+00:02:57.320 --> 00:02:58.920
+repeated empty entries need the
+
+97
+00:02:58.920 --> 00:03:01.340
+same whole-entry equality logic as
+
+98
+00:03:01.340 --> 00:03:02.800
+repeated nonempty ones.
+
+99
+00:03:03.180 --> 00:03:04.360
+Things to take note of.
+
+100
+00:03:04.360 --> 00:03:07.060
+Distinguish loop counters stored through
+
+101
+00:03:07.060 --> 00:03:09.580
+marks, temporary comparison marks and
+
+102
+00:03:09.580 --> 00:03:12.180
+permanent progress markers. State the
+
+103
+00:03:12.180 --> 00:03:14.520
+form checks, explain restoration, and
+
+104
+00:03:14.520 --> 00:03:16.220
+prove that all required products
+
+105
+00:03:16.220 --> 00:03:17.700
+or entry pairs are covered;
+
+106
+00:03:18.140 --> 00:03:19.780
+finding one example that works
+
+107
+00:03:19.780 --> 00:03:21.320
+is not the correctness argument.

@@ -1,0 +1,381 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.140
+What makes a grammar ambiguous?
+
+2
+00:00:03.160 --> 00:00:04.620
+One word must have two
+
+3
+00:00:04.620 --> 00:00:07.440
+different parse trees, equivalently two
+
+4
+00:00:07.440 --> 00:00:11.220
+different leftmost derivations. Two arbitrary
+
+5
+00:00:11.220 --> 00:00:13.280
+substitution orders are not enough,
+
+6
+00:00:13.280 --> 00:00:15.120
+because they may simply construct
+
+7
+00:00:15.120 --> 00:00:16.260
+the same tree in a
+
+8
+00:00:16.260 --> 00:00:17.000
+different order.
+
+9
+00:00:17.420 --> 00:00:19.500
+Consider E becoming E plus
+
+10
+00:00:19.500 --> 00:00:22.020
+E, E times E, a
+
+11
+00:00:22.020 --> 00:00:24.500
+parenthesized E, or a. The
+
+12
+00:00:24.500 --> 00:00:26.120
+word a plus a times
+
+13
+00:00:26.120 --> 00:00:27.500
+a can be grouped as
+
+14
+00:00:27.500 --> 00:00:29.160
+a plus the product, or
+
+15
+00:00:29.160 --> 00:00:30.440
+as a sum multiplied by
+
+16
+00:00:30.440 --> 00:00:32.480
+a. Both structures are permitted
+
+17
+00:00:32.480 --> 00:00:33.820
+because the grammar does not
+
+18
+00:00:33.820 --> 00:00:34.780
+encode precedence.
+
+19
+00:00:35.140 --> 00:00:37.120
+For the first structure, expand
+
+20
+00:00:37.120 --> 00:00:39.560
+the root using addition. Finish
+
+21
+00:00:39.560 --> 00:00:40.960
+the left E as a,
+
+22
+00:00:41.340 --> 00:00:43.000
+then expand the right E
+
+23
+00:00:43.000 --> 00:00:44.680
+into a product and finish
+
+24
+00:00:44.680 --> 00:00:47.080
+its two operands. The leftmost
+
+25
+00:00:47.080 --> 00:00:49.140
+derivation therefore begins with E
+
+26
+00:00:49.140 --> 00:00:50.980
+plus E and ends with
+
+27
+00:00:50.980 --> 00:00:52.800
+a plus a times a.
+
+28
+00:00:53.500 --> 00:00:55.780
+For the second structure, expand
+
+29
+00:00:55.780 --> 00:00:58.540
+the root using multiplication. Its
+
+30
+00:00:58.540 --> 00:01:00.060
+left child becomes a sum,
+
+31
+00:01:00.420 --> 00:01:02.040
+and the leftmost variable is
+
+32
+00:01:02.040 --> 00:01:04.120
+always completed before any variable
+
+33
+00:01:04.120 --> 00:01:06.280
+to its right. This derivation
+
+34
+00:01:06.280 --> 00:01:08.080
+reaches the same terminal word
+
+35
+00:01:08.080 --> 00:01:09.620
+through a different root production,
+
+36
+00:01:10.200 --> 00:01:12.460
+guaranteeing a genuinely different tree.
+
+37
+00:01:12.980 --> 00:01:14.640
+The two trees differ at
+
+38
+00:01:14.640 --> 00:01:16.140
+their roots, so they are
+
+39
+00:01:16.140 --> 00:01:17.740
+not just two schedules for
+
+40
+00:01:17.740 --> 00:01:20.120
+expanding one structure. Both yields
+
+41
+00:01:20.120 --> 00:01:22.100
+read a plus a times
+
+42
+00:01:22.100 --> 00:01:23.300
+a from left to right,
+
+43
+00:01:23.640 --> 00:01:25.360
+even though the implicit groupings
+
+44
+00:01:25.360 --> 00:01:27.980
+differ. That single witness proves
+
+45
+00:01:27.980 --> 00:01:30.200
+the grammar ambiguous; we do
+
+46
+00:01:30.200 --> 00:01:31.620
+not need every word to
+
+47
+00:01:31.620 --> 00:01:32.260
+be ambiguous.
+
+48
+00:01:32.700 --> 00:01:34.420
+To see the wrong argument,
+
+49
+00:01:34.980 --> 00:01:36.640
+take the simple grammar S
+
+50
+00:01:36.640 --> 00:01:38.840
+becomes A B, with A
+
+51
+00:01:38.840 --> 00:01:40.640
+becoming a and B becoming
+
+52
+00:01:40.640 --> 00:01:43.120
+b. Expanding A before B
+
+53
+00:01:43.120 --> 00:01:44.580
+or B before A gives
+
+54
+00:01:44.580 --> 00:01:46.180
+two derivations of a b.
+
+55
+00:01:46.620 --> 00:01:47.840
+There is still only one
+
+56
+00:01:47.840 --> 00:01:49.840
+parse tree, so those derivations
+
+57
+00:01:49.840 --> 00:01:50.900
+do not prove ambiguity.
+
+58
+00:01:51.540 --> 00:01:53.700
+An expression grammar can enforce
+
+59
+00:01:53.700 --> 00:01:55.800
+precedence by using separate levels
+
+60
+00:01:55.800 --> 00:01:57.620
+for expressions, terms and factors.
+
+61
+00:01:58.060 --> 00:02:00.240
+Addition combines expressions and terms,
+
+62
+00:02:00.520 --> 00:02:02.480
+while multiplication stays inside terms,
+
+63
+00:02:02.480 --> 00:02:03.820
+and factors are atoms or
+
+64
+00:02:03.820 --> 00:02:06.420
+parenthesized expressions. This prevents the
+
+65
+00:02:06.420 --> 00:02:08.240
+competing root multiplication for an
+
+66
+00:02:08.240 --> 00:02:10.120
+unparenthesized sum such as our
+
+67
+00:02:10.120 --> 00:02:10.420
+witness.
+
+68
+00:02:11.100 --> 00:02:13.640
+Under that grammar, multiplication binds
+
+69
+00:02:13.640 --> 00:02:16.320
+more tightly than addition. Repeated
+
+70
+00:02:16.320 --> 00:02:18.560
+left-recursive additions also fix their
+
+71
+00:02:18.560 --> 00:02:20.440
+grouping rather than creating arbitrary
+
+72
+00:02:20.440 --> 00:02:22.720
+associative parse trees. If you
+
+73
+00:02:22.720 --> 00:02:23.800
+are asked for a leftmost
+
+74
+00:02:23.800 --> 00:02:26.180
+derivation, replace the leftmost remaining
+
+75
+00:02:26.180 --> 00:02:27.660
+variable at every step and
+
+76
+00:02:27.660 --> 00:02:29.280
+show the whole requested word.
+
+77
+00:02:29.700 --> 00:02:32.520
+Ambiguity belongs to a particular
+
+78
+00:02:32.520 --> 00:02:35.080
+grammar. A language is inherently
+
+79
+00:02:35.080 --> 00:02:37.380
+ambiguous only when every grammar
+
+80
+00:02:37.380 --> 00:02:39.980
+generating it is ambiguous, which
+
+81
+00:02:39.980 --> 00:02:41.460
+is a much stronger statement.
+
+82
+00:02:41.460 --> 00:02:43.500
+Showing that this expression grammar
+
+83
+00:02:43.500 --> 00:02:45.140
+is ambiguous does not prove
+
+84
+00:02:45.140 --> 00:02:47.760
+inherent ambiguity, since the precedence
+
+85
+00:02:47.760 --> 00:02:49.540
+grammar generates the same language
+
+86
+00:02:49.540 --> 00:02:50.480
+without that defect.
+
+87
+00:02:51.020 --> 00:02:52.300
+Things to take note of.
+
+88
+00:02:52.760 --> 00:02:54.660
+Name one terminal witness and
+
+89
+00:02:54.660 --> 00:02:56.180
+give two different trees or
+
+90
+00:02:56.180 --> 00:02:58.600
+two distinct leftmost derivations for
+
+91
+00:02:58.600 --> 00:03:00.480
+it. Check that their yields
+
+92
+00:03:00.480 --> 00:03:02.100
+agree and their structures differ;
+
+93
+00:03:02.680 --> 00:03:04.100
+merely changing the order of
+
+94
+00:03:04.100 --> 00:03:06.640
+independent substitutions proves nothing about
+
+95
+00:03:06.640 --> 00:03:07.180
+ambiguity.

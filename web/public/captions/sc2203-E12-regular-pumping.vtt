@@ -1,0 +1,373 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.320
+How do you use the
+
+2
+00:00:01.320 --> 00:00:03.720
+regular pumping lemma correctly? We
+
+3
+00:00:03.720 --> 00:00:05.460
+will prove that equal blocks
+
+4
+00:00:05.460 --> 00:00:07.020
+of zeros followed by ones
+
+5
+00:00:07.020 --> 00:00:08.820
+cannot be recognized by any
+
+6
+00:00:08.820 --> 00:00:11.300
+finite automaton. The crucial issue
+
+7
+00:00:11.300 --> 00:00:12.680
+is who chooses the split,
+
+8
+00:00:13.040 --> 00:00:14.220
+not whether we can find
+
+9
+00:00:14.220 --> 00:00:15.920
+one convenient split to break.
+
+10
+00:00:16.380 --> 00:00:17.980
+If a language is regular,
+
+11
+00:00:18.340 --> 00:00:20.040
+some pumping length p works
+
+12
+00:00:20.040 --> 00:00:22.000
+for every sufficiently long word
+
+13
+00:00:22.000 --> 00:00:23.700
+in it. Each such word
+
+14
+00:00:23.700 --> 00:00:25.720
+has some decomposition x y
+
+15
+00:00:25.900 --> 00:00:27.480
+z with y nonempty and
+
+16
+00:00:27.480 --> 00:00:28.840
+x y of length at
+
+17
+00:00:28.840 --> 00:00:31.300
+most p. Every repetition count,
+
+18
+00:00:31.300 --> 00:00:33.620
+including zero, must keep that
+
+19
+00:00:33.620 --> 00:00:36.080
+chosen decomposition inside the language.
+
+20
+00:00:36.580 --> 00:00:38.940
+The repeated-state proof explains these
+
+21
+00:00:38.940 --> 00:00:41.160
+conditions. The first p symbols
+
+22
+00:00:41.160 --> 00:00:42.520
+of an accepted run visit
+
+23
+00:00:42.520 --> 00:00:44.040
+p plus one state positions,
+
+24
+00:00:44.040 --> 00:00:45.660
+forcing a repeated state among
+
+25
+00:00:45.660 --> 00:00:48.160
+p states. The nonempty intervening
+
+26
+00:00:48.160 --> 00:00:49.140
+segment is a loop that
+
+27
+00:00:49.140 --> 00:00:50.460
+can be removed or repeated
+
+28
+00:00:50.460 --> 00:00:52.080
+without changing the final destination.
+
+29
+00:00:52.940 --> 00:00:55.900
+Assume equal-block language regular and
+
+30
+00:00:55.900 --> 00:00:57.440
+let p be its alleged
+
+31
+00:00:57.440 --> 00:00:59.740
+pumping length. Choose the word
+
+32
+00:00:59.740 --> 00:01:01.480
+with p zeros followed by
+
+33
+00:01:01.480 --> 00:01:03.340
+p ones, which belongs to
+
+34
+00:01:03.340 --> 00:01:04.620
+the language and has length
+
+35
+00:01:04.620 --> 00:01:06.620
+at least p. We choose
+
+36
+00:01:06.620 --> 00:01:08.340
+this witness, but the lemma
+
+37
+00:01:08.340 --> 00:01:09.860
+gets to supply the decomposition.
+
+38
+00:01:10.580 --> 00:01:12.820
+Take any legal decomposition of
+
+39
+00:01:12.820 --> 00:01:14.280
+that witness. Because the first
+
+40
+00:01:14.280 --> 00:01:15.840
+p positions are zeros and
+
+41
+00:01:15.840 --> 00:01:17.460
+x y ends within them,
+
+42
+00:01:18.140 --> 00:01:19.700
+y consists of k zeros
+
+43
+00:01:19.700 --> 00:01:21.180
+for some k between one
+
+44
+00:01:21.180 --> 00:01:22.680
+and p. This covers every
+
+45
+00:01:22.680 --> 00:01:25.020
+permitted decomposition, not just the
+
+46
+00:01:25.020 --> 00:01:26.460
+split where y happens to
+
+47
+00:01:26.460 --> 00:01:27.540
+be the whole first block.
+
+48
+00:01:27.980 --> 00:01:31.080
+Now choose zero repetitions. Removing
+
+49
+00:01:31.080 --> 00:01:33.220
+y leaves p minus k
+
+50
+00:01:33.220 --> 00:01:35.520
+zeros followed by p ones,
+
+51
+00:01:35.940 --> 00:01:37.200
+so the two block counts
+
+52
+00:01:37.200 --> 00:01:39.400
+are different. Since k is
+
+53
+00:01:39.400 --> 00:01:41.260
+positive, the pumped word is
+
+54
+00:01:41.260 --> 00:01:42.880
+outside the language for every
+
+55
+00:01:42.880 --> 00:01:45.220
+legal split, contradicting the lemma.
+
+56
+00:01:45.700 --> 00:01:47.820
+For a picture, use four
+
+57
+00:01:47.820 --> 00:01:49.660
+zeros and four ones, with
+
+58
+00:01:49.660 --> 00:01:51.240
+a loop piece containing two
+
+59
+00:01:51.240 --> 00:01:53.640
+zeros. Removing that piece leaves
+
+60
+00:01:53.640 --> 00:01:55.220
+two zeros and four ones,
+
+61
+00:01:55.220 --> 00:01:58.340
+visibly breaking equality. That illustration
+
+62
+00:01:58.340 --> 00:01:59.840
+helps you see the mechanism,
+
+63
+00:02:00.280 --> 00:02:01.280
+but the proof is the
+
+64
+00:02:01.280 --> 00:02:04.040
+arbitrary-k argument, not this single
+
+65
+00:02:04.040 --> 00:02:05.000
+numerical split.
+
+66
+00:02:05.660 --> 00:02:07.640
+A common wrong proof declares
+
+67
+00:02:07.640 --> 00:02:10.040
+x empty and y equal
+
+68
+00:02:10.040 --> 00:02:12.000
+to all p zeros. It
+
+69
+00:02:12.000 --> 00:02:13.800
+correctly breaks that one split,
+
+70
+00:02:14.280 --> 00:02:15.920
+but the lemma only promised
+
+71
+00:02:15.920 --> 00:02:18.120
+some successful split and could
+
+72
+00:02:18.120 --> 00:02:20.200
+have chosen another. A true
+
+73
+00:02:20.200 --> 00:02:23.080
+nonregularity conclusion does not rescue
+
+74
+00:02:23.080 --> 00:02:24.400
+that quantifier mistake.
+
+75
+00:02:24.980 --> 00:02:26.860
+The lemma is necessary for
+
+76
+00:02:26.860 --> 00:02:30.180
+regularity, not sufficient. Some nonregular
+
+77
+00:02:30.560 --> 00:02:32.660
+languages still satisfy its pumping
+
+78
+00:02:32.660 --> 00:02:34.740
+conclusion, so failure to find
+
+79
+00:02:34.740 --> 00:02:36.680
+a contradiction does not establish
+
+80
+00:02:36.680 --> 00:02:39.600
+regularity. For positive regularity, construct
+
+81
+00:02:39.600 --> 00:02:41.640
+a finite automaton or expression;
+
+82
+00:02:42.220 --> 00:02:44.220
+for another negative tool, use
+
+83
+00:02:44.220 --> 00:02:45.640
+distinguishable prefixes.
+
+84
+00:02:46.140 --> 00:02:47.440
+Things to take note of.
+
+85
+00:02:47.860 --> 00:02:49.860
+State the lemma correctly, verify
+
+86
+00:02:49.860 --> 00:02:51.940
+witness membership and length, and
+
+87
+00:02:51.940 --> 00:02:54.320
+describe every legal decomposition before
+
+88
+00:02:54.320 --> 00:02:56.600
+choosing a repetition count. End
+
+89
+00:02:56.600 --> 00:02:58.700
+with explicit failed membership and
+
+90
+00:02:58.700 --> 00:03:01.020
+contradiction, and remember that zero
+
+91
+00:03:01.020 --> 00:03:03.140
+repetitions are allowed even though
+
+92
+00:03:03.140 --> 00:03:04.940
+the repeated piece itself must
+
+93
+00:03:04.940 --> 00:03:05.460
+be nonempty.

@@ -1,0 +1,421 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.420
+How do you convert a
+
+2
+00:00:01.420 --> 00:00:03.580
+grammar to Chomsky normal form?
+
+3
+00:00:04.200 --> 00:00:05.760
+Allowed productions are a variable
+
+4
+00:00:06.000 --> 00:00:07.800
+becoming two variables or a
+
+5
+00:00:07.800 --> 00:00:09.580
+single terminal, with a special
+
+6
+00:00:09.580 --> 00:00:12.620
+start-to-epsilon exception. We will follow
+
+7
+00:00:12.620 --> 00:00:14.240
+the lecture’s four stages and
+
+8
+00:00:14.240 --> 00:00:15.800
+derive the exact number of
+
+9
+00:00:15.800 --> 00:00:17.640
+production applications for a nonempty
+
+10
+00:00:18.160 --> 00:00:18.480
+word.
+
+11
+00:00:20.940 --> 00:00:22.740
+The lecture example begins with
+
+12
+00:00:22.740 --> 00:00:24.680
+S becoming A S A
+
+13
+00:00:24.680 --> 00:00:26.600
+or a B, A becoming
+
+14
+00:00:26.600 --> 00:00:28.660
+B or S, and B
+
+15
+00:00:28.660 --> 00:00:30.860
+becoming b or epsilon. Add
+
+16
+00:00:30.860 --> 00:00:32.320
+a fresh start S zero
+
+17
+00:00:32.320 --> 00:00:33.380
+with a unit rule to
+
+18
+00:00:33.380 --> 00:00:35.160
+the old S. The fresh
+
+19
+00:00:35.160 --> 00:00:36.720
+start will never appear on
+
+20
+00:00:36.720 --> 00:00:38.760
+any right-hand side, preserving the
+
+21
+00:00:38.760 --> 00:00:40.420
+special start condition through later
+
+22
+00:00:40.420 --> 00:00:41.020
+transformations.
+
+23
+00:00:41.620 --> 00:00:44.980
+Identify nullable variables before discarding
+
+24
+00:00:44.980 --> 00:00:47.460
+epsilon rules. Here B is
+
+25
+00:00:47.460 --> 00:00:48.940
+nullable, so a B can
+
+26
+00:00:48.940 --> 00:00:50.560
+also produce a and A
+
+27
+00:00:50.560 --> 00:00:52.020
+can become nullable through B.
+
+28
+00:00:52.020 --> 00:00:54.600
+Removing nullable A occurrences from
+
+29
+00:00:54.600 --> 00:00:55.960
+A S A adds S
+
+30
+00:00:55.960 --> 00:00:57.820
+A and A S, as
+
+31
+00:00:57.820 --> 00:00:58.760
+well as the unit rule
+
+32
+00:00:58.760 --> 00:00:59.880
+S becomes S.
+
+33
+00:01:00.220 --> 00:01:01.860
+The old S is not
+
+34
+00:01:01.860 --> 00:01:04.580
+nullable, because every terminating derivation
+
+35
+00:01:04.580 --> 00:01:06.240
+still produces at least one
+
+36
+00:01:06.240 --> 00:01:08.320
+a. Therefore this example does
+
+37
+00:01:08.320 --> 00:01:10.080
+not acquire an empty-word rule
+
+38
+00:01:10.080 --> 00:01:11.520
+just because the original B
+
+39
+00:01:11.520 --> 00:01:13.160
+had one. In a grammar
+
+40
+00:01:13.160 --> 00:01:15.220
+whose language does contain epsilon,
+
+41
+00:01:15.660 --> 00:01:16.840
+preserve it only through the
+
+42
+00:01:16.840 --> 00:01:18.260
+permitted fresh-start rule.
+
+43
+00:01:18.820 --> 00:01:21.000
+Next eliminate unit rules by
+
+44
+00:01:21.000 --> 00:01:23.660
+copying all reachable non-unit alternatives.
+
+45
+00:01:24.120 --> 00:01:25.920
+Remove the useless self-rule S
+
+46
+00:01:25.920 --> 00:01:28.120
+becomes S, replace S zero
+
+47
+00:01:28.120 --> 00:01:29.760
+becoming S, and propagate the
+
+48
+00:01:29.760 --> 00:01:31.460
+non-unit options through A becoming
+
+49
+00:01:31.460 --> 00:01:33.500
+B or S. Stopping after
+
+50
+00:01:33.500 --> 00:01:35.400
+replacing one visible unit arrow
+
+51
+00:01:35.400 --> 00:01:36.660
+can miss a longer chain
+
+52
+00:01:36.660 --> 00:01:37.620
+of unit reachability.
+
+53
+00:01:38.140 --> 00:01:40.380
+Finally split long right sides
+
+54
+00:01:40.380 --> 00:01:42.400
+into binary ones and isolate
+
+55
+00:01:42.400 --> 00:01:45.100
+terminals mixed with variables. Introduce
+
+56
+00:01:45.100 --> 00:01:46.600
+A one becoming S A,
+
+57
+00:01:47.360 --> 00:01:49.460
+so A S A can
+
+58
+00:01:49.460 --> 00:01:50.960
+be replaced by A A
+
+59
+00:01:50.960 --> 00:01:54.000
+one. Introduce U becoming a,
+
+60
+00:01:54.520 --> 00:01:55.620
+so a B becomes U
+
+61
+00:01:55.620 --> 00:01:58.860
+B, keeping already legal single-terminal
+
+62
+00:01:58.860 --> 00:01:59.800
+rules unchanged.
+
+63
+00:02:00.420 --> 00:02:03.140
+Check the resulting rules individually.
+
+64
+00:02:03.780 --> 00:02:05.140
+S zero and S can
+
+65
+00:02:05.140 --> 00:02:07.180
+become A A one, U
+
+66
+00:02:07.260 --> 00:02:09.720
+B, a, S A or
+
+67
+00:02:09.720 --> 00:02:11.060
+A S; A has those
+
+68
+00:02:11.060 --> 00:02:13.200
+options plus b, and B
+
+69
+00:02:13.200 --> 00:02:15.740
+becomes b. Every right side
+
+70
+00:02:15.740 --> 00:02:17.280
+is now either exactly two
+
+71
+00:02:17.280 --> 00:02:19.580
+variables or exactly one terminal,
+
+72
+00:02:19.580 --> 00:02:21.320
+and S zero is never
+
+73
+00:02:21.320 --> 00:02:22.240
+on a right side.
+
+74
+00:02:23.180 --> 00:02:24.380
+For a word of length
+
+75
+00:02:24.380 --> 00:02:26.120
+n at least one, a
+
+76
+00:02:26.120 --> 00:02:28.300
+binary Chomsky-form parse tree has
+
+77
+00:02:28.300 --> 00:02:31.000
+n terminal-producing leaves. It requires
+
+78
+00:02:31.000 --> 00:02:32.800
+n minus one binary branch
+
+79
+00:02:32.800 --> 00:02:34.520
+expansions to grow from one
+
+80
+00:02:34.520 --> 00:02:36.300
+variable to n variable leaves,
+
+81
+00:02:36.780 --> 00:02:38.180
+and then n terminal productions.
+
+82
+00:02:38.600 --> 00:02:40.200
+The total is exactly two
+
+83
+00:02:40.200 --> 00:02:42.620
+n minus one production applications,
+
+84
+00:02:43.060 --> 00:02:44.300
+independent of their order.
+
+85
+00:02:44.820 --> 00:02:46.600
+For instance, deriving a b
+
+86
+00:02:46.600 --> 00:02:47.860
+from S zero through U
+
+87
+00:02:47.860 --> 00:02:50.340
+B takes three applications: the
+
+88
+00:02:50.340 --> 00:02:51.760
+binary production and the two
+
+89
+00:02:51.760 --> 00:02:54.600
+terminal productions. This matches twice
+
+90
+00:02:54.600 --> 00:02:56.560
+two minus one. A finite
+
+91
+00:02:56.560 --> 00:02:59.400
+derivation-length bound makes exhaustive membership
+
+92
+00:02:59.400 --> 00:03:01.320
+search finite, but does not
+
+93
+00:03:01.320 --> 00:03:03.220
+by itself make that exhaustive
+
+94
+00:03:03.220 --> 00:03:03.980
+search polynomial.
+
+95
+00:03:04.540 --> 00:03:05.880
+Things to take note of.
+
+96
+00:03:06.340 --> 00:03:08.540
+Preserve nullable alternatives and unit
+
+97
+00:03:08.540 --> 00:03:11.340
+reachability before binarizing, and keep
+
+98
+00:03:11.340 --> 00:03:12.840
+the fresh start off right-hand
+
+99
+00:03:12.840 --> 00:03:15.240
+sides. Chomsky normal form is
+
+100
+00:03:15.240 --> 00:03:16.960
+different from conjunctive normal form
+
+101
+00:03:16.960 --> 00:03:19.280
+in SAT; the appendix’s excluded
+
+102
+00:03:19.280 --> 00:03:20.880
+theorem proof does not exclude
+
+103
+00:03:20.880 --> 00:03:22.820
+performing this conversion or using
+
+104
+00:03:22.820 --> 00:03:24.200
+the two n minus one
+
+105
+00:03:24.200 --> 00:03:24.780
+consequence.

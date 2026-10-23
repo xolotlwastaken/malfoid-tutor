@@ -1,0 +1,405 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.320
+How do marking and zig-zagging
+
+2
+00:00:02.320 --> 00:00:05.060
+build Turing-machine deciders? Marking turns
+
+3
+00:00:05.060 --> 00:00:07.080
+repeated scans into a controlled
+
+4
+00:00:07.080 --> 00:00:09.300
+matching procedure, while finite control
+
+5
+00:00:09.300 --> 00:00:10.700
+carries the small amount of
+
+6
+00:00:10.700 --> 00:00:12.780
+information needed between distant positions.
+
+7
+00:00:13.360 --> 00:00:14.860
+We will count two zeros
+
+8
+00:00:14.860 --> 00:00:16.680
+per one, then compare the
+
+9
+00:00:16.680 --> 00:00:17.900
+two sides of a hash
+
+10
+00:00:17.900 --> 00:00:18.520
+separator.
+
+11
+00:00:19.340 --> 00:00:20.940
+For words with twice as
+
+12
+00:00:20.940 --> 00:00:22.800
+many zeros as ones, find
+
+13
+00:00:22.800 --> 00:00:24.380
+the first unmarked one and
+
+14
+00:00:24.380 --> 00:00:26.560
+mark it. Return left, find
+
+15
+00:00:26.560 --> 00:00:28.380
+the first unmarked zero, mark
+
+16
+00:00:28.380 --> 00:00:30.140
+it, then find and mark
+
+17
+00:00:30.140 --> 00:00:32.240
+a second unmarked zero. If
+
+18
+00:00:32.240 --> 00:00:34.280
+either zero is unavailable, reject
+
+19
+00:00:34.280 --> 00:00:36.020
+because this selected one cannot
+
+20
+00:00:36.020 --> 00:00:37.820
+receive its required pair.
+
+21
+00:00:38.420 --> 00:00:40.480
+After matching that pair, return
+
+22
+00:00:40.480 --> 00:00:41.720
+to the beginning and repeat.
+
+23
+00:00:42.360 --> 00:00:44.080
+Each complete round removes one
+
+24
+00:00:44.080 --> 00:00:45.940
+unmarked one and two unmarked
+
+25
+00:00:45.940 --> 00:00:48.460
+zeros from future consideration. The
+
+26
+00:00:48.460 --> 00:00:49.580
+order of symbols in the
+
+27
+00:00:49.580 --> 00:00:52.040
+input is unrestricted, so restarting
+
+28
+00:00:52.040 --> 00:00:53.560
+the scan is essential instead
+
+29
+00:00:53.560 --> 00:00:55.140
+of assuming zeros form an
+
+30
+00:00:55.140 --> 00:00:55.820
+initial block.
+
+31
+00:00:56.300 --> 00:00:58.100
+When no unmarked one remains,
+
+32
+00:00:58.800 --> 00:01:00.180
+scan once more for leftover
+
+33
+00:01:00.180 --> 00:01:02.420
+unmarked zeros. If any remain,
+
+34
+00:01:02.420 --> 00:01:04.520
+reject; if every input symbol
+
+35
+00:01:04.520 --> 00:01:06.300
+was matched, enter the accepting
+
+36
+00:01:06.300 --> 00:01:08.250
+state. Checking only that every
+
+37
+00:01:08.250 --> 00:01:09.460
+one found a pair would
+
+38
+00:01:09.460 --> 00:01:11.260
+incorrectly accept a word with
+
+39
+00:01:11.260 --> 00:01:12.120
+too many zeros.
+
+40
+00:01:12.660 --> 00:01:13.980
+The empty word has zero
+
+41
+00:01:13.980 --> 00:01:16.480
+zeros and zero ones, so
+
+42
+00:01:16.480 --> 00:01:18.180
+it satisfies the equation and
+
+43
+00:01:18.180 --> 00:01:20.540
+is accepted. Each outer round
+
+44
+00:01:20.540 --> 00:01:22.040
+marks a new one, and
+
+45
+00:01:22.040 --> 00:01:23.360
+every scan is over a
+
+46
+00:01:23.360 --> 00:01:25.540
+finite used tape segment, proving
+
+47
+00:01:25.540 --> 00:01:27.680
+halt on every input. With
+
+48
+00:01:27.680 --> 00:01:29.420
+at most linearly many rounds
+
+49
+00:01:29.420 --> 00:01:31.020
+and linear scans per round,
+
+50
+00:01:31.420 --> 00:01:33.360
+a straightforward implementation has a
+
+51
+00:01:33.360 --> 00:01:34.620
+quadratic scan bound.
+
+52
+00:01:35.500 --> 00:01:38.080
+For the equality-of-counts variant, use
+
+53
+00:01:38.080 --> 00:01:39.840
+one zero per one instead
+
+54
+00:01:39.840 --> 00:01:41.780
+of two. For its complement,
+
+55
+00:01:42.080 --> 00:01:43.880
+reverse accept and reject outcomes
+
+56
+00:01:43.880 --> 00:01:45.700
+only after establishing that the
+
+57
+00:01:45.700 --> 00:01:48.320
+original machine always halts. The
+
+58
+00:01:48.320 --> 00:01:49.900
+same swap would not safely
+
+59
+00:01:49.900 --> 00:01:51.660
+complement a recognizer that might
+
+60
+00:01:51.660 --> 00:01:51.980
+loop.
+
+61
+00:01:52.660 --> 00:01:54.940
+Now consider the copying language
+
+62
+00:01:55.180 --> 00:01:57.760
+w hash w. First validate
+
+63
+00:01:57.760 --> 00:01:59.400
+that there is exactly one
+
+64
+00:01:59.400 --> 00:02:00.840
+separator and that the other
+
+65
+00:02:00.840 --> 00:02:02.860
+symbols are binary. Mark the
+
+66
+00:02:02.860 --> 00:02:04.380
+next unchecked symbol on the
+
+67
+00:02:04.380 --> 00:02:06.280
+left, remember its value in
+
+68
+00:02:06.280 --> 00:02:08.400
+finite control, then zig-zag right
+
+69
+00:02:08.400 --> 00:02:09.940
+to the next unchecked symbol
+
+70
+00:02:09.940 --> 00:02:10.840
+on the other side.
+
+71
+00:02:11.500 --> 00:02:13.380
+The right symbol must match
+
+72
+00:02:13.380 --> 00:02:15.060
+the remembered bit, and it
+
+73
+00:02:15.060 --> 00:02:17.400
+is then marked too. Return
+
+74
+00:02:17.400 --> 00:02:18.860
+to the left and repeat
+
+75
+00:02:18.860 --> 00:02:20.220
+for the next pair, so
+
+76
+00:02:20.220 --> 00:02:22.800
+zero one hash zero one
+
+77
+00:02:22.800 --> 00:02:24.780
+first matches zeros and then
+
+78
+00:02:24.780 --> 00:02:27.140
+ones. A mismatch, early end
+
+79
+00:02:27.320 --> 00:02:29.480
+or extra right-side symbol must
+
+80
+00:02:29.480 --> 00:02:29.900
+reject.
+
+81
+00:02:30.340 --> 00:02:31.600
+When the left side has
+
+82
+00:02:31.600 --> 00:02:33.980
+no unchecked symbol, verify that
+
+83
+00:02:33.980 --> 00:02:35.520
+the right side also has
+
+84
+00:02:35.520 --> 00:02:37.700
+none. The input consisting only
+
+85
+00:02:37.700 --> 00:02:39.800
+of hash represents two empty
+
+86
+00:02:39.800 --> 00:02:41.680
+copies and should be accepted,
+
+87
+00:02:41.680 --> 00:02:43.560
+while a missing separator is
+
+88
+00:02:43.560 --> 00:02:46.100
+malformed. Each successful round marks
+
+89
+00:02:46.100 --> 00:02:47.620
+a fresh pair, giving a
+
+90
+00:02:47.620 --> 00:02:49.420
+finite progress measure and a
+
+91
+00:02:49.420 --> 00:02:50.320
+halting decider.
+
+92
+00:02:50.620 --> 00:02:51.960
+Things to take note of.
+
+93
+00:02:52.520 --> 00:02:54.920
+Describe where scans restart, what
+
+94
+00:02:54.920 --> 00:02:57.640
+temporary marks mean, what information
+
+95
+00:02:57.640 --> 00:02:59.780
+finite control remembers and how
+
+96
+00:02:59.780 --> 00:03:02.040
+every loop makes progress. Form
+
+97
+00:03:02.040 --> 00:03:03.480
+checks and final leftovers are
+
+98
+00:03:03.480 --> 00:03:05.060
+part of the algorithm, not
+
+99
+00:03:05.060 --> 00:03:07.820
+optional polish; successful matches alone
+
+100
+00:03:07.820 --> 00:03:08.960
+do not prove the language
+
+101
+00:03:08.960 --> 00:03:09.840
+is decided correctly.

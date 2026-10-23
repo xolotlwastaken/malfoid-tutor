@@ -1,0 +1,409 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.180
+When does an apparently obvious
+
+2
+00:00:02.180 --> 00:00:05.120
+NP certificate fail? The photographed
+
+3
+00:00:05.120 --> 00:00:07.620
+subset questions distinguish one solution,
+
+4
+00:00:07.940 --> 00:00:10.580
+two solutions, a binary-specified number
+
+5
+00:00:10.580 --> 00:00:12.020
+of solutions, and a counting
+
+6
+00:00:12.020 --> 00:00:14.340
+output. We will inspect certificate
+
+7
+00:00:14.340 --> 00:00:16.080
+length as carefully as verification
+
+8
+00:00:16.080 --> 00:00:17.840
+time, without turning a failed
+
+9
+00:00:17.840 --> 00:00:19.900
+certificate idea into an unsupported
+
+10
+00:00:19.900 --> 00:00:21.160
+impossibility claim.
+
+11
+00:00:21.980 --> 00:00:24.060
+For existence of one subset
+
+12
+00:00:24.060 --> 00:00:25.860
+summing to a target, use
+
+13
+00:00:25.860 --> 00:00:27.440
+one selection bit per input
+
+14
+00:00:27.440 --> 00:00:29.720
+index. Add the selected binary
+
+15
+00:00:29.720 --> 00:00:31.440
+integers and compare the result
+
+16
+00:00:31.440 --> 00:00:33.020
+to the target. The bit
+
+17
+00:00:33.020 --> 00:00:34.560
+mask has linear length in
+
+18
+00:00:34.560 --> 00:00:35.940
+the number of entries, and
+
+19
+00:00:35.940 --> 00:00:38.360
+intermediate sums have only polynomially
+
+20
+00:00:38.360 --> 00:00:38.940
+many bits.
+
+21
+00:00:39.380 --> 00:00:41.020
+For existence of two distinct
+
+22
+00:00:41.020 --> 00:00:43.080
+subsets with that sum, give
+
+23
+00:00:43.080 --> 00:00:45.560
+two masks. Verify both sums
+
+24
+00:00:45.560 --> 00:00:46.940
+and check the masks differ
+
+25
+00:00:46.940 --> 00:00:48.340
+in at least one index
+
+26
+00:00:48.340 --> 00:00:50.500
+bit. On the repeated-value example,
+
+27
+00:00:51.080 --> 00:00:52.320
+choosing the first one or
+
+28
+00:00:52.320 --> 00:00:53.740
+the second one produces different
+
+29
+00:00:53.740 --> 00:00:55.300
+subsets even though the selected
+
+30
+00:00:55.300 --> 00:00:56.820
+numeric values look identical.
+
+31
+00:00:57.500 --> 00:00:59.460
+For a fixed constant number
+
+32
+00:00:59.460 --> 00:01:01.440
+of requested solutions, a fixed
+
+33
+00:01:01.440 --> 00:01:03.080
+number of masks is still
+
+34
+00:01:03.080 --> 00:01:05.660
+polynomial-sized. But the photo also
+
+35
+00:01:05.660 --> 00:01:07.680
+allows k itself in binary.
+
+36
+00:01:08.240 --> 00:01:09.960
+Then k can be exponentially
+
+37
+00:01:09.960 --> 00:01:11.520
+large in its written length,
+
+38
+00:01:11.880 --> 00:01:13.460
+so listing k masks may
+
+39
+00:01:13.460 --> 00:01:15.480
+take superpolynomial space in the
+
+40
+00:01:15.480 --> 00:01:15.920
+full input.
+
+41
+00:01:16.340 --> 00:01:18.100
+This exposes a gap in
+
+42
+00:01:18.100 --> 00:01:20.640
+that proposed NP proof: checking
+
+43
+00:01:20.640 --> 00:01:22.460
+a gigantic supplied list quickly
+
+44
+00:01:22.460 --> 00:01:23.900
+relative to the list length
+
+45
+00:01:23.900 --> 00:01:25.820
+is not enough. The witness
+
+46
+00:01:25.820 --> 00:01:27.640
+length must be polynomial in
+
+47
+00:01:27.640 --> 00:01:29.840
+the original instance length. Its
+
+48
+00:01:29.840 --> 00:01:31.380
+failure does not prove that
+
+49
+00:01:31.380 --> 00:01:33.320
+every other possible certificate scheme
+
+50
+00:01:33.320 --> 00:01:35.020
+fails or that the language
+
+51
+00:01:35.020 --> 00:01:36.140
+is outside NP.
+
+52
+00:01:36.700 --> 00:01:38.580
+The question asking how many
+
+53
+00:01:38.580 --> 00:01:40.100
+subsets sum to the target
+
+54
+00:01:40.100 --> 00:01:41.820
+asks for a numeric output.
+
+55
+00:01:42.500 --> 00:01:44.020
+NP, as defined in this
+
+56
+00:01:44.020 --> 00:01:45.280
+course, is a class of
+
+57
+00:01:45.280 --> 00:01:47.720
+decision languages with yes-or-no answers.
+
+58
+00:01:48.420 --> 00:01:50.540
+A related threshold decision problem
+
+59
+00:01:50.540 --> 00:01:52.340
+is meaningful, but it is
+
+60
+00:01:52.340 --> 00:01:54.440
+a new formal problem requiring
+
+61
+00:01:54.440 --> 00:01:56.240
+its own classification argument.
+
+62
+00:01:56.740 --> 00:01:58.780
+The zero-valued entries in the
+
+63
+00:01:58.780 --> 00:02:00.760
+photo’s input make index discipline
+
+64
+00:02:00.760 --> 00:02:03.620
+especially useful. Including or omitting
+
+65
+00:02:03.620 --> 00:02:05.340
+a zero changes the subset
+
+66
+00:02:05.340 --> 00:02:06.860
+mask even though it preserves
+
+67
+00:02:06.860 --> 00:02:09.560
+the sum. Deleting zero entries
+
+68
+00:02:09.560 --> 00:02:11.080
+can preserve existence of some
+
+69
+00:02:11.080 --> 00:02:12.980
+solution while changing the number
+
+70
+00:02:12.980 --> 00:02:15.480
+of distinct solutions, so transformations
+
+71
+00:02:15.480 --> 00:02:17.440
+must match their exact decision
+
+72
+00:02:17.440 --> 00:02:17.900
+question.
+
+73
+00:02:18.860 --> 00:02:21.140
+The usual dynamic program for
+
+74
+00:02:21.140 --> 00:02:22.760
+Subset Sum has a table
+
+75
+00:02:22.760 --> 00:02:24.500
+indexed by the target value.
+
+76
+00:02:24.960 --> 00:02:26.380
+That value can be huge
+
+77
+00:02:26.380 --> 00:02:28.060
+compared with its binary encoding,
+
+78
+00:02:28.580 --> 00:02:30.020
+even though a chosen subset
+
+79
+00:02:30.020 --> 00:02:32.880
+is easy to verify. Polynomial
+
+80
+00:02:32.880 --> 00:02:35.440
+certificate verification and a deterministic
+
+81
+00:02:35.440 --> 00:02:37.960
+polynomial algorithm are separate claims,
+
+82
+00:02:38.340 --> 00:02:40.240
+so the table-size argument must
+
+83
+00:02:40.240 --> 00:02:41.920
+use the original input length.
+
+84
+00:02:42.340 --> 00:02:44.280
+A sound verifier must also
+
+85
+00:02:44.280 --> 00:02:46.680
+reject malformed masks and incorrect
+
+86
+00:02:46.680 --> 00:02:48.880
+sums, not merely accept the
+
+87
+00:02:48.880 --> 00:02:50.380
+example it was designed around.
+
+88
+00:02:50.800 --> 00:02:53.540
+For two-solution certificates, duplicated copies
+
+89
+00:02:53.540 --> 00:02:54.800
+of the same mask must
+
+90
+00:02:54.800 --> 00:02:56.960
+not satisfy the distinctness requirement.
+
+91
+00:02:57.460 --> 00:02:58.940
+State all these checks before
+
+92
+00:02:58.940 --> 00:03:00.540
+declaring the problem in NP.
+
+93
+00:03:01.020 --> 00:03:02.280
+Things to take note of.
+
+94
+00:03:02.660 --> 00:03:04.880
+Keep subset indices distinct from
+
+95
+00:03:04.880 --> 00:03:07.160
+repeated numeric values, account for
+
+96
+00:03:07.160 --> 00:03:09.060
+binary k when measuring witness
+
+97
+00:03:09.060 --> 00:03:11.440
+size, and distinguish counting functions
+
+98
+00:03:11.440 --> 00:03:13.380
+from decision languages. If your
+
+99
+00:03:13.380 --> 00:03:15.100
+proposed certificate is too long,
+
+100
+00:03:15.500 --> 00:03:17.360
+identify that proof gap honestly
+
+101
+00:03:17.360 --> 00:03:19.040
+rather than claiming an unproved
+
+102
+00:03:19.040 --> 00:03:19.620
+separation.

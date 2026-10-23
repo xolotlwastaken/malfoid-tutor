@@ -1,0 +1,21 @@
+# How do we measure computational complexity and compare growth?
+
+SC2203 E34.
+
+## Source coverage
+
+### E34. How do we measure computational complexity and compare growth?
+
+**T16 · 5–6 min · E02, E27.** Introduce encoded length, worst-case steps and DTIME. Sort Tutorial 7 function cards after simplifying exponential-log expressions. Use f=2n,g=n to refute exponentiating an O-bound. Derive the correct linear-search expectation from its stated distribution. **Reasoning:** constants/thresholds, model changes and qualified time-hierarchy statement. **Takeaways:** polynomial vs quasipolynomial vs exponential; runtime class belongs to languages. **Sources:** W8A pp8–15; W8B; Tutorial 7 Q1–4. Use corrected formulas in the audit.
+
+Physical PDF pages and tutorial task IDs refer to `edit/sc2203/planning/SOURCES.md`; `source-inventory.json` records original file hashes and physical page counts. Coverage notes: `study-notes/sc2203/SC2203-exam-topic-breakdown.md`, the topic IDs in the card. These are generated coverage notes, not independent original user notes. Relevant extracted page text and tutorial solutions were consulted in constructing the script and mathematical example.
+
+Local SC2203 lecture recordings/transcripts and standalone personal notes were unavailable. No local lecture was claimed viewed, no lecture timestamps inferred from slides, and no lectures uploaded. Public Sipser lecture metadata provides supplementary topic alignment; no unreviewed recording timestamp is claimed. Weeks12–13 remain outside the supplied source set.
+
+## Examples and verification
+
+The narrated worked fixtures and their intermediate states are explicit in `story.json`; mathematical adaptations are authored teaching examples unless the card identifies an exact tutorial example. Source inconsistencies are resolved as documented in the planning source audit, especially input length, reduction direction, SAT auxiliary-variable freshness and Cook–Levin size/boundary conventions. The verification report records independent semantic checks and actual final-media checks; this source map alone is not a passed verification.
+
+## Production provenance
+
+Exact approved reference audio and text from `edit/series/voice-lock/voice-lock.json`, local Qwen3-TTS Base, locked seed721/temperature0.65, no fresh voice design. Raw per-beat speech and unprompted word ASR preserved. Main poses change at sentence boundaries every2–3 sentences, outlined captions are composited last, all speech clips retained with padded edges and ≥1second final hold.

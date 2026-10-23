@@ -1,0 +1,445 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.140
+Why does Cook Levin encode
+
+2
+00:00:02.140 --> 00:00:04.180
+every NP computation as SAT?
+
+3
+00:00:05.080 --> 00:00:07.120
+The theorem says SAT is
+
+4
+00:00:07.120 --> 00:00:09.600
+NP-complete, so we need membership
+
+5
+00:00:09.600 --> 00:00:11.000
+in NP and hardness for
+
+6
+00:00:11.000 --> 00:00:12.980
+every NP language. Its key
+
+7
+00:00:12.980 --> 00:00:14.400
+idea is to describe an
+
+8
+00:00:14.400 --> 00:00:16.960
+entire accepting computation with Boolean
+
+9
+00:00:16.960 --> 00:00:19.280
+variables and constraints, rather than
+
+10
+00:00:19.280 --> 00:00:21.860
+search all nondeterministic branches explicitly.
+
+11
+00:00:22.460 --> 00:00:25.200
+SAT membership is straightforward: a
+
+12
+00:00:25.200 --> 00:00:27.260
+certificate assigns truth values to
+
+13
+00:00:27.260 --> 00:00:30.060
+all variables. A deterministic verifier
+
+14
+00:00:30.060 --> 00:00:31.900
+evaluates the clauses in polynomial
+
+15
+00:00:31.900 --> 00:00:34.300
+time and accepts exactly a
+
+16
+00:00:34.300 --> 00:00:36.800
+satisfying assignment. Hardness is the
+
+17
+00:00:36.800 --> 00:00:39.380
+substantial part, because infinitely many
+
+18
+00:00:39.380 --> 00:00:41.540
+different NP languages must be
+
+19
+00:00:41.540 --> 00:00:43.340
+covered by one general construction
+
+20
+00:00:43.340 --> 00:00:43.740
+method.
+
+21
+00:00:44.180 --> 00:00:46.360
+Fix an arbitrary NP language
+
+22
+00:00:46.360 --> 00:00:48.800
+and a nondeterministic machine M
+
+23
+00:00:49.000 --> 00:00:50.680
+deciding it within polynomial time
+
+24
+00:00:51.160 --> 00:00:52.380
+T of the input length.
+
+25
+00:00:52.980 --> 00:00:54.640
+Use a suitable standard one-tape
+
+26
+00:00:54.980 --> 00:00:56.340
+form with a polynomial bound
+
+27
+00:00:56.340 --> 00:00:57.600
+at least as large as
+
+28
+00:00:57.600 --> 00:00:59.360
+the input. The reduction may
+
+29
+00:00:59.360 --> 00:01:00.600
+depend on this fixed machine,
+
+30
+00:01:01.000 --> 00:01:02.540
+but its variable input is
+
+31
+00:01:02.540 --> 00:01:03.920
+the particular string x.
+
+32
+00:01:04.300 --> 00:01:05.840
+A tableau is a grid
+
+33
+00:01:05.840 --> 00:01:08.340
+of configurations. Each row records
+
+34
+00:01:08.340 --> 00:01:09.900
+one time and each column
+
+35
+00:01:09.900 --> 00:01:11.720
+one tape location, with enough
+
+36
+00:01:11.720 --> 00:01:13.260
+cells for all positions the
+
+37
+00:01:13.260 --> 00:01:15.720
+bounded computation can visit. We
+
+38
+00:01:15.720 --> 00:01:18.040
+use configuration times zero through
+
+39
+00:01:18.040 --> 00:01:20.200
+T and transition times zero
+
+40
+00:01:20.200 --> 00:01:22.420
+through T minus one, keeping
+
+41
+00:01:22.420 --> 00:01:23.940
+those endpoint roles distinct.
+
+42
+00:01:24.420 --> 00:01:26.740
+The course uses four indicator
+
+43
+00:01:26.740 --> 00:01:29.560
+families. T records the symbol
+
+44
+00:01:29.560 --> 00:01:30.600
+in a given cell at
+
+45
+00:01:30.600 --> 00:01:32.340
+a time, H records the
+
+46
+00:01:32.340 --> 00:01:34.320
+head position, S records the
+
+47
+00:01:34.320 --> 00:01:36.160
+current state, and I records
+
+48
+00:01:36.160 --> 00:01:38.600
+the selected instruction. A satisfying
+
+49
+00:01:38.600 --> 00:01:40.900
+assignment chooses all these facts,
+
+50
+00:01:41.320 --> 00:01:44.160
+including one possible nondeterministic transition
+
+51
+00:01:44.160 --> 00:01:45.040
+at each step.
+
+52
+00:01:45.340 --> 00:01:47.700
+Constraints first require a correctly
+
+53
+00:01:47.700 --> 00:01:49.800
+initialized row and a unique
+
+54
+00:01:49.800 --> 00:01:51.440
+state, head and symbol in
+
+55
+00:01:51.440 --> 00:01:53.940
+each appropriate place. Other groups
+
+56
+00:01:53.940 --> 00:01:55.960
+require an accepting time and
+
+57
+00:01:55.960 --> 00:01:58.380
+one instruction per simulated transition.
+
+58
+00:01:58.840 --> 00:02:01.360
+Finally constrain unchanged non-head cells
+
+59
+00:02:01.360 --> 00:02:02.920
+and the valid read, write,
+
+60
+00:02:03.240 --> 00:02:04.860
+state and movement effects of
+
+61
+00:02:04.860 --> 00:02:06.100
+each selected instruction.
+
+62
+00:02:06.660 --> 00:02:08.840
+An accepting machine branch supplies
+
+63
+00:02:08.840 --> 00:02:10.940
+a satisfying assignment by recording
+
+64
+00:02:10.940 --> 00:02:12.400
+what actually happens in every
+
+65
+00:02:12.400 --> 00:02:14.280
+row. The initial row is
+
+66
+00:02:14.280 --> 00:02:16.400
+correct, each move obeys the
+
+67
+00:02:16.400 --> 00:02:17.720
+machine and some row accepts.
+
+68
+00:02:18.460 --> 00:02:19.680
+If the branch ends early,
+
+69
+00:02:19.840 --> 00:02:21.720
+pad its accepting configuration by
+
+70
+00:02:21.720 --> 00:02:24.360
+an explicitly defined absorbing convention
+
+71
+00:02:24.360 --> 00:02:25.140
+in the encoding.
+
+72
+00:02:25.900 --> 00:02:28.760
+Conversely, a satisfying assignment determines
+
+73
+00:02:28.760 --> 00:02:31.560
+one well-defined configuration per row.
+
+74
+00:02:32.060 --> 00:02:33.920
+The initial and local-transition constraints
+
+75
+00:02:33.920 --> 00:02:35.140
+force those rows to be
+
+76
+00:02:35.140 --> 00:02:37.420
+a genuine computation, and the
+
+77
+00:02:37.420 --> 00:02:39.480
+accepting condition supplies an accepting
+
+78
+00:02:39.480 --> 00:02:42.500
+branch. Leaving out unchanged-cell constraints
+
+79
+00:02:42.500 --> 00:02:44.260
+would allow tape contents to
+
+80
+00:02:44.260 --> 00:02:45.960
+change magically far from the
+
+81
+00:02:45.960 --> 00:02:47.880
+head, breaking that reconstruction.
+
+82
+00:02:48.420 --> 00:02:50.820
+The formula has polynomially many
+
+83
+00:02:50.820 --> 00:02:53.460
+variables and a polynomial-size explicit
+
+84
+00:02:53.460 --> 00:02:55.640
+encoding for fixed M. The
+
+85
+00:02:55.640 --> 00:02:57.740
+reduction writes constraints without first
+
+86
+00:02:57.740 --> 00:02:59.820
+solving whether M accepts x,
+
+87
+00:03:00.360 --> 00:03:02.920
+because satisfiability itself chooses the
+
+88
+00:03:02.920 --> 00:03:06.520
+branch. Nondeterminism is represented existentially
+
+89
+00:03:06.520 --> 00:03:08.580
+by the assignment, not eliminated
+
+90
+00:03:08.580 --> 00:03:10.900
+by an exponential deterministic branch
+
+91
+00:03:10.900 --> 00:03:12.140
+search inside the mapping.
+
+92
+00:03:12.620 --> 00:03:15.500
+The course’s detailed pairwise head-uniqueness
+
+93
+00:03:15.500 --> 00:03:18.060
+encoding needs a careful polynomial-size
+
+94
+00:03:18.060 --> 00:03:19.860
+count, which the next lesson
+
+95
+00:03:19.860 --> 00:03:22.660
+develops. The theorem requires polynomial
+
+96
+00:03:22.660 --> 00:03:25.300
+size, not an unjustified tight
+
+97
+00:03:25.300 --> 00:03:28.160
+quadratic claim. A different local-window
+
+98
+00:03:28.160 --> 00:03:29.440
+encoding can have a different
+
+99
+00:03:29.440 --> 00:03:31.220
+count, but its rules must
+
+100
+00:03:31.220 --> 00:03:32.600
+be analyzed on their own
+
+101
+00:03:32.600 --> 00:03:32.940
+terms.
+
+102
+00:03:33.460 --> 00:03:34.920
+Things to take note of.
+
+103
+00:03:35.400 --> 00:03:37.980
+Fix an arbitrary polynomial-time nondeterministic
+
+104
+00:03:38.620 --> 00:03:41.440
+machine, encode its bounded computation
+
+105
+00:03:41.720 --> 00:03:43.160
+and prove both directions of
+
+106
+00:03:43.160 --> 00:03:45.880
+the satisfiability equivalence. State time
+
+107
+00:03:45.880 --> 00:03:48.440
+and tape boundaries, handle early
+
+108
+00:03:48.440 --> 00:03:50.580
+acceptance and justify a polynomial
+
+109
+00:03:50.580 --> 00:03:53.020
+construction; that general method is
+
+110
+00:03:53.020 --> 00:03:54.780
+what covers every language in
+
+111
+00:03:54.780 --> 00:03:55.280
+NP.

@@ -1,0 +1,345 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.240
+How does topological sorting work?
+
+2
+00:00:02.240 --> 00:00:04.180
+List every vertex so each
+
+3
+00:00:04.180 --> 00:00:06.660
+directed prerequisite arrow points forwards
+
+4
+00:00:06.660 --> 00:00:08.400
+in the list. Such an
+
+5
+00:00:08.400 --> 00:00:10.280
+ordering exists exactly when the
+
+6
+00:00:10.280 --> 00:00:11.840
+graph has no directed cycle.
+
+7
+00:00:12.380 --> 00:00:14.000
+Use arrows A to C,
+
+8
+00:00:14.360 --> 00:00:15.400
+B to C, and C
+
+9
+00:00:15.400 --> 00:00:16.800
+to D. Both A and
+
+10
+00:00:16.800 --> 00:00:18.220
+B can start, but C
+
+11
+00:00:18.220 --> 00:00:19.780
+must wait for both, and
+
+12
+00:00:19.780 --> 00:00:21.420
+D must wait for C.
+
+13
+00:00:22.100 --> 00:00:24.240
+For source removal, count each
+
+14
+00:00:24.362 --> 00:00:26.624
+vertex’s incoming edges. The indegrees
+
+15
+00:00:27.060 --> 00:00:29.960
+are zero, zero, two, one;
+
+16
+00:00:30.420 --> 00:00:31.720
+add A and B to
+
+17
+00:00:31.720 --> 00:00:32.880
+a ready queue because they
+
+18
+00:00:32.880 --> 00:00:34.600
+have no remaining prerequisites.
+
+19
+00:00:35.420 --> 00:00:36.960
+Remove A from the ready
+
+20
+00:00:37.323 --> 00:00:38.220
+queue and append it to
+
+21
+00:00:38.220 --> 00:00:40.580
+the output. Decrement C from
+
+22
+00:00:40.580 --> 00:00:42.640
+two to one; C is
+
+23
+00:00:42.640 --> 00:00:44.300
+not ready yet, so the
+
+24
+00:00:44.300 --> 00:00:45.960
+remaining queue contains B.
+
+25
+00:00:46.660 --> 00:00:48.460
+Remove B and append it
+
+26
+00:00:48.460 --> 00:00:50.820
+next. Decrement C from one
+
+27
+00:00:50.820 --> 00:00:52.804
+to zero, then enqueue C;
+
+28
+00:00:53.700 --> 00:00:55.080
+reaching zero is the event
+
+29
+00:00:55.080 --> 00:00:56.480
+that makes a vertex ready.
+
+30
+00:00:57.100 --> 00:00:59.580
+Remove C, append it, and
+
+31
+00:00:59.580 --> 00:01:02.283
+decrement D to zero. Enqueue
+
+32
+00:01:02.300 --> 00:01:04.740
+and remove D, producing A,
+
+33
+00:01:04.980 --> 00:01:06.940
+B, C, D; every arrow
+
+34
+00:01:06.940 --> 00:01:08.140
+now points forwards.
+
+35
+00:01:09.220 --> 00:01:11.380
+Choosing B before A would
+
+36
+00:01:11.380 --> 00:01:13.360
+instead give B, A, C,
+
+37
+00:01:13.620 --> 00:01:15.200
+D, which is also valid.
+
+38
+00:01:15.820 --> 00:01:17.820
+Multiple ready vertices allow different
+
+39
+00:01:17.820 --> 00:01:20.460
+topological orders; if exactly one
+
+40
+00:01:20.460 --> 00:01:21.840
+is ready at every step,
+
+41
+00:01:22.240 --> 00:01:23.440
+the order is forced.
+
+42
+00:01:23.980 --> 00:01:25.680
+If the ready worklist empties
+
+43
+00:01:25.680 --> 00:01:27.260
+before all n vertices are
+
+44
+00:01:27.260 --> 00:01:29.440
+output, the remaining graph contains
+
+45
+00:01:29.440 --> 00:01:31.600
+a directed cycle. Its vertices
+
+46
+00:01:31.600 --> 00:01:32.880
+keep waiting on one another,
+
+47
+00:01:33.340 --> 00:01:34.760
+so a partial list is
+
+48
+00:01:34.760 --> 00:01:36.600
+not a complete topological order.
+
+49
+00:01:36.900 --> 00:01:38.540
+The other taught method uses
+
+50
+00:01:38.540 --> 00:01:40.060
+a full DFS forest and
+
+51
+00:01:40.060 --> 00:01:41.600
+rejects back edges. On this
+
+52
+00:01:41.600 --> 00:01:44.512
+graph, alphabetical DFS finishes D,
+
+53
+00:01:44.512 --> 00:01:46.340
+C, A, then B; reverse
+
+54
+00:01:46.340 --> 00:01:48.318
+that sequence to obtain B,
+
+55
+00:01:48.318 --> 00:01:49.460
+A, C, D.
+
+56
+00:01:49.660 --> 00:01:51.420
+In a DAG, an edge
+
+57
+00:01:51.420 --> 00:01:52.720
+goes to a vertex that
+
+58
+00:01:52.720 --> 00:01:54.980
+finishes before its source, whether
+
+59
+00:01:54.980 --> 00:01:57.460
+reached recursively or already finished.
+
+60
+00:01:58.020 --> 00:01:59.940
+Reversing the finishes therefore puts
+
+61
+00:01:59.940 --> 00:02:01.560
+the source before the destination;
+
+62
+00:02:01.984 --> 00:02:03.960
+plain finishing order points the
+
+63
+00:02:03.960 --> 00:02:04.520
+wrong way.
+
+64
+00:02:05.060 --> 00:02:07.480
+Computing indegrees scans n vertices
+
+65
+00:02:07.480 --> 00:02:10.180
+and m edges once. Each
+
+66
+00:02:10.180 --> 00:02:12.360
+vertex enters the worklist once
+
+67
+00:02:12.780 --> 00:02:14.580
+and each outgoing edge causes
+
+68
+00:02:14.580 --> 00:02:16.960
+one decrement, so source removal
+
+69
+00:02:16.960 --> 00:02:18.720
+takes order n plus m
+
+70
+00:02:18.720 --> 00:02:20.720
+time and order n auxiliary
+
+71
+00:02:20.720 --> 00:02:21.100
+space.
+
+72
+00:02:21.580 --> 00:02:22.660
+Things to take note of.
+
+73
+00:02:22.660 --> 00:02:24.920
+A constant-time queue or stack
+
+74
+00:02:24.920 --> 00:02:27.180
+keeps the source-removal bound linear;
+
+75
+00:02:27.580 --> 00:02:29.900
+repeatedly rescanning all vertices for
+
+76
+00:02:29.900 --> 00:02:31.380
+zero counters can be slower.
+
+77
+00:02:32.120 --> 00:02:33.760
+Use adjacency lists for that
+
+78
+00:02:33.760 --> 00:02:35.160
+n plus m analysis.
+
+79
+00:02:35.780 --> 00:02:37.620
+For an empty graph, the
+
+80
+00:02:37.620 --> 00:02:39.660
+empty order is valid, and
+
+81
+00:02:39.660 --> 00:02:41.760
+an isolated vertex is ready
+
+82
+00:02:41.760 --> 00:02:44.700
+immediately. Check every edge against
+
+83
+00:02:44.700 --> 00:02:46.600
+the final order, and reverse
+
+84
+00:02:46.600 --> 00:02:48.680
+DFS finishes when using that
+
+85
+00:02:48.680 --> 00:02:52.360
+method. Prerequisites first; dramatic entrances
+
+86
+00:02:52.360 --> 00:02:52.740
+later.

@@ -1,0 +1,341 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.500
+How do you design a
+
+2
+00:00:01.500 --> 00:00:04.340
+semaphore protocol? First separate shared
+
+3
+00:00:04.340 --> 00:00:06.960
+data, resource capacity and ordering
+
+4
+00:00:06.960 --> 00:00:09.880
+dependencies. Those are different responsibilities,
+
+5
+00:00:10.540 --> 00:00:12.640
+so initializing every semaphore to
+
+6
+00:00:12.640 --> 00:00:13.900
+one is not a design
+
+7
+00:00:13.900 --> 00:00:15.880
+method, however tidy the code
+
+8
+00:00:15.880 --> 00:00:16.280
+may look.
+
+9
+00:00:16.700 --> 00:00:19.300
+For shared mutable data, identify
+
+10
+00:00:19.300 --> 00:00:20.880
+the critical section and protect
+
+11
+00:00:20.880 --> 00:00:22.400
+it with a binary semaphore
+
+12
+00:00:22.400 --> 00:00:24.900
+initially one. Wait before the
+
+13
+00:00:24.900 --> 00:00:26.920
+protected update and signal after
+
+14
+00:00:26.920 --> 00:00:28.940
+it. Keep the protected region
+
+15
+00:00:28.940 --> 00:00:30.360
+focused on the data that
+
+16
+00:00:30.360 --> 00:00:31.740
+must remain consistent.
+
+17
+00:00:32.340 --> 00:00:34.240
+For a resource pool, initialize
+
+18
+00:00:34.240 --> 00:00:35.500
+a counting semaphore to the
+
+19
+00:00:35.500 --> 00:00:37.860
+number of available instances. Three
+
+20
+00:00:37.860 --> 00:00:39.660
+identical printers begin with three
+
+21
+00:00:39.660 --> 00:00:41.300
+permits, even if only two
+
+22
+00:00:41.300 --> 00:00:43.540
+jobs currently exist. The initial
+
+23
+00:00:43.540 --> 00:00:45.740
+count describes capacity, not the
+
+24
+00:00:45.740 --> 00:00:47.060
+current number of customers.
+
+25
+00:00:47.740 --> 00:00:49.160
+A job waits for a
+
+26
+00:00:49.160 --> 00:00:50.620
+printer permit before using a
+
+27
+00:00:50.620 --> 00:00:52.000
+printer and signals when that
+
+28
+00:00:52.000 --> 00:00:54.620
+printer is returned. Three successful
+
+29
+00:00:54.620 --> 00:00:55.980
+waits can allocate the three
+
+30
+00:00:55.980 --> 00:00:58.620
+instances; a fourth requester blocks.
+
+31
+00:00:59.320 --> 00:01:00.880
+No single permit should represent
+
+32
+00:01:00.880 --> 00:01:02.860
+two simultaneous users of one
+
+33
+00:01:02.860 --> 00:01:03.300
+printer.
+
+34
+00:01:03.700 --> 00:01:05.380
+The shared job list needs
+
+35
+00:01:05.380 --> 00:01:07.040
+its own mutex while entries
+
+36
+00:01:07.040 --> 00:01:09.120
+are removed or updated. Using
+
+37
+00:01:09.120 --> 00:01:10.560
+only printers equal to three
+
+38
+00:01:10.560 --> 00:01:12.180
+would allow three concurrent list
+
+39
+00:01:12.180 --> 00:01:14.320
+mutations and could race. Using
+
+40
+00:01:14.320 --> 00:01:15.820
+one mutex around the entire
+
+41
+00:01:15.820 --> 00:01:17.140
+print would protect the list
+
+42
+00:01:17.140 --> 00:01:19.240
+but unnecessarily serialize the printer
+
+43
+00:01:19.240 --> 00:01:19.460
+pool.
+
+44
+00:01:19.820 --> 00:01:22.620
+For ordering, suppose statement B
+
+45
+00:01:22.620 --> 00:01:24.600
+must occur only after statement
+
+46
+00:01:24.600 --> 00:01:27.320
+A in another process. Initialize
+
+47
+00:01:27.320 --> 00:01:29.060
+an ordering semaphore to zero,
+
+48
+00:01:29.660 --> 00:01:31.420
+signal after A, and wait
+
+49
+00:01:31.420 --> 00:01:33.080
+before B. If the signal
+
+50
+00:01:33.080 --> 00:01:35.280
+arrives first, the permit remembers
+
+51
+00:01:35.280 --> 00:01:36.480
+that A has occurred.
+
+52
+00:01:36.900 --> 00:01:39.000
+That one-way dependency is not
+
+53
+00:01:39.000 --> 00:01:41.280
+mutual exclusion around an arbitrary
+
+54
+00:01:41.280 --> 00:01:44.420
+shared object. Its zero initialization
+
+55
+00:01:44.420 --> 00:01:46.640
+intentionally prevents B from starting
+
+56
+00:01:46.640 --> 00:01:48.940
+before A. A mutex normally
+
+57
+00:01:48.940 --> 00:01:51.000
+starts with one permit so
+
+58
+00:01:51.000 --> 00:01:52.480
+the first contender can enter
+
+59
+00:01:52.480 --> 00:01:54.520
+an otherwise free critical section.
+
+60
+00:01:55.100 --> 00:01:57.680
+Incorrect acquisition order can deadlock:
+
+61
+00:01:58.260 --> 00:01:59.920
+P zero takes lock S
+
+62
+00:01:59.920 --> 00:02:01.740
+and waits for Q, while
+
+63
+00:02:01.740 --> 00:02:03.120
+P one takes Q and
+
+64
+00:02:03.120 --> 00:02:04.840
+waits for S. Both waits
+
+65
+00:02:04.840 --> 00:02:06.720
+are individually legitimate, but the
+
+66
+00:02:06.720 --> 00:02:08.860
+combined resource dependencies form a
+
+67
+00:02:08.860 --> 00:02:11.320
+cycle. Consistent ordering or another
+
+68
+00:02:11.320 --> 00:02:13.060
+justified protocol is needed.
+
+69
+00:02:13.460 --> 00:02:16.000
+Queue discipline matters too. A
+
+70
+00:02:16.000 --> 00:02:17.800
+priority queue may keep favoring
+
+71
+00:02:17.800 --> 00:02:20.380
+new high-priority arrivals, while a
+
+72
+00:02:20.380 --> 00:02:22.600
+last-in-first-out list can bury an
+
+73
+00:02:22.600 --> 00:02:24.540
+old waiter. Preserving a resource
+
+74
+00:02:24.540 --> 00:02:26.120
+count does not by itself
+
+75
+00:02:26.120 --> 00:02:27.700
+prove bounded waiting for each
+
+76
+00:02:27.700 --> 00:02:28.120
+process.
+
+77
+00:02:28.620 --> 00:02:29.920
+Things to take note of.
+
+78
+00:02:30.240 --> 00:02:32.100
+State what every semaphore means,
+
+79
+00:02:32.520 --> 00:02:34.080
+derive its initial value from
+
+80
+00:02:34.080 --> 00:02:35.860
+that meaning, and pair each
+
+81
+00:02:35.860 --> 00:02:37.700
+acquisition with the appropriate release.
+
+82
+00:02:38.260 --> 00:02:40.040
+Protect the data, count the
+
+83
+00:02:40.040 --> 00:02:41.940
+instances and enforce the dependency;
+
+84
+00:02:42.400 --> 00:02:43.840
+do not interchange those jobs
+
+85
+00:02:43.840 --> 00:02:44.700
+without an argument.

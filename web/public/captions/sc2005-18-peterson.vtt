@@ -1,0 +1,369 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.400
+How does Peterson’s algorithm resolve
+
+2
+00:00:02.400 --> 00:00:04.520
+a tie? It combines two
+
+3
+00:00:04.520 --> 00:00:06.060
+interest flags with a turn
+
+4
+00:00:06.060 --> 00:00:08.600
+variable, so each process announces
+
+5
+00:00:08.600 --> 00:00:09.940
+its wish to enter while
+
+6
+00:00:09.940 --> 00:00:11.180
+allowing the other to win
+
+7
+00:00:11.180 --> 00:00:13.860
+simultaneous contention. We use the
+
+8
+00:00:13.860 --> 00:00:15.880
+course two-process model with atomic
+
+9
+00:00:15.880 --> 00:00:17.140
+reads and writes and the
+
+10
+00:00:17.140 --> 00:00:18.400
+stated ordering assumptions.
+
+11
+00:00:18.940 --> 00:00:21.380
+For process i, set its
+
+12
+00:00:21.380 --> 00:00:23.300
+own flag true, set turn
+
+13
+00:00:23.300 --> 00:00:25.060
+to the other process k,
+
+14
+00:00:25.680 --> 00:00:27.020
+then wait while the other
+
+15
+00:00:27.020 --> 00:00:28.480
+flag is true and turn
+
+16
+00:00:28.480 --> 00:00:30.680
+favors that other process. On
+
+17
+00:00:30.680 --> 00:00:33.760
+exit, clear the process own
+
+18
+00:00:33.760 --> 00:00:36.120
+flag. The conjunction in the
+
+19
+00:00:36.120 --> 00:00:38.220
+waiting condition is essential.
+
+20
+00:00:38.820 --> 00:00:40.780
+Start a simultaneous attempt by
+
+21
+00:00:40.780 --> 00:00:42.320
+letting P zero set flag
+
+22
+00:00:42.320 --> 00:00:44.100
+zero true and turn one.
+
+23
+00:00:44.700 --> 00:00:46.300
+P one then sets flag
+
+24
+00:00:46.300 --> 00:00:48.140
+one true and turn zero.
+
+25
+00:00:48.540 --> 00:00:50.380
+Both flags now express interest,
+
+26
+00:00:50.700 --> 00:00:51.860
+but the last turn value
+
+27
+00:00:51.860 --> 00:00:53.160
+resolves who must defer.
+
+28
+00:00:53.740 --> 00:00:55.760
+P zero checks flag one
+
+29
+00:00:55.760 --> 00:00:57.740
+and whether turn equals one.
+
+30
+00:00:58.100 --> 00:00:59.720
+Flag one is true but
+
+31
+00:00:59.720 --> 00:01:01.680
+turn is zero, so the
+
+32
+00:01:01.680 --> 00:01:03.120
+conjunction is false and P
+
+33
+00:01:03.120 --> 00:01:05.600
+zero enters. P one sees
+
+34
+00:01:05.600 --> 00:01:07.280
+flag zero true and turn
+
+35
+00:01:07.280 --> 00:01:09.240
+zero, so its guard remains
+
+36
+00:01:09.240 --> 00:01:10.500
+true and it waits.
+
+37
+00:01:10.980 --> 00:01:12.760
+When P zero leaves, it
+
+38
+00:01:12.760 --> 00:01:15.280
+clears flag zero. P one
+
+39
+00:01:15.280 --> 00:01:16.800
+now sees the other flag
+
+40
+00:01:16.800 --> 00:01:18.520
+false, so it may enter
+
+41
+00:01:18.520 --> 00:01:20.220
+regardless of the retained turn
+
+42
+00:01:20.220 --> 00:01:22.780
+value. The exit action releases
+
+43
+00:01:22.780 --> 00:01:25.080
+the waiting competitor without requiring
+
+44
+00:01:25.080 --> 00:01:26.520
+both flags to be reset
+
+45
+00:01:26.520 --> 00:01:27.000
+together.
+
+46
+00:01:27.340 --> 00:01:28.740
+If only P zero wants
+
+47
+00:01:28.740 --> 00:01:30.380
+entry, P one keeps its
+
+48
+00:01:30.380 --> 00:01:31.980
+flag false. Even though P
+
+49
+00:01:31.980 --> 00:01:33.360
+zero gives turn to P
+
+50
+00:01:33.360 --> 00:01:35.400
+one, the false interest flag
+
+51
+00:01:35.400 --> 00:01:37.200
+makes the waiting conjunction false.
+
+52
+00:01:37.680 --> 00:01:40.060
+This avoids the strict-alternation failure
+
+53
+00:01:40.060 --> 00:01:42.280
+where an uninterested process could
+
+54
+00:01:42.280 --> 00:01:43.220
+hold the turn forever.
+
+55
+00:01:43.700 --> 00:01:46.400
+For exclusion, suppose a process
+
+56
+00:01:46.400 --> 00:01:48.260
+is already inside with its
+
+57
+00:01:48.260 --> 00:01:50.880
+flag true. A competitor announces
+
+58
+00:01:50.880 --> 00:01:52.640
+itself and gives turn to
+
+59
+00:01:52.640 --> 00:01:54.740
+the current process, making the
+
+60
+00:01:54.740 --> 00:01:57.300
+competitor guard wait. Under the
+
+61
+00:01:57.300 --> 00:01:59.380
+course ordering assumptions, the flag
+
+62
+00:01:59.380 --> 00:02:01.400
+and turn argument prevents both
+
+63
+00:02:01.400 --> 00:02:02.880
+from passing into their critical
+
+64
+00:02:02.880 --> 00:02:03.780
+sections together.
+
+65
+00:02:04.220 --> 00:02:06.780
+Progress follows because an absent
+
+66
+00:02:06.780 --> 00:02:08.520
+competitor has a false flag,
+
+67
+00:02:08.980 --> 00:02:11.420
+while simultaneous interested processes use
+
+68
+00:02:11.420 --> 00:02:13.640
+turn to select one. Bounded
+
+69
+00:02:13.640 --> 00:02:15.600
+overtaking follows from that reciprocal
+
+70
+00:02:15.600 --> 00:02:17.300
+turn behavior under the assumed
+
+71
+00:02:17.300 --> 00:02:19.460
+execution model. It is a
+
+72
+00:02:19.460 --> 00:02:21.720
+logical protocol proof, not a
+
+73
+00:02:21.720 --> 00:02:23.940
+promise that arbitrary compiled code
+
+74
+00:02:23.940 --> 00:02:24.840
+obeys the model.
+
+75
+00:02:25.220 --> 00:02:27.160
+Do not reorder the announcement
+
+76
+00:02:27.160 --> 00:02:28.760
+and guard merely because the
+
+77
+00:02:28.760 --> 00:02:31.300
+lines look interchangeable. The photographed
+
+78
+00:02:31.300 --> 00:02:33.860
+exercises deliberately change ordering or
+
+79
+00:02:33.860 --> 00:02:35.420
+scheduling to test the reasoning.
+
+80
+00:02:35.420 --> 00:02:38.360
+On modern processors, compiler and
+
+81
+00:02:38.360 --> 00:02:40.620
+memory reordering also require proper
+
+82
+00:02:40.620 --> 00:02:43.900
+language-level synchronization; ordinary variables are
+
+83
+00:02:43.900 --> 00:02:46.000
+not automatically a portable production
+
+84
+00:02:46.000 --> 00:02:46.260
+lock.
+
+85
+00:02:46.620 --> 00:02:48.020
+Things to take note of.
+
+86
+00:02:48.580 --> 00:02:49.820
+Write the waiting condition with
+
+87
+00:02:49.820 --> 00:02:51.300
+both the other flag and
+
+88
+00:02:51.300 --> 00:02:53.480
+the turn comparison, clear your
+
+89
+00:02:53.480 --> 00:02:55.280
+own flag on exit, and
+
+90
+00:02:55.280 --> 00:02:58.720
+trace simultaneous interest explicitly. Separate
+
+91
+00:02:58.720 --> 00:03:00.120
+the course proof from claims
+
+92
+00:03:00.120 --> 00:03:02.520
+about an unqualified modern implementation.

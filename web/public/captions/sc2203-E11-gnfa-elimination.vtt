@@ -1,0 +1,405 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.220
+How does generalized-automaton state elimination
+
+2
+00:00:03.220 --> 00:00:06.140
+produce a regular expression? Replace
+
+3
+00:00:06.140 --> 00:00:08.040
+each removed state by labels
+
+4
+00:00:08.040 --> 00:00:10.480
+describing every possible journey through
+
+5
+00:00:10.480 --> 00:00:11.920
+it. We will use the
+
+6
+00:00:11.920 --> 00:00:13.760
+tutorial automaton for an even
+
+7
+00:00:13.760 --> 00:00:15.300
+number of ones, where the
+
+8
+00:00:15.300 --> 00:00:17.360
+original start is also accepting.
+
+9
+00:00:18.060 --> 00:00:19.680
+First add a fresh start
+
+10
+00:00:19.680 --> 00:00:20.940
+s and a fresh sole
+
+11
+00:00:20.940 --> 00:00:23.100
+final f. Connect s to
+
+12
+00:00:23.100 --> 00:00:24.520
+the old start by epsilon,
+
+13
+00:00:24.820 --> 00:00:26.560
+and connect each old final
+
+14
+00:00:26.560 --> 00:00:28.280
+to f by epsilon. Since
+
+15
+00:00:28.280 --> 00:00:29.340
+q one was both the
+
+16
+00:00:29.340 --> 00:00:30.420
+old start and the old
+
+17
+00:00:30.420 --> 00:00:32.540
+final, it receives both links
+
+18
+00:00:32.540 --> 00:00:34.260
+but loses its special accepting
+
+19
+00:00:34.260 --> 00:00:36.340
+designation in the generalized machine.
+
+20
+00:00:37.220 --> 00:00:39.020
+Suppose we remove an internal
+
+21
+00:00:39.020 --> 00:00:41.000
+state r between surviving states
+
+22
+00:00:41.000 --> 00:00:42.980
+i and j. A path
+
+23
+00:00:42.980 --> 00:00:45.040
+can either avoid r, or
+
+24
+00:00:45.040 --> 00:00:46.620
+enter it, loop there any
+
+25
+00:00:46.620 --> 00:00:48.500
+number of times, then leave
+
+26
+00:00:48.500 --> 00:00:50.540
+it. Therefore replace the old
+
+27
+00:00:50.540 --> 00:00:52.100
+direct label by its union
+
+28
+00:00:52.100 --> 00:00:54.160
+with entering label, loop star,
+
+29
+00:00:54.420 --> 00:00:56.180
+and exiting label in that
+
+30
+00:00:56.180 --> 00:00:56.560
+order.
+
+31
+00:00:57.020 --> 00:00:58.940
+Remove q two first as
+
+32
+00:00:58.940 --> 00:01:00.600
+the tutorial requests. From q
+
+33
+00:01:00.600 --> 00:01:02.740
+one, entry into q two
+
+34
+00:01:02.740 --> 00:01:04.940
+reads one, its self-loop reads
+
+35
+00:01:04.940 --> 00:01:06.860
+zero, and exit back reads
+
+36
+00:01:06.860 --> 00:01:09.720
+one. Those journeys describe one
+
+37
+00:01:09.960 --> 00:01:11.500
+zero star one, which must
+
+38
+00:01:11.500 --> 00:01:13.000
+be unioned with q one’s
+
+39
+00:01:13.000 --> 00:01:14.060
+existing zero-loop.
+
+40
+00:01:14.580 --> 00:01:16.480
+The epsilon arrow from s
+
+41
+00:01:16.480 --> 00:01:18.340
+to q one remains unchanged
+
+42
+00:01:18.340 --> 00:01:20.540
+because s had no direct
+
+43
+00:01:20.540 --> 00:01:22.700
+way into q two. The
+
+44
+00:01:22.700 --> 00:01:24.320
+epsilon arrow from q one
+
+45
+00:01:24.320 --> 00:01:26.600
+to f also remains unchanged
+
+46
+00:01:26.600 --> 00:01:28.320
+because q two had no
+
+47
+00:01:28.320 --> 00:01:30.640
+arrow to f. Empty-set labels
+
+48
+00:01:30.640 --> 00:01:32.920
+make those impossible detours contribute
+
+49
+00:01:32.920 --> 00:01:33.660
+no words.
+
+50
+00:01:34.140 --> 00:01:36.560
+Now remove q one. The
+
+51
+00:01:36.560 --> 00:01:38.880
+only accepting route enters by
+
+52
+00:01:38.880 --> 00:01:41.180
+epsilon, takes its loop any
+
+53
+00:01:41.180 --> 00:01:43.300
+number of times, then exits
+
+54
+00:01:43.300 --> 00:01:46.040
+by epsilon. The final expression
+
+55
+00:01:46.040 --> 00:01:48.300
+is zero or one zero
+
+56
+00:01:48.300 --> 00:01:50.340
+star one, all under star,
+
+57
+00:01:50.660 --> 00:01:52.740
+with the redundant epsilon factors
+
+58
+00:01:52.740 --> 00:01:53.260
+removed.
+
+59
+00:01:53.780 --> 00:01:55.280
+Each block of the final
+
+60
+00:01:55.280 --> 00:01:57.560
+expression contributes either no ones
+
+61
+00:01:57.560 --> 00:02:00.720
+or exactly two ones. Conversely,
+
+62
+00:02:00.960 --> 00:02:02.000
+a word with an even
+
+63
+00:02:02.000 --> 00:02:03.440
+number of ones can pair
+
+64
+00:02:03.440 --> 00:02:05.600
+successive ones, grouping the zeros
+
+65
+00:02:05.600 --> 00:02:07.280
+between each pair into that
+
+66
+00:02:07.280 --> 00:02:10.340
+pair’s block. Zeros outside pairs
+
+67
+00:02:10.340 --> 00:02:12.800
+become single zero blocks, proving
+
+68
+00:02:12.800 --> 00:02:15.080
+the expression describes precisely the
+
+69
+00:02:15.080 --> 00:02:16.440
+even-parity language.
+
+70
+00:02:17.260 --> 00:02:18.900
+The empty string and the
+
+71
+00:02:18.900 --> 00:02:21.060
+single symbol zero are accepted.
+
+72
+00:02:21.780 --> 00:02:23.540
+Reading one then zero then
+
+73
+00:02:23.540 --> 00:02:25.380
+one gives another accepted word,
+
+74
+00:02:25.780 --> 00:02:27.280
+as does one then one
+
+75
+00:02:27.280 --> 00:02:29.240
+then zero, while a single
+
+76
+00:02:29.240 --> 00:02:30.560
+one or one followed by
+
+77
+00:02:30.560 --> 00:02:32.820
+zero is rejected. An expression
+
+78
+00:02:32.820 --> 00:02:34.180
+that omits the empty string
+
+79
+00:02:34.180 --> 00:02:36.020
+fails for this machine, whose
+
+80
+00:02:36.020 --> 00:02:37.860
+original start state was accepting.
+
+81
+00:02:38.500 --> 00:02:40.420
+A different removal order may
+
+82
+00:02:40.420 --> 00:02:42.860
+produce a differently shaped expression.
+
+83
+00:02:43.500 --> 00:02:45.520
+Correctness depends on preserving all
+
+84
+00:02:45.520 --> 00:02:47.080
+paths with the update rule,
+
+85
+00:02:47.420 --> 00:02:49.160
+not on matching one printed
+
+86
+00:02:49.160 --> 00:02:51.840
+expression character for character. Never
+
+87
+00:02:51.840 --> 00:02:53.640
+remove the designated new start
+
+88
+00:02:53.640 --> 00:02:55.320
+or final, and never mix
+
+89
+00:02:55.320 --> 00:02:57.680
+already-updated and old labels within
+
+90
+00:02:57.680 --> 00:02:58.380
+one removal.
+
+91
+00:02:58.700 --> 00:03:00.060
+Things to take note of.
+
+92
+00:03:00.560 --> 00:03:03.260
+Initialize the generalized machine carefully,
+
+93
+00:03:03.660 --> 00:03:05.020
+including the case where the
+
+94
+00:03:05.020 --> 00:03:06.540
+old start is final, and
+
+95
+00:03:06.540 --> 00:03:08.320
+use union of direct and
+
+96
+00:03:08.320 --> 00:03:11.200
+through-state paths. Preserve parentheses and
+
+97
+00:03:11.200 --> 00:03:13.600
+empty-set labels, then check the
+
+98
+00:03:13.600 --> 00:03:15.460
+final expression against the original
+
+99
+00:03:15.460 --> 00:03:17.760
+language; the full excluded appendix
+
+100
+00:03:17.760 --> 00:03:19.200
+proof is not needed to
+
+101
+00:03:19.200 --> 00:03:20.220
+perform the construction.

@@ -1,0 +1,385 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.700
+When should you combine pumping
+
+2
+00:00:01.700 --> 00:00:04.320
+with closure? A difficult-looking language
+
+3
+00:00:04.320 --> 00:00:06.080
+may expose a familiar nonregular
+
+4
+00:00:06.480 --> 00:00:08.880
+core after complementing or intersecting
+
+5
+00:00:08.880 --> 00:00:10.420
+with a simple regular filter.
+
+6
+00:00:10.940 --> 00:00:12.620
+We will compare unequal block
+
+7
+00:00:12.620 --> 00:00:15.260
+counts, related inequalities, and perfect
+
+8
+00:00:15.260 --> 00:00:17.080
+square lengths over a one-symbol
+
+9
+00:00:17.080 --> 00:00:18.200
+alphabet to learn how to
+
+10
+00:00:18.200 --> 00:00:19.100
+choose the argument.
+
+11
+00:00:19.500 --> 00:00:21.440
+Let L consist of zeros
+
+12
+00:00:21.440 --> 00:00:23.240
+followed by ones with unequal
+
+13
+00:00:23.240 --> 00:00:25.380
+block counts. Directly adding more
+
+14
+00:00:25.380 --> 00:00:27.420
+zeros often leaves the inequality
+
+15
+00:00:27.420 --> 00:00:30.200
+true, so an arbitrary pump
+
+16
+00:00:30.200 --> 00:00:33.260
+direction is unhelpful. Instead suppose
+
+17
+00:00:33.260 --> 00:00:35.140
+L regular and isolate its
+
+18
+00:00:35.140 --> 00:00:37.840
+equal-count complement inside the ordered-block
+
+19
+00:00:37.840 --> 00:00:38.300
+words.
+
+20
+00:00:38.900 --> 00:00:41.200
+The complement alone contains many
+
+21
+00:00:41.200 --> 00:00:43.200
+out-of-order words, so it is
+
+22
+00:00:43.200 --> 00:00:45.040
+not yet the equal-block language.
+
+23
+00:00:45.580 --> 00:00:47.560
+Intersecting with zero star one
+
+24
+00:00:47.560 --> 00:00:49.400
+star removes those words and
+
+25
+00:00:49.400 --> 00:00:52.320
+leaves exactly equal blocks. Regular
+
+26
+00:00:52.320 --> 00:00:53.900
+closure would make that language
+
+27
+00:00:53.900 --> 00:00:56.460
+regular, contradicting the pumping proof
+
+28
+00:00:56.460 --> 00:00:57.480
+we already know.
+
+29
+00:00:57.980 --> 00:01:00.540
+Now consider zero-block length at
+
+30
+00:01:00.540 --> 00:01:02.820
+least one-block length. Choose p
+
+31
+00:01:02.820 --> 00:01:04.980
+zeros followed by p ones,
+
+32
+00:01:05.960 --> 00:01:07.200
+lying on the boundary of
+
+33
+00:01:07.200 --> 00:01:09.820
+the inequality. Pumping up zeros
+
+34
+00:01:09.820 --> 00:01:11.540
+keeps the condition true, but
+
+35
+00:01:11.540 --> 00:01:13.180
+pumping down makes the first
+
+36
+00:01:13.180 --> 00:01:15.060
+block shorter than the unchanged
+
+37
+00:01:15.060 --> 00:01:16.040
+second block.
+
+38
+00:01:16.500 --> 00:01:18.980
+For matching outer blocks, a
+
+39
+00:01:18.980 --> 00:01:21.020
+useful witness is p zeros,
+
+40
+00:01:21.020 --> 00:01:22.600
+one separating one, and p
+
+41
+00:01:22.600 --> 00:01:25.140
+zeros. Every legal loop lies
+
+42
+00:01:25.140 --> 00:01:26.560
+in the first zero block,
+
+43
+00:01:27.260 --> 00:01:29.120
+so removing it changes only
+
+44
+00:01:29.120 --> 00:01:31.300
+the left outer count. The
+
+45
+00:01:31.300 --> 00:01:33.020
+unique separator prevents the pumped
+
+46
+00:01:33.020 --> 00:01:35.060
+word from being reinterpreted using
+
+47
+00:01:35.060 --> 00:01:36.420
+a different middle-block length.
+
+48
+00:01:36.780 --> 00:01:38.760
+For unary square lengths, use
+
+49
+00:01:38.760 --> 00:01:40.360
+a word containing p squared
+
+50
+00:01:40.360 --> 00:01:42.640
+copies of one. Any legal
+
+51
+00:01:42.640 --> 00:01:44.420
+repeated piece has length k
+
+52
+00:01:44.420 --> 00:01:46.780
+between one and p. Pumping
+
+53
+00:01:46.780 --> 00:01:48.240
+it twice gives length p
+
+54
+00:01:48.240 --> 00:01:50.360
+squared plus k, so we
+
+55
+00:01:50.360 --> 00:01:52.040
+need an arithmetic argument that
+
+56
+00:01:52.040 --> 00:01:53.360
+this new length is not
+
+57
+00:01:53.360 --> 00:01:54.120
+another square.
+
+58
+00:01:54.740 --> 00:01:56.460
+The new length is strictly
+
+59
+00:01:56.460 --> 00:01:58.340
+above p squared and at
+
+60
+00:01:58.340 --> 00:02:00.220
+most p squared plus p.
+
+61
+00:02:00.600 --> 00:02:01.820
+That is still below the
+
+62
+00:02:01.820 --> 00:02:03.200
+next square, p plus one
+
+63
+00:02:03.200 --> 00:02:04.560
+squared, whose gap is two
+
+64
+00:02:04.560 --> 00:02:07.040
+p plus one. Therefore the
+
+65
+00:02:07.040 --> 00:02:08.880
+pumped word lies between consecutive
+
+66
+00:02:08.880 --> 00:02:10.500
+legal lengths and cannot belong
+
+67
+00:02:10.500 --> 00:02:11.260
+to the language.
+
+68
+00:02:11.740 --> 00:02:14.900
+For a numerical illustration, p
+
+69
+00:02:14.900 --> 00:02:16.540
+equal to three gives length
+
+70
+00:02:16.540 --> 00:02:19.260
+nine. Pumping a two-symbol loop
+
+71
+00:02:19.260 --> 00:02:21.060
+once more produces length eleven,
+
+72
+00:02:21.060 --> 00:02:23.560
+between nine and sixteen. The
+
+73
+00:02:23.560 --> 00:02:25.300
+general proof works for every
+
+74
+00:02:25.300 --> 00:02:26.520
+loop length up to p,
+
+75
+00:02:26.960 --> 00:02:28.580
+not merely for that two-symbol
+
+76
+00:02:28.580 --> 00:02:29.000
+example.
+
+77
+00:02:29.700 --> 00:02:31.980
+For complements of palindrome languages,
+
+78
+00:02:32.300 --> 00:02:33.840
+another closure route is available.
+
+79
+00:02:34.440 --> 00:02:36.680
+If nonpalindromes were regular then
+
+80
+00:02:36.680 --> 00:02:38.360
+palindromes would be regular too,
+
+81
+00:02:38.780 --> 00:02:40.380
+but the witness p zeros,
+
+82
+00:02:40.520 --> 00:02:42.620
+one, p zeros breaks under
+
+83
+00:02:42.620 --> 00:02:44.100
+pumping in its first block.
+
+84
+00:02:44.600 --> 00:02:46.200
+Carefully state which language you
+
+85
+00:02:46.200 --> 00:02:47.920
+are assuming regular and which
+
+86
+00:02:47.920 --> 00:02:49.640
+known contradiction you derive.
+
+87
+00:02:50.220 --> 00:02:51.720
+Things to take note of.
+
+88
+00:02:52.220 --> 00:02:53.540
+Pick a witness on a
+
+89
+00:02:53.540 --> 00:02:55.960
+fragile boundary, and choose pumping
+
+90
+00:02:55.960 --> 00:02:57.440
+up or down to leave
+
+91
+00:02:57.440 --> 00:02:59.120
+the language rather than preserve
+
+92
+00:02:59.120 --> 00:03:01.740
+it. When using complement, specify
+
+93
+00:03:01.740 --> 00:03:03.480
+the alphabet and filter out
+
+94
+00:03:03.480 --> 00:03:05.960
+unwanted shapes; for numerical languages,
+
+95
+00:03:06.520 --> 00:03:07.980
+prove a gap containing the
+
+96
+00:03:07.980 --> 00:03:08.600
+pumped length.

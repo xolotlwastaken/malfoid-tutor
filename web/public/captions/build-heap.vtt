@@ -1,0 +1,317 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.100
+How does build-heap work? Repair
+
+2
+00:00:03.100 --> 00:00:04.680
+internal nodes from the bottom
+
+3
+00:00:04.680 --> 00:00:07.220
+upwards, so every heapify call
+
+4
+00:00:07.220 --> 00:00:09.360
+starts with valid child subtrees.
+
+5
+00:00:09.720 --> 00:00:11.260
+This builds a heap in
+
+6
+00:00:11.260 --> 00:00:13.160
+linear time, which is more
+
+7
+00:00:13.160 --> 00:00:14.060
+subtle than it looks.
+
+8
+00:00:14.460 --> 00:00:17.400
+Start with seven, six, five,
+
+9
+00:00:17.720 --> 00:00:19.233
+four, three, two, one in
+
+10
+00:00:19.780 --> 00:00:22.400
+zero-based array order. The last
+
+11
+00:00:22.400 --> 00:00:24.260
+internal index is floor of
+
+12
+00:00:24.260 --> 00:00:26.300
+n over two, minus one;
+
+13
+00:00:26.300 --> 00:00:28.600
+here that is index two.
+
+14
+00:00:28.980 --> 00:00:30.940
+Indices three through six are
+
+15
+00:00:30.940 --> 00:00:32.900
+leaves, and each leaf is
+
+16
+00:00:32.900 --> 00:00:35.340
+already a valid heap. Process
+
+17
+00:00:35.340 --> 00:00:38.440
+internal indices two, one, then
+
+18
+00:00:38.440 --> 00:00:40.640
+zero, which puts every child
+
+19
+00:00:40.640 --> 00:00:41.860
+before its parent in the
+
+20
+00:00:41.860 --> 00:00:42.640
+repair schedule.
+
+21
+00:00:43.260 --> 00:00:45.800
+At index two, five has
+
+22
+00:00:45.800 --> 00:00:48.260
+children two and one. Swap
+
+23
+00:00:48.260 --> 00:00:49.920
+five with the smaller child,
+
+24
+00:00:49.920 --> 00:00:52.300
+one, and that subtree is
+
+25
+00:00:52.300 --> 00:00:52.640
+repaired.
+
+26
+00:00:53.060 --> 00:00:55.260
+At index one, six has
+
+27
+00:00:55.260 --> 00:00:57.560
+children four and three. Swap
+
+28
+00:00:57.560 --> 00:00:59.760
+six with three, so the
+
+29
+00:00:59.760 --> 00:01:01.760
+second child subtree is also
+
+30
+00:01:01.760 --> 00:01:02.140
+a min-heap.
+
+31
+00:01:02.860 --> 00:01:04.540
+Now repair the root seven:
+
+32
+00:01:05.160 --> 00:01:07.300
+choose child one, and swap.
+
+33
+00:01:07.800 --> 00:01:09.980
+Continue down with seven, choose
+
+34
+00:01:09.980 --> 00:01:12.240
+child two, and swap again;
+
+35
+00:01:12.780 --> 00:01:14.820
+now the entire array satisfies
+
+36
+00:01:15.379 --> 00:01:16.040
+min-heap order.
+
+37
+00:01:16.580 --> 00:01:18.580
+The array is one, three,
+
+38
+00:01:18.980 --> 00:01:20.780
+two, four, six, seven, five.
+
+39
+00:01:21.180 --> 00:01:23.040
+Every parent is no larger
+
+40
+00:01:23.040 --> 00:01:24.720
+than its children, but the
+
+41
+00:01:24.720 --> 00:01:26.280
+array is not fully sorted.
+
+42
+00:01:26.840 --> 00:01:28.500
+A heap exposes the minimum
+
+43
+00:01:28.500 --> 00:01:30.100
+without ordering every pair.
+
+44
+00:01:30.700 --> 00:01:33.340
+Multiplying n heapify calls by
+
+45
+00:01:33.340 --> 00:01:34.740
+the root cost log n
+
+46
+00:01:34.740 --> 00:01:36.560
+gives an upper bound, but
+
+47
+00:01:36.560 --> 00:01:38.760
+it is loose. Most nodes
+
+48
+00:01:38.760 --> 00:01:40.360
+are near the bottom, so
+
+49
+00:01:40.360 --> 00:01:42.680
+most cannot travel down logarithmically
+
+50
+00:01:42.680 --> 00:01:43.320
+many levels.
+
+51
+00:01:43.780 --> 00:01:45.540
+At height h, there are
+
+52
+00:01:45.540 --> 00:01:47.200
+at most order n over
+
+53
+00:01:47.200 --> 00:01:48.700
+two to the power h
+
+54
+00:01:48.700 --> 00:01:51.200
+plus one nodes. Charge each
+
+55
+00:01:51.200 --> 00:01:53.240
+order h work; the weighted
+
+56
+00:01:53.240 --> 00:01:55.000
+geometric sum is a constant
+
+57
+00:01:55.000 --> 00:01:55.900
+times n.
+
+58
+00:01:56.380 --> 00:01:59.020
+The loop processes linearly many
+
+59
+00:01:59.020 --> 00:02:01.760
+internal nodes, supplying a matching
+
+60
+00:02:01.760 --> 00:02:03.480
+linear lower bound for this
+
+61
+00:02:03.480 --> 00:02:07.020
+implementation. Bottom-up build-heap therefore takes
+
+62
+00:02:07.020 --> 00:02:09.020
+theta n time, while repeated
+
+63
+00:02:09.020 --> 00:02:10.860
+insertion has an n log
+
+64
+00:02:10.860 --> 00:02:12.540
+n worst-case bound.
+
+65
+00:02:12.900 --> 00:02:14.480
+Things to take note of.
+
+66
+00:02:14.880 --> 00:02:17.120
+Use iterative heapify for constant
+
+67
+00:02:17.120 --> 00:02:19.860
+auxiliary space, and include recursive
+
+68
+00:02:19.860 --> 00:02:21.620
+frames if you implement repair
+
+69
+00:02:21.620 --> 00:02:24.700
+recursively. Empty and singleton arrays
+
+70
+00:02:24.700 --> 00:02:26.260
+have no internal node to
+
+71
+00:02:26.260 --> 00:02:26.680
+process.
+
+72
+00:02:27.180 --> 00:02:29.280
+Do not scan internal nodes
+
+73
+00:02:29.280 --> 00:02:31.000
+from the root down: the
+
+74
+00:02:31.000 --> 00:02:32.780
+required child heaps may not
+
+75
+00:02:32.780 --> 00:02:35.540
+exist yet. Linear heap construction
+
+76
+00:02:35.540 --> 00:02:37.700
+does not imply linear comparison
+
+77
+00:02:37.700 --> 00:02:40.100
+sorting, because the resulting heap
+
+78
+00:02:40.100 --> 00:02:42.700
+is only partially ordered. Quite
+
+79
+00:02:42.700 --> 00:02:43.900
+a useful distinction.

@@ -1,0 +1,401 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.700
+How can a Turing machine
+
+2
+00:00:01.700 --> 00:00:03.640
+test whether a unary length
+
+3
+00:00:03.640 --> 00:00:04.860
+is a power of two?
+
+4
+00:00:05.400 --> 00:00:07.280
+Repeated halving accepts when one
+
+5
+00:00:07.280 --> 00:00:09.500
+active zero remains and rejects
+
+6
+00:00:09.500 --> 00:00:10.820
+an odd count greater than
+
+7
+00:00:10.820 --> 00:00:13.060
+one. We will separate that
+
+8
+00:00:13.060 --> 00:00:15.040
+concept from the lecture diagram’s
+
+9
+00:00:15.040 --> 00:00:17.540
+concrete convention, which blanks its
+
+10
+00:00:17.540 --> 00:00:19.420
+first zero as a left-end
+
+11
+00:00:19.420 --> 00:00:19.800
+reference.
+
+12
+00:00:20.300 --> 00:00:22.580
+In the high-level algorithm, sweep
+
+13
+00:00:22.580 --> 00:00:24.640
+across active zeros crossing out
+
+14
+00:00:24.640 --> 00:00:26.580
+every other one. If the
+
+15
+00:00:26.580 --> 00:00:28.340
+count was even, the remaining
+
+16
+00:00:28.340 --> 00:00:29.760
+count is half as large;
+
+17
+00:00:30.340 --> 00:00:31.260
+if it was odd and
+
+18
+00:00:31.260 --> 00:00:33.900
+greater than one, reject. Returning
+
+19
+00:00:33.900 --> 00:00:35.080
+to the left end and
+
+20
+00:00:35.080 --> 00:00:37.540
+repeating eventually reaches one exactly
+
+21
+00:00:37.540 --> 00:00:39.480
+for a power-of-two length.
+
+22
+00:00:39.940 --> 00:00:41.700
+For the exact diagram on
+
+23
+00:00:41.700 --> 00:00:43.660
+four zeros, q one blanks
+
+24
+00:00:43.660 --> 00:00:44.800
+the first cell and enters
+
+25
+00:00:44.800 --> 00:00:46.000
+q two at the second
+
+26
+00:00:46.000 --> 00:00:48.220
+zero. This special first cell
+
+27
+00:00:48.220 --> 00:00:49.960
+is the left-end reference, so
+
+28
+00:00:49.960 --> 00:00:51.680
+the remaining explicit zeros are
+
+29
+00:00:51.680 --> 00:00:53.300
+not the entire conceptual count.
+
+30
+00:00:53.840 --> 00:00:55.240
+Do not mix that bookkeeping
+
+31
+00:00:55.240 --> 00:00:57.300
+with an unrelated simplified animation.
+
+32
+00:00:57.980 --> 00:01:00.020
+From q two, cross out
+
+33
+00:01:00.020 --> 00:01:01.540
+the next zero and move
+
+34
+00:01:01.540 --> 00:01:03.640
+right into q three. In
+
+35
+00:01:03.640 --> 00:01:05.160
+q three, retain the following
+
+36
+00:01:05.160 --> 00:01:06.420
+zero and move into q
+
+37
+00:01:06.420 --> 00:01:08.920
+four. In q four, cross
+
+38
+00:01:08.920 --> 00:01:10.200
+out the next zero and
+
+39
+00:01:10.200 --> 00:01:11.480
+return to q three at
+
+40
+00:01:11.480 --> 00:01:13.620
+the right-hand blank, leaving blank,
+
+41
+00:01:13.940 --> 00:01:16.280
+x, zero, x on the
+
+42
+00:01:16.280 --> 00:01:16.540
+tape.
+
+43
+00:01:16.900 --> 00:01:18.720
+The right-hand blank in q
+
+44
+00:01:18.720 --> 00:01:21.020
+three signals a successful sweep
+
+45
+00:01:21.020 --> 00:01:22.520
+and turns the machine left
+
+46
+00:01:22.520 --> 00:01:24.340
+in q five. It passes
+
+47
+00:01:24.340 --> 00:01:25.900
+back over x and zero
+
+48
+00:01:25.900 --> 00:01:28.040
+until the left reference, then
+
+49
+00:01:28.040 --> 00:01:29.560
+moves right into q two.
+
+50
+00:01:30.220 --> 00:01:31.800
+Those return moves do not
+
+51
+00:01:31.800 --> 00:01:33.580
+change which zeros were crossed
+
+52
+00:01:33.580 --> 00:01:33.960
+out.
+
+53
+00:01:34.300 --> 00:01:36.120
+On the next sweep, q
+
+54
+00:01:36.120 --> 00:01:37.700
+two skips the x and
+
+55
+00:01:37.700 --> 00:01:39.640
+crosses out the remaining explicit
+
+56
+00:01:39.640 --> 00:01:41.660
+zero. The tape becomes blank
+
+57
+00:01:41.840 --> 00:01:43.080
+followed by three x markers,
+
+58
+00:01:43.500 --> 00:01:44.540
+and the machine returns left
+
+59
+00:01:44.540 --> 00:01:46.780
+again. Finally q two skips
+
+60
+00:01:46.780 --> 00:01:48.160
+all three x markers and
+
+61
+00:01:48.160 --> 00:01:49.800
+reaches blank with no unmatched
+
+62
+00:01:49.800 --> 00:01:51.780
+explicit zero, so the diagram
+
+63
+00:01:51.780 --> 00:01:52.220
+accepts.
+
+64
+00:01:52.740 --> 00:01:55.240
+Check the shortest boundary inputs
+
+65
+00:01:55.240 --> 00:01:57.260
+rather than extrapolating from four
+
+66
+00:01:57.260 --> 00:01:59.440
+zeros. A single zero is
+
+67
+00:01:59.440 --> 00:02:01.040
+accepted because its length is
+
+68
+00:02:01.040 --> 00:02:02.740
+two to the zero, while
+
+69
+00:02:02.740 --> 00:02:05.420
+epsilon is rejected. Two zeros
+
+70
+00:02:05.420 --> 00:02:08.320
+also reduce successfully, whereas three
+
+71
+00:02:08.320 --> 00:02:10.580
+reach the diagram’s odd-count rejection
+
+72
+00:02:10.580 --> 00:02:11.000
+case.
+
+73
+00:02:11.500 --> 00:02:13.560
+The halting argument relies on
+
+74
+00:02:13.560 --> 00:02:16.360
+progress. A successful nonterminal round
+
+75
+00:02:16.360 --> 00:02:18.660
+reduces the conceptual active count,
+
+76
+00:02:19.020 --> 00:02:20.560
+and every finite sweep and
+
+77
+00:02:20.560 --> 00:02:23.000
+return finishes. Eventually the machine
+
+78
+00:02:23.000 --> 00:02:24.960
+reaches an accepting singleton or
+
+79
+00:02:24.960 --> 00:02:26.400
+an odd count that rejects,
+
+80
+00:02:26.600 --> 00:02:27.800
+so it is a decider
+
+81
+00:02:27.800 --> 00:02:29.340
+rather than a mere recognizer.
+
+82
+00:02:29.780 --> 00:02:32.100
+Halving does not imply logarithmic
+
+83
+00:02:32.100 --> 00:02:34.320
+tape-running time. There are only
+
+84
+00:02:34.320 --> 00:02:37.420
+logarithmically many successful rounds, but
+
+85
+00:02:37.420 --> 00:02:39.420
+each involves scans across cells
+
+86
+00:02:39.420 --> 00:02:40.840
+and markers on the original
+
+87
+00:02:40.840 --> 00:02:43.260
+tape span. A straightforward bound
+
+88
+00:02:43.260 --> 00:02:44.880
+counts those scans as well;
+
+89
+00:02:45.500 --> 00:02:46.900
+naming the number of rounds
+
+90
+00:02:46.900 --> 00:02:49.380
+alone ignores most primitive moves.
+
+91
+00:02:49.820 --> 00:02:51.200
+Things to take note of.
+
+92
+00:02:51.600 --> 00:02:53.380
+Use the actual diagram’s initial
+
+93
+00:02:53.380 --> 00:02:55.000
+blank and state conventions when
+
+94
+00:02:55.000 --> 00:02:57.020
+writing configurations, and keep the
+
+95
+00:02:57.020 --> 00:02:59.400
+conceptual halving explanation distinct from
+
+96
+00:02:59.400 --> 00:03:01.680
+that exact trace. Test epsilon,
+
+97
+00:03:01.680 --> 00:03:03.280
+one, two and odd lengths,
+
+98
+00:03:03.600 --> 00:03:05.580
+explain termination, and never turn
+
+99
+00:03:05.580 --> 00:03:07.280
+a scan-based machine into a
+
+100
+00:03:07.280 --> 00:03:09.340
+constant-cost arithmetic operation.

@@ -1,0 +1,437 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.240
+How do you prove a
+
+2
+00:00:01.240 --> 00:00:03.780
+problem NP-complete? Show that it
+
+3
+00:00:03.780 --> 00:00:05.780
+is in NP, then reduce
+
+4
+00:00:05.780 --> 00:00:07.620
+a known NP-complete problem to
+
+5
+00:00:07.620 --> 00:00:09.660
+it in polynomial time. The
+
+6
+00:00:09.660 --> 00:00:11.780
+first half supplies verifiable witnesses,
+
+7
+00:00:11.780 --> 00:00:13.760
+while the second transfers hardness
+
+8
+00:00:13.760 --> 00:00:15.680
+in the correct direction; neither
+
+9
+00:00:15.680 --> 00:00:16.660
+half can be omitted.
+
+10
+00:00:17.020 --> 00:00:19.420
+A language is NP-hard when
+
+11
+00:00:19.420 --> 00:00:21.420
+every NP language reduces to
+
+12
+00:00:21.420 --> 00:00:23.640
+it. It is NP-complete only
+
+13
+00:00:23.640 --> 00:00:24.660
+when it is also in
+
+14
+00:00:24.660 --> 00:00:27.480
+NP, so NP-hard alone does
+
+15
+00:00:27.480 --> 00:00:29.120
+not imply an NP verifier
+
+16
+00:00:29.120 --> 00:00:31.480
+or even decidability. The known
+
+17
+00:00:31.480 --> 00:00:33.320
+SAT completeness theorem can be
+
+18
+00:00:33.320 --> 00:00:34.460
+used as a starting point
+
+19
+00:00:34.460 --> 00:00:36.560
+here; the next lessons explain
+
+20
+00:00:36.560 --> 00:00:37.880
+its Cook Levin proof.
+
+21
+00:00:38.340 --> 00:00:40.980
+Convert optimization MaxSAT into the
+
+22
+00:00:40.980 --> 00:00:43.080
+decision language asking whether at
+
+23
+00:00:43.080 --> 00:00:44.480
+least k clauses of a
+
+24
+00:00:44.480 --> 00:00:46.180
+given formula can be simultaneously
+
+25
+00:00:46.180 --> 00:00:48.660
+satisfied. A truth assignment is
+
+26
+00:00:48.660 --> 00:00:51.480
+a polynomial-size certificate. Evaluate each
+
+27
+00:00:51.480 --> 00:00:53.160
+clause, count the true ones
+
+28
+00:00:53.160 --> 00:00:54.520
+and compare the count with
+
+29
+00:00:54.520 --> 00:00:56.820
+k; checking the conjunction as
+
+30
+00:00:56.820 --> 00:00:58.320
+a single Boolean would lose
+
+31
+00:00:58.320 --> 00:00:59.940
+the requested threshold condition.
+
+32
+00:01:00.460 --> 00:01:02.560
+For hardness, transform a SAT
+
+33
+00:01:02.560 --> 00:01:04.540
+formula with m clauses into
+
+34
+00:01:04.540 --> 00:01:06.140
+the same formula with threshold
+
+35
+00:01:06.140 --> 00:01:08.740
+m. The SAT instance is
+
+36
+00:01:08.740 --> 00:01:11.000
+satisfiable exactly when all m
+
+37
+00:01:11.000 --> 00:01:12.340
+clauses can be satisfied at
+
+38
+00:01:12.340 --> 00:01:14.520
+once, exactly the target condition.
+
+39
+00:01:15.020 --> 00:01:16.760
+The transformation just counts and
+
+40
+00:01:16.760 --> 00:01:18.280
+writes the threshold, so it
+
+41
+00:01:18.280 --> 00:01:18.820
+is polynomial.
+
+42
+00:01:19.460 --> 00:01:20.980
+Combining that mapping with the
+
+43
+00:01:20.980 --> 00:01:23.580
+assignment verifier proves decision MaxSAT
+
+44
+00:01:23.580 --> 00:01:26.060
+NP-complete. To recover the optimum
+
+45
+00:01:26.060 --> 00:01:28.320
+number of satisfiable clauses from
+
+46
+00:01:28.320 --> 00:01:30.720
+a decision solver, binary-search the
+
+47
+00:01:30.720 --> 00:01:32.800
+monotone threshold between zero and
+
+48
+00:01:32.800 --> 00:01:35.520
+m. This takes logarithmically many
+
+49
+00:01:35.520 --> 00:01:37.760
+decision calls, but finding the
+
+50
+00:01:37.760 --> 00:01:39.500
+optimum value is not yet
+
+51
+00:01:39.500 --> 00:01:40.840
+the same as printing an
+
+52
+00:01:40.840 --> 00:01:41.860
+optimal assignment.
+
+53
+00:01:42.540 --> 00:01:44.800
+DoubleSAT asks whether a formula
+
+54
+00:01:44.800 --> 00:01:46.360
+has at least two distinct
+
+55
+00:01:46.360 --> 00:01:49.680
+satisfying assignments. Its NP certificate
+
+56
+00:01:49.680 --> 00:01:51.760
+is two full assignments, with
+
+57
+00:01:51.760 --> 00:01:53.120
+checks that they differ and
+
+58
+00:01:53.120 --> 00:01:55.500
+both satisfy the formula. Listing
+
+59
+00:01:55.500 --> 00:01:56.880
+the same assignment twice does
+
+60
+00:01:56.880 --> 00:01:58.580
+not meet the definition, even
+
+61
+00:01:58.580 --> 00:02:00.220
+if the formula evaluates true
+
+62
+00:02:00.220 --> 00:02:00.920
+both times.
+
+63
+00:02:01.380 --> 00:02:03.800
+Reduce SAT to DoubleSAT by
+
+64
+00:02:03.800 --> 00:02:05.960
+adjoining a tautological clause involving
+
+65
+00:02:05.960 --> 00:02:08.000
+a fresh variable z. If
+
+66
+00:02:08.000 --> 00:02:09.940
+the original formula is satisfiable,
+
+67
+00:02:10.580 --> 00:02:11.840
+keep its assignment and choose
+
+68
+00:02:11.840 --> 00:02:13.720
+z either false or true,
+
+69
+00:02:14.100 --> 00:02:16.420
+giving two distinct extensions. If
+
+70
+00:02:16.420 --> 00:02:18.740
+the original is unsatisfiable, adding
+
+71
+00:02:18.740 --> 00:02:20.320
+a tautology cannot create a
+
+72
+00:02:20.320 --> 00:02:21.320
+satisfying assignment.
+
+73
+00:02:21.660 --> 00:02:23.840
+This target language uses general
+
+74
+00:02:23.840 --> 00:02:26.320
+conjunctive normal form, so the
+
+75
+00:02:26.320 --> 00:02:29.000
+new two-literal tautological clause is
+
+76
+00:02:29.000 --> 00:02:31.360
+allowed. Do not silently impose
+
+77
+00:02:31.360 --> 00:02:33.740
+the exact-three restriction from three
+
+78
+00:02:33.740 --> 00:02:36.020
+SAT on DoubleSAT. Valid output
+
+79
+00:02:36.020 --> 00:02:37.240
+syntax is one of the
+
+80
+00:02:37.240 --> 00:02:39.920
+reduction’s obligations, not an afterthought.
+
+81
+00:02:40.260 --> 00:02:42.060
+The hardness arrow must point
+
+82
+00:02:42.060 --> 00:02:43.520
+from the known hard source
+
+83
+00:02:43.520 --> 00:02:45.920
+into the new target. Reducing
+
+84
+00:02:45.920 --> 00:02:47.480
+the target to SAT gives
+
+85
+00:02:47.480 --> 00:02:49.220
+an upper comparison and does
+
+86
+00:02:49.220 --> 00:02:51.220
+not establish the target NP-hard.
+
+87
+00:02:51.900 --> 00:02:54.280
+Transitivity explains why a known-complete
+
+88
+00:02:54.280 --> 00:02:56.800
+source suffices: every NP language
+
+89
+00:02:56.800 --> 00:02:58.360
+reduces to it and then
+
+90
+00:02:58.360 --> 00:02:59.440
+through your mapping to the
+
+91
+00:02:59.440 --> 00:02:59.860
+target.
+
+92
+00:03:00.460 --> 00:03:02.780
+If any NP-complete language has
+
+93
+00:03:02.780 --> 00:03:05.380
+a polynomial decider, then every
+
+94
+00:03:05.380 --> 00:03:07.900
+NP language does, implying P
+
+95
+00:03:07.900 --> 00:03:11.240
+equals NP. Conversely, P equals
+
+96
+00:03:11.240 --> 00:03:13.280
+NP would put every NP-complete
+
+97
+00:03:13.280 --> 00:03:15.700
+language in P. NP-completeness therefore
+
+98
+00:03:15.700 --> 00:03:17.300
+does not prove an exponential
+
+99
+00:03:17.300 --> 00:03:18.860
+lower bound or settle the
+
+100
+00:03:18.860 --> 00:03:20.320
+unresolved equality question.
+
+101
+00:03:20.820 --> 00:03:22.120
+Things to take note of.
+
+102
+00:03:22.680 --> 00:03:24.840
+Formalize the decision version, give
+
+103
+00:03:24.840 --> 00:03:27.520
+a complete polynomial verifier, choose
+
+104
+00:03:27.520 --> 00:03:29.520
+an independently known complete source
+
+105
+00:03:30.040 --> 00:03:31.240
+and prove its mapping into
+
+106
+00:03:31.240 --> 00:03:33.460
+your target. Check both answer
+
+107
+00:03:33.460 --> 00:03:35.800
+directions, output syntax and construction
+
+108
+00:03:35.800 --> 00:03:38.660
+cost; then keep optimization-value recovery
+
+109
+00:03:38.660 --> 00:03:40.620
+separate from the completeness proof.

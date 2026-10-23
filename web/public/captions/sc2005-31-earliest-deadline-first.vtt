@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.640
+How does earliest-deadline-first scheduling work?
+
+2
+00:00:03.640 --> 00:00:05.880
+Among ready jobs, run the
+
+3
+00:00:05.880 --> 00:00:07.780
+instance with the earliest absolute
+
+4
+00:00:07.780 --> 00:00:10.580
+deadline. Recompute that comparison when
+
+5
+00:00:10.580 --> 00:00:12.480
+jobs arrive or complete, and
+
+6
+00:00:12.480 --> 00:00:14.440
+preserve the deadline through preemption.
+
+7
+00:00:14.940 --> 00:00:17.100
+Use the changed comparison set:
+
+8
+00:00:17.600 --> 00:00:19.100
+P one has period ten,
+
+9
+00:00:19.540 --> 00:00:21.500
+execution six and relative deadline
+
+10
+00:00:21.500 --> 00:00:23.520
+ten. P two has period
+
+11
+00:00:23.520 --> 00:00:25.760
+nineteen, execution four and relative
+
+12
+00:00:25.760 --> 00:00:28.200
+deadline seventeen, while P three
+
+13
+00:00:28.200 --> 00:00:30.620
+has period twenty, execution two
+
+14
+00:00:30.860 --> 00:00:33.280
+and relative deadline fourteen. These
+
+15
+00:00:33.280 --> 00:00:35.080
+changed deadlines must be retained
+
+16
+00:00:35.080 --> 00:00:36.620
+for a fair policy comparison.
+
+17
+00:00:37.060 --> 00:00:38.760
+At time zero the deadlines
+
+18
+00:00:38.760 --> 00:00:41.440
+are ten, seventeen and fourteen.
+
+19
+00:00:42.120 --> 00:00:43.500
+P one runs first from
+
+20
+00:00:43.500 --> 00:00:45.060
+zero to six, followed by
+
+21
+00:00:45.060 --> 00:00:46.340
+P three from six to
+
+22
+00:00:46.340 --> 00:00:48.840
+eight because fourteen precedes seventeen.
+
+23
+00:00:49.420 --> 00:00:50.900
+P two then begins its
+
+24
+00:00:50.900 --> 00:00:52.240
+four units at time eight.
+
+25
+00:00:52.460 --> 00:00:54.340
+At time ten a new
+
+26
+00:00:54.340 --> 00:00:55.880
+P one instance arrives with
+
+27
+00:00:55.880 --> 00:00:58.540
+absolute deadline twenty. P two
+
+28
+00:00:58.540 --> 00:01:00.060
+is still running with deadline
+
+29
+00:01:00.060 --> 00:01:01.960
+seventeen, so it remains ahead
+
+30
+00:01:01.960 --> 00:01:03.980
+and completes at twelve. A
+
+31
+00:01:03.980 --> 00:01:05.320
+new release does not automatically
+
+32
+00:01:05.320 --> 00:01:06.780
+force preemption if its deadline
+
+33
+00:01:06.780 --> 00:01:07.280
+is later.
+
+34
+00:01:07.940 --> 00:01:10.140
+P one second instance runs
+
+35
+00:01:10.140 --> 00:01:11.920
+from twelve to eighteen, before
+
+36
+00:01:11.920 --> 00:01:14.640
+deadline twenty. The processor is
+
+37
+00:01:14.640 --> 00:01:16.200
+idle until P two next
+
+38
+00:01:16.200 --> 00:01:18.640
+release at nineteen, whose absolute
+
+39
+00:01:18.640 --> 00:01:21.200
+deadline is thirty-six. Watch the
+
+40
+00:01:21.200 --> 00:01:23.200
+absolute deadline change by release
+
+41
+00:01:23.200 --> 00:01:24.860
+time even though the task
+
+42
+00:01:24.860 --> 00:01:26.880
+relative deadline stays seventeen.
+
+43
+00:01:27.340 --> 00:01:29.580
+At twenty, P one new
+
+44
+00:01:29.580 --> 00:01:31.320
+deadline thirty outranks both P
+
+45
+00:01:31.320 --> 00:01:33.940
+three new deadline thirty-four and
+
+46
+00:01:33.940 --> 00:01:36.180
+P two deadline thirty-six. P
+
+47
+00:01:36.180 --> 00:01:38.200
+one runs until twenty-six, P
+
+48
+00:01:38.200 --> 00:01:40.100
+three then runs until twenty-eight,
+
+49
+00:01:40.360 --> 00:01:42.420
+and P two resumes afterward.
+
+50
+00:01:42.780 --> 00:01:44.480
+Track the residual demand rather
+
+51
+00:01:44.480 --> 00:01:46.100
+than copying a fixed task
+
+52
+00:01:46.100 --> 00:01:46.500
+order.
+
+53
+00:01:47.060 --> 00:01:48.620
+When P one releases at
+
+54
+00:01:48.620 --> 00:01:50.480
+thirty with deadline forty, P
+
+55
+00:01:50.480 --> 00:01:51.980
+two still has the earlier
+
+56
+00:01:51.980 --> 00:01:54.720
+deadline thirty-six. P two therefore
+
+57
+00:01:54.720 --> 00:01:56.600
+completes at thirty-one before P
+
+58
+00:01:56.600 --> 00:01:58.800
+one runs again. This is
+
+59
+00:01:58.800 --> 00:02:00.920
+exactly why relative deadlines alone
+
+60
+00:02:00.920 --> 00:02:02.560
+are insufficient for the dispatch
+
+61
+00:02:02.560 --> 00:02:03.220
+comparison.
+
+62
+00:02:03.820 --> 00:02:05.900
+Rate monotonic on this same
+
+63
+00:02:05.900 --> 00:02:07.400
+changed task set keeps P
+
+64
+00:02:07.400 --> 00:02:09.580
+three behind P two and
+
+65
+00:02:09.580 --> 00:02:11.680
+misses its first deadline fourteen.
+
+66
+00:02:12.380 --> 00:02:14.520
+Earliest deadline first instead completes
+
+67
+00:02:14.520 --> 00:02:16.780
+P three at eight. Attribute
+
+68
+00:02:16.780 --> 00:02:18.140
+the improvement to the policy
+
+69
+00:02:18.140 --> 00:02:20.000
+applied to the same parameters,
+
+70
+00:02:20.380 --> 00:02:22.360
+not to silently swapping task
+
+71
+00:02:22.360 --> 00:02:22.780
+sets.
+
+72
+00:02:23.140 --> 00:02:25.720
+Deadline monotonic is another fixed
+
+73
+00:02:25.720 --> 00:02:27.780
+policy based on relative deadlines,
+
+74
+00:02:28.080 --> 00:02:30.160
+while earliest deadline first ranks
+
+75
+00:02:30.160 --> 00:02:32.920
+individual absolute deadlines. Under overload,
+
+76
+00:02:33.440 --> 00:02:35.200
+a dynamic policy also needs
+
+77
+00:02:35.200 --> 00:02:37.600
+an explicit handling strategy. A
+
+78
+00:02:37.600 --> 00:02:39.640
+priority rule does not manufacture
+
+79
+00:02:39.640 --> 00:02:41.140
+extra processor capacity.
+
+80
+00:02:41.740 --> 00:02:43.000
+Things to take note of.
+
+81
+00:02:43.420 --> 00:02:45.720
+Compute release plus relative deadline
+
+82
+00:02:45.720 --> 00:02:48.200
+for every instance, compare only
+
+83
+00:02:48.200 --> 00:02:49.840
+ready jobs, and check remaining
+
+84
+00:02:49.840 --> 00:02:52.260
+execution at each deadline. Do
+
+85
+00:02:52.260 --> 00:02:54.240
+not reset deadlines on preemption
+
+86
+00:02:54.240 --> 00:02:56.140
+or claim a whole infinite
+
+87
+00:02:56.140 --> 00:02:57.740
+schedule from a short successful
+
+88
+00:02:57.740 --> 00:02:58.140
+window.

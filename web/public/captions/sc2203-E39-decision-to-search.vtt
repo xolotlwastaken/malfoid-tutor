@@ -1,0 +1,417 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.220
+How can decision answers recover
+
+2
+00:00:02.220 --> 00:00:04.860
+a solution? A yes-or-no oracle
+
+3
+00:00:04.860 --> 00:00:06.680
+can guide a polynomial number
+
+4
+00:00:06.680 --> 00:00:08.320
+of smaller decisions until an
+
+5
+00:00:08.320 --> 00:00:10.800
+actual witness is exposed. We
+
+6
+00:00:10.800 --> 00:00:13.220
+will recover an independent set,
+
+7
+00:00:13.620 --> 00:00:16.000
+then distinguish witness search from
+
+8
+00:00:16.000 --> 00:00:18.320
+optimum-value search and from a
+
+9
+00:00:18.320 --> 00:00:20.540
+one-output polynomial reduction.
+
+10
+00:00:21.100 --> 00:00:22.640
+Start with a graph and
+
+11
+00:00:22.640 --> 00:00:24.840
+a requested independent-set size k.
+
+12
+00:00:25.620 --> 00:00:27.120
+First ask whether the original
+
+13
+00:00:27.120 --> 00:00:29.260
+instance is feasible; if not,
+
+14
+00:00:29.740 --> 00:00:31.440
+report failure rather than trying
+
+15
+00:00:31.440 --> 00:00:33.140
+to construct an impossible witness.
+
+16
+00:00:33.920 --> 00:00:36.060
+If feasible, test deleting a
+
+17
+00:00:36.060 --> 00:00:37.640
+chosen vertex while keeping the
+
+18
+00:00:37.640 --> 00:00:38.680
+same target size.
+
+19
+00:00:39.140 --> 00:00:40.940
+If deleting the chosen vertex
+
+20
+00:00:40.940 --> 00:00:43.240
+preserves feasibility for the target
+
+21
+00:00:43.240 --> 00:00:45.920
+size, discard that vertex. Otherwise
+
+22
+00:00:46.160 --> 00:00:47.540
+every solution meeting the target
+
+23
+00:00:47.540 --> 00:00:49.120
+must contain it, so add
+
+24
+00:00:49.120 --> 00:00:50.020
+it to the answer and
+
+25
+00:00:50.020 --> 00:00:51.140
+delete it together with its
+
+26
+00:00:51.140 --> 00:00:52.980
+neighbours. Reduce the target by
+
+27
+00:00:52.980 --> 00:00:54.360
+one and continue on the
+
+28
+00:00:54.360 --> 00:00:55.100
+remaining graph.
+
+29
+00:00:55.580 --> 00:00:58.180
+On the five-vertex path, an
+
+30
+00:00:58.180 --> 00:00:59.800
+independent set of size three
+
+31
+00:00:59.800 --> 00:01:02.000
+is one, three and five.
+
+32
+00:01:02.600 --> 00:01:04.420
+Deleting vertex one leaves a
+
+33
+00:01:04.420 --> 00:01:07.240
+four-vertex path with maximum independent-set
+
+34
+00:01:07.240 --> 00:01:09.560
+size two, so vertex one
+
+35
+00:01:09.560 --> 00:01:10.960
+is forced for this target.
+
+36
+00:01:11.420 --> 00:01:13.020
+Commit one and remove its
+
+37
+00:01:13.020 --> 00:01:14.760
+neighbour two, leaving the path
+
+38
+00:01:14.760 --> 00:01:17.380
+three, four, five with target
+
+39
+00:01:17.380 --> 00:01:17.780
+two.
+
+40
+00:01:18.180 --> 00:01:20.300
+In that residual path, deleting
+
+41
+00:01:20.300 --> 00:01:21.720
+three would leave the single
+
+42
+00:01:21.720 --> 00:01:24.180
+edge four-five, which cannot supply
+
+43
+00:01:24.180 --> 00:01:26.820
+two independent vertices. Commit three,
+
+44
+00:01:27.240 --> 00:01:29.220
+remove four, then choose the
+
+45
+00:01:29.220 --> 00:01:31.800
+remaining vertex five. The accumulated
+
+46
+00:01:31.800 --> 00:01:34.540
+witness one, three, five has
+
+47
+00:01:34.540 --> 00:01:36.320
+no internal edge and reaches
+
+48
+00:01:36.320 --> 00:01:37.480
+the requested size.
+
+49
+00:01:37.900 --> 00:01:39.560
+The invariant is that the
+
+50
+00:01:39.560 --> 00:01:41.700
+current graph contains an independent
+
+51
+00:01:41.700 --> 00:01:43.520
+set of the remaining requested
+
+52
+00:01:43.520 --> 00:01:45.940
+size compatible with every committed
+
+53
+00:01:45.940 --> 00:01:48.420
+vertex. A discard preserves it
+
+54
+00:01:48.420 --> 00:01:50.240
+by the oracle answer, and
+
+55
+00:01:50.240 --> 00:01:52.080
+a forced commitment preserves it
+
+56
+00:01:52.080 --> 00:01:53.960
+by removing exactly the forbidden
+
+57
+00:01:53.960 --> 00:01:57.000
+neighbours. Each iteration removes at
+
+58
+00:01:57.000 --> 00:01:59.080
+least one vertex, so at
+
+59
+00:01:59.080 --> 00:02:01.440
+most linearly many oracle decisions
+
+60
+00:02:01.440 --> 00:02:03.100
+are needed after the initial
+
+61
+00:02:03.100 --> 00:02:03.460
+check.
+
+62
+00:02:03.940 --> 00:02:06.060
+To find the maximum size,
+
+63
+00:02:06.340 --> 00:02:08.080
+use the monotone threshold predicate
+
+64
+00:02:08.080 --> 00:02:10.600
+before constructing a witness. Maintain
+
+65
+00:02:10.600 --> 00:02:12.280
+a feasible lower bound zero
+
+66
+00:02:12.280 --> 00:02:14.640
+and infeasible upper bound one
+
+67
+00:02:14.640 --> 00:02:15.700
+more than the number of
+
+68
+00:02:15.700 --> 00:02:17.940
+vertices, query the midpoint and
+
+69
+00:02:17.940 --> 00:02:20.180
+update the appropriate side. When
+
+70
+00:02:20.180 --> 00:02:21.440
+the bounds differ by one,
+
+71
+00:02:21.940 --> 00:02:23.200
+the feasible bound is the
+
+72
+00:02:23.200 --> 00:02:26.260
+optimum, after logarithmically many threshold
+
+73
+00:02:26.260 --> 00:02:26.740
+calls.
+
+74
+00:02:27.340 --> 00:02:29.660
+Simply querying n, n divided
+
+75
+00:02:29.660 --> 00:02:31.340
+by two, n divided by
+
+76
+00:02:31.340 --> 00:02:33.080
+four and so on does
+
+77
+00:02:33.080 --> 00:02:35.100
+not locate every possible optimum.
+
+78
+00:02:35.680 --> 00:02:37.640
+A correct binary search retains
+
+79
+00:02:37.640 --> 00:02:39.260
+both bounds and chooses the
+
+80
+00:02:39.260 --> 00:02:40.800
+next midpoint from the current
+
+81
+00:02:40.800 --> 00:02:43.440
+interval. Once the optimum size
+
+82
+00:02:43.440 --> 00:02:45.840
+is known, the delete-or-commit procedure
+
+83
+00:02:45.840 --> 00:02:47.280
+recovers a witness of that
+
+84
+00:02:47.280 --> 00:02:47.780
+size.
+
+85
+00:02:48.180 --> 00:02:50.400
+The factoring tutorial uses the
+
+86
+00:02:50.400 --> 00:02:53.040
+same decision-to-search principle for integers
+
+87
+00:02:53.040 --> 00:02:55.560
+at least two. Ask whether
+
+88
+00:02:55.560 --> 00:02:57.960
+a nontrivial factor exists below
+
+89
+00:02:57.960 --> 00:03:00.540
+a threshold, then binary-search the
+
+90
+00:03:00.540 --> 00:03:02.760
+least feasible threshold if the
+
+91
+00:03:02.760 --> 00:03:05.260
+square-root threshold is feasible. A
+
+92
+00:03:05.260 --> 00:03:07.620
+factor is verified by divisibility;
+
+93
+00:03:08.120 --> 00:03:09.100
+a no answer at the
+
+94
+00:03:09.100 --> 00:03:11.580
+square-root threshold identifies a prime
+
+95
+00:03:11.580 --> 00:03:12.860
+in that input domain.
+
+96
+00:03:13.420 --> 00:03:14.960
+Things to take note of.
+
+97
+00:03:15.340 --> 00:03:17.520
+Check initial feasibility, state the
+
+98
+00:03:17.520 --> 00:03:19.720
+residual invariant, and count oracle
+
+99
+00:03:19.720 --> 00:03:22.620
+calls plus transformation work. Recovering
+
+100
+00:03:22.620 --> 00:03:24.040
+an optimum number is not
+
+101
+00:03:24.040 --> 00:03:26.500
+automatically recovering its witness, and
+
+102
+00:03:26.500 --> 00:03:28.500
+a multi-query search construction is
+
+103
+00:03:28.500 --> 00:03:29.820
+not the same object as
+
+104
+00:03:29.820 --> 00:03:31.620
+a single-instance Karp reduction.

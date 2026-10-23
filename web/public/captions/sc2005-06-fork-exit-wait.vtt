@@ -1,0 +1,369 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.620
+What do fork, exit and
+
+2
+00:00:01.620 --> 00:00:04.260
+wait actually do? Fork creates
+
+3
+00:00:04.260 --> 00:00:06.340
+a child process, exit ends
+
+4
+00:00:06.340 --> 00:00:08.460
+execution, and wait allows a
+
+5
+00:00:08.460 --> 00:00:10.040
+parent to collect a child
+
+6
+00:00:10.040 --> 00:00:12.160
+result. The trick is to
+
+7
+00:00:12.160 --> 00:00:14.640
+follow two execution histories instead
+
+8
+00:00:14.640 --> 00:00:16.020
+of pretending that one line
+
+9
+00:00:16.020 --> 00:00:17.760
+of code still means only
+
+10
+00:00:17.760 --> 00:00:18.520
+one process.
+
+11
+00:00:19.020 --> 00:00:20.940
+Imagine a parent with process
+
+12
+00:00:20.940 --> 00:00:23.240
+identifier ten reaching a successful
+
+13
+00:00:23.240 --> 00:00:25.560
+fork. The operating system creates
+
+14
+00:00:25.560 --> 00:00:26.820
+a child, which we label
+
+15
+00:00:26.820 --> 00:00:28.400
+eleven in this authored example.
+
+16
+00:00:28.960 --> 00:00:30.420
+Parent and child then have
+
+17
+00:00:30.420 --> 00:00:32.960
+distinct process identities, even though
+
+18
+00:00:32.960 --> 00:00:34.680
+they continue from corresponding points
+
+19
+00:00:34.680 --> 00:00:35.360
+in the program.
+
+20
+00:00:35.860 --> 00:00:38.340
+The successful return value distinguishes
+
+21
+00:00:38.340 --> 00:00:40.360
+the two paths. The parent
+
+22
+00:00:40.360 --> 00:00:43.120
+receives the child identifier, eleven
+
+23
+00:00:43.120 --> 00:00:45.040
+here, while the child receives
+
+24
+00:00:45.040 --> 00:00:47.300
+zero. Failure is a separate
+
+25
+00:00:47.300 --> 00:00:49.300
+case, so do not invent
+
+26
+00:00:49.300 --> 00:00:51.040
+a successful child when fork
+
+27
+00:00:51.040 --> 00:00:52.020
+reports an error.
+
+28
+00:00:52.620 --> 00:00:54.520
+Both processes can now make
+
+29
+00:00:54.520 --> 00:00:56.740
+progress under the scheduler. The
+
+30
+00:00:56.740 --> 00:00:58.320
+child may run first or
+
+31
+00:00:58.320 --> 00:00:59.740
+the parent may run first
+
+32
+00:00:59.920 --> 00:01:02.320
+unless some explicit synchronization orders
+
+33
+00:01:02.320 --> 00:01:05.460
+them. A neat parent-before-child printout
+
+34
+00:01:05.460 --> 00:01:06.740
+from one run is an
+
+35
+00:01:06.740 --> 00:01:09.260
+observation, not a scheduling guarantee.
+
+36
+00:01:09.860 --> 00:01:12.100
+Their ordinary private memory is
+
+37
+00:01:12.100 --> 00:01:14.500
+logically separate. If each changes
+
+38
+00:01:14.500 --> 00:01:16.460
+its own private counter, that
+
+39
+00:01:16.460 --> 00:01:18.040
+is not a shared-memory race
+
+40
+00:01:18.040 --> 00:01:20.380
+on a single counter. File-descriptor
+
+41
+00:01:20.380 --> 00:01:22.260
+references can still refer to
+
+42
+00:01:22.260 --> 00:01:24.700
+shared underlying kernel objects, which
+
+43
+00:01:24.700 --> 00:01:26.340
+is why resource ownership needs
+
+44
+00:01:26.340 --> 00:01:27.440
+a more careful diagram.
+
+45
+00:01:27.980 --> 00:01:30.160
+Suppose the child finishes and
+
+46
+00:01:30.160 --> 00:01:31.760
+calls exit before the parent
+
+47
+00:01:31.760 --> 00:01:34.240
+calls wait. In the xv6
+
+48
+00:01:34.240 --> 00:01:36.180
+lab, the child becomes a
+
+49
+00:01:36.180 --> 00:01:37.820
+zombie: it is no longer
+
+50
+00:01:37.820 --> 00:01:40.720
+executing, but enough process-table information
+
+51
+00:01:40.720 --> 00:01:42.040
+remains for the parent to
+
+52
+00:01:42.040 --> 00:01:44.180
+collect its status. Zombie does
+
+53
+00:01:44.180 --> 00:01:45.620
+not mean a process secretly
+
+54
+00:01:45.620 --> 00:01:47.120
+keeps using the processor.
+
+55
+00:01:48.260 --> 00:01:49.660
+When the parent waits and
+
+56
+00:01:49.660 --> 00:01:51.140
+the child has exited, the
+
+57
+00:01:51.140 --> 00:01:52.880
+kernel can return that child
+
+58
+00:01:52.880 --> 00:01:54.980
+result and reclaim its remaining
+
+59
+00:01:54.980 --> 00:01:57.940
+process-table slot. If no suitable
+
+60
+00:01:57.940 --> 00:01:59.940
+child has finished yet, wait
+
+61
+00:01:59.940 --> 00:02:01.560
+can block the parent until
+
+62
+00:02:01.560 --> 00:02:04.120
+the required event. Waiting changes
+
+63
+00:02:04.360 --> 00:02:05.780
+which process is ready to
+
+64
+00:02:05.780 --> 00:02:06.300
+execute.
+
+65
+00:02:06.860 --> 00:02:08.520
+The lab makes this visible
+
+66
+00:02:08.520 --> 00:02:10.260
+by delaying the parent, then
+
+67
+00:02:10.260 --> 00:02:11.700
+using the process dump to
+
+68
+00:02:11.700 --> 00:02:13.660
+observe a zombie. After reaping,
+
+69
+00:02:13.800 --> 00:02:15.700
+the retained entry disappears or
+
+70
+00:02:15.700 --> 00:02:17.920
+becomes reusable. In that lab
+
+71
+00:02:17.920 --> 00:02:20.280
+branch, sleep arguments are clock
+
+72
+00:02:20.280 --> 00:02:21.980
+ticks, so do not read
+
+73
+00:02:21.980 --> 00:02:23.820
+an arbitrary sleep value as
+
+74
+00:02:23.820 --> 00:02:24.200
+seconds.
+
+75
+00:02:24.580 --> 00:02:26.200
+A parent can also wait
+
+76
+00:02:26.200 --> 00:02:28.300
+before the child completes, producing
+
+77
+00:02:28.300 --> 00:02:29.980
+the opposite order of events.
+
+78
+00:02:30.540 --> 00:02:32.300
+The dependency is still that
+
+79
+00:02:32.300 --> 00:02:34.200
+wait collects an exited child,
+
+80
+00:02:34.400 --> 00:02:35.720
+not that the child must
+
+81
+00:02:35.720 --> 00:02:38.320
+run immediately after fork. Trace
+
+82
+00:02:38.320 --> 00:02:40.160
+the actual return, block, exit
+
+83
+00:02:40.160 --> 00:02:41.480
+and wakeup events.
+
+84
+00:02:41.980 --> 00:02:43.500
+Things to take note of.
+
+85
+00:02:44.000 --> 00:02:47.040
+Separate process identity, fork return
+
+86
+00:02:47.040 --> 00:02:49.360
+values, private memory and shared
+
+87
+00:02:49.360 --> 00:02:51.740
+kernel references. Explain the zombie
+
+88
+00:02:51.740 --> 00:02:53.240
+interval and the later reaping
+
+89
+00:02:53.240 --> 00:02:55.400
+event; neither an exit nor
+
+90
+00:02:55.400 --> 00:02:57.160
+a sampled print order proves
+
+91
+00:02:57.160 --> 00:02:58.540
+that every piece of process
+
+92
+00:02:58.540 --> 00:03:00.160
+bookkeeping has already vanished.

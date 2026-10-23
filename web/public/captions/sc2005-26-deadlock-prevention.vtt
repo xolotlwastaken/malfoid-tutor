@@ -1,0 +1,329 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.020
+How can deadlock be prevented?
+
+2
+00:00:02.760 --> 00:00:05.040
+Prevention arranges the resource protocol
+
+3
+00:00:05.260 --> 00:00:07.100
+so at least one necessary
+
+4
+00:00:07.100 --> 00:00:10.540
+deadlock condition cannot hold. Identify
+
+5
+00:00:10.540 --> 00:00:11.920
+the condition your rule breaks
+
+6
+00:00:11.920 --> 00:00:13.760
+and the practical cost of
+
+7
+00:00:13.760 --> 00:00:14.200
+that rule.
+
+8
+00:00:14.700 --> 00:00:17.020
+Mutual exclusion means some resource
+
+9
+00:00:17.020 --> 00:00:19.080
+cannot be shared simultaneously by
+
+10
+00:00:19.080 --> 00:00:21.640
+all contenders. A read-only object
+
+11
+00:00:21.640 --> 00:00:23.340
+may be shareable, but an
+
+12
+00:00:23.340 --> 00:00:25.640
+exclusive device operation or mutable
+
+13
+00:00:25.640 --> 00:00:27.480
+critical section can require an
+
+14
+00:00:27.480 --> 00:00:30.020
+owner. Making every resource freely
+
+15
+00:00:30.020 --> 00:00:31.720
+shareable is therefore not a
+
+16
+00:00:31.720 --> 00:00:32.740
+universal remedy.
+
+17
+00:00:33.380 --> 00:00:35.080
+Hold and wait means retaining
+
+18
+00:00:35.080 --> 00:00:37.120
+an acquired resource while requesting
+
+19
+00:00:37.120 --> 00:00:40.420
+another. Requesting the whole required
+
+20
+00:00:40.420 --> 00:00:42.600
+set atomically before starting can
+
+21
+00:00:42.600 --> 00:00:45.020
+remove this condition. It may
+
+22
+00:00:45.020 --> 00:00:47.220
+reduce utilization because a process
+
+23
+00:00:47.220 --> 00:00:49.280
+reserves resources before it needs
+
+24
+00:00:49.280 --> 00:00:49.600
+them.
+
+25
+00:00:49.980 --> 00:00:52.760
+Alternatively, a process that cannot
+
+26
+00:00:52.760 --> 00:00:54.720
+acquire its next resource can
+
+27
+00:00:54.720 --> 00:00:55.940
+release what it holds and
+
+28
+00:00:55.940 --> 00:00:58.580
+retry later. That strategy depends
+
+29
+00:00:58.580 --> 00:01:00.100
+on being able to undo
+
+30
+00:01:00.100 --> 00:01:01.880
+or restart the work safely.
+
+31
+00:01:02.560 --> 00:01:04.440
+Retrying also requires a fairness
+
+32
+00:01:04.440 --> 00:01:06.060
+argument if you want to
+
+33
+00:01:06.060 --> 00:01:07.140
+rule out starvation.
+
+34
+00:01:07.780 --> 00:01:10.380
+No preemption means resources cannot
+
+35
+00:01:10.380 --> 00:01:11.940
+simply be taken back from
+
+36
+00:01:11.940 --> 00:01:14.220
+their holders. Some resources can
+
+37
+00:01:14.220 --> 00:01:15.780
+be saved and restored, while
+
+38
+00:01:15.780 --> 00:01:17.620
+others cannot be safely revoked
+
+39
+00:01:17.620 --> 00:01:19.760
+halfway through an operation. A
+
+40
+00:01:19.760 --> 00:01:21.500
+prevention answer must name the
+
+41
+00:01:21.500 --> 00:01:23.300
+resource model instead of assuming
+
+42
+00:01:23.300 --> 00:01:24.800
+arbitrary forced release.
+
+43
+00:01:25.260 --> 00:01:27.380
+Circular wait is prevented by
+
+44
+00:01:27.380 --> 00:01:28.880
+assigning a total order to
+
+45
+00:01:28.880 --> 00:01:31.120
+resource types and requiring every
+
+46
+00:01:31.120 --> 00:01:32.420
+process to acquire them in
+
+47
+00:01:32.420 --> 00:01:34.580
+increasing order. For locks A
+
+48
+00:01:34.580 --> 00:01:36.660
+before B, both processes must
+
+49
+00:01:36.660 --> 00:01:38.900
+acquire A before requesting B.
+
+50
+00:01:39.400 --> 00:01:40.860
+A cycle would require the
+
+51
+00:01:40.860 --> 00:01:42.540
+ordered resource ranks to increase
+
+52
+00:01:42.540 --> 00:01:43.800
+and return to their starting
+
+53
+00:01:43.800 --> 00:01:45.380
+point, which is impossible.
+
+54
+00:01:45.940 --> 00:01:48.140
+Replay the two-lock example with
+
+55
+00:01:48.140 --> 00:01:50.620
+that order. P zero acquires
+
+56
+00:01:50.620 --> 00:01:51.700
+A and B while P
+
+57
+00:01:51.700 --> 00:01:53.400
+one waits for A without
+
+58
+00:01:53.400 --> 00:01:54.960
+holding B. P zero can
+
+59
+00:01:54.960 --> 00:01:56.900
+finish and release both, allowing
+
+60
+00:01:56.900 --> 00:01:58.220
+P one to continue.
+
+61
+00:01:58.700 --> 00:02:01.620
+Dining philosophers offers several different
+
+62
+00:02:01.620 --> 00:02:05.220
+prevention rules. Limit simultaneous contenders,
+
+63
+00:02:05.220 --> 00:02:07.840
+acquire a pair atomically, or
+
+64
+00:02:07.840 --> 00:02:09.760
+impose a consistent stick order.
+
+65
+00:02:10.400 --> 00:02:12.380
+Explain the particular wait cycle
+
+66
+00:02:12.380 --> 00:02:14.500
+each rule prevents rather than
+
+67
+00:02:14.500 --> 00:02:16.060
+treating the names as magic.
+
+68
+00:02:16.500 --> 00:02:19.380
+Avoidance takes another approach: examine
+
+69
+00:02:19.380 --> 00:02:21.840
+a proposed allocation and preserve
+
+70
+00:02:21.840 --> 00:02:23.960
+a safe completion possibility under
+
+71
+00:02:23.960 --> 00:02:26.640
+declared claims. That is different
+
+72
+00:02:26.640 --> 00:02:28.480
+from permanently forbidding hold and
+
+73
+00:02:28.480 --> 00:02:30.540
+wait. A prevention rule and
+
+74
+00:02:30.540 --> 00:02:32.020
+an avoidance test can both
+
+75
+00:02:32.020 --> 00:02:33.900
+be conservative for different reasons.
+
+76
+00:02:34.380 --> 00:02:35.900
+Things to take note of.
+
+77
+00:02:36.420 --> 00:02:38.760
+Name all four necessary conditions,
+
+78
+00:02:39.100 --> 00:02:40.700
+then break at least one
+
+79
+00:02:40.700 --> 00:02:42.620
+with a concrete resource protocol.
+
+80
+00:02:43.440 --> 00:02:45.200
+Deadlock freedom alone does not
+
+81
+00:02:45.200 --> 00:02:47.920
+guarantee fairness, good utilization, or
+
+82
+00:02:47.920 --> 00:02:49.160
+the absence of starvation.

@@ -1,0 +1,373 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.280
+How do you turn an
+
+2
+00:00:01.280 --> 00:00:04.340
+epsilon nondeterministic automaton into a
+
+3
+00:00:04.340 --> 00:00:07.240
+deterministic one? Store the entire
+
+4
+00:00:07.240 --> 00:00:08.900
+active-state set as a single
+
+5
+00:00:08.900 --> 00:00:11.560
+deterministic state. We will build
+
+6
+00:00:11.560 --> 00:00:13.220
+the reachable subset table for
+
+7
+00:00:13.220 --> 00:00:15.040
+the tutorial machine and justify
+
+8
+00:00:15.040 --> 00:00:16.980
+why it recognizes the same
+
+9
+00:00:16.980 --> 00:00:17.340
+words.
+
+10
+00:00:17.820 --> 00:00:19.680
+The tutorial machine has states
+
+11
+00:00:19.680 --> 00:00:21.760
+one, two and three, with
+
+12
+00:00:21.760 --> 00:00:24.120
+three accepting. On a, one
+
+13
+00:00:24.120 --> 00:00:25.660
+reaches one and two, two
+
+14
+00:00:25.660 --> 00:00:27.580
+reaches three, and three reaches
+
+15
+00:00:27.580 --> 00:00:29.820
+one; on b, only two
+
+16
+00:00:29.820 --> 00:00:31.020
+has a move, looping to
+
+17
+00:00:31.020 --> 00:00:32.820
+itself. There is also an
+
+18
+00:00:32.820 --> 00:00:34.360
+epsilon arrow from two to
+
+19
+00:00:34.360 --> 00:00:34.680
+three.
+
+20
+00:00:35.300 --> 00:00:37.080
+Start with the epsilon closure
+
+21
+00:00:37.080 --> 00:00:38.740
+of the original start state.
+
+22
+00:00:39.060 --> 00:00:40.280
+Here that is just the
+
+23
+00:00:40.280 --> 00:00:42.380
+singleton containing one, so it
+
+24
+00:00:42.380 --> 00:00:44.220
+is not accepting. In general
+
+25
+00:00:44.420 --> 00:00:45.940
+the closure may contain several
+
+26
+00:00:45.940 --> 00:00:47.920
+states or even an accepting
+
+27
+00:00:47.920 --> 00:00:49.940
+state, and replacing it blindly
+
+28
+00:00:49.940 --> 00:00:51.380
+by the singleton start is
+
+29
+00:00:51.380 --> 00:00:51.780
+a mistake.
+
+30
+00:00:52.220 --> 00:00:53.780
+From the set containing one,
+
+31
+00:00:54.200 --> 00:00:55.540
+read a. Union all a-targets
+
+32
+00:00:55.540 --> 00:00:56.600
+to get one and two,
+
+33
+00:00:56.980 --> 00:00:58.760
+then follow the epsilon arrow
+
+34
+00:00:58.760 --> 00:01:00.580
+from two to three. Call
+
+35
+00:01:00.580 --> 00:01:02.240
+the resulting set containing all
+
+36
+00:01:02.240 --> 00:01:04.000
+three states B, which is
+
+37
+00:01:04.000 --> 00:01:05.780
+accepting because it contains three.
+
+38
+00:01:06.340 --> 00:01:07.840
+From A on b there
+
+39
+00:01:07.840 --> 00:01:09.580
+are no targets, giving the
+
+40
+00:01:09.580 --> 00:01:11.680
+empty subset. That is a
+
+41
+00:01:11.680 --> 00:01:13.880
+real deterministic sink state, with
+
+42
+00:01:13.880 --> 00:01:15.780
+both symbols returning to itself.
+
+43
+00:01:15.780 --> 00:01:18.060
+From B, a returns to
+
+44
+00:01:18.060 --> 00:01:19.640
+B, while b reaches two
+
+45
+00:01:19.640 --> 00:01:21.640
+and then its epsilon closure
+
+46
+00:01:21.640 --> 00:01:23.340
+gives C containing two and
+
+47
+00:01:23.340 --> 00:01:23.680
+three.
+
+48
+00:01:24.220 --> 00:01:26.980
+Now expand C instead of
+
+49
+00:01:26.980 --> 00:01:28.340
+stopping when the table looks
+
+50
+00:01:28.340 --> 00:01:30.780
+convincing. On a, states two
+
+51
+00:01:30.780 --> 00:01:32.140
+and three reach three and
+
+52
+00:01:32.140 --> 00:01:34.260
+one, giving D containing one
+
+53
+00:01:34.260 --> 00:01:36.180
+and three. On b, the
+
+54
+00:01:36.180 --> 00:01:37.660
+loop at two followed by
+
+55
+00:01:37.660 --> 00:01:39.100
+closure returns to C.
+
+56
+00:01:39.460 --> 00:01:41.940
+Finally expand D. Its a-targets
+
+57
+00:01:41.940 --> 00:01:43.500
+close to B, and it
+
+58
+00:01:43.500 --> 00:01:45.660
+has no b-target, so b
+
+59
+00:01:45.660 --> 00:01:47.740
+reaches the empty sink. No
+
+60
+00:01:47.740 --> 00:01:49.560
+new subsets remain to inspect,
+
+61
+00:01:49.920 --> 00:01:52.420
+giving five reachable deterministic states
+
+62
+00:01:52.780 --> 00:01:54.260
+rather than all eight subsets
+
+63
+00:01:54.260 --> 00:01:55.480
+of a three-element set.
+
+64
+00:01:56.140 --> 00:01:58.100
+The formal transition rule is
+
+65
+00:01:58.100 --> 00:01:59.640
+closure of the union of
+
+66
+00:01:59.640 --> 00:02:02.620
+all symbol-successors. After every input
+
+67
+00:02:02.620 --> 00:02:05.160
+prefix, the deterministic state equals
+
+68
+00:02:05.160 --> 00:02:07.860
+exactly the nondeterministic active set
+
+69
+00:02:08.320 --> 00:02:10.520
+including free moves. Induction on
+
+70
+00:02:10.520 --> 00:02:12.560
+prefix length proves this statement,
+
+71
+00:02:13.040 --> 00:02:14.700
+so containing an old final
+
+72
+00:02:14.700 --> 00:02:16.680
+state is precisely the correct
+
+73
+00:02:16.680 --> 00:02:17.620
+accepting condition.
+
+74
+00:02:18.100 --> 00:02:19.520
+Trace a b through the
+
+75
+00:02:19.520 --> 00:02:20.600
+new table as a check.
+
+76
+00:02:21.200 --> 00:02:22.280
+A moves to B on
+
+77
+00:02:22.280 --> 00:02:23.820
+a and then C on
+
+78
+00:02:23.820 --> 00:02:25.360
+b, so the word is
+
+79
+00:02:25.360 --> 00:02:28.340
+accepted. An implementation can construct
+
+80
+00:02:28.340 --> 00:02:30.760
+only reachable subsets, but the
+
+81
+00:02:30.760 --> 00:02:32.340
+general upper bound is still
+
+82
+00:02:32.340 --> 00:02:33.480
+two to the number of
+
+83
+00:02:33.480 --> 00:02:34.180
+original states.
+
+84
+00:02:34.540 --> 00:02:35.860
+Things to take note of.
+
+85
+00:02:36.480 --> 00:02:38.480
+Compute the initial epsilon closure,
+
+86
+00:02:39.060 --> 00:02:40.900
+union every active state’s next
+
+87
+00:02:40.900 --> 00:02:42.760
+moves, and close again after
+
+88
+00:02:42.760 --> 00:02:44.840
+each consumed symbol. Mark a
+
+89
+00:02:44.840 --> 00:02:46.780
+subset accepting when it intersects
+
+90
+00:02:46.780 --> 00:02:48.760
+the original final set, complete
+
+91
+00:02:48.760 --> 00:02:50.720
+the empty-sink row, and continue
+
+92
+00:02:50.720 --> 00:02:52.420
+until every discovered subset has
+
+93
+00:02:52.420 --> 00:02:53.100
+been expanded.

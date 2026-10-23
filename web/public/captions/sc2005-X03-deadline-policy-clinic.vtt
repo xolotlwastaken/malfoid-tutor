@@ -1,0 +1,373 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.520
+How do you identify a
+
+2
+00:00:01.520 --> 00:00:03.120
+scheduling policy from a trace?
+
+3
+00:00:03.940 --> 00:00:06.460
+Treat each dispatch, preemption and
+
+4
+00:00:06.460 --> 00:00:08.700
+idle interval as evidence. One
+
+5
+00:00:08.700 --> 00:00:10.300
+matching choice can fit several
+
+6
+00:00:10.300 --> 00:00:12.220
+policies, so seek a decision
+
+7
+00:00:12.220 --> 00:00:14.140
+that distinguishes their comparison keys.
+
+8
+00:00:14.620 --> 00:00:16.620
+In the photographed two-core example,
+
+9
+00:00:17.180 --> 00:00:18.680
+core one handles P zero,
+
+10
+00:00:19.020 --> 00:00:20.240
+P three and P four.
+
+11
+00:00:20.960 --> 00:00:22.820
+P zero arrives at zero
+
+12
+00:00:22.820 --> 00:00:24.640
+with burst three, P three
+
+13
+00:00:24.640 --> 00:00:25.860
+at one with burst two,
+
+14
+00:00:26.120 --> 00:00:27.600
+and P four at four
+
+15
+00:00:27.600 --> 00:00:29.740
+with burst two. The displayed
+
+16
+00:00:29.740 --> 00:00:31.600
+SRTF convention gives a new
+
+17
+00:00:31.600 --> 00:00:33.720
+arrival precedence on equal remaining
+
+18
+00:00:33.720 --> 00:00:34.160
+demand.
+
+19
+00:00:34.660 --> 00:00:36.980
+At one, P zero has
+
+20
+00:00:36.980 --> 00:00:38.860
+two units left and the
+
+21
+00:00:38.860 --> 00:00:40.820
+arriving P three also needs
+
+22
+00:00:40.820 --> 00:00:43.560
+two. That arrival-first tie makes
+
+23
+00:00:43.560 --> 00:00:45.240
+P three run from one
+
+24
+00:00:45.240 --> 00:00:47.500
+to three, then P zero
+
+25
+00:00:47.500 --> 00:00:49.180
+resumes from three to five.
+
+26
+00:00:49.600 --> 00:00:51.320
+P four runs afterward from
+
+27
+00:00:51.320 --> 00:00:52.220
+five to seven.
+
+28
+00:00:52.700 --> 00:00:54.940
+At time four, P zero
+
+29
+00:00:54.940 --> 00:00:56.660
+has one unit left but
+
+30
+00:00:56.660 --> 00:00:58.660
+deadline ten, while P four
+
+31
+00:00:58.660 --> 00:01:00.200
+has two units and deadline
+
+32
+00:01:00.200 --> 00:01:02.660
+seven. Keeping P zero matches
+
+33
+00:01:02.660 --> 00:01:05.120
+shortest remaining demand and contradicts
+
+34
+00:01:05.120 --> 00:01:06.560
+earliest deadline first at that
+
+35
+00:01:06.560 --> 00:01:09.000
+decision. Use the distinguishing event,
+
+36
+00:01:09.400 --> 00:01:10.620
+not a vague resemblance.
+
+37
+00:01:11.060 --> 00:01:12.720
+Core two handles P one,
+
+38
+00:01:12.940 --> 00:01:14.440
+P two, P five and
+
+39
+00:01:14.440 --> 00:01:16.420
+P six. P one runs
+
+40
+00:01:16.420 --> 00:01:17.580
+from two to five, P
+
+41
+00:01:17.580 --> 00:01:19.400
+five from five to six,
+
+42
+00:01:19.620 --> 00:01:20.840
+P two from six to
+
+43
+00:01:20.840 --> 00:01:22.480
+eight, and P six from
+
+44
+00:01:22.480 --> 00:01:24.100
+eight to nine. At five,
+
+45
+00:01:24.300 --> 00:01:25.500
+the new P five has
+
+46
+00:01:25.500 --> 00:01:27.860
+absolute deadline six and overtakes
+
+47
+00:01:27.860 --> 00:01:29.220
+the older P two with
+
+48
+00:01:29.220 --> 00:01:30.140
+deadline nine.
+
+49
+00:01:30.620 --> 00:01:32.380
+That event rules out first
+
+50
+00:01:32.380 --> 00:01:34.240
+come first served and supports
+
+51
+00:01:34.240 --> 00:01:36.620
+earliest deadline first. At three,
+
+52
+00:01:36.620 --> 00:01:38.620
+P one and the arriving
+
+53
+00:01:38.620 --> 00:01:40.480
+P two have equal remaining
+
+54
+00:01:40.480 --> 00:01:43.300
+demand, yet P one continues,
+
+55
+00:01:43.780 --> 00:01:47.660
+contradicting the worksheet arrival-first SRTF
+
+56
+00:01:47.660 --> 00:01:50.180
+tie. Check all event choices
+
+57
+00:01:50.180 --> 00:01:51.720
+against the stated convention.
+
+58
+00:01:52.580 --> 00:01:54.400
+Core two is idle before
+
+59
+00:01:54.400 --> 00:01:56.460
+time two while work exists
+
+60
+00:01:56.460 --> 00:01:58.120
+in the core-one set. Under
+
+61
+00:01:58.120 --> 00:02:01.260
+a work-conserving global-ready-queue assumption, that
+
+62
+00:02:01.260 --> 00:02:02.840
+idle slot would accept an
+
+63
+00:02:02.840 --> 00:02:05.000
+eligible waiting job. The displayed
+
+64
+00:02:05.000 --> 00:02:07.740
+behavior therefore supports partitioning into
+
+65
+00:02:07.740 --> 00:02:09.180
+the two specified sets.
+
+66
+00:02:09.500 --> 00:02:11.620
+The separate EDF quiz has
+
+67
+00:02:11.620 --> 00:02:13.560
+arrivals zero, one, three and
+
+68
+00:02:13.560 --> 00:02:15.460
+six, bursts five, three, six
+
+69
+00:02:15.460 --> 00:02:17.260
+and four, and absolute deadlines
+
+70
+00:02:17.260 --> 00:02:19.720
+thirteen, five, nineteen and eleven.
+
+71
+00:02:20.200 --> 00:02:21.620
+Its order is P zero,
+
+72
+00:02:21.940 --> 00:02:23.140
+P one, P zero, P
+
+73
+00:02:23.140 --> 00:02:24.440
+three, P zero, then P
+
+74
+00:02:24.440 --> 00:02:27.240
+two. Completion by eighteen meets
+
+75
+00:02:27.240 --> 00:02:28.440
+all four deadlines.
+
+76
+00:02:28.980 --> 00:02:31.560
+The priority-inversion photo appendix is
+
+77
+00:02:31.560 --> 00:02:34.080
+optional: a high-priority job can
+
+78
+00:02:34.080 --> 00:02:35.200
+block on a lock held
+
+79
+00:02:35.200 --> 00:02:36.960
+by a low-priority job while
+
+80
+00:02:36.960 --> 00:02:39.360
+medium-priority work delays that holder.
+
+81
+00:02:40.140 --> 00:02:42.780
+Priority inheritance temporarily raises the
+
+82
+00:02:42.780 --> 00:02:43.760
+holder so it can release
+
+83
+00:02:43.760 --> 00:02:46.100
+sooner. Keep that optional mechanism
+
+84
+00:02:46.100 --> 00:02:47.780
+separate from the confirmed core
+
+85
+00:02:47.780 --> 00:02:48.660
+trace requirements.
+
+86
+00:02:49.180 --> 00:02:50.380
+Things to take note of.
+
+87
+00:02:50.760 --> 00:02:53.020
+Test comparison keys at discriminating
+
+88
+00:02:53.020 --> 00:02:55.620
+events, preserve explicit ties, and
+
+89
+00:02:55.620 --> 00:02:57.440
+state the queue architecture assumption
+
+90
+00:02:57.440 --> 00:03:00.100
+behind an idle-core argument. A
+
+91
+00:03:00.100 --> 00:03:01.880
+plausible policy name is weaker
+
+92
+00:03:01.880 --> 00:03:03.620
+than a complete explanation of
+
+93
+00:03:03.620 --> 00:03:04.520
+the observed choices.

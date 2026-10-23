@@ -1,0 +1,345 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.180
+How does Banker’s safety algorithm
+
+2
+00:00:02.180 --> 00:00:04.240
+work? It asks whether at
+
+3
+00:00:04.240 --> 00:00:05.860
+least one order lets every
+
+4
+00:00:05.860 --> 00:00:08.020
+process obtain its remaining declared
+
+5
+00:00:08.020 --> 00:00:10.620
+need and eventually finish. A
+
+6
+00:00:10.620 --> 00:00:11.880
+safe state has such an
+
+7
+00:00:11.880 --> 00:00:13.780
+order; an unsafe state lacks
+
+8
+00:00:13.780 --> 00:00:15.520
+this guarantee but is not
+
+9
+00:00:15.520 --> 00:00:17.440
+automatically already deadlocked.
+
+10
+00:00:18.220 --> 00:00:21.060
+The snapshot contains Allocation, Max
+
+11
+00:00:21.060 --> 00:00:23.300
+and Available. Compute Need by
+
+12
+00:00:23.300 --> 00:00:25.280
+subtracting Allocation from Max for
+
+13
+00:00:25.280 --> 00:00:27.940
+each resource component. Keep the
+
+14
+00:00:27.940 --> 00:00:30.180
+three resource columns separate; adding
+
+15
+00:00:30.180 --> 00:00:31.820
+them into one total loses
+
+16
+00:00:31.820 --> 00:00:33.680
+the information needed for feasibility.
+
+17
+00:00:34.420 --> 00:00:36.080
+Use the lecture example with
+
+18
+00:00:36.080 --> 00:00:38.240
+five processes and initial Available
+
+19
+00:00:38.240 --> 00:00:41.300
+three, three, two. Initialize Work
+
+20
+00:00:41.300 --> 00:00:42.340
+to that vector and mark
+
+21
+00:00:42.340 --> 00:00:44.700
+every process unfinished. Work is
+
+22
+00:00:44.700 --> 00:00:46.660
+the hypothetical resource pool used
+
+23
+00:00:46.660 --> 00:00:48.180
+during the safety test, rather
+
+24
+00:00:48.180 --> 00:00:49.680
+than a permanent allocation to
+
+25
+00:00:49.680 --> 00:00:50.600
+a real running process.
+
+26
+00:00:51.100 --> 00:00:53.080
+Search for an unfinished row
+
+27
+00:00:53.080 --> 00:00:54.560
+whose Need is less than
+
+28
+00:00:54.560 --> 00:00:55.900
+or equal to Work in
+
+29
+00:00:55.900 --> 00:00:58.140
+every component. P one needs
+
+30
+00:00:58.140 --> 00:01:00.080
+one, two, two and is
+
+31
+00:01:00.080 --> 00:01:02.320
+feasible against three, three, two.
+
+32
+00:01:02.920 --> 00:01:04.940
+Equality is allowed, so a
+
+33
+00:01:04.940 --> 00:01:07.100
+row requiring exactly the available
+
+34
+00:01:07.100 --> 00:01:08.760
+count must not be rejected.
+
+35
+00:01:09.140 --> 00:01:11.780
+Pretend P one completes, then
+
+36
+00:01:11.780 --> 00:01:13.880
+add its current Allocation two,
+
+37
+00:01:14.240 --> 00:01:16.220
+zero, zero back to Work.
+
+38
+00:01:16.640 --> 00:01:18.880
+Work becomes five, three, two.
+
+39
+00:01:19.440 --> 00:01:21.700
+Release Allocation, not Max or
+
+40
+00:01:21.700 --> 00:01:23.920
+Need, because the temporary resources
+
+41
+00:01:23.920 --> 00:01:25.720
+used to finish are already
+
+42
+00:01:25.720 --> 00:01:27.580
+accounted for within the hypothetical
+
+43
+00:01:27.580 --> 00:01:27.940
+pool.
+
+44
+00:01:28.300 --> 00:01:29.900
+Next P three can finish
+
+45
+00:01:29.900 --> 00:01:32.500
+and release two, one, one,
+
+46
+00:01:32.580 --> 00:01:34.620
+giving Work seven, four, three.
+
+47
+00:01:34.980 --> 00:01:36.340
+P four can then finish
+
+48
+00:01:36.340 --> 00:01:38.080
+and release zero, zero, two,
+
+49
+00:01:38.320 --> 00:01:40.140
+giving seven, four, five. Mark
+
+50
+00:01:40.140 --> 00:01:41.900
+each completed process so its
+
+51
+00:01:41.900 --> 00:01:43.620
+allocation is not released twice.
+
+52
+00:01:44.100 --> 00:01:45.840
+P two now fits and
+
+53
+00:01:45.840 --> 00:01:48.340
+releases three, zero, two, producing
+
+54
+00:01:48.340 --> 00:01:50.820
+ten, four, seven. P zero
+
+55
+00:01:50.820 --> 00:01:53.220
+finally releases zero, one, zero,
+
+56
+00:01:53.480 --> 00:01:56.060
+producing ten, five, seven. Every
+
+57
+00:01:56.060 --> 00:01:57.980
+row finished, so P one,
+
+58
+00:01:58.080 --> 00:01:59.360
+P three, P four, P
+
+59
+00:01:59.360 --> 00:02:00.720
+two, P zero is a
+
+60
+00:02:00.720 --> 00:02:01.840
+valid safe sequence.
+
+61
+00:02:02.380 --> 00:02:04.080
+A different valid sequence can
+
+62
+00:02:04.080 --> 00:02:06.240
+also prove safety. But finding
+
+63
+00:02:06.240 --> 00:02:08.340
+one infeasible candidate does not
+
+64
+00:02:08.340 --> 00:02:10.480
+prove the state unsafe; search
+
+65
+00:02:10.480 --> 00:02:13.020
+the other unfinished rows. Only
+
+66
+00:02:13.020 --> 00:02:14.540
+when no unfinished row fits
+
+67
+00:02:14.540 --> 00:02:16.560
+and some remain unfinished has
+
+68
+00:02:16.560 --> 00:02:18.760
+this repeated-search safety test become
+
+69
+00:02:18.760 --> 00:02:19.120
+stuck.
+
+70
+00:02:19.700 --> 00:02:22.100
+For an added implementation analysis,
+
+71
+00:02:22.440 --> 00:02:24.300
+at most n successful passes
+
+72
+00:02:24.300 --> 00:02:26.620
+can finish n processes, and
+
+73
+00:02:26.620 --> 00:02:28.260
+each pass can inspect n
+
+74
+00:02:28.260 --> 00:02:30.080
+rows of m resource components.
+
+75
+00:02:30.500 --> 00:02:33.320
+A straightforward repeated-search implementation therefore
+
+76
+00:02:33.320 --> 00:02:35.360
+takes order n squared times
+
+77
+00:02:35.360 --> 00:02:37.100
+m work. This is a
+
+78
+00:02:37.100 --> 00:02:38.820
+derived bound, not an additional
+
+79
+00:02:38.820 --> 00:02:40.500
+claim about examination scope.
+
+80
+00:02:40.860 --> 00:02:42.240
+Things to take note of.
+
+81
+00:02:42.760 --> 00:02:45.380
+Need equals Max minus Allocation,
+
+82
+00:02:46.060 --> 00:02:48.460
+feasibility is componentwise less than
+
+83
+00:02:48.460 --> 00:02:50.660
+or equal, and completion releases
+
+84
+00:02:50.660 --> 00:02:53.200
+Allocation. Keep Work, Finish and
+
+85
+00:02:53.200 --> 00:02:54.860
+the proposed sequence visible so
+
+86
+00:02:54.860 --> 00:02:56.340
+every update can be checked.

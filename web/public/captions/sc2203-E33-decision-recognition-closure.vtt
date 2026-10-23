@@ -1,0 +1,425 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.720
+When do closure proofs need
+
+2
+00:00:01.720 --> 00:00:04.080
+deciders or dovetailing? A decider
+
+3
+00:00:04.080 --> 00:00:06.020
+always halts, while a recognizer
+
+4
+00:00:06.020 --> 00:00:07.480
+may loop on inputs outside
+
+5
+00:00:07.480 --> 00:00:09.040
+its language. We will compare
+
+6
+00:00:09.040 --> 00:00:11.060
+algorithms for union, complement and
+
+7
+00:00:11.060 --> 00:00:13.140
+factorization so that the machine-class
+
+8
+00:00:13.140 --> 00:00:15.000
+hypothesis stays visible in every
+
+9
+00:00:15.000 --> 00:00:15.220
+proof.
+
+10
+00:00:15.500 --> 00:00:16.960
+For the union of two
+
+11
+00:00:16.960 --> 00:00:19.280
+decidable languages, run the first
+
+12
+00:00:19.280 --> 00:00:21.060
+decider and accept if it
+
+13
+00:00:21.060 --> 00:00:23.300
+accepts, otherwise run the second.
+
+14
+00:00:24.000 --> 00:00:26.020
+Each call halts, so the
+
+15
+00:00:26.020 --> 00:00:27.960
+sequence always reaches a final
+
+16
+00:00:27.960 --> 00:00:30.400
+verdict. The same sequential idea
+
+17
+00:00:30.400 --> 00:00:32.580
+works for intersection by requiring
+
+18
+00:00:32.580 --> 00:00:33.740
+acceptance from both.
+
+19
+00:00:34.020 --> 00:00:35.680
+Now suppose the machines are
+
+20
+00:00:35.680 --> 00:00:37.900
+only recognizers. A word could
+
+21
+00:00:37.900 --> 00:00:39.220
+belong to the second language
+
+22
+00:00:39.220 --> 00:00:40.900
+while the first recognizer loops
+
+23
+00:00:40.900 --> 00:00:42.640
+on it forever, so a
+
+24
+00:00:42.640 --> 00:00:44.540
+serial union algorithm never reaches
+
+25
+00:00:44.540 --> 00:00:46.760
+the accepting second test. Alternate
+
+26
+00:00:46.760 --> 00:00:48.080
+one step of each simulation
+
+27
+00:00:48.080 --> 00:00:50.780
+instead, accepting when either accepts.
+
+28
+00:00:51.180 --> 00:00:54.060
+For recognizable intersection, accept only
+
+29
+00:00:54.060 --> 00:00:56.200
+after both simulations have accepted.
+
+30
+00:00:56.880 --> 00:00:58.300
+Alternating them is a uniform
+
+31
+00:00:58.300 --> 00:01:00.860
+safe construction, and serial execution
+
+32
+00:01:00.860 --> 00:01:02.540
+also works for this particular
+
+33
+00:01:02.540 --> 00:01:04.900
+membership condition because both accept
+
+34
+00:01:04.900 --> 00:01:06.660
+on every true member. On
+
+35
+00:01:06.660 --> 00:01:09.700
+nonmembers, rejection or nonhalting is
+
+36
+00:01:09.700 --> 00:01:11.860
+permitted, but false acceptance is
+
+37
+00:01:11.860 --> 00:01:12.100
+not.
+
+38
+00:01:12.740 --> 00:01:14.880
+Complementing a decider swaps its
+
+39
+00:01:14.880 --> 00:01:17.560
+accept and reject outcomes. Because
+
+40
+00:01:17.560 --> 00:01:19.820
+it always halts, this inverts
+
+41
+00:01:19.820 --> 00:01:21.340
+the verdict on every input.
+
+42
+00:01:21.940 --> 00:01:24.060
+Swapping a recognizer’s halting outcomes
+
+43
+00:01:24.060 --> 00:01:26.200
+leaves its loops unchanged, so
+
+44
+00:01:26.200 --> 00:01:27.300
+a nonmember on which it
+
+45
+00:01:27.300 --> 00:01:28.760
+loops is still not accepted
+
+46
+00:01:28.760 --> 00:01:30.840
+by the supposed complement recognizer.
+
+47
+00:01:31.180 --> 00:01:33.860
+For concatenation of decidable languages,
+
+48
+00:01:34.540 --> 00:01:36.920
+test all input splits, including
+
+49
+00:01:36.920 --> 00:01:38.760
+an empty prefix or suffix.
+
+50
+00:01:39.340 --> 00:01:40.800
+A length-n word has n
+
+51
+00:01:40.800 --> 00:01:42.860
+plus one split positions, and
+
+52
+00:01:42.860 --> 00:01:44.300
+every pair of decider runs
+
+53
+00:01:44.300 --> 00:01:46.860
+finishes. Accept if one split
+
+54
+00:01:46.860 --> 00:01:49.320
+passes both tests, otherwise reject
+
+55
+00:01:49.320 --> 00:01:50.940
+after the finite list is
+
+56
+00:01:50.940 --> 00:01:51.380
+exhausted.
+
+57
+00:01:52.020 --> 00:01:55.120
+For star, accept epsilon immediately,
+
+58
+00:01:55.720 --> 00:01:58.200
+then consider factorizations into nonempty
+
+59
+00:01:58.680 --> 00:02:01.020
+pieces. There are finitely many
+
+60
+00:02:01.020 --> 00:02:02.660
+ways to place cuts between
+
+61
+00:02:02.660 --> 00:02:03.840
+the symbols of a fixed
+
+62
+00:02:03.840 --> 00:02:05.960
+word, and every decider test
+
+63
+00:02:05.960 --> 00:02:09.720
+terminates. This proves decidability even
+
+64
+00:02:09.720 --> 00:02:11.360
+though trying all cuts is
+
+65
+00:02:11.360 --> 00:02:13.460
+not the efficient P-class construction
+
+66
+00:02:13.460 --> 00:02:14.420
+we study later.
+
+67
+00:02:14.940 --> 00:02:17.460
+For recognizers, testing those candidate
+
+68
+00:02:17.460 --> 00:02:20.100
+factorizations serially can hang on
+
+69
+00:02:20.100 --> 00:02:22.300
+the wrong one. Dovetail the
+
+70
+00:02:22.300 --> 00:02:25.560
+finitely many candidate piece-computations and
+
+71
+00:02:25.560 --> 00:02:27.420
+accept once every piece of
+
+72
+00:02:27.420 --> 00:02:30.140
+some candidate has accepted. Equivalently,
+
+73
+00:02:30.140 --> 00:02:33.280
+guess a factorization nondeterministically and
+
+74
+00:02:33.280 --> 00:02:36.340
+use NTM-DTM recognition equivalence.
+
+75
+00:02:36.660 --> 00:02:39.020
+The PATH example illustrates a
+
+76
+00:02:39.020 --> 00:02:41.460
+positive halting argument. Mark the
+
+77
+00:02:41.460 --> 00:02:43.660
+source vertex, propagate marks along
+
+78
+00:02:43.660 --> 00:02:45.120
+edges until a full pass
+
+79
+00:02:45.120 --> 00:02:47.400
+adds none, then test whether
+
+80
+00:02:47.400 --> 00:02:49.120
+the target is marked. Marks
+
+81
+00:02:49.120 --> 00:02:50.360
+are never removed and only
+
+82
+00:02:50.360 --> 00:02:52.220
+finitely many vertices can be
+
+83
+00:02:52.220 --> 00:02:54.020
+newly marked, so the procedure
+
+84
+00:02:54.020 --> 00:02:55.640
+halts on every valid finite
+
+85
+00:02:55.640 --> 00:02:56.020
+graph.
+
+86
+00:02:56.380 --> 00:02:58.500
+The Church Turing thesis connects
+
+87
+00:02:58.500 --> 00:03:01.480
+effectively executable algorithms with Turing
+
+88
+00:03:01.480 --> 00:03:03.420
+computation, but it is a
+
+89
+00:03:03.420 --> 00:03:04.760
+thesis rather than a theorem
+
+90
+00:03:04.760 --> 00:03:07.400
+equating two fully formal definitions.
+
+91
+00:03:07.400 --> 00:03:10.960
+Distinguish formal transitions, implementation-level scanning
+
+92
+00:03:10.960 --> 00:03:14.140
+descriptions and high-level algorithms. A
+
+93
+00:03:14.140 --> 00:03:15.920
+high-level input such as a
+
+94
+00:03:15.920 --> 00:03:17.340
+graph still arrives as an
+
+95
+00:03:17.340 --> 00:03:19.640
+encoded finite string, and malformed
+
+96
+00:03:19.640 --> 00:03:21.640
+encodings need a rejection rule.
+
+97
+00:03:22.020 --> 00:03:23.300
+Things to take note of.
+
+98
+00:03:23.680 --> 00:03:26.280
+Separate correct membership behaviour from
+
+99
+00:03:26.280 --> 00:03:28.360
+the additional requirement to halt,
+
+100
+00:03:28.860 --> 00:03:30.420
+and never schedule a potentially
+
+101
+00:03:30.420 --> 00:03:32.580
+endless recognizer before a result
+
+102
+00:03:32.580 --> 00:03:34.320
+you still need. Use finite
+
+103
+00:03:34.320 --> 00:03:36.500
+factor lists or fair interleaving
+
+104
+00:03:36.500 --> 00:03:38.480
+with the appropriate acceptance condition,
+
+105
+00:03:38.480 --> 00:03:40.520
+and do not infer efficient
+
+106
+00:03:40.520 --> 00:03:42.820
+runtime merely from decidability.

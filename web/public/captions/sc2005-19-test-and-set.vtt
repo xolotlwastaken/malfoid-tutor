@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.860
+How does test and set
+
+2
+00:00:01.860 --> 00:00:04.200
+acquire a lock? It atomically
+
+3
+00:00:04.200 --> 00:00:05.940
+returns the old lock value
+
+4
+00:00:05.940 --> 00:00:07.360
+and sets that lock true.
+
+5
+00:00:08.040 --> 00:00:09.980
+Both parts form one indivisible
+
+6
+00:00:09.980 --> 00:00:13.040
+shared-memory operation, so two contenders
+
+7
+00:00:13.040 --> 00:00:14.780
+cannot each observe the same
+
+8
+00:00:14.780 --> 00:00:16.220
+free lock as their successful
+
+9
+00:00:16.220 --> 00:00:16.780
+acquisition.
+
+10
+00:00:17.340 --> 00:00:18.900
+Initially the lock is false,
+
+11
+00:00:19.280 --> 00:00:22.120
+meaning available. P zero executes
+
+12
+00:00:22.120 --> 00:00:23.900
+test and set and receives
+
+13
+00:00:23.900 --> 00:00:25.300
+false while the shared lock
+
+14
+00:00:25.300 --> 00:00:27.560
+becomes true. The false return
+
+15
+00:00:27.560 --> 00:00:28.740
+is the evidence that this
+
+16
+00:00:28.740 --> 00:00:30.900
+process acquired the lock, not
+
+17
+00:00:30.900 --> 00:00:32.160
+a signal that the operation
+
+18
+00:00:32.160 --> 00:00:32.600
+failed.
+
+19
+00:00:32.980 --> 00:00:34.800
+Now P one attempts the
+
+20
+00:00:34.800 --> 00:00:37.200
+same atomic operation. It receives
+
+21
+00:00:37.200 --> 00:00:39.000
+true because the lock was
+
+22
+00:00:39.000 --> 00:00:40.480
+already held, and the lock
+
+23
+00:00:40.480 --> 00:00:42.040
+remains true. In the basic
+
+24
+00:00:42.040 --> 00:00:43.820
+spin loop, a true return
+
+25
+00:00:43.820 --> 00:00:46.000
+means retry rather than enter
+
+26
+00:00:46.000 --> 00:00:47.040
+the critical section.
+
+27
+00:00:47.980 --> 00:00:50.060
+When P zero exits, it
+
+28
+00:00:50.060 --> 00:00:51.600
+releases the lock by setting
+
+29
+00:00:51.600 --> 00:00:52.840
+it false according to the
+
+30
+00:00:52.840 --> 00:00:55.120
+lock protocol. A later test
+
+31
+00:00:55.120 --> 00:00:56.480
+and set can then return
+
+32
+00:00:56.480 --> 00:00:59.180
+false to one contender. Watch
+
+33
+00:00:59.180 --> 00:01:00.720
+P one become the next
+
+34
+00:01:00.720 --> 00:01:02.800
+holder only after that successful
+
+35
+00:01:02.800 --> 00:01:04.100
+free-to-held transition.
+
+36
+00:01:04.740 --> 00:01:07.080
+Mutual exclusion follows from the
+
+37
+00:01:07.080 --> 00:01:09.920
+atomic old-value transition: at most
+
+38
+00:01:10.080 --> 00:01:11.900
+one acquisition can return false
+
+39
+00:01:11.900 --> 00:01:14.160
+before a release. Progress holds
+
+40
+00:01:14.160 --> 00:01:15.420
+for a free lock when
+
+41
+00:01:15.420 --> 00:01:17.260
+an executing contender can acquire
+
+42
+00:01:17.260 --> 00:01:19.240
+it. Basic test and set
+
+43
+00:01:19.240 --> 00:01:20.660
+does not by itself provide
+
+44
+00:01:20.660 --> 00:01:22.080
+a bound on which contender
+
+45
+00:01:22.080 --> 00:01:22.680
+wins next.
+
+46
+00:01:23.260 --> 00:01:25.100
+P zero might release and
+
+47
+00:01:25.100 --> 00:01:27.320
+repeatedly reacquire before P one
+
+48
+00:01:27.320 --> 00:01:30.160
+succeeds. Each individual acquisition is
+
+49
+00:01:30.160 --> 00:01:31.800
+valid, yet P one can
+
+50
+00:01:31.800 --> 00:01:33.320
+be overtaken without a fixed
+
+51
+00:01:33.320 --> 00:01:36.180
+bound. A fair-looking processor schedule
+
+52
+00:01:36.180 --> 00:01:37.140
+is not the same as
+
+53
+00:01:37.140 --> 00:01:38.840
+a fair lock acquisition policy.
+
+54
+00:01:39.220 --> 00:01:41.620
+Atomicity must hold against competing
+
+55
+00:01:41.620 --> 00:01:43.380
+accesses on other cores too.
+
+56
+00:01:44.140 --> 00:01:45.920
+Disabling interrupts on one core
+
+57
+00:01:45.920 --> 00:01:47.460
+does not stop another core
+
+58
+00:01:47.460 --> 00:01:49.660
+from touching shared memory. The
+
+59
+00:01:49.660 --> 00:01:51.820
+slide drawings about noninterruption are
+
+60
+00:01:51.820 --> 00:01:53.680
+a simplified model, not a
+
+61
+00:01:53.680 --> 00:01:55.280
+general replacement for a multicore
+
+62
+00:01:55.540 --> 00:01:56.360
+atomic instruction.
+
+63
+00:01:56.780 --> 00:01:58.640
+Spinning can avoid the overhead
+
+64
+00:01:58.640 --> 00:01:59.920
+of sleeping when the holder
+
+65
+00:01:59.920 --> 00:02:01.580
+runs elsewhere and will release
+
+66
+00:02:01.580 --> 00:02:03.300
+very soon. If the holder
+
+67
+00:02:03.300 --> 00:02:04.560
+cannot run while a waiter
+
+68
+00:02:04.560 --> 00:02:07.240
+monopolizes the only core, spinning
+
+69
+00:02:07.240 --> 00:02:08.420
+does not make it release
+
+70
+00:02:08.420 --> 00:02:10.940
+sooner. Compare the expected hold
+
+71
+00:02:10.940 --> 00:02:12.600
+time with scheduling and switching
+
+72
+00:02:12.600 --> 00:02:14.280
+costs under the stated assumptions.
+
+73
+00:02:14.900 --> 00:02:16.720
+A blocking semaphore can still
+
+74
+00:02:16.720 --> 00:02:18.600
+use a short internal atomic
+
+75
+00:02:18.600 --> 00:02:19.980
+lock to protect its own
+
+76
+00:02:19.980 --> 00:02:22.000
+counter and wait list. Blocking
+
+77
+00:02:22.000 --> 00:02:23.460
+for the resource and briefly
+
+78
+00:02:23.460 --> 00:02:25.400
+spinning on internal metadata are
+
+79
+00:02:25.400 --> 00:02:28.120
+different operations. The course excludes
+
+80
+00:02:28.120 --> 00:02:30.620
+the more complex bounded-waiting test-and-set
+
+81
+00:02:30.620 --> 00:02:32.620
+algorithm, so do not substitute
+
+82
+00:02:32.620 --> 00:02:34.000
+it for this basic trace.
+
+83
+00:02:34.460 --> 00:02:35.680
+Things to take note of.
+
+84
+00:02:35.980 --> 00:02:38.320
+False old value acquires, true
+
+85
+00:02:38.320 --> 00:02:40.960
+old value retries, and release
+
+86
+00:02:40.960 --> 00:02:43.140
+permits a later winner. Derive
+
+87
+00:02:43.140 --> 00:02:45.240
+exclusion from the atomic transition,
+
+88
+00:02:45.240 --> 00:02:47.000
+but do not infer bounded
+
+89
+00:02:47.000 --> 00:02:49.200
+waiting or multicore protection from
+
+90
+00:02:49.200 --> 00:02:51.040
+an unrelated timer or local
+
+91
+00:02:51.040 --> 00:02:51.780
+interrupt rule.

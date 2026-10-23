@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.920
+What does nondeterministic acceptance mean?
+
+2
+00:00:03.540 --> 00:00:05.160
+An automaton may have several
+
+3
+00:00:05.160 --> 00:00:06.700
+possible moves for a symbol,
+
+4
+00:00:07.180 --> 00:00:08.940
+and epsilon moves consume no
+
+5
+00:00:08.940 --> 00:00:11.700
+input. Acceptance requires at least
+
+6
+00:00:11.700 --> 00:00:14.220
+one complete accepting branch, not
+
+7
+00:00:14.220 --> 00:00:15.840
+agreement among branches or a
+
+8
+00:00:15.840 --> 00:00:16.880
+favourable majority.
+
+9
+00:00:17.340 --> 00:00:19.680
+Use the four-state automaton from
+
+10
+00:00:19.680 --> 00:00:21.840
+the tutorial. State one has
+
+11
+00:00:21.840 --> 00:00:23.460
+an epsilon arrow to two,
+
+12
+00:00:23.880 --> 00:00:25.340
+two loops on b and
+
+13
+00:00:25.340 --> 00:00:26.540
+moves to three on a,
+
+14
+00:00:26.760 --> 00:00:28.660
+three has an epsilon arrow
+
+15
+00:00:28.660 --> 00:00:30.320
+to four, and four returns
+
+16
+00:00:30.320 --> 00:00:32.020
+to one on b. State
+
+17
+00:00:32.020 --> 00:00:34.080
+one starts the computation and
+
+18
+00:00:34.080 --> 00:00:35.740
+only state four is accepting.
+
+19
+00:00:36.500 --> 00:00:39.080
+Before reading anything, follow any
+
+20
+00:00:39.080 --> 00:00:41.400
+number of epsilon arrows. The
+
+21
+00:00:41.400 --> 00:00:42.860
+active set is one and
+
+22
+00:00:42.860 --> 00:00:45.640
+two, because epsilon reachability includes
+
+23
+00:00:45.640 --> 00:00:47.420
+taking zero moves as well
+
+24
+00:00:47.420 --> 00:00:49.240
+as taking the arrow. Neither
+
+25
+00:00:49.240 --> 00:00:51.300
+state is accepting, so this
+
+26
+00:00:51.300 --> 00:00:53.540
+automaton rejects the empty word.
+
+27
+00:00:53.900 --> 00:00:56.480
+Now read a. The branch
+
+28
+00:00:56.480 --> 00:00:58.260
+at one has no a-transition
+
+29
+00:00:58.260 --> 00:01:00.220
+and dies, while the branch
+
+30
+00:01:00.220 --> 00:01:02.900
+at two reaches three. Following
+
+31
+00:01:02.900 --> 00:01:05.060
+the epsilon arrow immediately adds
+
+32
+00:01:05.060 --> 00:01:06.920
+four without advancing the input
+
+33
+00:01:06.920 --> 00:01:08.300
+cursor a second time.
+
+34
+00:01:08.900 --> 00:01:10.340
+An accepting state is now
+
+35
+00:01:10.340 --> 00:01:12.020
+active, but b and a
+
+36
+00:01:12.020 --> 00:01:14.660
+remain unread. This is not
+
+37
+00:01:14.660 --> 00:01:15.900
+acceptance of the whole word
+
+38
+00:01:15.900 --> 00:01:17.480
+yet. Just as with a
+
+39
+00:01:17.480 --> 00:01:20.440
+deterministic automaton, a successful branch
+
+40
+00:01:20.440 --> 00:01:22.360
+must finish the entire input
+
+41
+00:01:22.360 --> 00:01:23.860
+before ending in an accepting
+
+42
+00:01:23.860 --> 00:01:24.340
+state.
+
+43
+00:01:24.700 --> 00:01:27.260
+Read b next. State three
+
+44
+00:01:27.260 --> 00:01:28.760
+has no matching move, but
+
+45
+00:01:28.760 --> 00:01:30.560
+four reaches one, and its
+
+46
+00:01:30.560 --> 00:01:33.100
+epsilon closure adds two. The
+
+47
+00:01:33.100 --> 00:01:34.680
+active set is therefore one
+
+48
+00:01:34.680 --> 00:01:36.100
+and two again, with only
+
+49
+00:01:36.100 --> 00:01:37.620
+the final a unread.
+
+50
+00:01:38.020 --> 00:01:40.420
+Read the final a. The
+
+51
+00:01:40.420 --> 00:01:42.200
+active set becomes three and
+
+52
+00:01:42.200 --> 00:01:44.360
+four after epsilon closure, and
+
+53
+00:01:44.360 --> 00:01:46.560
+the input is exhausted. Since
+
+54
+00:01:46.560 --> 00:01:48.140
+four is accepting, the word
+
+55
+00:01:48.140 --> 00:01:49.780
+a b a is accepted,
+
+56
+00:01:49.780 --> 00:01:51.240
+regardless of the branches that
+
+57
+00:01:51.240 --> 00:01:51.960
+died earlier.
+
+58
+00:01:52.540 --> 00:01:55.020
+Formally, the transition function returns
+
+59
+00:01:55.020 --> 00:01:56.200
+a set of possible next
+
+60
+00:01:56.200 --> 00:01:58.320
+states. It may return the
+
+61
+00:01:58.320 --> 00:01:59.960
+empty set, one state, or
+
+62
+00:01:59.960 --> 00:02:01.740
+several states, and its input
+
+63
+00:02:01.740 --> 00:02:03.980
+alphabet includes epsilon as a
+
+64
+00:02:03.980 --> 00:02:06.400
+bookkeeping option. Epsilon is not
+
+65
+00:02:06.400 --> 00:02:08.480
+a character secretly present inside
+
+66
+00:02:08.480 --> 00:02:08.940
+the word.
+
+67
+00:02:09.300 --> 00:02:11.600
+Why does flipping accepting states
+
+68
+00:02:11.600 --> 00:02:13.260
+fail to complement an arbitrary
+
+69
+00:02:13.260 --> 00:02:16.100
+nondeterministic automaton? A word can
+
+70
+00:02:16.100 --> 00:02:17.660
+have one branch ending accepting
+
+71
+00:02:17.660 --> 00:02:20.440
+and another ending nonaccepting. Flipping
+
+72
+00:02:20.440 --> 00:02:21.780
+the leaves can leave some
+
+73
+00:02:21.780 --> 00:02:23.420
+accepting branch in both machines,
+
+74
+00:02:23.820 --> 00:02:25.340
+so the word remains accepted
+
+75
+00:02:25.340 --> 00:02:26.700
+instead of changing its verdict.
+
+76
+00:02:27.180 --> 00:02:28.660
+Things to take note of.
+
+77
+00:02:29.080 --> 00:02:31.460
+Apply epsilon reachability before the
+
+78
+00:02:31.460 --> 00:02:33.880
+first symbol, between consumed symbols
+
+79
+00:02:33.880 --> 00:02:35.420
+and after the last one.
+
+80
+00:02:35.960 --> 00:02:38.260
+Keep all possible states, retire
+
+81
+00:02:38.260 --> 00:02:40.380
+stuck branches, and accept only
+
+82
+00:02:40.380 --> 00:02:42.140
+when some surviving complete branch
+
+83
+00:02:42.140 --> 00:02:44.460
+ends final; never count an
+
+84
+00:02:44.460 --> 00:02:46.480
+epsilon move as consuming input.

@@ -1,0 +1,405 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.200
+How do nondeterministic automata combine
+
+2
+00:00:03.200 --> 00:00:05.920
+languages by concatenation and star?
+
+3
+00:00:06.700 --> 00:00:08.300
+Epsilon arrows let a branch
+
+4
+00:00:08.300 --> 00:00:10.380
+choose where one factor ends
+
+5
+00:00:10.740 --> 00:00:12.440
+and the next begins without
+
+6
+00:00:12.440 --> 00:00:14.960
+consuming a symbol. We will
+
+7
+00:00:14.960 --> 00:00:17.060
+build the constructions and expose
+
+8
+00:00:17.060 --> 00:00:18.640
+why star needs a fresh
+
+9
+00:00:18.640 --> 00:00:20.020
+start state.
+
+10
+00:00:20.460 --> 00:00:23.280
+For concatenation, take a machine
+
+11
+00:00:23.280 --> 00:00:24.740
+for the first language and
+
+12
+00:00:24.740 --> 00:00:26.400
+one for the second. Keep
+
+13
+00:00:26.400 --> 00:00:28.200
+the first start, add epsilon
+
+14
+00:00:28.200 --> 00:00:30.340
+arrows from each first-machine final
+
+15
+00:00:30.340 --> 00:00:31.920
+to the second start, and
+
+16
+00:00:31.920 --> 00:00:33.660
+make only the second-machine finals
+
+17
+00:00:33.660 --> 00:00:35.860
+accepting. The new arrows guess
+
+18
+00:00:35.860 --> 00:00:36.940
+a split of the input
+
+19
+00:00:36.940 --> 00:00:39.100
+into a first-language prefix and
+
+20
+00:00:39.100 --> 00:00:40.280
+a second-language suffix.
+
+21
+00:00:40.660 --> 00:00:42.960
+Use the tutorial machines: the
+
+22
+00:00:42.960 --> 00:00:44.900
+first recognizes words ending in
+
+23
+00:00:44.900 --> 00:00:46.780
+a, and the second recognizes
+
+24
+00:00:46.780 --> 00:00:49.380
+even-length words. The word a
+
+25
+00:00:49.380 --> 00:00:50.740
+b a has the split
+
+26
+00:00:50.740 --> 00:00:52.140
+a followed by b a,
+
+27
+00:00:52.300 --> 00:00:54.120
+so an accepting branch can
+
+28
+00:00:54.120 --> 00:00:55.540
+leave the first machine after
+
+29
+00:00:55.540 --> 00:00:57.280
+its initial a. The second
+
+30
+00:00:57.280 --> 00:00:59.120
+machine consumes two symbols and
+
+31
+00:00:59.120 --> 00:01:00.000
+finishes accepting.
+
+32
+00:01:00.460 --> 00:01:02.360
+The first component’s old finals
+
+33
+00:01:02.360 --> 00:01:04.100
+must not remain finals of
+
+34
+00:01:04.100 --> 00:01:05.900
+the combined machine unless the
+
+35
+00:01:05.900 --> 00:01:07.720
+construction provides an accepting second
+
+36
+00:01:07.720 --> 00:01:09.480
+run. Old arrows are retained,
+
+37
+00:01:09.480 --> 00:01:10.960
+so another branch may delay
+
+38
+00:01:10.960 --> 00:01:13.180
+the split. This choice handles
+
+39
+00:01:13.180 --> 00:01:15.300
+every possible factorization instead of
+
+40
+00:01:15.300 --> 00:01:16.720
+committing greedily to the first
+
+41
+00:01:16.720 --> 00:01:17.680
+apparent opportunity.
+
+42
+00:01:18.420 --> 00:01:20.860
+For correctness, start with an
+
+43
+00:01:20.860 --> 00:01:23.440
+accepted concatenation run and locate
+
+44
+00:01:23.440 --> 00:01:25.780
+the epsilon crossing between components.
+
+45
+00:01:26.360 --> 00:01:28.220
+The consumed prefix belongs to
+
+46
+00:01:28.220 --> 00:01:29.740
+the first language and the
+
+47
+00:01:29.740 --> 00:01:31.180
+remaining suffix to the second.
+
+48
+00:01:31.900 --> 00:01:34.160
+Conversely, accepting runs on any
+
+49
+00:01:34.160 --> 00:01:35.940
+such prefix and suffix can
+
+50
+00:01:35.940 --> 00:01:36.980
+be joined by the new
+
+51
+00:01:36.980 --> 00:01:37.920
+epsilon arrow.
+
+52
+00:01:38.460 --> 00:01:40.480
+Star allows zero or more
+
+53
+00:01:40.480 --> 00:01:42.980
+factors from one language. Add
+
+54
+00:01:42.980 --> 00:01:44.660
+a fresh accepting start with
+
+55
+00:01:44.660 --> 00:01:46.080
+an epsilon arrow to the
+
+56
+00:01:46.080 --> 00:01:48.220
+old start, and epsilon arrows
+
+57
+00:01:48.220 --> 00:01:49.940
+from old finals back to
+
+58
+00:01:49.940 --> 00:01:52.240
+the old start. Keep the
+
+59
+00:01:52.240 --> 00:01:54.340
+old finals accepting too, so
+
+60
+00:01:54.340 --> 00:01:55.660
+the run may stop after
+
+61
+00:01:55.660 --> 00:01:56.980
+any completed factor.
+
+62
+00:01:57.540 --> 00:01:59.120
+Why not simply make the
+
+63
+00:01:59.120 --> 00:02:01.320
+old start accepting? Consider the
+
+64
+00:02:01.320 --> 00:02:02.580
+machine whose start moves to
+
+65
+00:02:02.580 --> 00:02:03.780
+a final on a and
+
+66
+00:02:03.780 --> 00:02:05.020
+whose final returns to the
+
+67
+00:02:05.020 --> 00:02:06.880
+start on b, recognizing a
+
+68
+00:02:06.880 --> 00:02:08.320
+followed by repetitions of b
+
+69
+00:02:08.320 --> 00:02:09.900
+a. Declaring the old start
+
+70
+00:02:09.900 --> 00:02:11.260
+final would accept a b
+
+71
+00:02:11.500 --> 00:02:13.380
+even though every nonempty concatenation
+
+72
+00:02:13.380 --> 00:02:14.720
+of original words ends in
+
+73
+00:02:14.720 --> 00:02:15.000
+a.
+
+74
+00:02:15.740 --> 00:02:17.480
+The fresh start avoids that
+
+75
+00:02:17.480 --> 00:02:19.220
+error because no old transition
+
+76
+00:02:19.220 --> 00:02:20.920
+can revisit it midway through
+
+77
+00:02:20.920 --> 00:02:23.020
+a word. It supplies epsilon
+
+78
+00:02:23.020 --> 00:02:24.980
+for zero factors without changing
+
+79
+00:02:24.980 --> 00:02:26.780
+which old prefixes count as
+
+80
+00:02:26.780 --> 00:02:29.540
+completed factors. The returning epsilon
+
+81
+00:02:29.540 --> 00:02:31.580
+arrows then join only genuinely
+
+82
+00:02:31.580 --> 00:02:33.100
+accepted original words.
+
+83
+00:02:33.540 --> 00:02:35.100
+An accepting star run can
+
+84
+00:02:35.100 --> 00:02:36.260
+be cut at its restart
+
+85
+00:02:36.260 --> 00:02:39.060
+arrows into accepted factors. Conversely,
+
+86
+00:02:39.320 --> 00:02:41.520
+concatenate accepting factor runs using
+
+87
+00:02:41.520 --> 00:02:42.900
+those arrows, with the new
+
+88
+00:02:42.900 --> 00:02:45.020
+start accepting the zero-factor case.
+
+89
+00:02:45.560 --> 00:02:47.740
+This proves closure without claiming
+
+90
+00:02:47.740 --> 00:02:50.000
+that a nondeterministic branch somehow
+
+91
+00:02:50.000 --> 00:02:51.860
+knows the right factorization in
+
+92
+00:02:51.860 --> 00:02:52.280
+advance.
+
+93
+00:02:52.780 --> 00:02:53.980
+Things to take note of.
+
+94
+00:02:54.420 --> 00:02:57.240
+Preserve original arrows, keep component
+
+95
+00:02:57.240 --> 00:02:59.700
+state sets disjoint, and distinguish
+
+96
+00:02:59.700 --> 00:03:01.600
+an epsilon control move from
+
+97
+00:03:01.600 --> 00:03:04.080
+consuming an input symbol. For
+
+98
+00:03:04.080 --> 00:03:06.320
+concatenation use the second component’s
+
+99
+00:03:06.320 --> 00:03:08.400
+finals; for star use a
+
+100
+00:03:08.400 --> 00:03:10.460
+fresh accepting start, and prove
+
+101
+00:03:10.460 --> 00:03:12.000
+correctness in both directions.

@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.280
+When does Banker’s algorithm grant
+
+2
+00:00:02.280 --> 00:00:04.660
+a request? Availability is only
+
+3
+00:00:04.660 --> 00:00:06.760
+one gate: the request must
+
+4
+00:00:06.760 --> 00:00:08.540
+also respect the process remaining
+
+5
+00:00:08.540 --> 00:00:09.960
+claim and leave a safe
+
+6
+00:00:09.960 --> 00:00:11.940
+state. The safety check uses
+
+7
+00:00:11.940 --> 00:00:13.660
+a provisional snapshot that must
+
+8
+00:00:13.660 --> 00:00:15.200
+be restored if the request
+
+9
+00:00:15.200 --> 00:00:15.980
+is refused.
+
+10
+00:00:16.700 --> 00:00:18.860
+First compare Request with Need
+
+11
+00:00:18.860 --> 00:00:21.560
+component by component. A request
+
+12
+00:00:21.560 --> 00:00:23.680
+beyond the declared remaining maximum
+
+13
+00:00:23.680 --> 00:00:25.220
+is an invalid claim under
+
+14
+00:00:25.220 --> 00:00:27.020
+this model. Do not merely
+
+15
+00:00:27.020 --> 00:00:28.780
+wait for extra resources and
+
+16
+00:00:28.780 --> 00:00:30.540
+silently increase the maximum.
+
+17
+00:00:31.300 --> 00:00:33.980
+Next compare Request with Available.
+
+18
+00:00:34.540 --> 00:00:36.440
+If a requested component exceeds
+
+19
+00:00:36.440 --> 00:00:38.300
+the free amount, the process
+
+20
+00:00:38.300 --> 00:00:39.960
+must wait without making a
+
+21
+00:00:39.960 --> 00:00:42.560
+provisional grant. Passing this gate
+
+22
+00:00:42.560 --> 00:00:45.760
+establishes immediate availability, not safety.
+
+23
+00:00:46.380 --> 00:00:48.620
+For the lecture snapshot, P
+
+24
+00:00:48.620 --> 00:00:51.040
+one requests one, zero, two.
+
+25
+00:00:51.520 --> 00:00:52.940
+Its original Need is one,
+
+26
+00:00:53.160 --> 00:00:54.520
+two, two, and Available is
+
+27
+00:00:54.520 --> 00:00:57.180
+three, three, two. The request
+
+28
+00:00:57.180 --> 00:00:59.100
+fits both, so proceed to
+
+29
+00:00:59.100 --> 00:01:00.080
+the provisional state.
+
+30
+00:01:00.660 --> 00:01:02.700
+Subtract the request from Available
+
+31
+00:01:02.700 --> 00:01:05.140
+to obtain two, three, zero.
+
+32
+00:01:05.480 --> 00:01:06.740
+Add it to P one
+
+33
+00:01:06.740 --> 00:01:07.740
+Allocation to obtain three, zero,
+
+34
+00:01:07.740 --> 00:01:10.080
+two, and subtract it from
+
+35
+00:01:10.080 --> 00:01:11.900
+Need to obtain zero, two,
+
+36
+00:01:12.180 --> 00:01:14.520
+zero. All three changes describe
+
+37
+00:01:14.520 --> 00:01:16.040
+the same provisional transfer.
+
+38
+00:01:16.620 --> 00:01:18.120
+Run the safety test from
+
+39
+00:01:18.120 --> 00:01:20.180
+that new state. P one
+
+40
+00:01:20.180 --> 00:01:21.760
+can finish first, and a
+
+41
+00:01:21.760 --> 00:01:23.900
+full completion sequence still exists,
+
+42
+00:01:23.900 --> 00:01:25.320
+so the request can commit.
+
+43
+00:01:25.940 --> 00:01:27.700
+A safety simulation is evidence
+
+44
+00:01:27.700 --> 00:01:30.100
+of possible future completion, not
+
+45
+00:01:30.100 --> 00:01:31.420
+a command to execute those
+
+46
+00:01:31.420 --> 00:01:33.280
+processes immediately in that order.
+
+47
+00:01:33.860 --> 00:01:35.460
+Now start from the committed
+
+48
+00:01:35.460 --> 00:01:37.700
+state, not the original slide
+
+49
+00:01:37.700 --> 00:01:40.040
+snapshot. As an added illustration,
+
+50
+00:01:40.580 --> 00:01:42.220
+let P zero request zero,
+
+51
+00:01:42.220 --> 00:01:44.860
+two, zero. This request fits
+
+52
+00:01:44.860 --> 00:01:46.620
+both its remaining Need and
+
+53
+00:01:46.620 --> 00:01:48.800
+the currently free vector, yet
+
+54
+00:01:48.800 --> 00:01:50.960
+its provisional allocation leaves Available
+
+55
+00:01:50.960 --> 00:01:53.140
+two, one, zero.
+
+56
+00:01:53.340 --> 00:01:55.440
+No unfinished process can meet
+
+57
+00:01:55.440 --> 00:01:57.020
+its remaining Need from two,
+
+58
+00:01:57.020 --> 00:01:58.880
+one, zero in that provisional
+
+59
+00:01:58.880 --> 00:02:00.440
+state. The request is available
+
+60
+00:02:00.440 --> 00:02:02.000
+but unsafe, so it must
+
+61
+00:02:02.000 --> 00:02:04.520
+wait. Restore Available, Allocation and
+
+62
+00:02:04.520 --> 00:02:06.440
+Need together; a partial rollback
+
+63
+00:02:06.440 --> 00:02:07.820
+corrupts the resource snapshot.
+
+64
+00:02:08.500 --> 00:02:11.180
+Keep three outcomes distinct: an
+
+65
+00:02:11.180 --> 00:02:13.980
+invalid claim, an unavailable request,
+
+66
+00:02:14.420 --> 00:02:16.580
+and an available but unsafe
+
+67
+00:02:16.580 --> 00:02:19.380
+request. Only the last requires
+
+68
+00:02:19.380 --> 00:02:21.480
+a trial allocation followed by
+
+69
+00:02:21.480 --> 00:02:23.680
+a failed safety test. An
+
+70
+00:02:23.680 --> 00:02:25.580
+unsafe decision is about preserving
+
+71
+00:02:25.580 --> 00:02:28.060
+a completion guarantee, not proving
+
+72
+00:02:28.060 --> 00:02:29.060
+a present deadlock.
+
+73
+00:02:29.660 --> 00:02:30.880
+Things to take note of.
+
+74
+00:02:31.240 --> 00:02:33.000
+Check the claim, check availability,
+
+75
+00:02:33.780 --> 00:02:36.220
+update all three structures provisionally,
+
+76
+00:02:36.560 --> 00:02:38.280
+then commit only if safe.
+
+77
+00:02:38.900 --> 00:02:40.360
+Later requests begin from the
+
+78
+00:02:40.360 --> 00:02:42.260
+latest committed state, and a
+
+79
+00:02:42.260 --> 00:02:44.180
+refused trial leaves that state
+
+80
+00:02:44.180 --> 00:02:44.900
+unchanged.

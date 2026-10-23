@@ -1,0 +1,361 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.640
+How do you trace scheduling
+
+2
+00:00:01.640 --> 00:00:03.160
+events without losing the queue?
+
+3
+00:00:03.940 --> 00:00:05.240
+Build an event ledger before
+
+4
+00:00:05.240 --> 00:00:08.740
+calculating averages. Record arrivals, completion,
+
+5
+00:00:09.080 --> 00:00:11.460
+quantum expiry and wakeups separately,
+
+6
+00:00:11.460 --> 00:00:13.540
+using the tie convention stated
+
+7
+00:00:13.540 --> 00:00:14.880
+by the particular question.
+
+8
+00:00:15.660 --> 00:00:18.220
+For a CPU-only example, P
+
+9
+00:00:18.220 --> 00:00:20.080
+one through P four arrive
+
+10
+00:00:20.080 --> 00:00:21.960
+at zero, one, two and
+
+11
+00:00:21.960 --> 00:00:24.660
+four. Their bursts are six,
+
+12
+00:00:24.660 --> 00:00:26.100
+six, six and four, with
+
+13
+00:00:26.100 --> 00:00:27.800
+quantum two and zero switch
+
+14
+00:00:27.800 --> 00:00:30.360
+overhead. Existing waiters precede new
+
+15
+00:00:30.360 --> 00:00:32.760
+arrivals, which precede an unfinished
+
+16
+00:00:32.760 --> 00:00:35.240
+process rejoining after its expired
+
+17
+00:00:35.240 --> 00:00:35.620
+slice.
+
+18
+00:00:36.100 --> 00:00:37.840
+P one runs from zero
+
+19
+00:00:37.840 --> 00:00:39.620
+to two. At two, P
+
+20
+00:00:39.620 --> 00:00:41.800
+two is already waiting and
+
+21
+00:00:41.800 --> 00:00:43.280
+P three has just arrived,
+
+22
+00:00:43.640 --> 00:00:45.560
+so P one rejoins behind
+
+23
+00:00:45.560 --> 00:00:47.340
+them. The next turns are
+
+24
+00:00:47.340 --> 00:00:48.700
+P two from two to
+
+25
+00:00:48.700 --> 00:00:50.500
+four, P three from four
+
+26
+00:00:50.500 --> 00:00:52.100
+to six, then P one
+
+27
+00:00:52.100 --> 00:00:53.180
+from six to eight.
+
+28
+00:00:53.580 --> 00:00:55.620
+P four arrived at four
+
+29
+00:00:56.040 --> 00:00:57.300
+and now runs from eight
+
+30
+00:00:57.300 --> 00:00:59.160
+to ten. Continue the queue
+
+31
+00:00:59.160 --> 00:01:01.400
+mechanically: P two, P three,
+
+32
+00:01:01.780 --> 00:01:03.200
+P one, P four, P
+
+33
+00:01:03.200 --> 00:01:05.640
+two, then P three. The
+
+34
+00:01:05.640 --> 00:01:07.900
+completion times are sixteen, twenty,
+
+35
+00:01:08.220 --> 00:01:10.300
+twenty-two and eighteen in process
+
+36
+00:01:10.300 --> 00:01:10.660
+order.
+
+37
+00:01:11.060 --> 00:01:13.200
+Subtract arrivals to get turnaround
+
+38
+00:01:13.200 --> 00:01:15.560
+sixteen, nineteen, twenty and fourteen,
+
+39
+00:01:16.200 --> 00:01:18.240
+averaging seventeen point two five.
+
+40
+00:01:18.240 --> 00:01:20.420
+Response is zero, one, two
+
+41
+00:01:20.540 --> 00:01:21.580
+and four, averaging one point
+
+42
+00:01:21.580 --> 00:01:23.580
+seven five. With no blocking,
+
+43
+00:01:23.860 --> 00:01:25.840
+waiting is turnaround minus burst,
+
+44
+00:01:26.300 --> 00:01:27.800
+averaging eleven point seven five.
+
+45
+00:01:28.460 --> 00:01:29.880
+For the fork and message
+
+46
+00:01:29.880 --> 00:01:32.260
+worksheet, each executed line costs
+
+47
+00:01:32.260 --> 00:01:34.140
+one unit and the quantum
+
+48
+00:01:34.140 --> 00:01:36.660
+is two. The parent assigns
+
+49
+00:01:36.660 --> 00:01:38.100
+at zero and forks during
+
+50
+00:01:38.100 --> 00:01:39.800
+one to two, so the
+
+51
+00:01:39.800 --> 00:01:42.020
+child enters at two. That
+
+52
+00:01:42.020 --> 00:01:44.120
+child then attempts receive and
+
+53
+00:01:44.120 --> 00:01:45.180
+blocks at three.
+
+54
+00:01:45.700 --> 00:01:47.560
+The parent sends during three
+
+55
+00:01:47.560 --> 00:01:49.120
+to four and continues to
+
+56
+00:01:49.120 --> 00:01:50.580
+a receive that blocks at
+
+57
+00:01:50.580 --> 00:01:52.700
+five. The child runs its
+
+58
+00:01:52.700 --> 00:01:54.000
+add from five to six
+
+59
+00:01:54.000 --> 00:01:55.680
+and its send from six
+
+60
+00:01:55.680 --> 00:01:57.380
+to seven. Under the worksheet
+
+61
+00:01:57.380 --> 00:02:00.700
+explicit wakeup-before-requeue rule, the parent
+
+62
+00:02:00.700 --> 00:02:02.260
+runs its exit from seven
+
+63
+00:02:02.260 --> 00:02:04.180
+to eight, then the child
+
+64
+00:02:04.180 --> 00:02:05.720
+exits from eight to nine.
+
+65
+00:02:06.380 --> 00:02:08.480
+The child turnaround is nine
+
+66
+00:02:08.480 --> 00:02:10.680
+minus its arrival two, giving
+
+67
+00:02:10.680 --> 00:02:12.840
+seven; the parent turnaround is
+
+68
+00:02:12.840 --> 00:02:14.260
+eight. Do not charge the
+
+69
+00:02:14.260 --> 00:02:15.660
+child for time before it
+
+70
+00:02:15.660 --> 00:02:18.060
+existed. A nonblocking send does
+
+71
+00:02:18.060 --> 00:02:19.920
+not automatically yield, while an
+
+72
+00:02:19.920 --> 00:02:21.600
+empty receive can create an
+
+73
+00:02:21.600 --> 00:02:22.840
+immediate scheduling event.
+
+74
+00:02:23.300 --> 00:02:25.460
+Some photo exercises include the
+
+75
+00:02:25.460 --> 00:02:26.840
+running process at the head
+
+76
+00:02:26.840 --> 00:02:28.840
+of the displayed ready queue.
+
+77
+00:02:28.840 --> 00:02:30.560
+That notation differs from an
+
+78
+00:02:30.560 --> 00:02:32.760
+implementation queue containing only waiting
+
+79
+00:02:32.760 --> 00:02:35.440
+runnable processes. Write the convention
+
+80
+00:02:35.440 --> 00:02:36.960
+beside your ledger and do
+
+81
+00:02:36.960 --> 00:02:38.200
+not mix the two halfway
+
+82
+00:02:38.200 --> 00:02:38.600
+through.
+
+83
+00:02:39.260 --> 00:02:40.560
+Things to take note of.
+
+84
+00:02:40.900 --> 00:02:43.660
+Define simultaneous-event order, update the
+
+85
+00:02:43.660 --> 00:02:45.220
+queue at every event, and
+
+86
+00:02:45.220 --> 00:02:46.980
+calculate metrics from the completed
+
+87
+00:02:46.980 --> 00:02:49.500
+ledger. More I/O devices can
+
+88
+00:02:49.500 --> 00:02:51.480
+alter the execution order, so
+
+89
+00:02:51.480 --> 00:02:53.200
+do not assume every scheduling
+
+90
+00:02:53.200 --> 00:02:55.240
+average must improve monotonically.

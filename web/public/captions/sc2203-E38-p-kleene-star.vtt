@@ -1,0 +1,417 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.180
+Why is P closed under
+
+2
+00:00:02.180 --> 00:00:04.620
+Kleene star? Trying every cut
+
+3
+00:00:04.620 --> 00:00:05.820
+of a word is finite
+
+4
+00:00:05.920 --> 00:00:08.200
+but can be exponential, so
+
+5
+00:00:08.200 --> 00:00:10.340
+the decidability proof alone is
+
+6
+00:00:10.340 --> 00:00:12.560
+not enough. We will replace
+
+7
+00:00:12.560 --> 00:00:15.160
+that enumeration with prefix dynamic
+
+8
+00:00:15.160 --> 00:00:17.640
+programming and count both membership
+
+9
+00:00:17.640 --> 00:00:19.080
+calls and the work of
+
+10
+00:00:19.080 --> 00:00:20.140
+carrying them out.
+
+11
+00:00:20.460 --> 00:00:23.200
+A greedy longest-prefix method fails
+
+12
+00:00:23.700 --> 00:00:25.100
+even for a tiny finite
+
+13
+00:00:25.100 --> 00:00:27.780
+language. Let L contain zero,
+
+14
+00:00:28.020 --> 00:00:29.100
+zero one and one one,
+
+15
+00:00:29.100 --> 00:00:30.420
+and take the input zero
+
+16
+00:00:30.660 --> 00:00:33.100
+one one. Greedy removes zero
+
+17
+00:00:33.340 --> 00:00:34.280
+one and gets stuck on
+
+18
+00:00:34.280 --> 00:00:36.160
+one, although the valid factorization
+
+19
+00:00:36.160 --> 00:00:38.040
+is zero followed by one
+
+20
+00:00:38.100 --> 00:00:38.320
+one.
+
+21
+00:00:38.740 --> 00:00:40.600
+Define D of j to
+
+22
+00:00:40.600 --> 00:00:41.920
+mean the first j symbols
+
+23
+00:00:41.920 --> 00:00:43.780
+belong to L star. Set
+
+24
+00:00:43.780 --> 00:00:45.740
+D of zero true because
+
+25
+00:00:45.740 --> 00:00:47.060
+the empty prefix is a
+
+26
+00:00:47.060 --> 00:00:49.580
+concatenation of zero factors. For
+
+27
+00:00:49.580 --> 00:00:50.880
+a positive j, look for
+
+28
+00:00:50.880 --> 00:00:52.260
+a smaller i with D
+
+29
+00:00:52.260 --> 00:00:53.780
+of i true and the
+
+30
+00:00:53.780 --> 00:00:55.500
+substring from i plus one
+
+31
+00:00:55.500 --> 00:00:56.600
+through j in L.
+
+32
+00:00:57.340 --> 00:00:59.640
+For zero one one, D
+
+33
+00:00:59.640 --> 00:01:01.560
+of one is true because
+
+34
+00:01:01.560 --> 00:01:03.720
+its one-symbol prefix zero belongs
+
+35
+00:01:03.720 --> 00:01:05.100
+to L. D of two
+
+36
+00:01:05.100 --> 00:01:07.460
+is also true because zero
+
+37
+00:01:07.720 --> 00:01:09.980
+one belongs to L. These
+
+38
+00:01:09.980 --> 00:01:11.940
+are valid prefix facts, not
+
+39
+00:01:11.940 --> 00:01:13.260
+a commitment to using the
+
+40
+00:01:13.260 --> 00:01:15.140
+longer prefix in every later
+
+41
+00:01:15.140 --> 00:01:15.980
+factorization.
+
+42
+00:01:16.420 --> 00:01:17.980
+To compute D of three,
+
+43
+00:01:18.300 --> 00:01:18.960
+the whole word zero one
+
+44
+00:01:18.960 --> 00:01:20.700
+one is not itself in
+
+45
+00:01:20.700 --> 00:01:21.960
+L. But split after the
+
+46
+00:01:21.960 --> 00:01:23.580
+first symbol: D of one
+
+47
+00:01:23.580 --> 00:01:24.760
+is true and the final
+
+48
+00:01:24.760 --> 00:01:25.920
+one one is in L.
+
+49
+00:01:26.220 --> 00:01:27.760
+Therefore D of three becomes
+
+50
+00:01:27.760 --> 00:01:30.380
+true, recovering the factorization the
+
+51
+00:01:30.380 --> 00:01:31.720
+greedy algorithm missed.
+
+52
+00:01:32.220 --> 00:01:33.920
+Prove the recurrence by induction
+
+53
+00:01:33.920 --> 00:01:35.920
+on prefix length. If a
+
+54
+00:01:35.920 --> 00:01:38.360
+tested split succeeds, append its
+
+55
+00:01:38.360 --> 00:01:40.060
+last L-factor to a valid
+
+56
+00:01:40.060 --> 00:01:43.500
+earlier prefix factorization. Conversely, a
+
+57
+00:01:43.500 --> 00:01:45.100
+nonempty word in L star
+
+58
+00:01:45.100 --> 00:01:46.740
+has a factorization whose empty
+
+59
+00:01:46.740 --> 00:01:48.600
+factors can be discarded, so
+
+60
+00:01:48.600 --> 00:01:50.420
+its final nonempty factor begins
+
+61
+00:01:50.420 --> 00:01:51.580
+at one of the tested
+
+62
+00:01:51.580 --> 00:01:52.480
+smaller indices.
+
+63
+00:01:53.540 --> 00:01:55.420
+The algorithm accepts an empty
+
+64
+00:01:55.420 --> 00:01:57.880
+input immediately, whether or not
+
+65
+00:01:57.880 --> 00:01:59.820
+epsilon belongs to L. For
+
+66
+00:01:59.820 --> 00:02:02.640
+nonempty inputs, excluding empty factors
+
+67
+00:02:02.640 --> 00:02:04.900
+ensures each predecessor index is
+
+68
+00:02:04.900 --> 00:02:07.580
+strictly smaller. Allowing infinitely many
+
+69
+00:02:07.580 --> 00:02:09.460
+empty factors would add no
+
+70
+00:02:09.460 --> 00:02:11.080
+new words and would obscure
+
+71
+00:02:11.080 --> 00:02:13.680
+this finite dynamic-programming structure.
+
+72
+00:02:14.300 --> 00:02:15.760
+There is at most one
+
+73
+00:02:15.760 --> 00:02:17.600
+membership call per index pair
+
+74
+00:02:17.600 --> 00:02:19.080
+with zero at most i
+
+75
+00:02:19.080 --> 00:02:20.500
+less than j at most
+
+76
+00:02:20.500 --> 00:02:22.760
+n. Summing j from one
+
+77
+00:02:22.760 --> 00:02:24.360
+through n gives n times
+
+78
+00:02:24.360 --> 00:02:25.860
+n plus one over two
+
+79
+00:02:25.860 --> 00:02:28.060
+calls. For the three-symbol example
+
+80
+00:02:28.060 --> 00:02:29.240
+that is at most six
+
+81
+00:02:29.240 --> 00:02:31.600
+calls, although short-circuiting may make
+
+82
+00:02:31.600 --> 00:02:31.980
+fewer.
+
+83
+00:02:32.340 --> 00:02:34.100
+Suppose the given decider takes
+
+84
+00:02:34.100 --> 00:02:35.320
+time Big O of m
+
+85
+00:02:35.320 --> 00:02:37.140
+to c on nonempty inputs,
+
+86
+00:02:37.140 --> 00:02:38.720
+with c at least one.
+
+87
+00:02:39.240 --> 00:02:40.880
+Each tested substring has length
+
+88
+00:02:40.880 --> 00:02:42.460
+at most n, and copying,
+
+89
+00:02:42.460 --> 00:02:44.760
+simulation cleanup and table access
+
+90
+00:02:44.760 --> 00:02:46.440
+can be bounded by polynomial
+
+91
+00:02:46.440 --> 00:02:48.000
+scans as in the tutorial
+
+92
+00:02:48.000 --> 00:02:50.320
+implementation. With order n squared
+
+93
+00:02:50.320 --> 00:02:52.240
+tests, the stated multitape bound
+
+94
+00:02:52.240 --> 00:02:53.360
+is Big O of n
+
+95
+00:02:53.360 --> 00:02:54.380
+to c plus two.
+
+96
+00:02:54.780 --> 00:02:56.080
+Things to take note of.
+
+97
+00:02:56.440 --> 00:02:57.820
+State what the DP table
+
+98
+00:02:57.820 --> 00:03:00.300
+means, prove both recurrence directions
+
+99
+00:03:00.300 --> 00:03:02.340
+and include the empty input.
+
+100
+00:03:02.980 --> 00:03:05.220
+Membership calls are real computations
+
+101
+00:03:05.220 --> 00:03:07.480
+rather than unit-cost magic, and
+
+102
+00:03:07.480 --> 00:03:09.360
+a finite exhaustive partition search
+
+103
+00:03:09.360 --> 00:03:11.500
+proves decidability without proving the
+
+104
+00:03:11.500 --> 00:03:13.360
+stronger polynomial-time claim.

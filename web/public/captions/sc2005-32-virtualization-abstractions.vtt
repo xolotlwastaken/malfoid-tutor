@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.560
+What does virtualization actually change?
+
+2
+00:00:03.180 --> 00:00:04.860
+It places an abstraction between
+
+3
+00:00:04.860 --> 00:00:06.260
+the resource a program sees
+
+4
+00:00:06.260 --> 00:00:07.940
+and the resource that implements
+
+5
+00:00:07.940 --> 00:00:09.940
+it. Indirection lets the system
+
+6
+00:00:09.940 --> 00:00:12.360
+control names, allocation and isolation
+
+7
+00:00:12.360 --> 00:00:14.720
+while presenting a useful interface.
+
+8
+00:00:15.260 --> 00:00:17.940
+Multiplexing shares one physical resource
+
+9
+00:00:17.940 --> 00:00:20.400
+among several virtual entities. A
+
+10
+00:00:20.400 --> 00:00:22.760
+physical processor can supply execution
+
+11
+00:00:22.760 --> 00:00:24.700
+turns to several virtual processors.
+
+12
+00:00:25.200 --> 00:00:27.160
+The virtual identities persist even
+
+13
+00:00:27.160 --> 00:00:28.640
+when they are temporarily waiting
+
+14
+00:00:28.640 --> 00:00:29.640
+for physical service.
+
+15
+00:00:30.100 --> 00:00:32.320
+Imagine eight virtual machines with
+
+16
+00:00:32.320 --> 00:00:34.860
+two virtual processors each, hosted
+
+17
+00:00:34.860 --> 00:00:37.000
+on four physical cores. There
+
+18
+00:00:37.000 --> 00:00:39.260
+are sixteen virtual processors but
+
+19
+00:00:39.260 --> 00:00:40.520
+at most four can execute
+
+20
+00:00:40.520 --> 00:00:42.580
+simultaneously in this simplified core
+
+21
+00:00:42.580 --> 00:00:45.340
+model. Scheduling chooses which four
+
+22
+00:00:45.340 --> 00:00:46.580
+receive service at a given
+
+23
+00:00:46.580 --> 00:00:46.920
+time.
+
+24
+00:00:47.420 --> 00:00:50.460
+Overcommitment relies on virtual demand
+
+25
+00:00:50.780 --> 00:00:52.700
+not always reaching its maximum
+
+26
+00:00:52.700 --> 00:00:54.600
+at the same instant. If
+
+27
+00:00:54.600 --> 00:00:56.740
+all sixteen virtual processors are
+
+28
+00:00:56.740 --> 00:00:58.440
+busy, they contend for the
+
+29
+00:00:58.440 --> 00:01:01.220
+four physical execution slots. More
+
+30
+00:01:01.220 --> 00:01:03.060
+virtual names do not multiply
+
+31
+00:01:03.060 --> 00:01:04.920
+the host available processor time.
+
+32
+00:01:05.300 --> 00:01:07.500
+Aggregation goes the other direction:
+
+33
+00:01:07.980 --> 00:01:10.560
+several underlying resources appear as
+
+34
+00:01:10.560 --> 00:01:13.100
+one larger resource. Combining disk
+
+35
+00:01:13.100 --> 00:01:14.980
+capacity into a logical volume
+
+36
+00:01:14.980 --> 00:01:17.240
+is an example. The abstraction
+
+37
+00:01:17.240 --> 00:01:18.880
+can simplify naming while the
+
+38
+00:01:18.880 --> 00:01:21.100
+layout still determines usable capacity
+
+39
+00:01:21.100 --> 00:01:22.280
+and failure behavior.
+
+40
+00:01:22.780 --> 00:01:24.960
+For an added illustration with
+
+41
+00:01:24.960 --> 00:01:27.580
+equal disks, striping uses all
+
+42
+00:01:27.580 --> 00:01:29.080
+n disks of size S
+
+43
+00:01:29.080 --> 00:01:31.260
+for different data, giving n
+
+44
+00:01:31.260 --> 00:01:33.920
+times S capacity. Two-disk mirroring
+
+45
+00:01:33.920 --> 00:01:36.300
+stores each item twice, giving
+
+46
+00:01:36.300 --> 00:01:38.640
+S usable capacity. If one
+
+47
+00:01:38.640 --> 00:01:41.460
+disk-equivalent stores parity information, the
+
+48
+00:01:41.460 --> 00:01:43.200
+remaining data capacity is n
+
+49
+00:01:43.200 --> 00:01:45.360
+minus one, multiplied by S.
+
+50
+00:01:45.620 --> 00:01:48.380
+These are layout-derived capacity formulas
+
+51
+00:01:48.380 --> 00:01:50.480
+under the stated equal-size assumptions.
+
+52
+00:01:50.940 --> 00:01:51.840
+They are not a full
+
+53
+00:01:51.840 --> 00:01:53.820
+theory of recovery, performance or
+
+54
+00:01:53.820 --> 00:01:56.400
+failure independence. Match the capacity
+
+55
+00:01:56.400 --> 00:01:57.720
+to what the layout stores
+
+56
+00:01:57.920 --> 00:01:59.840
+rather than memorizing every combination
+
+57
+00:01:59.840 --> 00:02:00.800
+as simple addition.
+
+58
+00:02:01.260 --> 00:02:03.460
+Emulation presents a resource whose
+
+59
+00:02:03.460 --> 00:02:05.400
+interface or behavior differs from
+
+60
+00:02:05.400 --> 00:02:07.840
+the underlying implementation. A RAM
+
+61
+00:02:07.840 --> 00:02:10.360
+disk exposes storage operations implemented
+
+62
+00:02:10.360 --> 00:02:13.160
+in memory, while cross-architecture translation
+
+63
+00:02:13.160 --> 00:02:16.280
+presents another instruction environment. One
+
+64
+00:02:16.280 --> 00:02:19.200
+system can combine emulation, aggregation
+
+65
+00:02:19.400 --> 00:02:20.360
+and multiplexing.
+
+66
+00:02:20.740 --> 00:02:23.240
+For each exam example, identify
+
+67
+00:02:23.240 --> 00:02:25.420
+the exported abstraction and the
+
+68
+00:02:25.420 --> 00:02:28.240
+implementing resources first. Then explain
+
+69
+00:02:28.240 --> 00:02:30.000
+whether the key operation shares
+
+70
+00:02:30.000 --> 00:02:32.760
+one resource, combines several, or
+
+71
+00:02:32.760 --> 00:02:35.120
+presents a different interface. A
+
+72
+00:02:35.120 --> 00:02:36.960
+familiar product name alone is
+
+73
+00:02:36.960 --> 00:02:37.860
+not the mechanism.
+
+74
+00:02:38.540 --> 00:02:40.000
+Things to take note of.
+
+75
+00:02:40.520 --> 00:02:44.340
+Multiplexing shares, aggregation combines, and
+
+76
+00:02:44.340 --> 00:02:46.320
+emulation supplies a different apparent
+
+77
+00:02:46.320 --> 00:02:49.240
+resource. Count physical capacity separately
+
+78
+00:02:49.240 --> 00:02:51.320
+from virtual identities, and state
+
+79
+00:02:51.320 --> 00:02:53.540
+assumptions before deriving any capacity
+
+80
+00:02:53.540 --> 00:02:53.960
+formula.

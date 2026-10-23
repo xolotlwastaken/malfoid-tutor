@@ -1,0 +1,405 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.760
+Which way should a polynomial
+
+2
+00:00:01.760 --> 00:00:04.340
+reduction point? A reduction from
+
+3
+00:00:04.340 --> 00:00:06.100
+A to B transforms each
+
+4
+00:00:06.100 --> 00:00:08.020
+A instance into one B
+
+5
+00:00:08.020 --> 00:00:09.980
+instance with the same yes-or-no
+
+6
+00:00:09.980 --> 00:00:12.120
+answer. A solver for B
+
+7
+00:00:12.120 --> 00:00:14.020
+then solves A, so A
+
+8
+00:00:14.020 --> 00:00:15.400
+is no harder than B,
+
+9
+00:00:15.640 --> 00:00:16.680
+not the other way around.
+
+10
+00:00:17.180 --> 00:00:19.060
+A complete proof must define
+
+11
+00:00:19.060 --> 00:00:21.640
+the transformation, show valid output,
+
+12
+00:00:22.100 --> 00:00:23.840
+prove both implications and bound
+
+13
+00:00:23.840 --> 00:00:25.620
+construction time in the encoded
+
+14
+00:00:25.620 --> 00:00:28.120
+input length. Polynomial output size
+
+15
+00:00:28.120 --> 00:00:29.740
+follows from actually writing it
+
+16
+00:00:29.740 --> 00:00:32.240
+in polynomial time. A reduction
+
+17
+00:00:32.240 --> 00:00:34.260
+cannot simply say output yes
+
+18
+00:00:34.260 --> 00:00:35.480
+if the input is a
+
+19
+00:00:35.480 --> 00:00:37.060
+yes instance when deciding that
+
+20
+00:00:37.060 --> 00:00:38.940
+condition is the original hard
+
+21
+00:00:38.940 --> 00:00:39.440
+problem.
+
+22
+00:00:40.100 --> 00:00:41.760
+For Independent Set to Clique,
+
+23
+00:00:42.360 --> 00:00:43.580
+keep the vertex set and
+
+24
+00:00:43.580 --> 00:00:45.520
+threshold but complement the graph’s
+
+25
+00:00:45.520 --> 00:00:48.160
+edges between distinct vertices. Two
+
+26
+00:00:48.160 --> 00:00:50.420
+selected vertices are nonadjacent in
+
+27
+00:00:50.420 --> 00:00:52.300
+the original graph exactly when
+
+28
+00:00:52.300 --> 00:00:53.320
+they are adjacent in the
+
+29
+00:00:53.320 --> 00:00:55.840
+complement. Do not add self-loops;
+
+30
+00:00:56.380 --> 00:00:58.200
+only unordered distinct pairs are
+
+31
+00:00:58.200 --> 00:00:58.640
+toggled.
+
+32
+00:00:59.100 --> 00:01:00.420
+If the original graph has
+
+33
+00:01:00.420 --> 00:01:01.680
+an independent set of size
+
+34
+00:01:01.680 --> 00:01:03.420
+at least k, all its
+
+35
+00:01:03.420 --> 00:01:05.440
+selected distinct pairs become complement
+
+36
+00:01:05.440 --> 00:01:06.840
+edges, so it is a
+
+37
+00:01:06.840 --> 00:01:09.780
+clique. Conversely, a complement clique
+
+38
+00:01:09.780 --> 00:01:11.560
+has no original edges among
+
+39
+00:01:11.560 --> 00:01:13.520
+its selected vertices, so it
+
+40
+00:01:13.520 --> 00:01:15.660
+is independent. Testing every vertex
+
+41
+00:01:15.660 --> 00:01:17.580
+pair constructs the complement in
+
+42
+00:01:17.580 --> 00:01:18.600
+polynomial time.
+
+43
+00:01:18.980 --> 00:01:20.360
+If Clique were in P,
+
+44
+00:01:20.700 --> 00:01:22.680
+this mapping would place Independent
+
+45
+00:01:22.680 --> 00:01:24.860
+Set in P. The reduction
+
+46
+00:01:24.860 --> 00:01:26.380
+alone does not prove that
+
+47
+00:01:26.380 --> 00:01:28.280
+either problem is already in
+
+48
+00:01:28.280 --> 00:01:29.920
+P or that either lies
+
+49
+00:01:29.920 --> 00:01:32.380
+outside P. Hardness arguments require
+
+50
+00:01:32.380 --> 00:01:33.660
+a source problem with an
+
+51
+00:01:33.660 --> 00:01:35.920
+independently established hardness status.
+
+52
+00:01:36.220 --> 00:01:38.460
+The tutorial Hamiltonian Path to
+
+53
+00:01:38.460 --> 00:01:40.380
+Hamiltonian Cycle mapping adds a
+
+54
+00:01:40.380 --> 00:01:42.220
+new vertex adjacent to every
+
+55
+00:01:42.220 --> 00:01:44.640
+original vertex. A Hamiltonian path
+
+56
+00:01:44.640 --> 00:01:45.920
+becomes a cycle by putting
+
+57
+00:01:45.920 --> 00:01:47.260
+the new vertex before its
+
+58
+00:01:47.260 --> 00:01:48.880
+first endpoint and after its
+
+59
+00:01:48.880 --> 00:01:50.780
+last. Removing the new vertex
+
+60
+00:01:50.780 --> 00:01:52.840
+from any resulting Hamiltonian cycle
+
+61
+00:01:52.840 --> 00:01:54.820
+leaves a path through all
+
+62
+00:01:54.820 --> 00:01:55.560
+old vertices.
+
+63
+00:01:56.100 --> 00:01:58.380
+For simple cycles requiring at
+
+64
+00:01:58.380 --> 00:02:01.020
+least three vertices, handle tiny
+
+65
+00:02:01.020 --> 00:02:04.060
+source graphs separately. A one-vertex
+
+66
+00:02:04.060 --> 00:02:05.860
+graph has a Hamiltonian path
+
+67
+00:02:06.420 --> 00:02:08.560
+but the naive added-vertex graph
+
+68
+00:02:08.560 --> 00:02:10.540
+has only two vertices and
+
+69
+00:02:10.540 --> 00:02:13.640
+no simple cycle. Mapping constant-size
+
+70
+00:02:13.640 --> 00:02:15.600
+exceptional cases to fixed yes
+
+71
+00:02:15.600 --> 00:02:17.580
+or no target graphs preserves
+
+72
+00:02:17.580 --> 00:02:19.100
+a total correct reduction.
+
+73
+00:02:19.500 --> 00:02:22.860
+Reductions compose. If A reduces
+
+74
+00:02:22.860 --> 00:02:24.080
+to B and B to
+
+75
+00:02:24.080 --> 00:02:26.560
+C, first apply the A-to-B
+
+76
+00:02:26.560 --> 00:02:28.420
+mapping and then the B-to-C
+
+77
+00:02:28.420 --> 00:02:30.860
+mapping; output sizes and runtime
+
+78
+00:02:30.860 --> 00:02:33.760
+remain polynomial. But A reducing
+
+79
+00:02:33.760 --> 00:02:35.340
+to B does not generally
+
+80
+00:02:35.340 --> 00:02:37.180
+imply B reducing to A,
+
+81
+00:02:37.700 --> 00:02:39.520
+so transitivity must not be
+
+82
+00:02:39.520 --> 00:02:40.580
+confused with symmetry.
+
+83
+00:02:41.060 --> 00:02:43.060
+The photo asks what follows
+
+84
+00:02:43.060 --> 00:02:44.680
+from A reducing to B,
+
+85
+00:02:45.140 --> 00:02:46.400
+B to C and C
+
+86
+00:02:46.400 --> 00:02:47.520
+to B. B and C
+
+87
+00:02:47.520 --> 00:02:50.120
+are equivalent under polynomial reductions
+
+88
+00:02:50.120 --> 00:02:52.180
+and A also reduces to
+
+89
+00:02:52.180 --> 00:02:54.220
+C. Nothing in those premises
+
+90
+00:02:54.220 --> 00:02:56.160
+requires B to reduce back
+
+91
+00:02:56.160 --> 00:02:56.660
+to A.
+
+92
+00:02:57.100 --> 00:02:58.480
+Things to take note of.
+
+93
+00:02:58.920 --> 00:03:00.020
+Draw the arrow from the
+
+94
+00:03:00.020 --> 00:03:01.140
+problem you want to solve
+
+95
+00:03:01.140 --> 00:03:03.080
+using a target solver, then
+
+96
+00:03:03.080 --> 00:03:05.120
+carry one candidate solution through
+
+97
+00:03:05.120 --> 00:03:08.540
+both correctness directions. Keep encodings,
+
+98
+00:03:08.540 --> 00:03:10.720
+size, edge conventions and small
+
+99
+00:03:10.720 --> 00:03:13.700
+instances explicit; a hardness comparison
+
+100
+00:03:13.700 --> 00:03:15.540
+is not an unexplained efficient
+
+101
+00:03:15.540 --> 00:03:16.080
+algorithm.

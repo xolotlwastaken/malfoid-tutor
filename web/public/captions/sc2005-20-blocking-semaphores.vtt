@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.120
+How do semaphores block and
+
+2
+00:00:02.120 --> 00:00:04.880
+wake processes? A semaphore coordinates
+
+3
+00:00:04.880 --> 00:00:06.960
+access through wait and signal,
+
+4
+00:00:06.960 --> 00:00:09.120
+with atomic state changes and
+
+5
+00:00:09.120 --> 00:00:11.380
+a defined waiting discipline. The
+
+6
+00:00:11.380 --> 00:00:13.620
+blocking implementation in these slides
+
+7
+00:00:13.620 --> 00:00:15.560
+stores both an integer value
+
+8
+00:00:15.560 --> 00:00:17.260
+and a list of sleepers.
+
+9
+00:00:17.580 --> 00:00:19.840
+Wait first decrements the value.
+
+10
+00:00:20.320 --> 00:00:21.680
+If the new value is
+
+11
+00:00:21.680 --> 00:00:23.520
+negative, the caller joins the
+
+12
+00:00:23.520 --> 00:00:25.600
+wait list and blocks; otherwise
+
+13
+00:00:25.880 --> 00:00:27.140
+it has acquired a permit.
+
+14
+00:00:27.760 --> 00:00:29.500
+Starting from one, P zero
+
+15
+00:00:29.500 --> 00:00:31.100
+waits and changes the value
+
+16
+00:00:31.100 --> 00:00:32.740
+to zero, acquiring the single
+
+17
+00:00:32.740 --> 00:00:33.680
+available permit.
+
+18
+00:00:34.340 --> 00:00:36.460
+P one now waits, taking
+
+19
+00:00:36.460 --> 00:00:37.880
+the value from zero to
+
+20
+00:00:37.880 --> 00:00:39.580
+minus one. Because the new
+
+21
+00:00:39.580 --> 00:00:41.200
+value is negative, it is
+
+22
+00:00:41.200 --> 00:00:43.020
+enqueued and becomes waiting rather
+
+23
+00:00:43.020 --> 00:00:44.660
+than consuming processor time in
+
+24
+00:00:44.660 --> 00:00:46.200
+a spin loop. P zero
+
+25
+00:00:46.200 --> 00:00:47.400
+remains the permit holder.
+
+26
+00:00:47.900 --> 00:00:49.320
+If P two also waits,
+
+27
+00:00:49.580 --> 00:00:51.220
+the value becomes minus two
+
+28
+00:00:51.220 --> 00:00:52.480
+and the wait list contains
+
+29
+00:00:52.480 --> 00:00:55.000
+two sleepers. In this signed-value
+
+30
+00:00:55.000 --> 00:00:57.860
+representation, the negative magnitude describes
+
+31
+00:00:57.860 --> 00:00:59.980
+queued waiters. It is not
+
+32
+00:00:59.980 --> 00:01:01.720
+the same representation as an
+
+33
+00:01:01.720 --> 00:01:04.340
+always-nonnegative count of free resources.
+
+34
+00:01:04.900 --> 00:01:07.420
+Signal increments the value and
+
+35
+00:01:07.420 --> 00:01:08.740
+wakes one waiter when the
+
+36
+00:01:08.740 --> 00:01:10.080
+new value is less than
+
+37
+00:01:10.080 --> 00:01:12.100
+or equal to zero. P
+
+38
+00:01:12.100 --> 00:01:14.100
+zero signaling from minus two
+
+39
+00:01:14.100 --> 00:01:16.080
+produces minus one, so P
+
+40
+00:01:16.080 --> 00:01:17.440
+one can leave the wait
+
+41
+00:01:17.440 --> 00:01:19.960
+list and become ready. Waking
+
+42
+00:01:19.960 --> 00:01:21.420
+a process does not mean
+
+43
+00:01:21.420 --> 00:01:22.680
+it instantly runs on the
+
+44
+00:01:22.680 --> 00:01:23.180
+processor.
+
+45
+00:01:23.740 --> 00:01:25.500
+With the direct handoff rule
+
+46
+00:01:25.500 --> 00:01:27.320
+illustrated in the photos, the
+
+47
+00:01:27.320 --> 00:01:28.900
+awakened waiter has a reserved
+
+48
+00:01:28.900 --> 00:01:31.200
+permit. A newcomer cannot steal
+
+49
+00:01:31.200 --> 00:01:32.880
+that permit merely by reaching
+
+50
+00:01:32.880 --> 00:01:35.560
+the processor first. Dispatch determines
+
+51
+00:01:35.560 --> 00:01:37.480
+when a process runs, while
+
+52
+00:01:37.480 --> 00:01:39.420
+the protected counter and waiting-list
+
+53
+00:01:39.420 --> 00:01:40.900
+rules determine ownership.
+
+54
+00:01:41.380 --> 00:01:43.240
+All counter checks and queue
+
+55
+00:01:43.240 --> 00:01:45.920
+coordination must be synchronized. If
+
+56
+00:01:45.920 --> 00:01:48.300
+one process decrements, another decrements
+
+57
+00:01:48.300 --> 00:01:50.300
+again, and both later test
+
+58
+00:01:50.300 --> 00:01:52.180
+the changed shared value, the
+
+59
+00:01:52.180 --> 00:01:54.680
+first can block incorrectly. Making
+
+60
+00:01:54.680 --> 00:01:56.980
+only one arithmetic instruction atomic
+
+61
+00:01:56.980 --> 00:01:58.440
+is not enough to protect
+
+62
+00:01:58.440 --> 00:01:59.560
+the complete protocol.
+
+63
+00:02:00.060 --> 00:02:02.700
+The photographed quiz intentionally changes
+
+64
+00:02:02.700 --> 00:02:04.300
+signal to wake only when
+
+65
+00:02:04.300 --> 00:02:05.440
+the new value is less
+
+66
+00:02:05.440 --> 00:02:07.500
+than zero. Starting at minus
+
+67
+00:02:07.500 --> 00:02:09.840
+one, signal increments to zero
+
+68
+00:02:10.000 --> 00:02:11.840
+but then wakes nobody, stranding
+
+69
+00:02:11.840 --> 00:02:13.740
+the remaining waiter. The correct
+
+70
+00:02:13.740 --> 00:02:15.180
+test is less than or
+
+71
+00:02:15.180 --> 00:02:17.420
+equal to zero after incrementing.
+
+72
+00:02:17.780 --> 00:02:20.560
+A priority queue or last-in-first-out
+
+73
+00:02:20.560 --> 00:02:21.900
+list can still starve a
+
+74
+00:02:21.900 --> 00:02:23.180
+waiter even after that bug
+
+75
+00:02:23.180 --> 00:02:25.500
+is fixed. Correct wakeup accounting
+
+76
+00:02:25.500 --> 00:02:27.420
+and fairness are separate properties.
+
+77
+00:02:27.980 --> 00:02:29.260
+A signal that happens before
+
+78
+00:02:29.260 --> 00:02:30.320
+a wait can leave a
+
+79
+00:02:30.320 --> 00:02:31.540
+permit stored in the value,
+
+80
+00:02:31.540 --> 00:02:33.280
+rather than vanishing like an
+
+81
+00:02:33.280 --> 00:02:34.220
+unremembered event.
+
+82
+00:02:34.780 --> 00:02:35.980
+Things to take note of.
+
+83
+00:02:36.500 --> 00:02:38.420
+Decrement before the negative test,
+
+84
+00:02:38.940 --> 00:02:41.180
+increment before the nonpositive wakeup
+
+85
+00:02:41.180 --> 00:02:42.820
+test, and track the wait
+
+86
+00:02:42.820 --> 00:02:44.860
+list with the value. Preserve
+
+87
+00:02:44.860 --> 00:02:46.500
+the exact buggy code when
+
+88
+00:02:46.500 --> 00:02:48.740
+tracing a question, then explain
+
+89
+00:02:48.740 --> 00:02:50.840
+the correction; do not silently
+
+90
+00:02:50.840 --> 00:02:52.480
+fix it before computing the
+
+91
+00:02:52.480 --> 00:02:53.300
+requested states.

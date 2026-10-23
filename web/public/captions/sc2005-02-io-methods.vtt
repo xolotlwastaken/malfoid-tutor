@@ -1,0 +1,349 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.000
+How do polling, interrupts and
+
+2
+00:00:02.000 --> 00:00:04.560
+direct memory access differ? They
+
+3
+00:00:04.560 --> 00:00:06.960
+answer two related questions: how
+
+4
+00:00:06.960 --> 00:00:08.280
+does the processor learn that
+
+5
+00:00:08.280 --> 00:00:10.000
+a device needs attention, and
+
+6
+00:00:10.000 --> 00:00:11.660
+who moves the data? Keep
+
+7
+00:00:11.660 --> 00:00:13.480
+those questions separate, or your
+
+8
+00:00:13.480 --> 00:00:15.740
+explanation will become rather untidy.
+
+9
+00:00:16.220 --> 00:00:18.060
+A device controller manages its
+
+10
+00:00:18.060 --> 00:00:19.600
+device and usually has a
+
+11
+00:00:19.600 --> 00:00:21.540
+local buffer. The processor can
+
+12
+00:00:21.540 --> 00:00:23.320
+execute instructions while the device
+
+13
+00:00:23.320 --> 00:00:25.600
+performs its operation. In our
+
+14
+00:00:25.600 --> 00:00:27.880
+authored example, the device prepares
+
+15
+00:00:27.880 --> 00:00:29.640
+eight data items, and we
+
+16
+00:00:29.640 --> 00:00:31.300
+ignore setup details until the
+
+17
+00:00:31.300 --> 00:00:31.580
+comparison.
+
+18
+00:00:31.780 --> 00:00:34.060
+With polling, the processor repeatedly
+
+19
+00:00:34.060 --> 00:00:36.340
+reads the device status. If
+
+20
+00:00:36.340 --> 00:00:37.440
+the device is not ready,
+
+21
+00:00:37.620 --> 00:00:39.340
+it checks again, consuming processor
+
+22
+00:00:39.340 --> 00:00:41.100
+time on those checks. Watch
+
+23
+00:00:41.100 --> 00:00:43.540
+three unsuccessful checks, followed by
+
+24
+00:00:43.540 --> 00:00:45.260
+a ready result; the chosen
+
+25
+00:00:45.260 --> 00:00:47.460
+polling frequency controls how quickly
+
+26
+00:00:47.460 --> 00:00:48.440
+readiness is noticed.
+
+27
+00:00:48.940 --> 00:00:50.700
+The important distinction is that
+
+28
+00:00:50.700 --> 00:00:52.280
+checking status does not itself
+
+29
+00:00:52.280 --> 00:00:54.780
+transfer the entire buffer. Once
+
+30
+00:00:54.780 --> 00:00:56.440
+ready, a programmed transfer may
+
+31
+00:00:56.440 --> 00:00:57.920
+still require the processor to
+
+32
+00:00:57.920 --> 00:00:59.040
+read each item and write
+
+33
+00:00:59.040 --> 00:01:00.900
+it to memory. The operating
+
+34
+00:01:00.900 --> 00:01:02.460
+system must decide when polling
+
+35
+00:01:02.460 --> 00:01:03.660
+is worth that overhead.
+
+36
+00:01:04.020 --> 00:01:08.460
+Interrupt-driven input-output replaces repeated readiness
+
+37
+00:01:08.460 --> 00:01:10.660
+checks with a notification. The
+
+38
+00:01:10.660 --> 00:01:12.860
+controller raises an interrupt, the
+
+39
+00:01:12.860 --> 00:01:15.040
+processor preserves the required execution
+
+40
+00:01:15.040 --> 00:01:17.100
+state, and the interrupt vector
+
+41
+00:01:17.100 --> 00:01:19.680
+identifies the appropriate handler. The
+
+42
+00:01:19.680 --> 00:01:21.540
+handler services the event before
+
+43
+00:01:21.540 --> 00:01:22.500
+execution resumes.
+
+44
+00:01:23.180 --> 00:01:25.120
+An interrupt does not automatically
+
+45
+00:01:25.120 --> 00:01:26.780
+mean a different process must
+
+46
+00:01:26.780 --> 00:01:29.700
+run. The interrupted process may
+
+47
+00:01:29.700 --> 00:01:31.680
+resume after the handler finishes.
+
+48
+00:01:32.460 --> 00:01:34.800
+Likewise, notification and copying remain
+
+49
+00:01:34.800 --> 00:01:38.380
+separate: an interrupt-driven programmed transfer
+
+50
+00:01:38.380 --> 00:01:40.360
+can still involve processor work
+
+51
+00:01:40.360 --> 00:01:40.920
+for the data.
+
+52
+00:01:41.460 --> 00:01:44.120
+Direct memory access delegates block
+
+53
+00:01:44.120 --> 00:01:46.060
+movement to a suitable controller.
+
+54
+00:01:46.560 --> 00:01:48.200
+The operating system sets up
+
+55
+00:01:48.200 --> 00:01:50.380
+the memory destination, transfer length
+
+56
+00:01:50.380 --> 00:01:52.580
+and direction; the controller moves
+
+57
+00:01:52.580 --> 00:01:54.060
+the block without the processor
+
+58
+00:01:54.060 --> 00:01:56.640
+copying every item. A completion
+
+59
+00:01:56.640 --> 00:01:58.220
+interrupt can report that the
+
+60
+00:01:58.220 --> 00:01:59.160
+block is finished.
+
+61
+00:01:59.660 --> 00:02:02.080
+In the simplified byte-notification model,
+
+62
+00:02:02.700 --> 00:02:04.280
+eight items could require eight
+
+63
+00:02:04.280 --> 00:02:06.720
+processor service events. With one
+
+64
+00:02:06.720 --> 00:02:08.500
+DMA block containing all eight,
+
+65
+00:02:08.940 --> 00:02:10.660
+there is one completion notification
+
+66
+00:02:10.660 --> 00:02:13.380
+instead. That is an illustrative
+
+67
+00:02:13.380 --> 00:02:15.020
+count, not a claim that
+
+68
+00:02:15.020 --> 00:02:17.040
+every real controller interrupts once
+
+69
+00:02:17.040 --> 00:02:17.580
+per byte.
+
+70
+00:02:18.100 --> 00:02:20.620
+DMA still has setup, completion
+
+71
+00:02:20.620 --> 00:02:22.680
+handling and possible contention for
+
+72
+00:02:22.680 --> 00:02:24.440
+memory or the bus. It
+
+73
+00:02:24.440 --> 00:02:26.540
+reduces processor involvement in bulk
+
+74
+00:02:26.540 --> 00:02:28.620
+movement rather than creating free
+
+75
+00:02:28.620 --> 00:02:30.760
+bandwidth. Polling can make sense
+
+76
+00:02:30.760 --> 00:02:32.780
+for short predictable waits, while
+
+77
+00:02:32.780 --> 00:02:34.540
+interrupts let the processor do
+
+78
+00:02:34.540 --> 00:02:36.160
+other useful work between events.
+
+79
+00:02:36.540 --> 00:02:37.860
+Things to take note of.
+
+80
+00:02:38.440 --> 00:02:40.800
+Distinguish polling from interrupt notification,
+
+81
+00:02:41.240 --> 00:02:42.920
+and distinguish both from who
+
+82
+00:02:42.920 --> 00:02:45.480
+copies the data. Explain controller
+
+83
+00:02:45.480 --> 00:02:48.100
+buffers, state preservation and DMA
+
+84
+00:02:48.100 --> 00:02:50.100
+setup; do not promise that
+
+85
+00:02:50.100 --> 00:02:52.480
+every interrupt changes processes or
+
+86
+00:02:52.480 --> 00:02:54.560
+that DMA removes all processor
+
+87
+00:02:54.560 --> 00:02:54.860
+work.

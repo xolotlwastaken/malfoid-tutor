@@ -1,0 +1,345 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.480
+How does Dijkstra’s algorithm work?
+
+2
+00:00:02.860 --> 00:00:04.780
+Repeatedly settle the smallest tentative
+
+3
+00:00:04.780 --> 00:00:06.840
+distance, then relax its outgoing
+
+4
+00:00:06.840 --> 00:00:08.600
+edges. The guarantee requires nonnegative
+
+5
+00:00:09.820 --> 00:00:11.860
+edge weights, including zero; a
+
+6
+00:00:11.860 --> 00:00:13.120
+negative edge is enough to
+
+7
+00:00:13.120 --> 00:00:13.520
+break it.
+
+8
+00:00:13.900 --> 00:00:15.480
+Set the source S to
+
+9
+00:00:15.480 --> 00:00:17.580
+zero, other distances to infinity,
+
+10
+00:00:17.580 --> 00:00:19.300
+and keep an indexed min-heap
+
+11
+00:00:19.600 --> 00:00:21.960
+keyed by tentative distance. A
+
+12
+00:00:21.960 --> 00:00:23.600
+parent records the route responsible
+
+13
+00:00:23.600 --> 00:00:26.100
+for each improvement; discovering a
+
+14
+00:00:26.100 --> 00:00:27.340
+route does not yet settle
+
+15
+00:00:27.340 --> 00:00:28.280
+its destination.
+
+16
+00:00:29.060 --> 00:00:31.120
+Settle S first. Its edges
+
+17
+00:00:31.120 --> 00:00:32.780
+offer A distance four and
+
+18
+00:00:32.780 --> 00:00:34.760
+B distance one, so update
+
+19
+00:00:34.760 --> 00:00:36.400
+those queue keys and parents;
+
+20
+00:00:37.040 --> 00:00:38.420
+B is now the smallest
+
+21
+00:00:38.420 --> 00:00:39.640
+unsettled candidate.
+
+22
+00:00:40.220 --> 00:00:42.600
+Settle B at one. Via
+
+23
+00:00:42.600 --> 00:00:44.680
+B, A improves from four
+
+24
+00:00:44.680 --> 00:00:46.560
+to three, and T receives
+
+25
+00:00:46.560 --> 00:00:49.080
+a tentative nine; decrease A’s
+
+26
+00:00:48.220 --> 00:00:50.460
+queue key instead of leaving
+
+27
+00:00:50.460 --> 00:00:51.660
+the old priority behind.
+
+28
+00:00:52.020 --> 00:00:54.540
+Next settle A at three.
+
+29
+00:00:55.180 --> 00:00:56.820
+Its edge to T offers
+
+30
+00:00:56.820 --> 00:00:59.540
+three plus two, improving nine
+
+31
+00:00:59.540 --> 00:01:01.740
+to five; update T’s parent
+
+32
+00:01:01.740 --> 00:01:03.420
+to A and lower its
+
+33
+00:01:03.427 --> 00:01:03.900
+queue key.
+
+34
+00:01:04.540 --> 00:01:06.560
+Finally settle T at five.
+
+35
+00:01:07.100 --> 00:01:09.140
+Following parents backwards gives T,
+
+36
+00:01:09.140 --> 00:01:11.140
+A, B, S, so the
+
+37
+00:01:11.140 --> 00:01:12.720
+route S, B, A, T
+
+38
+00:01:12.720 --> 00:01:14.500
+costs one plus two plus
+
+39
+00:01:14.500 --> 00:01:16.240
+two, which is five.
+
+40
+00:01:16.660 --> 00:01:18.520
+Every settled label is optimal.
+
+41
+00:01:19.060 --> 00:01:20.320
+If a cheaper route to
+
+42
+00:01:20.320 --> 00:01:22.460
+the extracted minimum existed, its
+
+43
+00:01:22.460 --> 00:01:24.580
+first unsettled vertex would already
+
+44
+00:01:24.580 --> 00:01:25.700
+have been offered a no-larger
+
+45
+00:01:26.080 --> 00:01:27.720
+prefix cost by its settled
+
+46
+00:01:27.720 --> 00:01:30.940
+predecessor; nonnegative remaining edges preserve
+
+47
+00:01:30.940 --> 00:01:31.840
+that comparison.
+
+48
+00:01:32.860 --> 00:01:34.920
+See why negative edges matter:
+
+49
+00:01:35.560 --> 00:01:36.880
+S to A costs one,
+
+50
+00:01:37.340 --> 00:01:38.960
+S to B costs two,
+
+51
+00:01:39.500 --> 00:01:40.680
+and B to A costs
+
+52
+00:01:40.680 --> 00:01:43.100
+negative three. A could settle
+
+53
+00:01:43.100 --> 00:01:44.860
+at one before B reveals
+
+54
+00:01:44.860 --> 00:01:46.640
+the true distance negative one,
+
+55
+00:01:47.060 --> 00:01:48.460
+even without any cycle.
+
+56
+00:01:49.220 --> 00:01:51.760
+An indexed binary heap extracts
+
+57
+00:01:51.760 --> 00:01:53.500
+each vertex at most once
+
+58
+00:01:53.500 --> 00:01:55.200
+and performs at most one
+
+59
+00:01:55.200 --> 00:01:57.640
+successful decrease-key per scanned edge.
+
+60
+00:01:58.000 --> 00:02:00.240
+With logarithmic heap operations, the
+
+61
+00:02:00.240 --> 00:02:01.740
+total is order n plus
+
+62
+00:02:01.740 --> 00:02:03.740
+m, times log n, using
+
+63
+00:02:03.740 --> 00:02:04.760
+adjacency lists.
+
+64
+00:02:05.500 --> 00:02:08.380
+Labels, parents, membership flags, and
+
+65
+00:02:08.380 --> 00:02:10.060
+an indexed heap use order
+
+66
+00:02:10.060 --> 00:02:12.380
+n auxiliary space. A lazy
+
+67
+00:02:12.380 --> 00:02:14.760
+duplicate-entry queue needs separate accounting
+
+68
+00:02:14.760 --> 00:02:16.420
+and must skip stale entries;
+
+69
+00:02:16.980 --> 00:02:17.940
+it is not the same
+
+70
+00:02:17.940 --> 00:02:18.760
+queue implementation.
+
+71
+00:02:19.460 --> 00:02:21.120
+Things to take note of.
+
+72
+00:02:21.560 --> 00:02:22.840
+Stop once the target is
+
+73
+00:02:22.840 --> 00:02:24.620
+settled for a single-target query,
+
+74
+00:02:24.620 --> 00:02:26.340
+or once the smallest remaining
+
+75
+00:02:26.340 --> 00:02:29.360
+label is infinite. Equal-distance routes
+
+76
+00:02:29.360 --> 00:02:31.540
+may choose different parents; strict
+
+77
+00:02:31.540 --> 00:02:34.060
+improvement keeps unnecessary parent changes
+
+78
+00:02:34.060 --> 00:02:34.400
+out.
+
+79
+00:02:34.860 --> 00:02:36.660
+For a one-vertex graph, the
+
+80
+00:02:36.660 --> 00:02:38.757
+source distance is zero; an
+
+81
+00:02:38.560 --> 00:02:40.040
+empty graph has no valid
+
+82
+00:02:40.040 --> 00:02:42.380
+chosen source. Keep tentative labels
+
+83
+00:02:42.380 --> 00:02:44.220
+separate from settled facts, and
+
+84
+00:02:44.220 --> 00:02:45.840
+never smuggle a negative edge
+
+85
+00:02:45.840 --> 00:02:48.200
+into the assumptions. Hmph, even
+
+86
+00:02:48.200 --> 00:02:49.400
+greed needs a proof.

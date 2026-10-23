@@ -1,0 +1,285 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.820
+What does xv6 save during
+
+2
+00:00:02.820 --> 00:00:05.080
+a context switch? Separate the
+
+3
+00:00:05.080 --> 00:00:06.600
+saved kernel context from the
+
+4
+00:00:06.600 --> 00:00:09.300
+user trapframe, the per-CPU scheduler
+
+5
+00:00:09.300 --> 00:00:11.220
+context, and the process address
+
+6
+00:00:11.220 --> 00:00:13.560
+space. These objects serve related
+
+7
+00:00:13.560 --> 00:00:15.720
+transitions but are not interchangeable
+
+8
+00:00:15.720 --> 00:00:17.560
+storage for one giant switch.
+
+9
+00:00:18.220 --> 00:00:20.440
+A timer-triggered preemption can lead
+
+10
+00:00:20.440 --> 00:00:21.880
+through yield, sched and swtch
+
+11
+00:00:21.880 --> 00:00:24.520
+to the per-CPU scheduler. Yield
+
+12
+00:00:24.520 --> 00:00:26.180
+marks the current process runnable
+
+13
+00:00:26.180 --> 00:00:28.140
+again under the required synchronization.
+
+14
+00:00:28.680 --> 00:00:30.020
+The scheduler can later choose
+
+15
+00:00:30.020 --> 00:00:31.580
+a runnable process and switch
+
+16
+00:00:31.580 --> 00:00:33.240
+into its saved kernel context.
+
+17
+00:00:33.780 --> 00:00:36.880
+At the process-to-scheduler call, swtch
+
+18
+00:00:36.880 --> 00:00:38.820
+saves the outgoing process kernel
+
+19
+00:00:38.820 --> 00:00:40.780
+context and restores the CPU
+
+20
+00:00:40.780 --> 00:00:43.880
+scheduler context. At the scheduler-to-process
+
+21
+00:00:43.880 --> 00:00:46.720
+call, the directions reverse. Name
+
+22
+00:00:46.720 --> 00:00:48.920
+both source and destination objects
+
+23
+00:00:48.920 --> 00:00:50.360
+when explaining the two call
+
+24
+00:00:50.360 --> 00:00:50.800
+sites.
+
+25
+00:00:51.020 --> 00:00:53.560
+The saved RISC-V context includes
+
+26
+00:00:53.560 --> 00:00:55.780
+the return address, stack pointer,
+
+27
+00:00:55.980 --> 00:00:57.580
+and s zero through s
+
+28
+00:00:57.580 --> 00:01:00.440
+eleven. The callee-saved registers must
+
+29
+00:01:00.440 --> 00:01:02.940
+survive the function-call boundary, while
+
+30
+00:01:02.940 --> 00:01:04.400
+the stack pointer selects the
+
+31
+00:01:04.400 --> 00:01:06.300
+suspended kernel stack. The return
+
+32
+00:01:06.300 --> 00:01:08.320
+address supplies the resumption path
+
+33
+00:01:08.320 --> 00:01:09.360
+even though it is not
+
+34
+00:01:09.360 --> 00:01:11.580
+itself a callee-saved general register.
+
+35
+00:01:12.020 --> 00:01:14.420
+A newly allocated child does
+
+36
+00:01:14.420 --> 00:01:16.360
+not have an ordinary previous
+
+37
+00:01:16.360 --> 00:01:18.320
+kernel call to resume. Its
+
+38
+00:01:18.320 --> 00:01:20.440
+initial saved context is arranged
+
+39
+00:01:20.440 --> 00:01:21.980
+to enter forkret on its
+
+40
+00:01:21.980 --> 00:01:24.460
+first selection. Consult the supplied
+
+41
+00:01:24.460 --> 00:01:27.160
+branch context initialization before asserting
+
+42
+00:01:27.160 --> 00:01:29.200
+exact offsets or a particular
+
+43
+00:01:29.200 --> 00:01:29.880
+source line.
+
+44
+00:01:30.300 --> 00:01:32.560
+The strict-priority lab selects an
+
+45
+00:01:32.560 --> 00:01:34.880
+eligible runnable even-PID process whenever
+
+46
+00:01:34.880 --> 00:01:37.280
+one exists, then considers odd
+
+47
+00:01:37.280 --> 00:01:38.960
+PIDs only if none qualifies.
+
+48
+00:01:38.960 --> 00:01:41.200
+Preserve state, locking and per-CPU
+
+49
+00:01:41.200 --> 00:01:43.840
+current-process invariants while changing selection.
+
+50
+00:01:44.580 --> 00:01:46.760
+Timer preemption still produces selection
+
+51
+00:01:46.760 --> 00:01:48.620
+points without making that selection
+
+52
+00:01:48.620 --> 00:01:48.920
+fair.
+
+53
+00:01:49.380 --> 00:01:51.520
+On one CPU, an even
+
+54
+00:01:51.520 --> 00:01:53.580
+child that remains runnable forever
+
+55
+00:01:53.580 --> 00:01:55.180
+can starve an odd child
+
+56
+00:01:55.180 --> 00:01:57.500
+that also remains runnable. A
+
+57
+00:01:57.500 --> 00:02:00.500
+finite workload only demonstrates postponement
+
+58
+00:02:00.500 --> 00:02:02.040
+until the preferred work ends.
+
+59
+00:02:02.500 --> 00:02:04.420
+With spare physical cores, one
+
+60
+00:02:04.420 --> 00:02:06.000
+busy even process does not
+
+61
+00:02:06.000 --> 00:02:07.720
+establish starvation across the whole
+
+62
+00:02:07.720 --> 00:02:08.060
+machine.
+
+63
+00:02:08.620 --> 00:02:09.840
+Things to take note of.
+
+64
+00:02:10.360 --> 00:02:12.300
+Identify the saved context in
+
+65
+00:02:12.300 --> 00:02:14.820
+both switch directions, justify the
+
+66
+00:02:14.820 --> 00:02:16.260
+register set using the call
+
+67
+00:02:16.260 --> 00:02:19.620
+convention, and preserve scheduler invariants.
+
+68
+00:02:19.620 --> 00:02:21.320
+The strict-PID experiment is a
+
+69
+00:02:21.320 --> 00:02:23.220
+policy argument under a stated
+
+70
+00:02:23.220 --> 00:02:25.800
+workload, while optional GDB work
+
+71
+00:02:25.800 --> 00:02:27.580
+remains outside this companion.

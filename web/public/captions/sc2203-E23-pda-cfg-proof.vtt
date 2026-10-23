@@ -1,0 +1,485 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.560
+Why is the pushdown-to-grammar construction
+
+2
+00:00:02.560 --> 00:00:04.740
+correct? We must prove that
+
+3
+00:00:04.740 --> 00:00:06.940
+generated words correspond to empty-stack
+
+4
+00:00:06.940 --> 00:00:08.960
+computations and that every such
+
+5
+00:00:08.960 --> 00:00:11.220
+computation can be generated. These
+
+6
+00:00:11.220 --> 00:00:13.540
+directions use different induction parameters,
+
+7
+00:00:13.980 --> 00:00:15.540
+so keep the claims separate
+
+8
+00:00:15.540 --> 00:00:17.520
+rather than hiding everything under
+
+9
+00:00:17.520 --> 00:00:18.700
+the phrase by induction.
+
+10
+00:00:19.340 --> 00:00:22.880
+Recall the normalization: one accepting
+
+11
+00:00:22.880 --> 00:00:24.940
+state, empty stack at acceptance,
+
+12
+00:00:25.280 --> 00:00:26.860
+and each move pushing or
+
+13
+00:00:26.860 --> 00:00:29.220
+popping exactly one symbol. A
+
+14
+00:00:29.220 --> 00:00:30.640
+variable A p q is
+
+15
+00:00:30.640 --> 00:00:32.260
+intended to generate words taking
+
+16
+00:00:32.260 --> 00:00:34.200
+p empty to q empty.
+
+17
+00:00:34.700 --> 00:00:36.120
+Its rules wrap a matched
+
+18
+00:00:36.120 --> 00:00:38.040
+push and pop, split at
+
+19
+00:00:38.040 --> 00:00:40.160
+an empty intermediate state, or
+
+20
+00:00:40.160 --> 00:00:41.320
+generate epsilon from A p
+
+21
+00:00:41.320 --> 00:00:41.820
+p.
+
+22
+00:00:42.260 --> 00:00:44.800
+First prove the grammar-to-machine direction
+
+23
+00:00:44.800 --> 00:00:47.180
+by induction on derivation length.
+
+24
+00:00:47.600 --> 00:00:48.760
+The base case is a
+
+25
+00:00:48.760 --> 00:00:50.360
+single production A p p
+
+26
+00:00:50.360 --> 00:00:53.020
+becoming epsilon. A zero-step machine
+
+27
+00:00:53.020 --> 00:00:55.740
+computation consumes epsilon and leaves
+
+28
+00:00:55.740 --> 00:00:57.680
+state p and empty stack
+
+29
+00:00:57.680 --> 00:01:00.200
+unchanged, so it realizes that
+
+30
+00:01:00.200 --> 00:01:01.200
+generated word.
+
+31
+00:01:01.740 --> 00:01:04.080
+For a longer derivation, inspect
+
+32
+00:01:04.080 --> 00:01:05.680
+its first rule. If it
+
+33
+00:01:05.680 --> 00:01:06.880
+is a matched wrapping rule,
+
+34
+00:01:07.200 --> 00:01:08.360
+the inner variable has a
+
+35
+00:01:08.360 --> 00:01:09.740
+shorter derivation of a word
+
+36
+00:01:09.740 --> 00:01:12.160
+y. By the induction hypothesis,
+
+37
+00:01:12.800 --> 00:01:14.400
+y takes r empty to
+
+38
+00:01:14.400 --> 00:01:16.300
+s empty; replay those moves
+
+39
+00:01:16.300 --> 00:01:17.840
+above the pushed symbol u,
+
+40
+00:01:18.180 --> 00:01:19.320
+then pop u at the
+
+41
+00:01:19.320 --> 00:01:19.620
+end.
+
+42
+00:01:20.100 --> 00:01:22.240
+The replay is legitimate because
+
+43
+00:01:22.240 --> 00:01:23.600
+the inner run never needs
+
+44
+00:01:23.600 --> 00:01:25.240
+to inspect below its own
+
+45
+00:01:25.240 --> 00:01:27.800
+stack content. The unchanged lower
+
+46
+00:01:27.800 --> 00:01:30.040
+symbol simply remains underneath until
+
+47
+00:01:30.040 --> 00:01:31.380
+the inner run returns to
+
+48
+00:01:31.380 --> 00:01:33.240
+its baseline. The outer push
+
+49
+00:01:33.240 --> 00:01:34.800
+and matching pop then produce
+
+50
+00:01:34.800 --> 00:01:37.000
+exactly the endpoints required by
+
+51
+00:01:37.000 --> 00:01:37.860
+A p q.
+
+52
+00:01:38.060 --> 00:01:39.320
+If the first rule is
+
+53
+00:01:39.320 --> 00:01:40.980
+a splitting rule, write the
+
+54
+00:01:40.980 --> 00:01:42.440
+generated word as y z.
+
+55
+00:01:43.000 --> 00:01:44.220
+Each child has a shorter
+
+56
+00:01:44.220 --> 00:01:46.560
+derivation, so the induction hypothesis
+
+57
+00:01:46.560 --> 00:01:48.400
+gives an empty-stack run from
+
+58
+00:01:48.400 --> 00:01:49.740
+p to r on y
+
+59
+00:01:49.740 --> 00:01:51.340
+and one from r to
+
+60
+00:01:51.340 --> 00:01:53.760
+q on z. Concatenate the
+
+61
+00:01:53.760 --> 00:01:54.960
+two runs at their common
+
+62
+00:01:54.960 --> 00:01:56.160
+empty-stack configuration.
+
+63
+00:01:56.900 --> 00:01:59.860
+Now prove machine-to-grammar by induction
+
+64
+00:01:59.860 --> 00:02:01.440
+on the number of computation
+
+65
+00:02:01.440 --> 00:02:04.040
+moves. A zero-move run has
+
+66
+00:02:04.040 --> 00:02:05.460
+p equal to q and
+
+67
+00:02:05.460 --> 00:02:08.120
+consumes epsilon. The base production
+
+68
+00:02:08.440 --> 00:02:10.300
+A p p becoming epsilon
+
+69
+00:02:10.300 --> 00:02:12.100
+generates exactly that case.
+
+70
+00:02:12.540 --> 00:02:15.180
+Consider a positive-length empty-to-empty run
+
+71
+00:02:15.180 --> 00:02:16.820
+that never empties its stack
+
+72
+00:02:16.820 --> 00:02:19.360
+strictly between its endpoints. Its
+
+73
+00:02:19.360 --> 00:02:21.020
+first move pushes some symbol
+
+74
+00:02:21.020 --> 00:02:22.740
+u, and that bottom symbol
+
+75
+00:02:22.740 --> 00:02:24.260
+cannot be removed until the
+
+76
+00:02:24.260 --> 00:02:26.580
+last move. Those outer moves
+
+77
+00:02:26.580 --> 00:02:28.460
+form a matched push-pop pair,
+
+78
+00:02:28.880 --> 00:02:30.460
+with a shorter inner computation
+
+79
+00:02:30.460 --> 00:02:32.160
+after stripping off the untouched
+
+80
+00:02:32.160 --> 00:02:32.800
+bottom u.
+
+81
+00:02:33.380 --> 00:02:35.820
+Apply the induction hypothesis to
+
+82
+00:02:35.820 --> 00:02:37.480
+that shorter inner run from
+
+83
+00:02:37.480 --> 00:02:39.200
+r empty to s empty.
+
+84
+00:02:39.800 --> 00:02:41.260
+It gives a derivation from
+
+85
+00:02:41.260 --> 00:02:42.320
+A r s of the
+
+86
+00:02:42.320 --> 00:02:44.360
+consumed inner word y. The
+
+87
+00:02:44.360 --> 00:02:46.060
+matched wrapping rule then derives
+
+88
+00:02:46.060 --> 00:02:47.200
+a y b from A
+
+89
+00:02:47.200 --> 00:02:49.480
+p q, including the possibility
+
+90
+00:02:49.480 --> 00:02:51.400
+that either outer input label
+
+91
+00:02:51.400 --> 00:02:52.260
+is epsilon.
+
+92
+00:02:52.700 --> 00:02:54.060
+If instead the stack becomes
+
+93
+00:02:54.060 --> 00:02:55.800
+empty at some intermediate state
+
+94
+00:02:55.800 --> 00:02:57.560
+r, split the run there.
+
+95
+00:02:58.080 --> 00:02:59.680
+Both pieces use fewer moves
+
+96
+00:02:59.680 --> 00:03:01.300
+than the entire run, so
+
+97
+00:03:01.300 --> 00:03:02.840
+induction gives derivations from A
+
+98
+00:03:02.840 --> 00:03:03.820
+p r and A r
+
+99
+00:03:03.820 --> 00:03:06.480
+q. The splitting production joins
+
+100
+00:03:06.480 --> 00:03:08.560
+their generated words, covering the
+
+101
+00:03:08.560 --> 00:03:10.240
+other possible shape of computation.
+
+102
+00:03:10.820 --> 00:03:13.220
+These two cases exhaust positive
+
+103
+00:03:13.220 --> 00:03:16.120
+normalized empty-to-empty runs. Either the
+
+104
+00:03:16.120 --> 00:03:17.720
+stack first returns to zero
+
+105
+00:03:17.720 --> 00:03:19.160
+at the end, or it
+
+106
+00:03:19.160 --> 00:03:21.500
+has a strictly intermediate zero-height
+
+107
+00:03:21.500 --> 00:03:24.120
+return. Normalization is what rules
+
+108
+00:03:24.120 --> 00:03:25.620
+out a no-stack move that
+
+109
+00:03:25.620 --> 00:03:27.340
+would evade the push-pop case
+
+110
+00:03:27.340 --> 00:03:27.740
+analysis.
+
+111
+00:03:28.300 --> 00:03:29.640
+Things to take note of.
+
+112
+00:03:30.080 --> 00:03:31.720
+Use derivation length in the
+
+113
+00:03:31.720 --> 00:03:33.940
+first direction and computation moves
+
+114
+00:03:33.940 --> 00:03:35.620
+in the second, with their
+
+115
+00:03:35.620 --> 00:03:38.280
+correct base cases. Explain replay
+
+116
+00:03:38.280 --> 00:03:40.780
+above an untouched bottom, show
+
+117
+00:03:40.780 --> 00:03:42.880
+why subproblems are shorter, and
+
+118
+00:03:42.880 --> 00:03:44.720
+conclude equality for the start
+
+119
+00:03:44.720 --> 00:03:47.200
+variable; these proofs are explicit
+
+120
+00:03:47.200 --> 00:03:49.580
+lecture outcomes, not the excluded
+
+121
+00:03:49.580 --> 00:03:50.980
+normal-form appendix.

@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.680
+Why is counter increment unsafe
+
+2
+00:00:02.680 --> 00:00:04.960
+when processes share it? A
+
+3
+00:00:04.960 --> 00:00:06.300
+statement that looks like one
+
+4
+00:00:06.300 --> 00:00:07.920
+operation in source code can
+
+5
+00:00:07.920 --> 00:00:10.740
+require several machine-level steps. If
+
+6
+00:00:10.740 --> 00:00:12.840
+another execution accesses the same
+
+7
+00:00:12.840 --> 00:00:14.780
+storage between those steps, the
+
+8
+00:00:14.780 --> 00:00:16.420
+final value can depend on
+
+9
+00:00:16.420 --> 00:00:17.280
+the interleaving.
+
+10
+00:00:17.500 --> 00:00:19.320
+Start with shared counter five,
+
+11
+00:00:19.700 --> 00:00:21.380
+a producer that increments once
+
+12
+00:00:21.380 --> 00:00:23.200
+and a consumer that decrements
+
+13
+00:00:23.200 --> 00:00:25.620
+once. Serial execution in either
+
+14
+00:00:25.620 --> 00:00:27.020
+order should return the counter
+
+15
+00:00:27.020 --> 00:00:28.700
+to five. That gives us
+
+16
+00:00:28.700 --> 00:00:31.060
+an independently expected result before
+
+17
+00:00:31.060 --> 00:00:32.500
+inspecting the faulty trace.
+
+18
+00:00:32.980 --> 00:00:34.600
+An increment can load the
+
+19
+00:00:34.600 --> 00:00:36.720
+counter into a register, add
+
+20
+00:00:36.720 --> 00:00:38.220
+one to the register, then
+
+21
+00:00:38.220 --> 00:00:40.200
+store the register back. A
+
+22
+00:00:40.200 --> 00:00:41.740
+decrement has its own load,
+
+23
+00:00:42.040 --> 00:00:44.280
+arithmetic and store. The registers
+
+24
+00:00:44.280 --> 00:00:46.620
+belong to the executing contexts;
+
+25
+00:00:46.620 --> 00:00:47.900
+the counter is the shared
+
+26
+00:00:47.900 --> 00:00:48.760
+memory location.
+
+27
+00:00:49.420 --> 00:00:51.400
+The producer loads five and
+
+28
+00:00:51.400 --> 00:00:52.980
+computes six, but has not
+
+29
+00:00:52.980 --> 00:00:55.200
+yet stored it. A context
+
+30
+00:00:55.200 --> 00:00:57.400
+switch preserves that register value
+
+31
+00:00:57.400 --> 00:00:59.580
+while the consumer runs. The
+
+32
+00:00:59.580 --> 00:01:01.440
+shared counter still holds five,
+
+33
+00:01:01.440 --> 00:01:03.260
+so the consumer can load
+
+34
+00:01:03.260 --> 00:01:04.940
+the old value too.
+
+35
+00:01:05.140 --> 00:01:07.320
+The consumer subtracts one and
+
+36
+00:01:07.320 --> 00:01:08.740
+obtains four in its own
+
+37
+00:01:08.740 --> 00:01:11.420
+register. Both arithmetic results now
+
+38
+00:01:11.420 --> 00:01:13.720
+exist privately: six and four.
+
+39
+00:01:14.300 --> 00:01:16.420
+Neither result represents both updates
+
+40
+00:01:16.420 --> 00:01:17.420
+applied in sequence.
+
+41
+00:01:18.380 --> 00:01:20.260
+The producer resumes and stores
+
+42
+00:01:20.260 --> 00:01:21.860
+six into the shared counter.
+
+43
+00:01:22.320 --> 00:01:24.080
+Then the consumer resumes and
+
+44
+00:01:24.080 --> 00:01:26.000
+stores four, overwriting that first
+
+45
+00:01:26.000 --> 00:01:28.160
+result. The final counter is
+
+46
+00:01:28.160 --> 00:01:29.480
+four rather than the expected
+
+47
+00:01:29.480 --> 00:01:31.600
+five, which is the lost-update
+
+48
+00:01:31.600 --> 00:01:32.940
+problem shown in the lecture.
+
+49
+00:01:33.300 --> 00:01:35.120
+Reverse the final two stores
+
+50
+00:01:35.380 --> 00:01:36.720
+and the result can instead
+
+51
+00:01:36.720 --> 00:01:39.060
+be six. That different outcome
+
+52
+00:01:39.060 --> 00:01:40.660
+is not a different arithmetic
+
+53
+00:01:40.660 --> 00:01:42.600
+rule; it is another legal
+
+54
+00:01:42.860 --> 00:01:45.740
+unsynchronized interleaving. A race concerns
+
+55
+00:01:45.740 --> 00:01:48.340
+conflicting shared access, including at
+
+56
+00:01:48.340 --> 00:01:49.500
+least one modification.
+
+57
+00:01:50.300 --> 00:01:52.500
+Mutual exclusion can protect the
+
+58
+00:01:52.500 --> 00:01:54.580
+whole update sequence so one
+
+59
+00:01:54.580 --> 00:01:56.800
+process completes its read, modify
+
+60
+00:01:56.800 --> 00:01:58.280
+and write before the other
+
+61
+00:01:58.280 --> 00:02:01.120
+enters. Merely preserving each process
+
+62
+00:02:01.120 --> 00:02:02.700
+registers during a switch does
+
+63
+00:02:02.700 --> 00:02:05.180
+not provide this exclusion. Correct
+
+64
+00:02:05.180 --> 00:02:07.320
+context switching can coexist with
+
+65
+00:02:07.320 --> 00:02:09.280
+an incorrect shared-data protocol.
+
+66
+00:02:10.180 --> 00:02:12.540
+Two processes with only separate
+
+67
+00:02:12.540 --> 00:02:14.400
+private counters do not share
+
+68
+00:02:14.400 --> 00:02:17.100
+this same memory location. Threads
+
+69
+00:02:17.100 --> 00:02:19.060
+in one address space, explicit
+
+70
+00:02:19.060 --> 00:02:21.080
+shared memory, or shared kernel
+
+71
+00:02:21.080 --> 00:02:22.580
+data can create the shared
+
+72
+00:02:22.580 --> 00:02:25.560
+access instead. Identify the actual
+
+73
+00:02:25.560 --> 00:02:27.400
+storage and access path before
+
+74
+00:02:27.400 --> 00:02:29.720
+labeling every concurrent example a
+
+75
+00:02:29.720 --> 00:02:29.960
+race.
+
+76
+00:02:30.380 --> 00:02:31.720
+Things to take note of.
+
+77
+00:02:32.060 --> 00:02:33.820
+Expand source statements into reads,
+
+78
+00:02:33.820 --> 00:02:36.120
+arithmetic and writes, track private
+
+79
+00:02:36.120 --> 00:02:38.020
+registers separately, and name the
+
+80
+00:02:38.020 --> 00:02:39.740
+interleaving that loses an update.
+
+81
+00:02:40.180 --> 00:02:41.720
+The expected answer follows from
+
+82
+00:02:41.720 --> 00:02:43.660
+the required combined effect, not
+
+83
+00:02:43.660 --> 00:02:45.260
+from whichever final store happens
+
+84
+00:02:45.260 --> 00:02:45.960
+to run last.

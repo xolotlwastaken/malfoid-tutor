@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.980
+What makes an operating system
+
+2
+00:00:01.980 --> 00:00:04.700
+real time? Correctness depends on
+
+3
+00:00:04.700 --> 00:00:06.480
+producing the right result within
+
+4
+00:00:06.480 --> 00:00:08.620
+its timing requirement. A low
+
+5
+00:00:08.620 --> 00:00:10.520
+average response time alone cannot
+
+6
+00:00:10.520 --> 00:00:12.940
+establish that every important deadline
+
+7
+00:00:12.940 --> 00:00:13.620
+will be met.
+
+8
+00:00:14.140 --> 00:00:16.460
+A hard real-time requirement treats
+
+9
+00:00:16.460 --> 00:00:18.420
+a missed deadline as unacceptable
+
+10
+00:00:18.420 --> 00:00:20.520
+for the specified task. A
+
+11
+00:00:20.520 --> 00:00:22.600
+soft requirement allows degraded value
+
+12
+00:00:22.600 --> 00:00:23.880
+or service when a result
+
+13
+00:00:23.880 --> 00:00:26.500
+arrives late. Apply the distinction
+
+14
+00:00:26.500 --> 00:00:28.240
+to the stated application instead
+
+15
+00:00:28.240 --> 00:00:29.480
+of assuming that any fast
+
+16
+00:00:29.480 --> 00:00:30.780
+computer is real time.
+
+17
+00:00:31.300 --> 00:00:33.100
+The course job notation contains
+
+18
+00:00:33.100 --> 00:00:35.860
+release R, execution demand C,
+
+19
+00:00:36.120 --> 00:00:38.460
+and relative deadline D. Its
+
+20
+00:00:38.460 --> 00:00:40.420
+absolute deadline is R plus
+
+21
+00:00:40.420 --> 00:00:41.980
+D. A release says when
+
+22
+00:00:41.980 --> 00:00:43.700
+the job becomes eligible, while
+
+23
+00:00:43.700 --> 00:00:45.580
+execution demand says how much
+
+24
+00:00:45.580 --> 00:00:47.060
+processor service it needs.
+
+25
+00:00:47.500 --> 00:00:49.200
+For an authored job released
+
+26
+00:00:49.200 --> 00:00:51.080
+at time five with execution
+
+27
+00:00:51.080 --> 00:00:53.240
+demand two and relative deadline
+
+28
+00:00:53.240 --> 00:00:55.780
+seven, the absolute deadline is
+
+29
+00:00:55.780 --> 00:00:57.460
+twelve. If it starts at
+
+30
+00:00:57.460 --> 00:00:59.340
+nine and runs continuously for
+
+31
+00:00:59.340 --> 00:01:01.280
+two units, it finishes at
+
+32
+00:01:01.280 --> 00:01:03.100
+eleven. It has waited four
+
+33
+00:01:03.100 --> 00:01:04.780
+units and still meets its
+
+34
+00:01:04.780 --> 00:01:05.180
+deadline.
+
+35
+00:01:05.700 --> 00:01:07.700
+For a periodic task, the
+
+36
+00:01:07.700 --> 00:01:09.840
+first parameter is period T
+
+37
+00:01:10.420 --> 00:01:11.840
+rather than one release time.
+
+38
+00:01:12.320 --> 00:01:14.320
+Instances arrive at zero, T,
+
+39
+00:01:14.720 --> 00:01:16.040
+twice T, and so on,
+
+40
+00:01:16.460 --> 00:01:18.200
+each carrying its own execution
+
+41
+00:01:18.200 --> 00:01:20.620
+demand and absolute deadline. A
+
+42
+00:01:20.620 --> 00:01:22.080
+fresh release does not erase
+
+43
+00:01:22.080 --> 00:01:23.820
+an unfinished previous instance.
+
+44
+00:01:24.380 --> 00:01:26.180
+Consider a task with period
+
+45
+00:01:26.180 --> 00:01:28.960
+ten, execution demand six, and
+
+46
+00:01:28.960 --> 00:01:31.320
+relative deadline ten. Its first
+
+47
+00:01:31.320 --> 00:01:32.740
+instance is released at zero
+
+48
+00:01:32.740 --> 00:01:34.900
+with deadline ten, then another
+
+49
+00:01:34.900 --> 00:01:36.760
+arrives at ten with deadline
+
+50
+00:01:36.760 --> 00:01:39.200
+twenty. Keep the instance identities
+
+51
+00:01:39.200 --> 00:01:41.400
+separate when drawing preemption and
+
+52
+00:01:41.400 --> 00:01:42.420
+remaining execution.
+
+53
+00:01:42.900 --> 00:01:45.320
+Rate monotonic uses a fixed
+
+54
+00:01:45.320 --> 00:01:47.720
+task priority determined by period:
+
+55
+00:01:48.260 --> 00:01:50.460
+shorter period means higher priority.
+
+56
+00:01:51.060 --> 00:01:53.440
+Deadline monotonic uses shorter relative
+
+57
+00:01:53.440 --> 00:01:56.100
+deadline instead. They coincide only
+
+58
+00:01:56.100 --> 00:01:57.580
+when the relevant ordering keys
+
+59
+00:01:57.580 --> 00:01:58.900
+happen to produce the same
+
+60
+00:01:58.900 --> 00:01:59.260
+order.
+
+61
+00:02:00.340 --> 00:02:02.320
+Earliest deadline first compares the
+
+62
+00:02:02.320 --> 00:02:04.280
+absolute deadlines of ready job
+
+63
+00:02:04.280 --> 00:02:06.740
+instances. The ranking can change
+
+64
+00:02:06.740 --> 00:02:08.800
+as instances arrive, so it
+
+65
+00:02:08.800 --> 00:02:11.460
+is a dynamic-priority policy. It
+
+66
+00:02:11.460 --> 00:02:13.100
+does not mean shortest execution
+
+67
+00:02:13.100 --> 00:02:15.360
+demand or smallest relative deadline
+
+68
+00:02:15.360 --> 00:02:16.980
+considered without release time.
+
+69
+00:02:18.020 --> 00:02:20.400
+Mark releases, completion times and
+
+70
+00:02:20.400 --> 00:02:23.160
+absolute deadlines before calculating any
+
+71
+00:02:23.160 --> 00:02:25.440
+average. A job still requiring
+
+72
+00:02:25.440 --> 00:02:27.460
+execution when its deadline arrives
+
+73
+00:02:27.460 --> 00:02:29.920
+has missed it. Finishing exactly
+
+74
+00:02:29.920 --> 00:02:31.300
+at a deadline counts as
+
+75
+00:02:31.300 --> 00:02:32.400
+meeting it in the interval
+
+76
+00:02:32.400 --> 00:02:33.380
+model used here.
+
+77
+00:02:33.900 --> 00:02:35.240
+Things to take note of.
+
+78
+00:02:35.600 --> 00:02:38.860
+Separate release, execution demand, period
+
+79
+00:02:38.860 --> 00:02:41.280
+and relative deadline, then compute
+
+80
+00:02:41.280 --> 00:02:44.140
+each instance absolute deadline. Use
+
+81
+00:02:44.140 --> 00:02:46.460
+the scheduling policy actual comparison
+
+82
+00:02:46.460 --> 00:02:48.180
+key and test the deadline
+
+83
+00:02:48.180 --> 00:02:49.880
+of each job, not just
+
+84
+00:02:49.880 --> 00:02:51.300
+the average completion time.

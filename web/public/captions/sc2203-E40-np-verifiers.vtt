@@ -1,0 +1,385 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.380
+What is NP, and how
+
+2
+00:00:02.380 --> 00:00:03.240
+do you write a verifier
+
+3
+00:00:03.240 --> 00:00:05.800
+proof? A yes instance must
+
+4
+00:00:05.800 --> 00:00:07.300
+have a certificate of polynomial
+
+5
+00:00:07.300 --> 00:00:09.620
+encoded length that a deterministic
+
+6
+00:00:09.620 --> 00:00:13.020
+polynomial-time verifier accepts. A no
+
+7
+00:00:13.020 --> 00:00:14.780
+instance must make every allowed
+
+8
+00:00:14.780 --> 00:00:17.020
+certificate fail, so a convincing
+
+9
+00:00:17.020 --> 00:00:18.500
+example alone is not enough.
+
+10
+00:00:18.860 --> 00:00:21.560
+This is equivalent to polynomial-time
+
+11
+00:00:21.560 --> 00:00:25.580
+nondeterministic computation. One direction records
+
+12
+00:00:25.580 --> 00:00:27.340
+an accepting machine’s choices as
+
+13
+00:00:27.340 --> 00:00:29.360
+a certificate and simulates them
+
+14
+00:00:29.360 --> 00:00:31.840
+deterministically. The other guesses a
+
+15
+00:00:31.840 --> 00:00:34.240
+polynomial-length certificate and runs the
+
+16
+00:00:34.240 --> 00:00:36.640
+verifier, with every branch obeying
+
+17
+00:00:36.640 --> 00:00:38.140
+a polynomial time bound.
+
+18
+00:00:38.500 --> 00:00:40.480
+Consider the Vertex Cover decision
+
+19
+00:00:40.480 --> 00:00:42.500
+language: a graph and integer
+
+20
+00:00:42.500 --> 00:00:43.960
+k asking for a cover
+
+21
+00:00:43.960 --> 00:00:45.340
+of size at most k.
+
+22
+00:00:45.880 --> 00:00:47.140
+A certificate can be one
+
+23
+00:00:47.140 --> 00:00:49.280
+selection bit per vertex. The
+
+24
+00:00:49.280 --> 00:00:51.440
+verifier counts selected vertices and
+
+25
+00:00:51.440 --> 00:00:52.900
+checks that every edge has
+
+26
+00:00:52.900 --> 00:00:54.380
+at least one selected endpoint.
+
+27
+00:00:54.940 --> 00:00:56.040
+If the graph has a
+
+28
+00:00:56.040 --> 00:00:58.220
+suitable cover, its selection mask
+
+29
+00:00:58.220 --> 00:01:00.500
+passes all checks. If a
+
+30
+00:01:00.500 --> 00:01:02.320
+mask passes, the size bound
+
+31
+00:01:02.320 --> 00:01:03.900
+and edge checks prove that
+
+32
+00:01:03.900 --> 00:01:05.000
+it really is a suitable
+
+33
+00:01:05.000 --> 00:01:07.300
+cover, so no no-instance can
+
+34
+00:01:07.300 --> 00:01:09.300
+fool the verifier. The mask
+
+35
+00:01:09.300 --> 00:01:11.100
+length and all explicit graph
+
+36
+00:01:11.100 --> 00:01:12.680
+checks are polynomial in the
+
+37
+00:01:12.680 --> 00:01:13.380
+input encoding.
+
+38
+00:01:14.180 --> 00:01:16.180
+For Independent Set or Clique,
+
+39
+00:01:16.880 --> 00:01:18.240
+give a vertex subset and
+
+40
+00:01:18.240 --> 00:01:19.880
+check its cardinality and all
+
+41
+00:01:19.880 --> 00:01:22.540
+selected pairs. Independent Set forbids
+
+42
+00:01:22.540 --> 00:01:24.660
+every internal edge, while Clique
+
+43
+00:01:24.660 --> 00:01:26.120
+requires every pair to have
+
+44
+00:01:26.120 --> 00:01:27.640
+an edge. A proof that
+
+45
+00:01:27.640 --> 00:01:28.900
+checks only a few listed
+
+46
+00:01:28.900 --> 00:01:30.800
+edges does not verify the
+
+47
+00:01:30.800 --> 00:01:31.880
+universal pair condition.
+
+48
+00:01:32.460 --> 00:01:34.760
+For a Hamiltonian cycle, the
+
+49
+00:01:34.760 --> 00:01:36.500
+certificate is an ordering of
+
+50
+00:01:36.500 --> 00:01:39.580
+all vertices. Verify valid names,
+
+51
+00:01:39.940 --> 00:01:43.080
+no repetitions, complete coverage, every
+
+52
+00:01:43.080 --> 00:01:45.080
+consecutive edge and the closing
+
+53
+00:01:45.080 --> 00:01:46.280
+edge back to the start.
+
+54
+00:01:46.900 --> 00:01:48.940
+A path verifier omits cycle
+
+55
+00:01:48.940 --> 00:01:52.140
+closure, while a longest-simple-path verifier
+
+56
+00:01:52.140 --> 00:01:54.660
+must also enforce distinct vertices
+
+57
+00:01:54.660 --> 00:01:57.000
+and the requested length threshold.
+
+58
+00:01:57.620 --> 00:02:00.080
+For SAT, a truth assignment
+
+59
+00:02:00.080 --> 00:02:02.400
+is the certificate and evaluating
+
+60
+00:02:02.400 --> 00:02:04.840
+all clauses is polynomial in
+
+61
+00:02:04.840 --> 00:02:07.020
+the formula length. For Subset
+
+62
+00:02:07.020 --> 00:02:08.880
+Sum, use a bit mask
+
+63
+00:02:08.880 --> 00:02:11.260
+selecting input indices and check
+
+64
+00:02:11.260 --> 00:02:12.820
+the binary sum against the
+
+65
+00:02:12.820 --> 00:02:15.580
+target. Repeated equal values still
+
+66
+00:02:15.580 --> 00:02:18.620
+occupy different indices, and polynomially
+
+67
+00:02:18.620 --> 00:02:20.820
+many additions keep polynomial bit
+
+68
+00:02:20.820 --> 00:02:21.120
+lengths.
+
+69
+00:02:21.660 --> 00:02:23.620
+A verifier need not find
+
+70
+00:02:23.620 --> 00:02:26.520
+the certificate efficiently. NP membership
+
+71
+00:02:26.520 --> 00:02:28.120
+asserts that a suitable short
+
+72
+00:02:28.120 --> 00:02:29.840
+witness exists and can be
+
+73
+00:02:29.840 --> 00:02:31.720
+checked, not that searching for
+
+74
+00:02:31.720 --> 00:02:33.120
+it is already known polynomial.
+
+75
+00:02:33.960 --> 00:02:36.920
+Likewise, NP means nondeterministic polynomial
+
+76
+00:02:36.920 --> 00:02:39.300
+time, not non-polynomial time.
+
+77
+00:02:39.620 --> 00:02:42.360
+Deterministic polynomial algorithms are a
+
+78
+00:02:42.360 --> 00:02:44.460
+special case of nondeterministic ones,
+
+79
+00:02:44.780 --> 00:02:46.440
+giving P contained in NP.
+
+80
+00:02:47.200 --> 00:02:49.760
+Enumerating all polynomial-size certificates gives
+
+81
+00:02:49.760 --> 00:02:52.440
+an exponential deterministic bound, placing
+
+82
+00:02:52.440 --> 00:02:55.080
+NP within EXP. The known
+
+83
+00:02:55.080 --> 00:02:57.120
+separation of P from EXP
+
+84
+00:02:57.120 --> 00:02:58.760
+does not decide which intermediate
+
+85
+00:02:58.760 --> 00:03:00.580
+inclusion is strict or settle
+
+86
+00:03:00.580 --> 00:03:01.740
+P versus NP.
+
+87
+00:03:02.700 --> 00:03:04.020
+Things to take note of.
+
+88
+00:03:04.500 --> 00:03:07.100
+Specify the decision language, certificate
+
+89
+00:03:07.100 --> 00:03:09.640
+encoding, length bound, all verifier
+
+90
+00:03:09.640 --> 00:03:11.680
+checks and a polynomial bit-time
+
+91
+00:03:11.680 --> 00:03:14.700
+analysis. Explain both why genuine
+
+92
+00:03:14.700 --> 00:03:16.360
+yes instances have a passing
+
+93
+00:03:16.360 --> 00:03:18.360
+certificate and why no instance
+
+94
+00:03:18.360 --> 00:03:20.500
+can pass; the phrase easy
+
+95
+00:03:20.500 --> 00:03:21.580
+to check is only the
+
+96
+00:03:21.580 --> 00:03:22.520
+beginning of the proof.

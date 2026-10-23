@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.140
+How does a pushdown automaton
+
+2
+00:00:02.140 --> 00:00:04.920
+simulate a grammar? Keep the
+
+3
+00:00:04.920 --> 00:00:06.440
+unfinished part of a guessed
+
+4
+00:00:06.440 --> 00:00:08.480
+leftmost derivation on the stack,
+
+5
+00:00:08.900 --> 00:00:11.100
+expanding variables and matching terminals
+
+6
+00:00:11.100 --> 00:00:13.080
+to input. We will compile
+
+7
+00:00:13.080 --> 00:00:15.020
+S becoming zero S one
+
+8
+00:00:15.020 --> 00:00:16.900
+or epsilon into a machine
+
+9
+00:00:16.900 --> 00:00:17.740
+and trace zero zero one
+
+10
+00:00:17.740 --> 00:00:19.020
+one.
+
+11
+00:00:19.580 --> 00:00:21.300
+Initialize the stack with S
+
+12
+00:00:21.300 --> 00:00:22.920
+above a fresh dollar marker.
+
+13
+00:00:23.380 --> 00:00:24.840
+An epsilon move can replace
+
+14
+00:00:24.840 --> 00:00:26.120
+a top variable by the
+
+15
+00:00:26.120 --> 00:00:27.580
+right side of any production
+
+16
+00:00:27.580 --> 00:00:29.820
+for that variable. For our
+
+17
+00:00:29.820 --> 00:00:31.720
+grammar, the choices are replacing
+
+18
+00:00:31.720 --> 00:00:33.500
+S by zero S one
+
+19
+00:00:33.500 --> 00:00:35.500
+or removing S using its
+
+20
+00:00:35.500 --> 00:00:36.600
+epsilon production.
+
+21
+00:00:37.460 --> 00:00:39.780
+The push-string shorthand must leave
+
+22
+00:00:39.780 --> 00:00:41.600
+the first right-side symbol on
+
+23
+00:00:41.600 --> 00:00:42.840
+top. To push zero S
+
+24
+00:00:42.840 --> 00:00:46.640
+one using single-symbol operations, push
+
+25
+00:00:46.640 --> 00:00:48.540
+one first, then S, then
+
+26
+00:00:48.540 --> 00:00:50.940
+zero. Pushing in written order
+
+27
+00:00:50.940 --> 00:00:52.900
+would reverse the intended unfinished
+
+28
+00:00:52.900 --> 00:00:54.760
+word and would not simulate
+
+29
+00:00:54.760 --> 00:00:55.340
+the grammar.
+
+30
+00:00:55.740 --> 00:00:57.940
+From stack zero S one
+
+31
+00:00:57.940 --> 00:00:59.900
+dollar, read the first zero
+
+32
+00:00:59.900 --> 00:01:01.640
+and pop that same terminal.
+
+33
+00:01:02.080 --> 00:01:03.180
+The remaining stack is S
+
+34
+00:01:03.180 --> 00:01:05.660
+one dollar. The invariant says
+
+35
+00:01:05.660 --> 00:01:08.020
+the consumed prefix followed by
+
+36
+00:01:08.020 --> 00:01:10.020
+the stack’s unfinished portion is
+
+37
+00:01:10.020 --> 00:01:11.500
+a sentential form of a
+
+38
+00:01:11.500 --> 00:01:12.440
+guessed derivation.
+
+39
+00:01:12.740 --> 00:01:14.580
+Expand the remaining S once
+
+40
+00:01:14.580 --> 00:01:16.140
+more using the wrapping rule.
+
+41
+00:01:16.540 --> 00:01:18.000
+Because a one was already
+
+42
+00:01:18.000 --> 00:01:19.660
+below it, the new stack
+
+43
+00:01:19.660 --> 00:01:21.220
+is zero S one one
+
+44
+00:01:21.220 --> 00:01:23.280
+dollar. Read and pop the
+
+45
+00:01:23.280 --> 00:01:25.460
+next zero, leaving S one
+
+46
+00:01:25.460 --> 00:01:27.200
+one dollar while the unread
+
+47
+00:01:27.200 --> 00:01:28.740
+input is one one.
+
+48
+00:01:28.940 --> 00:01:31.060
+Now choose the epsilon production
+
+49
+00:01:31.060 --> 00:01:32.820
+for S. Removing the variable
+
+50
+00:01:32.820 --> 00:01:34.700
+leaves two terminal ones on
+
+51
+00:01:34.700 --> 00:01:36.840
+the stack, exactly the unread
+
+52
+00:01:36.840 --> 00:01:38.320
+suffix. Match and pop each
+
+53
+00:01:38.320 --> 00:01:40.180
+one, exposing the bottom marker
+
+54
+00:01:40.180 --> 00:01:41.380
+with no input left.
+
+55
+00:01:41.940 --> 00:01:43.600
+The final move pops the
+
+56
+00:01:43.600 --> 00:01:45.120
+marker and enters the accepting
+
+57
+00:01:45.120 --> 00:01:47.140
+state. It succeeds as an
+
+58
+00:01:47.140 --> 00:01:49.180
+accepting computation only after the
+
+59
+00:01:49.180 --> 00:01:50.780
+entire input has been read.
+
+60
+00:01:51.380 --> 00:01:53.040
+Replacing the marker test by
+
+61
+00:01:53.040 --> 00:01:55.100
+epsilon pop would allow leaving
+
+62
+00:01:55.100 --> 00:01:57.160
+unmatched generated terminals on the
+
+63
+00:01:57.160 --> 00:01:57.520
+stack.
+
+64
+00:01:58.060 --> 00:02:00.660
+The tutorial’s wrong construction accepts
+
+65
+00:02:00.660 --> 00:02:03.100
+zero zero one even though
+
+66
+00:02:03.100 --> 00:02:05.360
+a generated one remains unmatched.
+
+67
+00:02:05.860 --> 00:02:07.860
+Its final epsilon, epsilon to
+
+68
+00:02:07.860 --> 00:02:09.620
+epsilon arrow ignores the stack
+
+69
+00:02:09.620 --> 00:02:11.720
+entirely and can fire anyway.
+
+70
+00:02:12.320 --> 00:02:14.340
+The dollar-marker condition prevents that
+
+71
+00:02:14.340 --> 00:02:16.520
+false acceptance, rather than merely
+
+72
+00:02:16.520 --> 00:02:17.820
+decorating the diagram.
+
+73
+00:02:18.340 --> 00:02:20.480
+For correctness, an accepting machine
+
+74
+00:02:20.480 --> 00:02:22.620
+run records a successful sequence
+
+75
+00:02:22.620 --> 00:02:24.620
+of grammar expansions and terminal
+
+76
+00:02:24.620 --> 00:02:26.600
+matches, so its input is
+
+77
+00:02:26.600 --> 00:02:29.220
+generated. Conversely, follow a leftmost
+
+78
+00:02:29.220 --> 00:02:31.300
+derivation and choose exactly its
+
+79
+00:02:31.300 --> 00:02:33.080
+productions to obtain an accepting
+
+80
+00:02:33.080 --> 00:02:35.440
+branch. Other branches may get
+
+81
+00:02:35.440 --> 00:02:37.800
+stuck or expand forever, which
+
+82
+00:02:37.800 --> 00:02:39.800
+is harmless for existential recognition.
+
+83
+00:02:40.380 --> 00:02:41.660
+Things to take note of.
+
+84
+00:02:42.080 --> 00:02:44.400
+Distinguish variable expansion from terminal
+
+85
+00:02:44.400 --> 00:02:46.580
+matching, use reverse primitive push
+
+86
+00:02:46.580 --> 00:02:48.440
+order, and keep the consumed-prefix
+
+87
+00:02:48.440 --> 00:02:51.860
+plus unfinished-stack invariant. Acceptance needs
+
+88
+00:02:51.860 --> 00:02:53.660
+both input exhaustion and the
+
+89
+00:02:53.660 --> 00:02:55.820
+marker-based finish; a guessed production
+
+90
+00:02:55.820 --> 00:02:56.980
+is not knowledge of the
+
+91
+00:02:56.980 --> 00:02:57.880
+correct derivation.

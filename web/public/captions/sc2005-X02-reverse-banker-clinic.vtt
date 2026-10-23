@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.340
+How do you solve a
+
+2
+00:00:01.340 --> 00:00:03.760
+reverse Banker’s question? When Available
+
+3
+00:00:03.760 --> 00:00:06.300
+contains unknowns, derive constraints from
+
+4
+00:00:06.300 --> 00:00:07.940
+the safety test rather than
+
+5
+00:00:07.940 --> 00:00:09.620
+guessing a large resource total.
+
+6
+00:00:10.320 --> 00:00:12.140
+Every component must support a
+
+7
+00:00:12.140 --> 00:00:14.080
+complete feasible sequence after the
+
+8
+00:00:14.080 --> 00:00:14.900
+proposed request.
+
+9
+00:00:15.500 --> 00:00:18.300
+The photographed four-process problem starts
+
+10
+00:00:18.300 --> 00:00:20.040
+with Available x, y, two
+
+11
+00:00:20.040 --> 00:00:21.820
+and asks about P one
+
+12
+00:00:21.820 --> 00:00:24.060
+requesting one, zero, two. After
+
+13
+00:00:24.060 --> 00:00:26.320
+provisionally granting it, Work is
+
+14
+00:00:26.320 --> 00:00:28.080
+x minus one, y, zero.
+
+15
+00:00:28.680 --> 00:00:30.260
+The third component is now
+
+16
+00:00:30.260 --> 00:00:32.180
+zero, restricting which row can
+
+17
+00:00:32.180 --> 00:00:32.760
+finish first.
+
+18
+00:00:33.220 --> 00:00:35.100
+P one, P two and
+
+19
+00:00:35.100 --> 00:00:36.640
+P four still need a
+
+20
+00:00:36.640 --> 00:00:38.100
+positive amount of the third
+
+21
+00:00:38.100 --> 00:00:40.740
+resource. Only P three has
+
+22
+00:00:40.740 --> 00:00:42.340
+zero remaining need in that
+
+23
+00:00:42.340 --> 00:00:45.080
+column. Its first-resource need is
+
+24
+00:00:45.080 --> 00:00:47.300
+six, so x minus one
+
+25
+00:00:47.300 --> 00:00:48.520
+must be at least six
+
+26
+00:00:48.520 --> 00:00:50.020
+and x must be at
+
+27
+00:00:50.020 --> 00:00:50.680
+least seven.
+
+28
+00:00:51.180 --> 00:00:53.320
+P three releases three units
+
+29
+00:00:53.320 --> 00:00:55.580
+of resource A, zero of
+
+30
+00:00:55.580 --> 00:00:56.900
+B, and two of C.
+
+31
+00:00:56.900 --> 00:00:59.320
+P four then releases two
+
+32
+00:00:59.320 --> 00:01:00.820
+of A, one of B,
+
+33
+00:01:01.140 --> 00:01:01.720
+and one of C. P
+
+34
+00:01:01.720 --> 00:01:03.860
+two releases two of A
+
+35
+00:01:04.080 --> 00:01:05.220
+and nothing from B or
+
+36
+00:01:05.220 --> 00:01:07.880
+C, so Work grows through
+
+37
+00:01:07.880 --> 00:01:10.160
+returned allocations rather than extra
+
+38
+00:01:10.160 --> 00:01:11.280
+external resources.
+
+39
+00:01:11.780 --> 00:01:14.340
+P one remaining second-resource need
+
+40
+00:01:14.340 --> 00:01:16.140
+is four. Before its final
+
+41
+00:01:16.140 --> 00:01:18.540
+completion, the other relevant releases
+
+42
+00:01:18.540 --> 00:01:20.160
+add only one unit to
+
+43
+00:01:20.160 --> 00:01:22.380
+the initial second-resource amount y.
+
+44
+00:01:22.980 --> 00:01:25.100
+Therefore y plus one must
+
+45
+00:01:25.100 --> 00:01:27.180
+reach four, forcing y to
+
+46
+00:01:27.180 --> 00:01:28.160
+be at least three.
+
+47
+00:01:28.700 --> 00:01:30.200
+At the minimum pair seven,
+
+48
+00:01:30.200 --> 00:01:32.160
+three, the provisional Work is
+
+49
+00:01:32.160 --> 00:01:33.740
+six, three, zero. The safe
+
+50
+00:01:33.740 --> 00:01:35.300
+order P three, P four,
+
+51
+00:01:35.500 --> 00:01:36.680
+P two, P one grows
+
+52
+00:01:36.680 --> 00:01:38.320
+Work through nine, three, two;
+
+53
+00:01:38.580 --> 00:01:40.880
+eleven, four, three; thirteen, four,
+
+54
+00:01:40.880 --> 00:01:42.860
+three; and fourteen, five, five.
+
+55
+00:01:43.280 --> 00:01:45.420
+The complete sequence proves sufficiency
+
+56
+00:01:45.720 --> 00:01:46.980
+as well as the earlier
+
+57
+00:01:46.980 --> 00:01:47.900
+necessary bounds.
+
+58
+00:01:48.340 --> 00:01:50.580
+A second photographed matrix starts
+
+59
+00:01:50.580 --> 00:01:52.480
+at Available one, zero, one.
+
+60
+00:01:53.160 --> 00:01:54.880
+Its unique safe order is
+
+61
+00:01:54.880 --> 00:01:56.680
+P zero, P three, P
+
+62
+00:01:56.680 --> 00:01:59.420
+one, P two. Uniqueness here
+
+63
+00:01:59.420 --> 00:02:01.260
+follows because only one unfinished
+
+64
+00:02:01.260 --> 00:02:02.860
+row fits at each step,
+
+65
+00:02:03.160 --> 00:02:04.700
+not because Banker always has
+
+66
+00:02:04.700 --> 00:02:05.460
+a unique answer.
+
+67
+00:02:05.980 --> 00:02:07.720
+Let P three request one,
+
+68
+00:02:08.100 --> 00:02:09.920
+zero, zero in that second
+
+69
+00:02:09.920 --> 00:02:12.300
+matrix. The request respects its
+
+70
+00:02:12.300 --> 00:02:15.000
+claim and immediate availability, but
+
+71
+00:02:15.000 --> 00:02:17.320
+the provisional Work becomes zero,
+
+72
+00:02:17.540 --> 00:02:19.840
+zero, one. No unfinished Need
+
+73
+00:02:19.840 --> 00:02:21.440
+row fits, so refuse the
+
+74
+00:02:21.440 --> 00:02:23.560
+unsafe request and restore the
+
+75
+00:02:23.560 --> 00:02:24.340
+original snapshot.
+
+76
+00:02:24.980 --> 00:02:26.780
+In a reverse problem, a
+
+77
+00:02:26.780 --> 00:02:29.000
+partial inequality such as y
+
+78
+00:02:29.000 --> 00:02:30.420
+at least one may permit
+
+79
+00:02:30.420 --> 00:02:32.300
+an intermediate step without permitting
+
+80
+00:02:32.300 --> 00:02:34.580
+the final process. Continue until
+
+81
+00:02:34.580 --> 00:02:36.140
+every row is finished. To
+
+82
+00:02:36.140 --> 00:02:37.920
+prove a minimum, give both
+
+83
+00:02:37.920 --> 00:02:39.660
+lower-bound reasoning and a full
+
+84
+00:02:39.660 --> 00:02:41.120
+safe witness at that bound.
+
+85
+00:02:41.500 --> 00:02:42.740
+Things to take note of.
+
+86
+00:02:43.060 --> 00:02:44.700
+Derive the forced first row,
+
+87
+00:02:44.940 --> 00:02:47.140
+propagate allocation releases, and keep
+
+88
+00:02:47.140 --> 00:02:49.340
+the unknown resource components separate.
+
+89
+00:02:49.820 --> 00:02:51.540
+An available request can still
+
+90
+00:02:51.540 --> 00:02:53.260
+fail safety, and a minimum
+
+91
+00:02:53.260 --> 00:02:55.280
+needs a complete completion sequence.

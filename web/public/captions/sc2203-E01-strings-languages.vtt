@@ -1,0 +1,677 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.080
+What are strings, languages, and
+
+2
+00:00:02.080 --> 00:00:04.060
+the empty string? These are
+
+3
+00:00:04.060 --> 00:00:06.080
+the objects every automaton will
+
+4
+00:00:06.080 --> 00:00:08.420
+read and classify. Confuse a
+
+5
+00:00:08.420 --> 00:00:09.280
+string with a set of
+
+6
+00:00:09.280 --> 00:00:10.860
+strings, and your beautiful proof
+
+7
+00:00:10.860 --> 00:00:12.320
+falls apart before it even
+
+8
+00:00:12.320 --> 00:00:12.660
+begins.
+
+9
+00:00:13.340 --> 00:00:15.100
+An alphabet is a finite,
+
+10
+00:00:15.100 --> 00:00:17.780
+nonempty set of symbols, usually
+
+11
+00:00:17.780 --> 00:00:19.920
+called Sigma. For this lesson,
+
+12
+00:00:20.120 --> 00:00:21.900
+choose the alphabet containing zero
+
+13
+00:00:21.900 --> 00:00:23.840
+and one. Those are symbols,
+
+14
+00:00:23.840 --> 00:00:25.780
+not numerical values that we
+
+15
+00:00:25.780 --> 00:00:26.520
+are about to add.
+
+16
+00:00:26.980 --> 00:00:28.500
+A string is a finite
+
+17
+00:00:28.500 --> 00:00:30.220
+sequence of symbols from that
+
+18
+00:00:30.220 --> 00:00:33.260
+alphabet. Take one, then zero,
+
+19
+00:00:33.500 --> 00:00:34.740
+then one, and place them
+
+20
+00:00:34.740 --> 00:00:35.960
+in that order to build
+
+21
+00:00:35.960 --> 00:00:37.600
+the string one zero one.
+
+22
+00:00:38.340 --> 00:00:40.520
+Repetition is allowed, and order
+
+23
+00:00:40.520 --> 00:00:40.880
+matters.
+
+24
+00:00:41.420 --> 00:00:42.700
+The length of a string
+
+25
+00:00:42.700 --> 00:00:44.700
+counts its symbols, not the
+
+26
+00:00:44.700 --> 00:00:46.940
+number it might represent. One
+
+27
+00:00:46.940 --> 00:00:48.880
+zero one contains three symbols,
+
+28
+00:00:49.300 --> 00:00:50.600
+so its length is three.
+
+29
+00:00:51.260 --> 00:00:52.760
+Even a string beginning with
+
+30
+00:00:52.760 --> 00:00:54.400
+zero keeps that zero in
+
+31
+00:00:54.400 --> 00:00:54.900
+its length.
+
+32
+00:00:55.300 --> 00:00:58.200
+Now remove every symbol, leaving
+
+33
+00:00:58.200 --> 00:00:59.620
+a sequence of length zero.
+
+34
+00:01:00.340 --> 00:01:01.880
+That sequence is the empty
+
+35
+00:01:01.880 --> 00:01:04.220
+string, written epsilon. Epsilon names
+
+36
+00:01:04.220 --> 00:01:05.980
+the empty sequence; it is
+
+37
+00:01:05.980 --> 00:01:07.400
+not another symbol card hiding
+
+38
+00:01:07.400 --> 00:01:08.020
+in the alphabet.
+
+39
+00:01:08.460 --> 00:01:10.020
+Do not confuse the empty
+
+40
+00:01:10.020 --> 00:01:11.360
+string with the string containing
+
+41
+00:01:11.360 --> 00:01:13.260
+a single zero. The first
+
+42
+00:01:13.260 --> 00:01:14.600
+has length zero, while the
+
+43
+00:01:14.600 --> 00:01:16.600
+second has length one. Blank
+
+44
+00:01:16.600 --> 00:01:18.000
+space and a zero symbol
+
+45
+00:01:18.000 --> 00:01:20.020
+are rather different things, obviously.
+
+46
+00:01:20.580 --> 00:01:23.060
+Concatenation joins strings end to
+
+47
+00:01:23.060 --> 00:01:24.960
+end without rearranging their symbols.
+
+48
+00:01:25.480 --> 00:01:27.080
+Let x be one zero,
+
+49
+00:01:27.080 --> 00:01:28.480
+and let y be one.
+
+50
+00:01:28.780 --> 00:01:30.360
+Move y after x to
+
+51
+00:01:30.360 --> 00:01:32.140
+obtain x y, the string
+
+52
+00:01:32.140 --> 00:01:33.220
+one zero one.
+
+53
+00:01:33.740 --> 00:01:35.540
+Reversing that order gives y
+
+54
+00:01:35.540 --> 00:01:37.480
+x, which is one one
+
+55
+00:01:37.560 --> 00:01:39.960
+zero. So concatenation is generally
+
+56
+00:01:39.960 --> 00:01:42.280
+not commutative: changing the order
+
+57
+00:01:42.280 --> 00:01:44.340
+can change the string. Its
+
+58
+00:01:44.340 --> 00:01:46.380
+length is additive, because two
+
+59
+00:01:46.380 --> 00:01:48.040
+symbols followed by one symbol
+
+60
+00:01:48.040 --> 00:01:49.060
+gives three symbols.
+
+61
+00:01:49.540 --> 00:01:51.380
+What happens when we concatenate
+
+62
+00:01:51.380 --> 00:01:52.860
+epsilon with one zero one?
+
+63
+00:01:53.700 --> 00:01:55.360
+No symbol is added, so
+
+64
+00:01:55.360 --> 00:01:56.520
+the result is still one
+
+65
+00:01:56.520 --> 00:01:59.120
+zero one, whether epsilon comes
+
+66
+00:01:59.120 --> 00:02:01.160
+first or last. This is
+
+67
+00:02:01.160 --> 00:02:02.680
+why epsilon is the identity
+
+68
+00:02:02.680 --> 00:02:04.160
+for string concatenation.
+
+69
+00:02:05.180 --> 00:02:06.480
+A language is a set
+
+70
+00:02:06.480 --> 00:02:07.960
+of strings over an alphabet.
+
+71
+00:02:08.560 --> 00:02:10.620
+For example, let L contain
+
+72
+00:02:10.620 --> 00:02:13.160
+exactly the strings zero one
+
+73
+00:02:13.340 --> 00:02:15.000
+and one zero. The braces
+
+74
+00:02:15.000 --> 00:02:16.700
+collect two words into a
+
+75
+00:02:16.700 --> 00:02:18.300
+set; they are not symbols
+
+76
+00:02:18.300 --> 00:02:19.740
+inside either word.
+
+77
+00:02:20.260 --> 00:02:22.100
+A set ignores the order
+
+78
+00:02:22.100 --> 00:02:23.220
+in which its members are
+
+79
+00:02:23.220 --> 00:02:25.060
+listed, and listing a member
+
+80
+00:02:25.060 --> 00:02:27.940
+twice adds nothing. So reversing
+
+81
+00:02:27.940 --> 00:02:29.220
+the two entries in L
+
+82
+00:02:29.220 --> 00:02:31.800
+leaves the language unchanged. Notice
+
+83
+00:02:31.800 --> 00:02:34.400
+the contrast: rearranging members of
+
+84
+00:02:34.400 --> 00:02:36.120
+a language is harmless, but
+
+85
+00:02:36.120 --> 00:02:38.140
+rearranging symbols inside a string
+
+86
+00:02:38.140 --> 00:02:39.280
+may change the word.
+
+87
+00:02:39.660 --> 00:02:41.760
+Sigma star means all finite
+
+88
+00:02:41.760 --> 00:02:44.560
+strings over Sigma, including epsilon.
+
+89
+00:02:44.560 --> 00:02:46.440
+Over our binary alphabet, list
+
+90
+00:02:46.440 --> 00:02:48.360
+epsilon first, then zero and
+
+91
+00:02:48.360 --> 00:02:50.340
+one, then zero zero, zero
+
+92
+00:02:50.520 --> 00:02:51.600
+one, one zero, and one
+
+93
+00:02:51.600 --> 00:02:53.720
+one. Continue through longer lengths
+
+94
+00:02:53.720 --> 00:02:56.720
+forever, although every individual string
+
+95
+00:02:56.720 --> 00:02:58.060
+still has finite length.
+
+96
+00:02:58.420 --> 00:03:00.260
+Our language L has only
+
+97
+00:03:00.260 --> 00:03:02.200
+two strings, while Sigma star
+
+98
+00:03:02.200 --> 00:03:04.700
+contains infinitely many. A language
+
+99
+00:03:04.700 --> 00:03:06.400
+can therefore be finite or
+
+100
+00:03:06.400 --> 00:03:08.680
+infinite. Every language over Sigma
+
+101
+00:03:08.680 --> 00:03:09.920
+is a subset of Sigma
+
+102
+00:03:09.920 --> 00:03:10.300
+star.
+
+103
+00:03:10.940 --> 00:03:13.580
+Now compare three different objects:
+
+104
+00:03:14.220 --> 00:03:16.700
+epsilon, the empty language, and
+
+105
+00:03:16.700 --> 00:03:18.760
+the language containing only epsilon.
+
+106
+00:03:19.380 --> 00:03:21.200
+Epsilon is one string with
+
+107
+00:03:21.200 --> 00:03:23.500
+length zero. The empty language
+
+108
+00:03:23.500 --> 00:03:25.460
+has no members, while the
+
+109
+00:03:25.460 --> 00:03:28.100
+language containing epsilon has exactly
+
+110
+00:03:28.100 --> 00:03:28.820
+one member.
+
+111
+00:03:29.620 --> 00:03:32.180
+Consequently, epsilon belongs to the
+
+112
+00:03:32.180 --> 00:03:34.540
+language containing epsilon, but does
+
+113
+00:03:34.540 --> 00:03:35.780
+not belong to the empty
+
+114
+00:03:35.780 --> 00:03:38.420
+language. The membership symbol asks
+
+115
+00:03:38.420 --> 00:03:40.000
+whether a string is an
+
+116
+00:03:40.000 --> 00:03:41.740
+element of a language. The
+
+117
+00:03:41.740 --> 00:03:44.000
+subset symbol instead compares sets,
+
+118
+00:03:44.000 --> 00:03:45.740
+as when we say L
+
+119
+00:03:45.740 --> 00:03:47.080
+is a subset of Sigma
+
+120
+00:03:47.080 --> 00:03:47.380
+star.
+
+121
+00:03:47.820 --> 00:03:50.200
+We can concatenate languages too,
+
+122
+00:03:50.200 --> 00:03:52.840
+by concatenating every allowed pair
+
+123
+00:03:52.840 --> 00:03:55.420
+of strings. Concatenating L with
+
+124
+00:03:55.420 --> 00:03:57.300
+the language containing only epsilon
+
+125
+00:03:57.300 --> 00:03:59.800
+returns L, because epsilon leaves
+
+126
+00:03:59.800 --> 00:04:03.180
+each string unchanged. Concatenating L
+
+127
+00:04:03.180 --> 00:04:04.700
+with the empty language returns
+
+128
+00:04:04.700 --> 00:04:06.480
+the empty language, because there
+
+129
+00:04:06.480 --> 00:04:07.920
+is no second string to
+
+130
+00:04:07.920 --> 00:04:08.320
+choose.
+
+131
+00:04:08.740 --> 00:04:10.820
+For any language, star allows
+
+132
+00:04:10.820 --> 00:04:12.900
+concatenations of zero or more
+
+133
+00:04:12.900 --> 00:04:15.160
+of its words. Choosing zero
+
+134
+00:04:15.160 --> 00:04:17.240
+words produces epsilon, even when
+
+135
+00:04:17.240 --> 00:04:18.500
+the language has no words
+
+136
+00:04:18.500 --> 00:04:20.740
+to choose. Therefore, the star
+
+137
+00:04:20.740 --> 00:04:22.100
+of the empty language is
+
+138
+00:04:22.100 --> 00:04:24.160
+the language containing only epsilon,
+
+139
+00:04:24.720 --> 00:04:25.920
+not the empty language.
+
+140
+00:04:26.540 --> 00:04:28.020
+Things to take note of:
+
+141
+00:04:28.500 --> 00:04:30.000
+a symbol is one alphabet
+
+142
+00:04:30.000 --> 00:04:31.720
+item, a string is a
+
+143
+00:04:31.720 --> 00:04:33.580
+finite sequence, and a language
+
+144
+00:04:33.580 --> 00:04:34.500
+is a set of strings.
+
+145
+00:04:35.160 --> 00:04:37.280
+Epsilon has length zero, but
+
+146
+00:04:37.280 --> 00:04:39.160
+the language containing epsilon has
+
+147
+00:04:39.160 --> 00:04:41.480
+one member. String order matters,
+
+148
+00:04:41.980 --> 00:04:43.360
+set listing order does not,
+
+149
+00:04:43.360 --> 00:04:46.040
+and star always includes epsilon.
+
+150
+00:04:46.740 --> 00:04:48.420
+Quick check: is the statement
+
+151
+00:04:48.420 --> 00:04:50.000
+that epsilon belongs to the
+
+152
+00:04:50.000 --> 00:04:51.740
+empty language true or false?
+
+153
+00:04:52.100 --> 00:04:53.420
+It is false, because an
+
+154
+00:04:53.420 --> 00:04:55.060
+empty set contains no strings
+
+155
+00:04:55.060 --> 00:04:57.080
+at all. But epsilon does
+
+156
+00:04:57.080 --> 00:04:58.280
+belong to the star of
+
+157
+00:04:58.280 --> 00:05:00.260
+the empty language, because zero
+
+158
+00:05:00.260 --> 00:05:01.560
+repetitions are allowed.
+
+159
+00:05:02.060 --> 00:05:04.300
+Before moving on, write one
+
+160
+00:05:04.300 --> 00:05:06.400
+string, one language containing it,
+
+161
+00:05:06.520 --> 00:05:07.780
+and that language as a
+
+162
+00:05:07.780 --> 00:05:09.640
+subset of Sigma star. Then
+
+163
+00:05:09.640 --> 00:05:12.080
+explain why concatenating with epsilon
+
+164
+00:05:12.080 --> 00:05:14.160
+preserves a string, while choosing
+
+165
+00:05:14.160 --> 00:05:15.460
+a partner from an empty
+
+166
+00:05:15.460 --> 00:05:17.940
+language is impossible. Keep those
+
+167
+00:05:17.940 --> 00:05:19.780
+object types straight, and the
+
+168
+00:05:19.780 --> 00:05:21.860
+automata lessons become much easier
+
+169
+00:05:21.860 --> 00:05:22.420
+to follow.

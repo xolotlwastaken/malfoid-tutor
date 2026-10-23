@@ -1,0 +1,397 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.860
+How do we measure computational
+
+2
+00:00:01.860 --> 00:00:05.260
+complexity and compare growth? Complexity
+
+3
+00:00:05.260 --> 00:00:07.200
+theory groups decision languages by
+
+4
+00:00:07.200 --> 00:00:08.880
+the resources required by some
+
+5
+00:00:08.880 --> 00:00:11.320
+machine deciding them. We will
+
+6
+00:00:11.320 --> 00:00:14.180
+distinguish input length, worst-case runtime
+
+7
+00:00:14.180 --> 00:00:16.720
+and asymptotic bounds before simplifying
+
+8
+00:00:16.720 --> 00:00:17.940
+the tutorial’s functions.
+
+9
+00:00:18.540 --> 00:00:20.260
+Big O is an eventual
+
+10
+00:00:20.260 --> 00:00:21.540
+upper bound up to a
+
+11
+00:00:21.540 --> 00:00:23.720
+fixed constant, Omega is the
+
+12
+00:00:23.720 --> 00:00:25.780
+corresponding lower bound, and Theta
+
+13
+00:00:25.780 --> 00:00:28.200
+requires both. State the constants
+
+14
+00:00:28.200 --> 00:00:30.280
+and sufficiently large input threshold
+
+15
+00:00:30.280 --> 00:00:31.620
+when proving a bound from
+
+16
+00:00:31.620 --> 00:00:33.880
+definitions. Saying that an algorithm
+
+17
+00:00:33.880 --> 00:00:35.480
+is at most quadratic does
+
+18
+00:00:35.480 --> 00:00:37.220
+not establish a tight quadratic
+
+19
+00:00:37.220 --> 00:00:37.820
+runtime.
+
+20
+00:00:38.260 --> 00:00:40.300
+For a polynomial with positive
+
+21
+00:00:40.300 --> 00:00:42.520
+leading coefficient, the highest degree
+
+22
+00:00:42.520 --> 00:00:45.980
+dominates asymptotically. Fixed log-base changes
+
+23
+00:00:45.980 --> 00:00:48.180
+multiply by a constant, while
+
+24
+00:00:48.180 --> 00:00:49.580
+two to c log base
+
+25
+00:00:49.580 --> 00:00:51.020
+two n equals n to
+
+26
+00:00:51.020 --> 00:00:54.020
+c. Thus an exponential-looking expression
+
+27
+00:00:54.020 --> 00:00:55.780
+can simplify to a polynomial
+
+28
+00:00:55.780 --> 00:00:58.000
+when its exponent is logarithmic.
+
+29
+00:00:58.540 --> 00:01:00.340
+The expression two to log
+
+30
+00:01:00.340 --> 00:01:01.920
+base two n squared means
+
+31
+00:01:01.920 --> 00:01:03.560
+two raised to the square
+
+32
+00:01:03.560 --> 00:01:05.060
+of that logarithm. It equals
+
+33
+00:01:05.060 --> 00:01:06.520
+n raised to log base
+
+34
+00:01:06.520 --> 00:01:08.660
+two n, whose exponent grows
+
+35
+00:01:08.660 --> 00:01:09.940
+with n. That is superpolynomial
+
+36
+00:01:10.300 --> 00:01:12.080
+but slower than a fixed-base
+
+37
+00:01:12.080 --> 00:01:13.580
+exponential such as three to
+
+38
+00:01:13.580 --> 00:01:13.760
+n.
+
+39
+00:01:14.020 --> 00:01:16.480
+The tutorial growth ordering places
+
+40
+00:01:16.480 --> 00:01:18.260
+square root n before linear
+
+41
+00:01:18.260 --> 00:01:20.500
+n, then n square root
+
+42
+00:01:20.500 --> 00:01:22.280
+log n, n log n
+
+43
+00:01:22.400 --> 00:01:25.000
+and cubic n. The logarithmic-exponent
+
+44
+00:01:25.000 --> 00:01:27.520
+function follows every fixed polynomial,
+
+45
+00:01:27.520 --> 00:01:29.280
+with three to n growing
+
+46
+00:01:29.280 --> 00:01:31.940
+faster still. Constants such as
+
+47
+00:01:31.940 --> 00:01:33.760
+seven n minus two do
+
+48
+00:01:33.760 --> 00:01:35.340
+not change the linear class.
+
+49
+00:01:35.820 --> 00:01:38.020
+Do not exponentiate a Big
+
+50
+00:01:38.020 --> 00:01:39.780
+O relation as though constants
+
+51
+00:01:39.780 --> 00:01:42.440
+disappear inside an exponent. Let
+
+52
+00:01:42.440 --> 00:01:43.920
+f equal two n and
+
+53
+00:01:43.920 --> 00:01:45.740
+g equal n, so f
+
+54
+00:01:45.740 --> 00:01:47.400
+is Big O of g.
+
+55
+00:01:47.920 --> 00:01:49.460
+Yet two to f divided
+
+56
+00:01:49.460 --> 00:01:50.920
+by two to g equals
+
+57
+00:01:50.920 --> 00:01:52.440
+two to n, which is
+
+58
+00:01:52.440 --> 00:01:55.480
+unbounded, disproving the proposed exponentiated
+
+59
+00:01:55.480 --> 00:01:55.800
+bound.
+
+60
+00:01:56.100 --> 00:01:58.000
+Average case also needs a
+
+61
+00:01:58.000 --> 00:02:00.380
+stated distribution. If a linear-search
+
+62
+00:02:00.380 --> 00:02:02.200
+target is equally likely at
+
+63
+00:02:02.200 --> 00:02:03.520
+any of n positions or
+
+64
+00:02:03.520 --> 00:02:05.660
+absent, sum costs one through
+
+65
+00:02:05.660 --> 00:02:07.200
+n plus another n for
+
+66
+00:02:07.200 --> 00:02:09.280
+absence, then divide by n
+
+67
+00:02:09.280 --> 00:02:11.400
+plus one. The exact expectation
+
+68
+00:02:11.400 --> 00:02:12.900
+is n times n plus
+
+69
+00:02:12.900 --> 00:02:14.520
+three over twice n plus
+
+70
+00:02:14.520 --> 00:02:15.840
+one, which is Theta n.
+
+71
+00:02:16.220 --> 00:02:18.580
+The printed solution’s simplified n
+
+72
+00:02:18.580 --> 00:02:20.240
+plus two over two expression
+
+73
+00:02:20.240 --> 00:02:22.380
+is not that exact expectation.
+
+74
+00:02:22.900 --> 00:02:24.540
+Checking n equal to one
+
+75
+00:02:24.540 --> 00:02:26.740
+exposes the issue immediately, because
+
+76
+00:02:26.740 --> 00:02:28.780
+every possible search costs one
+
+77
+00:02:28.780 --> 00:02:31.660
+comparison. The asymptotic linear conclusion
+
+78
+00:02:31.660 --> 00:02:34.220
+survives, but an exact numerical
+
+79
+00:02:34.220 --> 00:02:36.420
+claim still needs correct algebra.
+
+80
+00:02:36.900 --> 00:02:39.700
+Machine-model changes can introduce overhead,
+
+81
+00:02:40.120 --> 00:02:42.220
+such as quadratic simulation of
+
+82
+00:02:42.220 --> 00:02:43.900
+standard multitape time by a
+
+83
+00:02:43.900 --> 00:02:45.640
+single tape under suitable bounds.
+
+84
+00:02:46.200 --> 00:02:48.980
+Time-hierarchy theorems give strict separations
+
+85
+00:02:48.980 --> 00:02:51.040
+when their constructibility and growth-gap
+
+86
+00:02:51.040 --> 00:02:53.220
+hypotheses hold. They do not
+
+87
+00:02:53.220 --> 00:02:54.740
+let us declare P different
+
+88
+00:02:54.740 --> 00:02:57.280
+from NP, and sublinear examples
+
+89
+00:02:57.280 --> 00:02:58.860
+need careful model assumptions.
+
+90
+00:02:59.420 --> 00:03:00.820
+Things to take note of.
+
+91
+00:03:01.280 --> 00:03:04.540
+Simplify functions symbolically, separate upper
+
+92
+00:03:04.540 --> 00:03:06.520
+bounds from tight bounds, and
+
+93
+00:03:06.520 --> 00:03:07.960
+count time as a function
+
+94
+00:03:07.960 --> 00:03:10.280
+of encoded input length. State
+
+95
+00:03:10.280 --> 00:03:12.060
+the distribution for averages and
+
+96
+00:03:12.060 --> 00:03:13.620
+the model assumptions for hierarchy
+
+97
+00:03:13.620 --> 00:03:16.400
+or simulation arguments; memorizing a
+
+98
+00:03:16.400 --> 00:03:17.780
+growth table is not a
+
+99
+00:03:17.780 --> 00:03:19.160
+substitute for those conditions.

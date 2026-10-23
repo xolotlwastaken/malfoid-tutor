@@ -1,0 +1,345 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.120
+How does first come, first
+
+2
+00:00:02.120 --> 00:00:04.600
+served scheduling work? Select the
+
+3
+00:00:04.600 --> 00:00:06.220
+first ready process and let
+
+4
+00:00:06.220 --> 00:00:07.640
+it keep the processor until
+
+5
+00:00:07.640 --> 00:00:09.720
+it blocks or finishes. This
+
+6
+00:00:09.720 --> 00:00:12.300
+is nonpreemptive scheduling, so a
+
+7
+00:00:12.300 --> 00:00:13.960
+later short job cannot simply
+
+8
+00:00:13.960 --> 00:00:15.240
+take the processor away.
+
+9
+00:00:15.660 --> 00:00:18.020
+Use the lecture example: P
+
+10
+00:00:18.020 --> 00:00:20.320
+one needs twenty-four processor units,
+
+11
+00:00:20.820 --> 00:00:21.660
+and P two and P
+
+12
+00:00:21.660 --> 00:00:23.800
+three each need three. All
+
+13
+00:00:23.800 --> 00:00:25.560
+arrive at zero, with the
+
+14
+00:00:25.560 --> 00:00:27.060
+stated queue order P one,
+
+15
+00:00:27.180 --> 00:00:29.400
+P two, P three. Ignore
+
+16
+00:00:29.400 --> 00:00:31.860
+input-output and context-switch costs for
+
+17
+00:00:31.860 --> 00:00:32.360
+this trace.
+
+18
+00:00:32.820 --> 00:00:35.020
+P one begins immediately and
+
+19
+00:00:35.020 --> 00:00:36.860
+runs from zero to twenty-four.
+
+20
+00:00:37.380 --> 00:00:39.320
+During that long interval, P
+
+21
+00:00:39.320 --> 00:00:40.780
+two and P three remain
+
+22
+00:00:40.780 --> 00:00:42.620
+ready but cannot preempt it.
+
+23
+00:00:43.160 --> 00:00:45.060
+Watch their remaining execution stay
+
+24
+00:00:45.060 --> 00:00:46.860
+unchanged while their waiting time
+
+25
+00:00:46.860 --> 00:00:47.300
+grows.
+
+26
+00:00:48.060 --> 00:00:50.580
+At twenty-four, P one completes
+
+27
+00:00:50.580 --> 00:00:52.160
+and P two runs for
+
+28
+00:00:52.160 --> 00:00:54.100
+its three units, finishing at
+
+29
+00:00:54.100 --> 00:00:56.580
+twenty-seven. P three then runs
+
+30
+00:00:56.580 --> 00:00:59.340
+from twenty-seven to thirty. The
+
+31
+00:00:59.340 --> 00:01:01.080
+schedule follows the original queue
+
+32
+00:01:01.080 --> 00:01:03.220
+order, not a fresh comparison
+
+33
+00:01:03.220 --> 00:01:04.200
+of burst lengths.
+
+34
+00:01:04.740 --> 00:01:07.280
+For this single-burst example, waiting
+
+35
+00:01:07.280 --> 00:01:09.720
+equals completion minus arrival minus
+
+36
+00:01:09.720 --> 00:01:11.740
+burst. P one waits zero,
+
+37
+00:01:12.240 --> 00:01:14.180
+P two waits twenty-four, and
+
+38
+00:01:14.180 --> 00:01:16.520
+P three waits twenty-seven. Their
+
+39
+00:01:16.520 --> 00:01:18.600
+total waiting is fifty-one, divided
+
+40
+00:01:18.600 --> 00:01:20.900
+by three processes, giving an
+
+41
+00:01:20.900 --> 00:01:21.840
+average of seventeen.
+
+42
+00:01:22.780 --> 00:01:24.600
+Now replay the same three
+
+43
+00:01:24.600 --> 00:01:25.840
+burst lengths with the short
+
+44
+00:01:25.840 --> 00:01:27.980
+jobs first: P two, P
+
+45
+00:01:27.980 --> 00:01:30.740
+three, then P one. The
+
+46
+00:01:30.740 --> 00:01:32.260
+short jobs run from zero
+
+47
+00:01:32.260 --> 00:01:33.420
+to three and three to
+
+48
+00:01:33.420 --> 00:01:35.260
+six; the long job finishes
+
+49
+00:01:35.260 --> 00:01:37.500
+at thirty. We changed order,
+
+50
+00:01:37.880 --> 00:01:39.540
+not the total processor work.
+
+51
+00:01:39.860 --> 00:01:41.440
+In that reordered trace, the
+
+52
+00:01:41.440 --> 00:01:42.980
+original long job waits six,
+
+53
+00:01:43.520 --> 00:01:44.860
+the first short job waits
+
+54
+00:01:44.860 --> 00:01:46.420
+zero, and the second waits
+
+55
+00:01:46.420 --> 00:01:48.480
+three. Six plus zero plus
+
+56
+00:01:48.480 --> 00:01:50.480
+three, divided by three, gives
+
+57
+00:01:50.480 --> 00:01:51.800
+an average waiting time of
+
+58
+00:01:51.800 --> 00:01:53.520
+three. The last completion is
+
+59
+00:01:53.520 --> 00:01:55.620
+still thirty, but individual delays
+
+60
+00:01:55.620 --> 00:01:56.420
+differ greatly.
+
+61
+00:01:56.860 --> 00:01:59.040
+This illustrates the convoy effect:
+
+62
+00:01:59.500 --> 00:02:01.280
+short ready jobs wait behind
+
+63
+00:02:01.280 --> 00:02:03.260
+an earlier long job. First
+
+64
+00:02:03.260 --> 00:02:05.380
+come, first served is simple
+
+65
+00:02:05.380 --> 00:02:07.040
+and respects its queue rule,
+
+66
+00:02:07.560 --> 00:02:08.720
+but it does not minimize
+
+67
+00:02:08.720 --> 00:02:11.060
+every response or waiting objective.
+
+68
+00:02:11.540 --> 00:02:13.480
+A scheduling policy has consequences
+
+69
+00:02:13.480 --> 00:02:15.180
+even when no work is
+
+70
+00:02:15.180 --> 00:02:15.460
+lost.
+
+71
+00:02:16.020 --> 00:02:18.260
+With different arrival times, do
+
+72
+00:02:18.260 --> 00:02:19.860
+not schedule a process before
+
+73
+00:02:19.860 --> 00:02:21.060
+it exists in the ready
+
+74
+00:02:21.060 --> 00:02:22.980
+set. If no process is
+
+75
+00:02:22.980 --> 00:02:24.920
+ready, show idle time rather
+
+76
+00:02:24.920 --> 00:02:26.340
+than moving a future arrival
+
+77
+00:02:26.340 --> 00:02:29.660
+backwards. Simultaneous arrivals also need
+
+78
+00:02:29.660 --> 00:02:30.900
+a stated queue tie rule.
+
+79
+00:02:31.260 --> 00:02:32.740
+Things to take note of.
+
+80
+00:02:33.180 --> 00:02:35.300
+First come, first served is
+
+81
+00:02:35.300 --> 00:02:37.980
+nonpreemptive, its outcome depends on
+
+82
+00:02:37.980 --> 00:02:40.160
+queue order, and completion time
+
+83
+00:02:40.160 --> 00:02:42.460
+is not waiting time. Reconstruct
+
+84
+00:02:42.460 --> 00:02:44.260
+the Gantt chart first, then
+
+85
+00:02:44.260 --> 00:02:46.460
+calculate per-process delays and their
+
+86
+00:02:46.460 --> 00:02:46.840
+average.

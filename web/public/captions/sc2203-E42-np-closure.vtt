@@ -1,0 +1,377 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.240
+Why is NP closed under
+
+2
+00:00:02.240 --> 00:00:04.480
+some operations while complement closure
+
+3
+00:00:04.480 --> 00:00:07.620
+remains unresolved? Certificates can record
+
+4
+00:00:07.620 --> 00:00:09.280
+a successful choice, a pair
+
+5
+00:00:09.280 --> 00:00:11.000
+of witnesses or a factorization.
+
+6
+00:00:11.440 --> 00:00:12.780
+We will build those witnesses
+
+7
+00:00:12.780 --> 00:00:14.920
+explicitly and show why flipping
+
+8
+00:00:14.920 --> 00:00:17.640
+nondeterministic outcomes does not turn
+
+9
+00:00:17.640 --> 00:00:19.220
+an existential claim into its
+
+10
+00:00:19.220 --> 00:00:19.700
+negation.
+
+11
+00:00:20.140 --> 00:00:21.280
+For the union of two
+
+12
+00:00:21.280 --> 00:00:23.240
+NP languages, give a tag
+
+13
+00:00:23.240 --> 00:00:24.960
+naming the chosen language together
+
+14
+00:00:24.960 --> 00:00:27.240
+with its certificate. The verifier
+
+15
+00:00:27.240 --> 00:00:28.520
+checks the tag and runs
+
+16
+00:00:28.520 --> 00:00:30.860
+the corresponding verifier. A member
+
+17
+00:00:30.860 --> 00:00:32.540
+has a successful choice, while
+
+18
+00:00:32.540 --> 00:00:34.280
+a word outside both languages
+
+19
+00:00:34.280 --> 00:00:35.880
+cannot pass either choice.
+
+20
+00:00:36.260 --> 00:00:38.880
+For intersection, give both certificates
+
+21
+00:00:38.880 --> 00:00:41.440
+and run both verifiers. The
+
+22
+00:00:41.440 --> 00:00:43.840
+combined verifier returns yes only
+
+23
+00:00:43.840 --> 00:00:45.620
+when both checks return yes,
+
+24
+00:00:46.280 --> 00:00:47.640
+so an input missing from
+
+25
+00:00:47.640 --> 00:00:50.100
+either language cannot pass. The
+
+26
+00:00:50.100 --> 00:00:51.920
+sum of two polynomial certificate
+
+27
+00:00:51.920 --> 00:00:54.300
+lengths and two polynomial runtimes
+
+28
+00:00:54.300 --> 00:00:55.760
+remains polynomial.
+
+29
+00:00:56.460 --> 00:00:59.160
+For concatenation, guess a split
+
+30
+00:00:59.160 --> 00:01:00.780
+index and give a certificate
+
+31
+00:01:00.780 --> 00:01:03.000
+for each side. Verify that
+
+32
+00:01:03.000 --> 00:01:04.660
+the first prefix belongs to
+
+33
+00:01:04.660 --> 00:01:05.940
+the first language and the
+
+34
+00:01:05.940 --> 00:01:07.520
+remaining suffix to the second.
+
+35
+00:01:08.100 --> 00:01:09.440
+The split index is short,
+
+36
+00:01:09.440 --> 00:01:11.440
+and both substrings have length
+
+37
+00:01:11.440 --> 00:01:13.040
+at most the original input,
+
+38
+00:01:13.500 --> 00:01:15.400
+keeping the combined bound polynomial.
+
+39
+00:01:15.940 --> 00:01:18.480
+For star, a nonempty word
+
+40
+00:01:18.480 --> 00:01:20.280
+needs at most n nonempty
+
+41
+00:01:20.720 --> 00:01:22.840
+factors, where n is its
+
+42
+00:01:22.840 --> 00:01:25.080
+length. Give their boundary indices
+
+43
+00:01:25.080 --> 00:01:26.600
+and a certificate for each
+
+44
+00:01:26.600 --> 00:01:28.960
+factor, then verify every factor
+
+45
+00:01:28.960 --> 00:01:31.200
+using the original verifier. Remove
+
+46
+00:01:31.200 --> 00:01:33.080
+empty factors from a successful
+
+47
+00:01:33.080 --> 00:01:36.620
+decomposition; accept epsilon separately as
+
+48
+00:01:36.620 --> 00:01:37.720
+the zero-factor case.
+
+49
+00:01:38.220 --> 00:01:40.140
+The bound on total witness
+
+50
+00:01:40.140 --> 00:01:42.780
+size matters here. Polynomially many
+
+51
+00:01:42.780 --> 00:01:45.140
+pieces each have polynomially bounded
+
+52
+00:01:45.140 --> 00:01:47.060
+certificates relative to a substring
+
+53
+00:01:47.060 --> 00:01:48.300
+of length at most n.
+
+54
+00:01:49.080 --> 00:01:51.060
+Their sum is therefore polynomial,
+
+55
+00:01:51.760 --> 00:01:53.740
+whereas guessing an unbounded number
+
+56
+00:01:53.740 --> 00:01:55.760
+of factors without justification would
+
+57
+00:01:55.760 --> 00:01:56.280
+leave a gap.
+
+58
+00:01:56.740 --> 00:01:58.800
+Now examine the false complement
+
+59
+00:01:58.800 --> 00:02:00.760
+proof that swaps every accepting
+
+60
+00:02:00.760 --> 00:02:03.400
+and rejecting NTM outcome. The
+
+61
+00:02:03.400 --> 00:02:05.320
+original machine accepts when some
+
+62
+00:02:05.320 --> 00:02:07.480
+branch accepts. After the swap,
+
+63
+00:02:07.920 --> 00:02:09.100
+the new machine accepts when
+
+64
+00:02:09.100 --> 00:02:11.100
+some original branch rejects, which
+
+65
+00:02:11.100 --> 00:02:12.000
+is not the same as
+
+66
+00:02:12.000 --> 00:02:13.560
+every original branch rejecting.
+
+67
+00:02:13.980 --> 00:02:16.000
+For a concrete failure, let
+
+68
+00:02:16.000 --> 00:02:17.900
+one branch accept and two
+
+69
+00:02:17.900 --> 00:02:19.420
+reject on the same input.
+
+70
+00:02:20.040 --> 00:02:21.580
+The original accepts because of
+
+71
+00:02:21.580 --> 00:02:23.260
+its accepting branch, and after
+
+72
+00:02:23.260 --> 00:02:24.880
+the swap two branches accept,
+
+73
+00:02:25.460 --> 00:02:27.080
+so the swapped machine accepts
+
+74
+00:02:27.080 --> 00:02:29.400
+too. A genuine complement should
+
+75
+00:02:29.400 --> 00:02:31.300
+reject that original yes input.
+
+76
+00:02:31.780 --> 00:02:33.900
+The class coNP consists of
+
+77
+00:02:33.900 --> 00:02:36.120
+complements of NP languages, not
+
+78
+00:02:36.120 --> 00:02:37.620
+the universe of languages with
+
+79
+00:02:37.620 --> 00:02:39.240
+NP removed as a set
+
+80
+00:02:39.240 --> 00:02:42.180
+difference. Whether NP equals coNP
+
+81
+00:02:42.180 --> 00:02:43.460
+is unresolved in the course
+
+82
+00:02:43.460 --> 00:02:45.620
+framework. The failed flip argument
+
+83
+00:02:45.620 --> 00:02:47.960
+proves neither equality nor inequality;
+
+84
+00:02:48.440 --> 00:02:49.980
+it merely fails to establish
+
+85
+00:02:49.980 --> 00:02:50.560
+closure.
+
+86
+00:02:51.180 --> 00:02:52.480
+Things to take note of.
+
+87
+00:02:52.820 --> 00:02:55.320
+Give explicit polynomial-size certificates for
+
+88
+00:02:55.320 --> 00:02:57.420
+positive closure and include epsilon
+
+89
+00:02:57.420 --> 00:02:59.460
+and empty-factor handling. Keep all
+
+90
+00:02:59.460 --> 00:03:03.080
+nondeterministic branches time-bounded, distinguish existential
+
+91
+00:03:03.080 --> 00:03:04.860
+from universal branch claims, and
+
+92
+00:03:04.860 --> 00:03:05.860
+do not turn the failure
+
+93
+00:03:05.860 --> 00:03:07.300
+of one construction into an
+
+94
+00:03:07.300 --> 00:03:08.740
+unproved class separation.

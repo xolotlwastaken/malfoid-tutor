@@ -1,0 +1,341 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.860
+How do DAG shortest paths
+
+2
+00:00:01.860 --> 00:00:04.480
+work? Process vertices in a
+
+3
+00:00:04.480 --> 00:00:06.500
+topological order and relax each
+
+4
+00:00:06.500 --> 00:00:08.712
+outgoing edge once. Unlike Dijkstra,
+
+5
+00:00:09.580 --> 00:00:11.220
+this schedule can handle negative
+
+6
+00:00:11.220 --> 00:00:12.860
+edge weights because a DAG
+
+7
+00:00:12.860 --> 00:00:14.160
+has no directed cycles.
+
+8
+00:00:14.940 --> 00:00:17.380
+The shortest-path recording mentions this
+
+9
+00:00:17.380 --> 00:00:20.360
+linear-time DAG tutorial problem. We
+
+10
+00:00:20.360 --> 00:00:21.700
+can derive the procedure by
+
+11
+00:00:21.700 --> 00:00:23.920
+combining the course’s topological ordering
+
+12
+00:00:23.920 --> 00:00:26.080
+with its relaxation rule, rather
+
+13
+00:00:26.080 --> 00:00:27.700
+than inventing a different kind
+
+14
+00:00:27.700 --> 00:00:28.180
+of distance.
+
+15
+00:00:28.660 --> 00:00:31.460
+Use the topological order S,
+
+16
+00:00:30.540 --> 00:00:32.640
+A, B, T. Set distance
+
+17
+00:00:32.640 --> 00:00:34.140
+S to zero and the
+
+18
+00:00:34.140 --> 00:00:36.200
+rest to infinity; although A
+
+19
+00:00:36.200 --> 00:00:37.460
+to B has weight negative
+
+20
+00:00:37.460 --> 00:00:39.680
+four, every arrow still points
+
+21
+00:00:39.680 --> 00:00:40.920
+forwards in the order.
+
+22
+00:00:41.260 --> 00:00:42.920
+Process S first and relax
+
+23
+00:00:42.920 --> 00:00:45.260
+both outgoing edges. A receives
+
+24
+00:00:45.260 --> 00:00:46.960
+two and B receives five,
+
+25
+00:00:46.960 --> 00:00:48.960
+with parent S; these are
+
+26
+00:00:48.960 --> 00:00:50.240
+the best routes seen so
+
+27
+00:00:50.240 --> 00:00:52.100
+far, not a finalisation by
+
+28
+00:00:52.100 --> 00:00:52.940
+smallest distance.
+
+29
+00:00:53.380 --> 00:00:56.060
+Next process A, even though
+
+30
+00:00:56.060 --> 00:00:57.360
+a different graph might give
+
+31
+00:00:57.360 --> 00:00:59.160
+another later vertex a smaller
+
+32
+00:00:59.160 --> 00:01:01.320
+label. A to B offers
+
+33
+00:01:01.320 --> 00:01:03.880
+two minus four, improving B
+
+34
+00:01:03.880 --> 00:01:05.800
+to negative two, while A
+
+35
+00:01:05.800 --> 00:01:07.320
+to T offers nine.
+
+36
+00:01:08.060 --> 00:01:10.560
+Process B next and relax
+
+37
+00:01:10.560 --> 00:01:11.823
+its edge to T. Negative
+
+38
+00:01:11.823 --> 00:01:13.700
+two plus three equals one,
+
+39
+00:01:14.140 --> 00:01:15.740
+improving T from nine to
+
+40
+00:01:15.740 --> 00:01:17.200
+one and changing its parent
+
+41
+00:01:17.200 --> 00:01:17.760
+to B.
+
+42
+00:01:18.420 --> 00:01:20.600
+T has no outgoing edges,
+
+43
+00:01:20.940 --> 00:01:22.440
+so the pass is complete.
+
+44
+00:01:23.360 --> 00:01:25.740
+The final route S, A,
+
+45
+00:01:24.540 --> 00:01:26.980
+B, T costs two minus
+
+46
+00:01:26.980 --> 00:01:28.820
+four plus three, which is
+
+47
+00:01:28.820 --> 00:01:31.140
+one; following the parents recovers
+
+48
+00:01:31.140 --> 00:01:31.360
+it.
+
+49
+00:01:31.820 --> 00:01:33.780
+Why can one pass suffice?
+
+50
+00:01:34.480 --> 00:01:36.060
+Every predecessor of a vertex
+
+51
+00:01:36.060 --> 00:01:38.460
+appears earlier in topological order,
+
+52
+00:01:38.760 --> 00:01:41.040
+so every possible final incoming
+
+53
+00:01:41.040 --> 00:01:42.880
+edge has already offered its
+
+54
+00:01:42.880 --> 00:01:44.840
+candidate before that vertex is
+
+55
+00:01:44.840 --> 00:01:45.240
+processed.
+
+56
+00:01:45.780 --> 00:01:48.220
+Topological sorting takes order n
+
+57
+00:01:48.220 --> 00:01:50.020
+plus m time with adjacency
+
+58
+00:01:50.020 --> 00:01:52.820
+lists. Initialisation costs order n,
+
+59
+00:01:53.080 --> 00:01:54.440
+and the subsequent pass scans
+
+60
+00:01:54.440 --> 00:01:56.060
+every vertex and edge at
+
+61
+00:01:56.060 --> 00:01:58.040
+most once, so total time
+
+62
+00:01:58.040 --> 00:01:59.680
+remains order n plus m.
+
+63
+00:02:00.060 --> 00:02:02.580
+Distances, parents, and the topological
+
+64
+00:02:02.580 --> 00:02:04.780
+order need order n auxiliary
+
+65
+00:02:04.780 --> 00:02:08.320
+storage. A DFS-based topological sort
+
+66
+00:02:08.320 --> 00:02:09.580
+may also use a linear
+
+67
+00:02:09.580 --> 00:02:11.900
+stack; source removal can use
+
+68
+00:02:11.900 --> 00:02:13.995
+an indegree array and worklist
+
+69
+00:02:13.720 --> 00:02:14.180
+instead.
+
+70
+00:02:14.660 --> 00:02:16.360
+Things to take note of.
+
+71
+00:02:16.940 --> 00:02:19.520
+Verify acyclicity before relying on
+
+72
+00:02:19.520 --> 00:02:22.260
+this schedule, skip arithmetic from
+
+73
+00:02:22.260 --> 00:02:24.860
+unreachable infinity labels, and process
+
+74
+00:02:24.860 --> 00:02:26.600
+all vertices in a valid
+
+75
+00:02:26.600 --> 00:02:29.720
+topological order. Sorting vertices by
+
+76
+00:02:29.720 --> 00:02:31.220
+tentative distance is a different
+
+77
+00:02:31.220 --> 00:02:31.760
+algorithm.
+
+78
+00:02:32.300 --> 00:02:34.120
+Negative edges are allowed because
+
+79
+00:02:34.120 --> 00:02:35.220
+there is no cycle to
+
+80
+00:02:35.220 --> 00:02:37.400
+revisit, not because negative weights
+
+81
+00:02:37.400 --> 00:02:39.600
+are harmless everywhere. A singleton
+
+82
+00:02:39.600 --> 00:02:41.500
+source stays at zero, and
+
+83
+00:02:41.500 --> 00:02:44.600
+unreachable vertices stay infinite. Use
+
+84
+00:02:44.600 --> 00:02:46.680
+the graph’s dependency order, and
+
+85
+00:02:46.680 --> 00:02:48.300
+repeated passes disappear.

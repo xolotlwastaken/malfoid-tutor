@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.880
+How do you calculate scheduling
+
+2
+00:00:01.880 --> 00:00:04.380
+performance? Begin with a timeline,
+
+3
+00:00:04.940 --> 00:00:06.920
+not a memorized formula with
+
+4
+00:00:06.920 --> 00:00:09.300
+unexplained letters. We will track
+
+5
+00:00:09.300 --> 00:00:13.620
+arrival, first execution, completion, processor
+
+6
+00:00:13.620 --> 00:00:15.480
+work and blocked time separately,
+
+7
+00:00:15.900 --> 00:00:17.960
+because different metrics answer different
+
+8
+00:00:17.960 --> 00:00:18.440
+questions.
+
+9
+00:00:18.940 --> 00:00:21.180
+Our authored process arrives at
+
+10
+00:00:21.180 --> 00:00:23.120
+time zero and waits ready
+
+11
+00:00:23.120 --> 00:00:25.240
+until time two. It runs
+
+12
+00:00:25.240 --> 00:00:26.980
+from two to four, waits
+
+13
+00:00:26.980 --> 00:00:28.160
+in a device queue from
+
+14
+00:00:28.160 --> 00:00:29.600
+four to five, and receives
+
+15
+00:00:29.600 --> 00:00:31.220
+device service from five to
+
+16
+00:00:31.220 --> 00:00:32.900
+eight. It then waits ready
+
+17
+00:00:32.900 --> 00:00:35.060
+until nine, runs until eleven,
+
+18
+00:00:35.060 --> 00:00:35.760
+and finishes.
+
+19
+00:00:36.260 --> 00:00:38.200
+Response time measures the delay
+
+20
+00:00:38.200 --> 00:00:40.040
+to the first execution. First
+
+21
+00:00:40.040 --> 00:00:41.320
+run is two and arrival
+
+22
+00:00:41.320 --> 00:00:43.180
+is zero, so response is
+
+23
+00:00:43.180 --> 00:00:44.800
+two minus zero, equal to
+
+24
+00:00:44.800 --> 00:00:46.740
+two. Later preemptions or device
+
+25
+00:00:46.740 --> 00:00:48.340
+operations do not reset that
+
+26
+00:00:48.340 --> 00:00:49.520
+first response measurement.
+
+27
+00:00:50.140 --> 00:00:52.380
+Turnaround measures the entire time
+
+28
+00:00:52.380 --> 00:00:55.020
+from arrival to completion. Completion
+
+29
+00:00:55.020 --> 00:00:56.460
+is eleven and arrival is
+
+30
+00:00:56.460 --> 00:00:58.880
+zero, giving eleven units. That
+
+31
+00:00:58.880 --> 00:01:01.820
+interval includes processor execution, ready-queue
+
+32
+00:01:02.160 --> 00:01:04.500
+waiting, device-queue waiting and actual
+
+33
+00:01:04.500 --> 00:01:06.140
+device service in this example.
+
+34
+00:01:06.820 --> 00:01:09.380
+Total processor execution is two
+
+35
+00:01:09.380 --> 00:01:11.220
+plus two, equal to four
+
+36
+00:01:11.220 --> 00:01:13.180
+units. Ready-queue waiting is the
+
+37
+00:01:13.180 --> 00:01:14.740
+initial two units plus the
+
+38
+00:01:14.740 --> 00:01:15.960
+unit from eight to nine,
+
+39
+00:01:16.380 --> 00:01:18.740
+giving three. The remaining blocked
+
+40
+00:01:18.740 --> 00:01:20.200
+interval from four to eight
+
+41
+00:01:20.200 --> 00:01:21.740
+has one unit queued for
+
+42
+00:01:21.740 --> 00:01:23.220
+the device and three units
+
+43
+00:01:23.220 --> 00:01:23.820
+of service.
+
+44
+00:01:24.300 --> 00:01:27.100
+Under the ready-only definition, subtract
+
+45
+00:01:27.100 --> 00:01:29.040
+total processor work and all
+
+46
+00:01:29.040 --> 00:01:31.460
+blocked time from turnaround. Eleven
+
+47
+00:01:31.460 --> 00:01:33.120
+minus four minus four gives
+
+48
+00:01:33.120 --> 00:01:34.380
+three units waiting for the
+
+49
+00:01:34.380 --> 00:01:36.920
+processor. That calculation agrees with
+
+50
+00:01:36.920 --> 00:01:38.340
+adding the two ready intervals
+
+51
+00:01:38.340 --> 00:01:38.880
+directly.
+
+52
+00:01:39.780 --> 00:01:42.380
+The photographed course exercise includes
+
+53
+00:01:42.380 --> 00:01:43.740
+time in the ready queue
+
+54
+00:01:43.740 --> 00:01:45.360
+and time queued for a
+
+55
+00:01:45.360 --> 00:01:47.960
+device, while excluding actual device
+
+56
+00:01:47.960 --> 00:01:50.520
+service. Under that convention, eleven
+
+57
+00:01:50.520 --> 00:01:52.360
+minus four minus three gives
+
+58
+00:01:52.360 --> 00:01:55.500
+four. State which waiting definition
+
+59
+00:01:55.500 --> 00:01:57.200
+you are using before calculating,
+
+60
+00:01:57.200 --> 00:01:59.240
+because the two definitions count
+
+61
+00:01:59.240 --> 00:02:00.260
+different intervals.
+
+62
+00:02:00.780 --> 00:02:03.540
+Throughput counts completed processes per
+
+63
+00:02:03.540 --> 00:02:05.320
+unit of time, not the
+
+64
+00:02:05.320 --> 00:02:07.220
+number currently waiting. If two
+
+65
+00:02:07.220 --> 00:02:09.360
+processes complete across ten time
+
+66
+00:02:09.360 --> 00:02:11.740
+units, throughput is two divided
+
+67
+00:02:11.740 --> 00:02:13.920
+by ten. Do not confuse
+
+68
+00:02:13.920 --> 00:02:15.520
+this system-wide rate with the
+
+69
+00:02:15.520 --> 00:02:16.880
+turnaround of one process.
+
+70
+00:02:17.380 --> 00:02:19.160
+For two cores observed over
+
+71
+00:02:19.160 --> 00:02:21.380
+ten time units, suppose the
+
+72
+00:02:21.380 --> 00:02:23.200
+useful busy times total fifteen
+
+73
+00:02:23.200 --> 00:02:26.260
+core-time units. Utilization is fifteen
+
+74
+00:02:26.260 --> 00:02:28.240
+divided by two times ten,
+
+75
+00:02:28.660 --> 00:02:31.300
+or seventy-five percent. Dividing by
+
+76
+00:02:31.300 --> 00:02:33.620
+ten alone would incorrectly exceed
+
+77
+00:02:33.620 --> 00:02:35.060
+one hundred percent for a
+
+78
+00:02:35.060 --> 00:02:36.140
+multicore aggregate.
+
+79
+00:02:36.780 --> 00:02:38.080
+Things to take note of.
+
+80
+00:02:38.560 --> 00:02:40.720
+Calculate each process metric before
+
+81
+00:02:40.720 --> 00:02:43.420
+averaging, keep units consistent, and
+
+82
+00:02:43.420 --> 00:02:45.820
+distinguish first execution from completion.
+
+83
+00:02:46.540 --> 00:02:47.700
+If the question has one
+
+84
+00:02:47.700 --> 00:02:49.580
+processor burst and no blocking,
+
+85
+00:02:50.040 --> 00:02:52.300
+waiting simplifies to completion minus
+
+86
+00:02:52.300 --> 00:02:54.740
+arrival minus burst; do not
+
+87
+00:02:54.740 --> 00:02:56.800
+carry that shortcut unchanged into
+
+88
+00:02:56.800 --> 00:02:57.940
+an input-output trace.

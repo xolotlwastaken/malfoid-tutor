@@ -1,0 +1,361 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.760
+How do shortest job first
+
+2
+00:00:01.760 --> 00:00:03.960
+and shortest remaining time first
+
+3
+00:00:03.960 --> 00:00:06.160
+choose a process? Both favor
+
+4
+00:00:06.160 --> 00:00:08.160
+short work, but their preemption
+
+5
+00:00:08.160 --> 00:00:10.780
+rules differ. Shortest job first
+
+6
+00:00:10.780 --> 00:00:12.780
+lets a selected burst continue;
+
+7
+00:00:13.360 --> 00:00:15.460
+shortest remaining time first can
+
+8
+00:00:15.460 --> 00:00:17.800
+reconsider when shorter remaining work
+
+9
+00:00:17.800 --> 00:00:18.620
+becomes ready.
+
+10
+00:00:19.020 --> 00:00:20.760
+Use the lecture processes with
+
+11
+00:00:20.760 --> 00:00:23.260
+arrivals zero, two, four and
+
+12
+00:00:23.260 --> 00:00:25.740
+five, and bursts seven, four,
+
+13
+00:00:25.900 --> 00:00:27.780
+one and four. At zero
+
+14
+00:00:28.000 --> 00:00:29.200
+only P one is ready.
+
+15
+00:00:29.840 --> 00:00:31.260
+A policy cannot select a
+
+16
+00:00:31.260 --> 00:00:33.040
+future one-unit job before that
+
+17
+00:00:33.040 --> 00:00:33.940
+job has arrived.
+
+18
+00:00:34.340 --> 00:00:36.900
+Under nonpreemptive shortest job first,
+
+19
+00:00:37.580 --> 00:00:38.760
+P one starts at zero
+
+20
+00:00:38.760 --> 00:00:41.660
+and continues until seven. P
+
+21
+00:00:41.660 --> 00:00:43.720
+two arrives at two, P
+
+22
+00:00:43.720 --> 00:00:45.220
+three at four and P
+
+23
+00:00:45.220 --> 00:00:47.040
+four at five, but none
+
+24
+00:00:47.040 --> 00:00:49.760
+interrupts that selected burst. Only
+
+25
+00:00:49.760 --> 00:00:51.300
+after P one finishes do
+
+26
+00:00:51.300 --> 00:00:52.560
+we choose among the waiting
+
+27
+00:00:52.560 --> 00:00:52.900
+jobs.
+
+28
+00:00:53.740 --> 00:00:55.240
+P three is now the
+
+29
+00:00:55.240 --> 00:00:56.800
+shortest and runs from seven
+
+30
+00:00:56.800 --> 00:00:58.720
+to eight. P two and
+
+31
+00:00:58.720 --> 00:01:00.280
+P four both need four,
+
+32
+00:01:00.600 --> 00:01:02.400
+so the stated earlier-arrival tie
+
+33
+00:01:02.400 --> 00:01:03.920
+rule selects P two next,
+
+34
+00:01:04.480 --> 00:01:06.720
+then P four. Their completion
+
+35
+00:01:06.720 --> 00:01:08.280
+times are seven, twelve, eight
+
+36
+00:01:08.420 --> 00:01:10.080
+and sixteen by process identifier.
+
+37
+00:01:10.660 --> 00:01:12.640
+Subtract arrival and burst from
+
+38
+00:01:12.640 --> 00:01:14.340
+each completion to obtain waits
+
+39
+00:01:14.340 --> 00:01:16.260
+zero, six, three and seven.
+
+40
+00:01:16.700 --> 00:01:18.300
+The sum is sixteen, and
+
+41
+00:01:18.300 --> 00:01:20.040
+sixteen divided by four gives
+
+42
+00:01:20.040 --> 00:01:22.380
+mean waiting four. The one-unit
+
+43
+00:01:22.380 --> 00:01:24.120
+job still waited three because
+
+44
+00:01:24.120 --> 00:01:26.100
+the running burst was nonpreemptive.
+
+45
+00:01:26.300 --> 00:01:28.140
+Now change to shortest remaining
+
+46
+00:01:28.140 --> 00:01:30.440
+time first. P one runs
+
+47
+00:01:30.440 --> 00:01:32.280
+until time two, when P
+
+48
+00:01:32.280 --> 00:01:34.500
+two arrives needing four and
+
+49
+00:01:34.500 --> 00:01:36.220
+P one still needs five.
+
+50
+00:01:36.560 --> 00:01:37.940
+Four is shorter than five,
+
+51
+00:01:38.300 --> 00:01:39.860
+so P two preempts and
+
+52
+00:01:39.860 --> 00:01:41.440
+runs until the next relevant
+
+53
+00:01:41.440 --> 00:01:41.940
+arrival.
+
+54
+00:01:42.580 --> 00:01:44.620
+At time four, P three
+
+55
+00:01:44.620 --> 00:01:46.180
+arrives needing one while P
+
+56
+00:01:46.180 --> 00:01:48.280
+two still needs two, so
+
+57
+00:01:48.280 --> 00:01:50.100
+P three runs until five.
+
+58
+00:01:50.300 --> 00:01:51.180
+P two then has the
+
+59
+00:01:51.180 --> 00:01:53.040
+shortest remaining time and finishes
+
+60
+00:01:53.040 --> 00:01:54.900
+at seven. P four runs
+
+61
+00:01:54.900 --> 00:01:56.480
+from seven to eleven, before
+
+62
+00:01:56.480 --> 00:01:58.300
+P one finally finishes at
+
+63
+00:01:58.300 --> 00:01:58.900
+sixteen.
+
+64
+00:01:59.500 --> 00:02:01.420
+The resulting waits are nine,
+
+65
+00:02:01.700 --> 00:02:04.340
+one, zero and two. Twelve
+
+66
+00:02:04.340 --> 00:02:06.320
+total waiting units divided by
+
+67
+00:02:06.320 --> 00:02:08.700
+four gives mean three, lower
+
+68
+00:02:08.700 --> 00:02:10.240
+than four in the nonpreemptive
+
+69
+00:02:10.240 --> 00:02:12.900
+trace. This result follows from
+
+70
+00:02:12.900 --> 00:02:14.640
+the event choices; it is
+
+71
+00:02:14.640 --> 00:02:15.680
+not a reason to compare
+
+72
+00:02:15.680 --> 00:02:17.560
+original bursts after a process
+
+73
+00:02:17.560 --> 00:02:19.220
+has already partly executed.
+
+74
+00:02:19.940 --> 00:02:22.360
+Shortest-work policies assume a burst
+
+75
+00:02:22.360 --> 00:02:24.660
+estimate or known execution requirement
+
+76
+00:02:24.660 --> 00:02:26.760
+in the model. Long work
+
+77
+00:02:26.760 --> 00:02:28.360
+can be postponed by repeated
+
+78
+00:02:28.360 --> 00:02:30.660
+shorter arrivals, so fairness is
+
+79
+00:02:30.660 --> 00:02:32.540
+a separate issue. If two
+
+80
+00:02:32.540 --> 00:02:34.800
+remaining times tie, apply the
+
+81
+00:02:34.800 --> 00:02:36.880
+question tie rule rather than
+
+82
+00:02:36.880 --> 00:02:38.440
+inventing an extra preemption.
+
+83
+00:02:39.020 --> 00:02:40.200
+Things to take note of.
+
+84
+00:02:40.720 --> 00:02:43.660
+Choose only ready processes, distinguish
+
+85
+00:02:43.660 --> 00:02:47.420
+nonpreemptive selection from preemptive reconsideration,
+
+86
+00:02:47.660 --> 00:02:49.560
+and update remaining work after
+
+87
+00:02:49.560 --> 00:02:52.420
+every interval. Use completion minus
+
+88
+00:02:52.420 --> 00:02:54.580
+arrival minus burst only under
+
+89
+00:02:54.580 --> 00:02:57.040
+the stated no-blocking model, then
+
+90
+00:02:57.040 --> 00:02:58.860
+average the individual waits.

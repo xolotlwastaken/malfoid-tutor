@@ -1,0 +1,373 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.360
+How do product, complement and
+
+2
+00:00:02.360 --> 00:00:05.100
+reversal constructions work? Closure means
+
+3
+00:00:05.100 --> 00:00:06.740
+an operation applied to regular
+
+4
+00:00:06.740 --> 00:00:09.120
+languages produces another regular language.
+
+5
+00:00:09.640 --> 00:00:10.880
+We will construct the new
+
+6
+00:00:10.880 --> 00:00:12.440
+machines and explain what their
+
+7
+00:00:12.440 --> 00:00:14.420
+states mean, rather than memorize
+
+8
+00:00:14.420 --> 00:00:15.760
+a row of yes answers.
+
+9
+00:00:16.220 --> 00:00:17.980
+Let one machine track the
+
+10
+00:00:17.980 --> 00:00:19.480
+parity of zeros and another
+
+11
+00:00:19.480 --> 00:00:20.900
+track the parity of ones.
+
+12
+00:00:21.360 --> 00:00:23.060
+The product machine stores both
+
+13
+00:00:23.060 --> 00:00:24.640
+current states as one ordered
+
+14
+00:00:24.640 --> 00:00:26.760
+pair. There are four possible
+
+15
+00:00:26.760 --> 00:00:28.580
+pairs, and both components update
+
+16
+00:00:28.580 --> 00:00:29.820
+on the very same input
+
+17
+00:00:29.820 --> 00:00:30.200
+symbol.
+
+18
+00:00:30.900 --> 00:00:32.260
+For union, mark a pair
+
+19
+00:00:32.260 --> 00:00:34.060
+accepting when either component is
+
+20
+00:00:34.060 --> 00:00:36.700
+accepting. For intersection, require both;
+
+21
+00:00:37.260 --> 00:00:38.860
+for difference, require the first
+
+22
+00:00:38.860 --> 00:00:40.000
+to accept and the second
+
+23
+00:00:40.000 --> 00:00:42.060
+to reject. The transitions need
+
+24
+00:00:42.060 --> 00:00:43.600
+not change, because the pair
+
+25
+00:00:43.600 --> 00:00:45.600
+already records enough information for
+
+26
+00:00:45.600 --> 00:00:46.660
+each Boolean condition.
+
+27
+00:00:47.500 --> 00:00:49.680
+The product invariant says that
+
+28
+00:00:49.680 --> 00:00:51.820
+after any prefix, each component
+
+29
+00:00:51.820 --> 00:00:53.500
+equals the state its original
+
+30
+00:00:53.500 --> 00:00:55.260
+machine would reach. It holds
+
+31
+00:00:55.260 --> 00:00:56.580
+before reading input and is
+
+32
+00:00:56.580 --> 00:00:58.640
+preserved because each transition applies
+
+33
+00:00:58.640 --> 00:01:01.120
+both original transition functions. The
+
+34
+00:01:01.120 --> 00:01:03.640
+chosen accepting-pair rule therefore proves
+
+35
+00:01:03.640 --> 00:01:04.980
+both directions of the desired
+
+36
+00:01:04.980 --> 00:01:05.780
+language equality.
+
+37
+00:01:06.260 --> 00:01:08.600
+Complement is simpler, but its
+
+38
+00:01:08.600 --> 00:01:11.780
+hypothesis matters. Complete a deterministic
+
+39
+00:01:11.780 --> 00:01:13.900
+machine and replace its accepting
+
+40
+00:01:13.900 --> 00:01:15.080
+set by the other states,
+
+41
+00:01:15.080 --> 00:01:16.580
+relative to the same alphabet.
+
+42
+00:01:17.020 --> 00:01:18.640
+Since every word has one
+
+43
+00:01:18.640 --> 00:01:20.880
+final state, exactly the previously
+
+44
+00:01:20.880 --> 00:01:22.780
+rejected words become accepted.
+
+45
+00:01:23.180 --> 00:01:25.040
+A missing transition breaks that
+
+46
+00:01:25.040 --> 00:01:26.780
+simple argument because a word
+
+47
+00:01:26.780 --> 00:01:28.000
+might have no full run
+
+48
+00:01:28.000 --> 00:01:29.480
+in the drawing. Add a
+
+49
+00:01:29.480 --> 00:01:32.020
+rejecting sink before complementing, so
+
+50
+00:01:32.020 --> 00:01:33.500
+those words acquire a final
+
+51
+00:01:33.500 --> 00:01:35.120
+state too. For a nondeterministic
+
+52
+00:01:35.760 --> 00:01:37.660
+machine, merely flipping its accepting
+
+53
+00:01:37.660 --> 00:01:39.860
+states is generally wrong because
+
+54
+00:01:39.860 --> 00:01:42.120
+acceptance is existential over branches.
+
+55
+00:01:42.660 --> 00:01:44.380
+For reversal, begin with a
+
+56
+00:01:44.380 --> 00:01:46.120
+machine for the original language.
+
+57
+00:01:46.600 --> 00:01:48.740
+Reverse every arrow, make the
+
+58
+00:01:48.740 --> 00:01:50.900
+old start state accepting, and
+
+59
+00:01:50.900 --> 00:01:52.140
+add a fresh start with
+
+60
+00:01:52.140 --> 00:01:53.940
+epsilon arrows to every old
+
+61
+00:01:53.940 --> 00:01:56.280
+accepting state. The result is
+
+62
+00:01:56.280 --> 00:01:58.420
+a nondeterministic machine because several
+
+63
+00:01:58.420 --> 00:02:00.020
+reversed arrows may share a
+
+64
+00:02:00.020 --> 00:02:00.280
+symbol.
+
+65
+00:02:01.260 --> 00:02:03.460
+An accepting original path reads
+
+66
+00:02:03.460 --> 00:02:04.660
+a word from start to
+
+67
+00:02:04.660 --> 00:02:07.200
+final. Walking that path backwards
+
+68
+00:02:07.200 --> 00:02:08.380
+in the new machine reads
+
+69
+00:02:08.380 --> 00:02:09.620
+the reversed word from an
+
+70
+00:02:09.620 --> 00:02:10.860
+old final to the old
+
+71
+00:02:10.860 --> 00:02:14.220
+start. Conversely, every new accepting
+
+72
+00:02:14.220 --> 00:02:15.940
+path reverses back to an
+
+73
+00:02:15.940 --> 00:02:18.820
+original accepting path, proving equality
+
+74
+00:02:18.820 --> 00:02:20.040
+in both directions.
+
+75
+00:02:20.580 --> 00:02:22.560
+For a tiny example, the
+
+76
+00:02:22.560 --> 00:02:24.480
+language containing only a followed
+
+77
+00:02:24.480 --> 00:02:25.900
+by b reverses to the
+
+78
+00:02:25.900 --> 00:02:27.800
+language containing only b followed
+
+79
+00:02:27.800 --> 00:02:30.260
+by a. The construction changes
+
+80
+00:02:30.260 --> 00:02:32.020
+the path directions as well
+
+81
+00:02:32.020 --> 00:02:33.180
+as the start and final
+
+82
+00:02:33.180 --> 00:02:35.840
+roles. Reversing arrows without those
+
+83
+00:02:35.840 --> 00:02:37.200
+role changes would answer a
+
+84
+00:02:37.200 --> 00:02:37.880
+different question.
+
+85
+00:02:38.460 --> 00:02:40.000
+Things to take note of.
+
+86
+00:02:40.400 --> 00:02:42.420
+Products run both machines on
+
+87
+00:02:42.420 --> 00:02:45.020
+one shared word, complement requires
+
+88
+00:02:45.020 --> 00:02:47.840
+a complete deterministic machine, and
+
+89
+00:02:47.840 --> 00:02:51.080
+reversal uses nondeterministic starts. For
+
+90
+00:02:51.080 --> 00:02:53.040
+every closure proof, give the
+
+91
+00:02:53.040 --> 00:02:55.080
+construction and its invariant or
+
+92
+00:02:55.080 --> 00:02:58.480
+accepting-path correspondence, including the empty-word
+
+93
+00:02:58.480 --> 00:02:58.820
+case.

@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.560
+How does depth-first search work?
+
+2
+00:00:02.560 --> 00:00:04.260
+Follow one branch as far
+
+3
+00:00:04.260 --> 00:00:06.240
+as possible, then backtrack to
+
+4
+00:00:06.240 --> 00:00:07.560
+the last vertex with an
+
+5
+00:00:07.560 --> 00:00:09.800
+unexplored neighbour. The call stack
+
+6
+00:00:09.800 --> 00:00:12.100
+remembers the active path, so
+
+7
+00:00:12.100 --> 00:00:12.900
+you need not.
+
+8
+00:00:13.420 --> 00:00:16.280
+Use the same directed graph:
+
+9
+00:00:16.700 --> 00:00:18.340
+A reaches B and C,
+
+10
+00:00:18.940 --> 00:00:20.660
+each can reach D, and
+
+11
+00:00:20.660 --> 00:00:22.540
+D reaches E. Choose neighbours
+
+12
+00:00:22.560 --> 00:00:24.980
+alphabetically and mark a vertex
+
+13
+00:00:24.980 --> 00:00:26.760
+immediately when its call begins.
+
+14
+00:00:27.300 --> 00:00:29.900
+From A, discover B and
+
+15
+00:00:29.900 --> 00:00:30.960
+leave A waiting on the
+
+16
+00:00:30.960 --> 00:00:33.080
+stack. From B, discover D,
+
+17
+00:00:33.380 --> 00:00:35.160
+then from D discover E;
+
+18
+00:00:35.700 --> 00:00:37.760
+each recursive call suspends the
+
+19
+00:00:37.760 --> 00:00:38.560
+previous one.
+
+20
+00:00:39.420 --> 00:00:41.355
+E has no outgoing neighbour
+
+21
+00:00:41.060 --> 00:00:43.260
+to explore, so finish E
+
+22
+00:00:43.260 --> 00:00:45.040
+and return to D. D
+
+23
+00:00:45.040 --> 00:00:47.080
+is then finished, followed by
+
+24
+00:00:47.080 --> 00:00:48.960
+B, and the stack returns
+
+25
+00:00:48.960 --> 00:00:50.540
+to the suspended call for
+
+26
+00:00:50.540 --> 00:00:50.840
+A.
+
+27
+00:00:51.620 --> 00:00:53.706
+A still has its neighbour
+
+28
+00:00:52.980 --> 00:00:55.380
+C, so discover C now.
+
+29
+00:00:55.380 --> 00:00:57.540
+C points to D, but
+
+30
+00:00:57.540 --> 00:00:59.180
+D is already visited and
+
+31
+00:00:59.180 --> 00:01:01.600
+finished; skip it, finish C,
+
+32
+00:01:01.860 --> 00:01:03.080
+then finish A.
+
+33
+00:01:03.500 --> 00:01:05.820
+The discovery order was A,
+
+34
+00:01:06.080 --> 00:01:08.820
+B, D, E, C. The
+
+35
+00:01:08.820 --> 00:01:11.200
+finishing order was E, D,
+
+36
+00:01:11.540 --> 00:01:13.840
+B, C, A; writing the
+
+37
+00:01:13.840 --> 00:01:15.540
+discovery order when asked for
+
+38
+00:01:15.562 --> 00:01:17.820
+postorder would produce a completely
+
+39
+00:01:17.820 --> 00:01:18.800
+different answer.
+
+40
+00:01:19.140 --> 00:01:20.720
+A search from one source
+
+41
+00:01:20.720 --> 00:01:22.980
+only visits reachable vertices. For
+
+42
+00:01:22.980 --> 00:01:24.840
+the whole graph, loop over
+
+43
+00:01:24.840 --> 00:01:26.560
+every vertex and start another
+
+44
+00:01:26.560 --> 00:01:28.340
+call at each unvisited one;
+
+45
+00:01:28.920 --> 00:01:30.160
+the result is a DFS
+
+46
+00:01:30.160 --> 00:01:30.620
+forest.
+
+47
+00:01:31.340 --> 00:01:34.200
+For directed cycle detection, distinguish
+
+48
+00:01:34.200 --> 00:01:37.000
+undiscovered, active, and finished vertices.
+
+49
+00:01:37.640 --> 00:01:38.740
+An edge to an active
+
+50
+00:01:38.740 --> 00:01:40.500
+ancestor gives a back edge
+
+51
+00:01:40.500 --> 00:01:42.180
+and a cycle; an edge
+
+52
+00:01:42.180 --> 00:01:43.700
+to an already finished vertex
+
+53
+00:01:43.700 --> 00:01:44.800
+alone does not.
+
+54
+00:01:45.380 --> 00:01:47.160
+Each vertex is first discovered
+
+55
+00:01:47.160 --> 00:01:49.360
+once and each adjacency entry
+
+56
+00:01:49.360 --> 00:01:52.560
+is examined once. Initialisation contributes
+
+57
+00:01:52.560 --> 00:01:54.500
+order n and edge scanning
+
+58
+00:01:54.500 --> 00:01:56.560
+contributes order m, so the
+
+59
+00:01:56.560 --> 00:01:58.180
+full forest takes order n
+
+60
+00:01:58.180 --> 00:02:00.120
+plus m with adjacency lists.
+
+61
+00:02:00.700 --> 00:02:02.820
+Visited and parent arrays use
+
+62
+00:02:02.820 --> 00:02:04.560
+order n space, and a
+
+63
+00:02:04.560 --> 00:02:07.079
+long chain can create n
+
+64
+00:02:06.160 --> 00:02:08.460
+active recursive calls. An explicit
+
+65
+00:02:08.460 --> 00:02:10.440
+stack avoids a language recursion
+
+66
+00:02:10.440 --> 00:02:12.720
+limit, but reproducing the exact
+
+67
+00:02:12.720 --> 00:02:15.060
+recursive order requires tracking where
+
+68
+00:02:15.060 --> 00:02:16.200
+each call resumes.
+
+69
+00:02:17.060 --> 00:02:18.700
+Things to take note of.
+
+70
+00:02:19.020 --> 00:02:21.020
+DFS does not generally find
+
+71
+00:02:21.020 --> 00:02:23.200
+shortest paths, and neighbour order
+
+72
+00:02:23.200 --> 00:02:24.620
+can change its tree and
+
+73
+00:02:24.620 --> 00:02:27.420
+orders. In undirected simple graphs,
+
+74
+00:02:27.740 --> 00:02:29.220
+scanning the reverse parent edge
+
+75
+00:02:29.220 --> 00:02:30.540
+is not evidence of a
+
+76
+00:02:30.540 --> 00:02:30.860
+cycle.
+
+77
+00:02:31.340 --> 00:02:33.560
+With parallel edges, track the
+
+78
+00:02:33.560 --> 00:02:35.580
+parent edge identity rather than
+
+79
+00:02:35.580 --> 00:02:37.060
+skipping every edge to that
+
+80
+00:02:37.060 --> 00:02:39.820
+vertex. Discover on entry, finish
+
+81
+00:02:39.820 --> 00:02:41.800
+on return, and backtrack only
+
+82
+00:02:41.800 --> 00:02:43.400
+after a branch is exhausted.
+
+83
+00:02:43.400 --> 00:02:44.820
+There, wandering with a proper
+
+84
+00:02:44.820 --> 00:02:45.220
+memory.

@@ -1,0 +1,349 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.940
+How does round robin work?
+
+2
+00:00:02.580 --> 00:00:03.920
+Give the head ready process
+
+3
+00:00:03.920 --> 00:00:05.600
+at most one time quantum,
+
+4
+00:00:06.120 --> 00:00:07.780
+then move unfinished work to
+
+5
+00:00:07.780 --> 00:00:10.120
+the tail. Unlike shortest job
+
+6
+00:00:10.120 --> 00:00:12.340
+first, the queue rotates according
+
+7
+00:00:12.340 --> 00:00:14.320
+to time slices rather than
+
+8
+00:00:14.320 --> 00:00:16.240
+sorting all processes by burst
+
+9
+00:00:16.240 --> 00:00:16.580
+length.
+
+10
+00:00:17.500 --> 00:00:19.580
+The lecture uses bursts fifty-three,
+
+11
+00:00:20.060 --> 00:00:22.560
+seventeen, sixty-eight and twenty-four, with
+
+12
+00:00:22.560 --> 00:00:24.960
+quantum twenty. All arrive at
+
+13
+00:00:24.960 --> 00:00:27.100
+zero in process-identifier order, and
+
+14
+00:00:27.100 --> 00:00:29.600
+switching costs are ignored. Track
+
+15
+00:00:29.600 --> 00:00:30.880
+the ready queue and remaining
+
+16
+00:00:30.880 --> 00:00:31.980
+work as well as the
+
+17
+00:00:31.980 --> 00:00:32.800
+completed timeline.
+
+18
+00:00:33.300 --> 00:00:35.180
+P one runs from zero
+
+19
+00:00:35.180 --> 00:00:36.580
+to twenty and still needs
+
+20
+00:00:36.580 --> 00:00:38.960
+thirty-three, so it joins the
+
+21
+00:00:38.960 --> 00:00:41.040
+queue tail. P two needs
+
+22
+00:00:41.040 --> 00:00:42.820
+only seventeen and finishes at
+
+23
+00:00:42.820 --> 00:00:44.980
+time thirty-seven, before using a
+
+24
+00:00:44.980 --> 00:00:47.020
+full quantum. A completion does
+
+25
+00:00:47.020 --> 00:00:48.260
+not pad the slice with
+
+26
+00:00:48.260 --> 00:00:50.000
+imaginary extra execution.
+
+27
+00:00:50.460 --> 00:00:52.440
+P three runs from thirty-seven
+
+28
+00:00:52.440 --> 00:00:55.680
+to fifty-seven, leaving forty-eight. P
+
+29
+00:00:55.680 --> 00:00:58.580
+four runs until seventy-seven, leaving
+
+30
+00:00:58.580 --> 00:01:01.280
+four. The queue now returns
+
+31
+00:01:01.280 --> 00:01:03.020
+to P one, which runs
+
+32
+00:01:03.020 --> 00:01:04.920
+until ninety-seven and still needs
+
+33
+00:01:04.920 --> 00:01:05.480
+thirteen.
+
+34
+00:01:06.020 --> 00:01:08.040
+P three next uses twenty
+
+35
+00:01:08.040 --> 00:01:09.960
+units and has twenty-eight left
+
+36
+00:01:09.960 --> 00:01:11.280
+at one hundred seventeen. P
+
+37
+00:01:11.280 --> 00:01:13.560
+four needs only four, so
+
+38
+00:01:13.560 --> 00:01:14.300
+it finishes at one hundred
+
+39
+00:01:14.300 --> 00:01:17.100
+twenty-one. P one then completes
+
+40
+00:01:17.100 --> 00:01:18.760
+its remaining thirteen at one
+
+41
+00:01:18.760 --> 00:01:19.840
+hundred thirty-four.
+
+42
+00:01:20.380 --> 00:01:22.680
+Only P three remains, so
+
+43
+00:01:22.680 --> 00:01:24.060
+it runs for twenty and
+
+44
+00:01:24.060 --> 00:01:25.500
+then its last eight units,
+
+45
+00:01:26.000 --> 00:01:27.720
+finishing at one hundred sixty-two.
+
+46
+00:01:28.440 --> 00:01:30.660
+Separate slice boundaries still exist,
+
+47
+00:01:31.060 --> 00:01:32.260
+but a lone ready process
+
+48
+00:01:32.260 --> 00:01:34.200
+can immediately receive the processor
+
+49
+00:01:34.200 --> 00:01:36.660
+again. A queue rotation need
+
+50
+00:01:36.660 --> 00:01:38.840
+not imply another process actually
+
+51
+00:01:38.840 --> 00:01:39.400
+executes.
+
+52
+00:01:39.780 --> 00:01:41.520
+Completion times are one hundred
+
+53
+00:01:41.520 --> 00:01:45.380
+thirty-four, thirty-seven, one hundred sixty-two
+
+54
+00:01:45.640 --> 00:01:48.080
+and one hundred twenty-one. Subtracting
+
+55
+00:01:48.080 --> 00:01:49.880
+each burst gives waiting times
+
+56
+00:01:49.880 --> 00:01:52.620
+eighty-one, twenty, ninety-four and ninety-seven.
+
+57
+00:01:53.040 --> 00:01:53.860
+Their sum is two hundred
+
+58
+00:01:53.860 --> 00:01:57.260
+ninety-two, divided by four, giving
+
+59
+00:01:57.260 --> 00:01:58.640
+mean waiting seventy-three.
+
+60
+00:01:59.580 --> 00:02:01.440
+Response is based on first
+
+61
+00:02:01.440 --> 00:02:03.840
+execution, so the response times
+
+62
+00:02:03.840 --> 00:02:06.060
+here are zero, twenty, thirty-seven
+
+63
+00:02:06.340 --> 00:02:08.380
+and fifty-seven. They are different
+
+64
+00:02:08.380 --> 00:02:10.220
+from total waits because later
+
+65
+00:02:10.220 --> 00:02:12.120
+queue visits add waiting without
+
+66
+00:02:12.120 --> 00:02:14.600
+changing the first response. Derive
+
+67
+00:02:14.600 --> 00:02:15.860
+the metric you were actually
+
+68
+00:02:15.860 --> 00:02:16.580
+asked for.
+
+69
+00:02:17.140 --> 00:02:19.120
+A very large quantum approaches
+
+70
+00:02:19.120 --> 00:02:21.140
+first come, first served for
+
+71
+00:02:21.140 --> 00:02:22.920
+these bursts. A very small
+
+72
+00:02:22.920 --> 00:02:24.960
+quantum creates frequent switching overhead
+
+73
+00:02:24.960 --> 00:02:26.240
+if switches have a nonzero
+
+74
+00:02:26.240 --> 00:02:28.120
+cost. The familiar bound of
+
+75
+00:02:28.120 --> 00:02:29.200
+at most n minus one
+
+76
+00:02:29.200 --> 00:02:31.340
+quanta between turns assumes a
+
+77
+00:02:31.340 --> 00:02:33.180
+fixed ready population and ignores
+
+78
+00:02:33.180 --> 00:02:33.760
+that overhead.
+
+79
+00:02:34.300 --> 00:02:35.600
+Things to take note of.
+
+80
+00:02:35.600 --> 00:02:38.800
+Requeue only unfinished work, stop
+
+81
+00:02:38.800 --> 00:02:40.640
+early on completion, and keep
+
+82
+00:02:40.640 --> 00:02:42.120
+the remaining burst up to
+
+83
+00:02:42.120 --> 00:02:44.700
+date. For simultaneous arrivals and
+
+84
+00:02:44.700 --> 00:02:46.860
+quantum expiry, follow the stated
+
+85
+00:02:46.860 --> 00:02:48.780
+queue ordering; the finished chart
+
+86
+00:02:48.780 --> 00:02:49.880
+is just a record of
+
+87
+00:02:49.880 --> 00:02:50.500
+those decisions.

@@ -1,0 +1,425 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.940
+How does merge sort work?
+
+2
+00:00:02.500 --> 00:00:04.680
+Watch these eight numbers. We
+
+3
+00:00:04.680 --> 00:00:06.300
+will split them, merge them
+
+4
+00:00:06.300 --> 00:00:08.060
+in order, and derive the
+
+5
+00:00:08.060 --> 00:00:10.060
+running time. Do try to
+
+6
+00:00:10.060 --> 00:00:10.540
+keep up.
+
+7
+00:00:11.180 --> 00:00:13.560
+First, split the array into
+
+8
+00:00:13.560 --> 00:00:15.540
+two halves, with four elements
+
+9
+00:00:15.540 --> 00:00:16.360
+in each.
+
+10
+00:00:16.820 --> 00:00:19.320
+Split each half again. Now
+
+11
+00:00:19.320 --> 00:00:20.620
+we have four groups of
+
+12
+00:00:20.620 --> 00:00:20.980
+two.
+
+13
+00:00:21.740 --> 00:00:24.400
+Keep splitting until every group
+
+14
+00:00:24.400 --> 00:00:26.700
+has one element. A single
+
+15
+00:00:26.700 --> 00:00:29.060
+element is already sorted. That
+
+16
+00:00:29.060 --> 00:00:30.920
+is our base case.
+
+17
+00:00:31.380 --> 00:00:33.700
+Now work back upward. To
+
+18
+00:00:33.700 --> 00:00:35.980
+merge two sorted groups, compare
+
+19
+00:00:35.980 --> 00:00:37.500
+their front elements and move
+
+20
+00:00:37.500 --> 00:00:38.860
+the smaller one into the
+
+21
+00:00:38.860 --> 00:00:40.060
+next output position.
+
+22
+00:00:40.860 --> 00:00:43.420
+Eight versus three: three moves
+
+23
+00:00:43.420 --> 00:00:45.700
+first, then eight. Our first
+
+24
+00:00:45.700 --> 00:00:47.720
+sorted pair is three, eight.
+
+25
+00:00:48.100 --> 00:00:49.620
+The other pairs merge the
+
+26
+00:00:49.620 --> 00:00:52.100
+same way: one, five; two,
+
+27
+00:00:52.460 --> 00:00:53.740
+seven; and four, six.
+
+28
+00:00:54.220 --> 00:00:55.920
+Merge the first two sorted
+
+29
+00:00:55.920 --> 00:00:58.680
+pairs. One moves first, then
+
+30
+00:00:58.680 --> 00:01:01.140
+three, then five. The right
+
+31
+00:01:01.140 --> 00:01:02.960
+group is empty, so copy
+
+32
+00:01:02.960 --> 00:01:04.100
+the remaining eight.
+
+33
+00:01:04.580 --> 00:01:06.100
+Merge the other two pairs.
+
+34
+00:01:06.640 --> 00:01:09.660
+Two, four, six, then the
+
+35
+00:01:09.660 --> 00:01:11.900
+remaining seven. Both halves are
+
+36
+00:01:11.900 --> 00:01:12.560
+now sorted.
+
+37
+00:01:13.100 --> 00:01:15.200
+For the final merge, compare
+
+38
+00:01:15.200 --> 00:01:16.660
+only the two front elements.
+
+39
+00:01:17.260 --> 00:01:18.440
+You do not search the
+
+40
+00:01:18.440 --> 00:01:20.080
+entire groups, obviously.
+
+41
+00:01:20.820 --> 00:01:22.860
+One beats two. Move one
+
+42
+00:01:22.860 --> 00:01:24.500
+into the output, and advance
+
+43
+00:01:24.500 --> 00:01:25.380
+the left pointer.
+
+44
+00:01:25.820 --> 00:01:28.380
+Three versus two. Move two,
+
+45
+00:01:28.760 --> 00:01:30.480
+and advance the right pointer.
+
+46
+00:01:31.220 --> 00:01:33.540
+Three beats four. Move three
+
+47
+00:01:33.540 --> 00:01:34.220
+from the left.
+
+48
+00:01:34.780 --> 00:01:37.660
+Five versus four. Move four
+
+49
+00:01:37.660 --> 00:01:38.220
+from the right.
+
+50
+00:01:38.580 --> 00:01:41.120
+Five beats six. Move five
+
+51
+00:01:41.120 --> 00:01:41.860
+from the left.
+
+52
+00:01:42.460 --> 00:01:45.160
+Eight versus six. Move six
+
+53
+00:01:45.160 --> 00:01:45.900
+from the right.
+
+54
+00:01:46.660 --> 00:01:49.160
+Eight versus seven. Move seven.
+
+55
+00:01:49.380 --> 00:01:50.340
+The right group is now
+
+56
+00:01:50.340 --> 00:01:50.740
+empty.
+
+57
+00:01:51.260 --> 00:01:53.820
+Copy the remaining eight. There.
+
+58
+00:01:54.380 --> 00:01:56.120
+All eight numbers are sorted.
+
+59
+00:01:56.740 --> 00:01:59.340
+Why is merging linear? Each
+
+60
+00:01:59.340 --> 00:02:01.140
+element enters the output once.
+
+61
+00:02:01.720 --> 00:02:03.420
+Across one merge level, all
+
+62
+00:02:03.420 --> 00:02:05.180
+groups together contain eight elements,
+
+63
+00:02:05.460 --> 00:02:07.080
+so that level makes eight
+
+64
+00:02:07.080 --> 00:02:09.380
+output placements. In general, that
+
+65
+00:02:09.380 --> 00:02:11.060
+is theta of n work.
+
+66
+00:02:11.580 --> 00:02:13.480
+For eight elements, we merge
+
+67
+00:02:13.480 --> 00:02:15.620
+pairs, then groups of four,
+
+68
+00:02:15.980 --> 00:02:18.160
+then all eight: three merge
+
+69
+00:02:18.160 --> 00:02:20.320
+levels. For n elements, repeated
+
+70
+00:02:19.746 --> 00:02:21.900
+halving gives about log base
+
+71
+00:02:21.900 --> 00:02:23.060
+two of n levels.
+
+72
+00:02:23.620 --> 00:02:25.880
+Multiply linear work per level
+
+73
+00:02:25.880 --> 00:02:28.480
+by logarithmic levels: theta of
+
+74
+00:02:28.480 --> 00:02:31.020
+n log n time. Equivalently,
+
+75
+00:02:31.400 --> 00:02:33.660
+two half-sized recursive sorts plus
+
+76
+00:02:33.660 --> 00:02:35.240
+a linear merge give this
+
+77
+00:02:35.240 --> 00:02:35.780
+recurrence.
+
+78
+00:02:36.300 --> 00:02:37.720
+Things to take note of
+
+79
+00:02:37.720 --> 00:02:39.540
+for merge sort. First, the
+
+80
+00:02:39.540 --> 00:02:41.280
+standard version takes theta of
+
+81
+00:02:41.008 --> 00:02:42.300
+n log n time in
+
+82
+00:02:42.300 --> 00:02:43.700
+the best, average, and worst
+
+83
+00:02:43.700 --> 00:02:44.120
+cases.
+
+84
+00:02:44.660 --> 00:02:47.000
+Use half-open ranges: start is
+
+85
+00:02:47.000 --> 00:02:49.660
+included; end is excluded. Stop
+
+86
+00:02:49.660 --> 00:02:51.120
+when end minus start is
+
+87
+00:02:51.120 --> 00:02:52.800
+at most one, including an
+
+88
+00:02:52.800 --> 00:02:55.120
+empty range. Odd lengths split
+
+89
+00:02:55.120 --> 00:02:56.500
+into unequal halves.
+
+90
+00:02:57.420 --> 00:03:00.360
+Temporary arrays require linear auxiliary
+
+91
+00:03:00.360 --> 00:03:03.240
+space. Recursion adds a logarithmic
+
+92
+00:03:03.240 --> 00:03:05.760
+stack. Total extra space stays
+
+93
+00:03:05.760 --> 00:03:08.060
+linear, so this version is
+
+94
+00:03:08.060 --> 00:03:08.940
+not in-place.
+
+95
+00:03:09.140 --> 00:03:10.820
+On equal keys, take the
+
+96
+00:03:10.820 --> 00:03:12.864
+left element first. Here, two
+
+97
+00:03:12.864 --> 00:03:14.726
+A came before two B,
+
+98
+00:03:15.040 --> 00:03:16.580
+so the merged output keeps
+
+99
+00:03:16.580 --> 00:03:18.460
+A before B. Stability depends
+
+100
+00:03:18.460 --> 00:03:19.520
+on this tie rule.
+
+101
+00:03:20.140 --> 00:03:22.180
+The slides also list order
+
+102
+00:03:22.432 --> 00:03:23.800
+n log n swaps. In
+
+103
+00:03:23.800 --> 00:03:26.160
+this implementation, these are element
+
+104
+00:03:26.160 --> 00:03:28.180
+copies and writes, rather than
+
+105
+00:03:29.309 --> 00:03:31.400
+pairwise swaps. Hmph. Remember the
+
+106
+00:03:31.400 --> 00:03:31.800
+details.

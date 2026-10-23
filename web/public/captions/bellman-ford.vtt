@@ -1,0 +1,341 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.580
+How does Bellman-Ford work? Relax
+
+2
+00:00:02.580 --> 00:00:05.600
+every directed edge repeatedly, allowing
+
+3
+00:00:05.600 --> 00:00:07.240
+negative weights and checking for
+
+4
+00:00:07.240 --> 00:00:09.480
+reachable negative cycles. It is
+
+5
+00:00:09.480 --> 00:00:11.980
+deliberately systematic, which is occasionally
+
+6
+00:00:11.980 --> 00:00:13.540
+more useful than trying to
+
+7
+00:00:13.540 --> 00:00:13.960
+be clever.
+
+8
+00:00:14.540 --> 00:00:16.380
+Start with distance zero at
+
+9
+00:00:16.380 --> 00:00:19.260
+S and infinity elsewhere. Relaxing
+
+10
+00:00:19.260 --> 00:00:20.600
+u to v tests whether
+
+11
+00:00:20.600 --> 00:00:22.080
+distance u plus the edge
+
+12
+00:00:22.080 --> 00:00:23.520
+weight is smaller than distance
+
+13
+00:00:23.520 --> 00:00:26.280
+v; on improvement, update both
+
+14
+00:00:26.280 --> 00:00:27.660
+the distance and its parent.
+
+15
+00:00:28.180 --> 00:00:29.640
+Our chain is S to
+
+16
+00:00:29.640 --> 00:00:31.040
+A with weight two, A
+
+17
+00:00:31.040 --> 00:00:32.120
+to B with negative one,
+
+18
+00:00:32.380 --> 00:00:33.500
+then B to T with
+
+19
+00:00:33.500 --> 00:00:35.820
+five. Scan edges backwards each
+
+20
+00:00:35.820 --> 00:00:37.560
+pass: B to T, A
+
+21
+00:00:37.560 --> 00:00:38.820
+to B, S to A.
+
+22
+00:00:39.340 --> 00:00:41.040
+In pass one, B and
+
+23
+00:00:41.040 --> 00:00:42.860
+A still have infinite distances
+
+24
+00:00:42.860 --> 00:00:44.260
+when their outgoing edges are
+
+25
+00:00:44.260 --> 00:00:46.160
+checked. Only the last edge,
+
+26
+00:00:46.320 --> 00:00:48.007
+S to A, improves a
+
+27
+00:00:47.560 --> 00:00:49.260
+label, setting A to two.
+
+28
+00:00:49.940 --> 00:00:51.920
+In pass two, B to
+
+29
+00:00:51.920 --> 00:00:54.100
+T still cannot improve anything.
+
+30
+00:00:54.660 --> 00:00:55.800
+A to B now offers
+
+31
+00:00:55.800 --> 00:00:57.680
+two minus one, so B
+
+32
+00:00:57.680 --> 00:00:59.780
+becomes one; S to A
+
+33
+00:00:59.780 --> 00:01:01.320
+leaves its label unchanged.
+
+34
+00:01:01.980 --> 00:01:03.480
+In pass three, B to
+
+35
+00:01:03.480 --> 00:01:05.380
+T offers one plus five,
+
+36
+00:01:05.860 --> 00:01:08.260
+giving T distance six. We
+
+37
+00:01:08.260 --> 00:01:10.320
+now know the route S,
+
+38
+00:01:09.120 --> 00:01:10.860
+A, B, T, and its
+
+39
+00:01:10.860 --> 00:01:13.515
+parent pointers reconstruct that route
+
+40
+00:01:12.900 --> 00:01:13.380
+backwards.
+
+41
+00:01:14.100 --> 00:01:16.680
+After k full passes, every
+
+42
+00:01:16.680 --> 00:01:18.280
+vertex with a finite shortest
+
+43
+00:01:18.280 --> 00:01:19.940
+path using at most k
+
+44
+00:01:19.940 --> 00:01:21.560
+edges has its correct distance.
+
+45
+00:01:22.180 --> 00:01:23.880
+An in-place scan may propagate
+
+46
+00:01:23.880 --> 00:01:25.880
+farther within one pass, so
+
+47
+00:01:25.880 --> 00:01:27.800
+k is a guarantee, not
+
+48
+00:01:27.800 --> 00:01:28.700
+an exact limit.
+
+49
+00:01:29.340 --> 00:01:31.520
+Without a reachable negative cycle,
+
+50
+00:01:31.900 --> 00:01:33.620
+a finite shortest route can
+
+51
+00:01:33.620 --> 00:01:35.560
+be chosen simple, using at
+
+52
+00:01:35.560 --> 00:01:37.140
+most n minus one edges.
+
+53
+00:01:37.640 --> 00:01:40.140
+That explains the n minus
+
+54
+00:01:38.840 --> 00:01:41.320
+one complete passes; a whole
+
+55
+00:01:41.320 --> 00:01:43.960
+unchanged pass permits early stopping.
+
+56
+00:01:44.660 --> 00:01:47.700
+After those passes, an additional
+
+57
+00:01:47.700 --> 00:01:49.480
+scan checks for any improvement
+
+58
+00:01:49.480 --> 00:01:51.980
+from a finite-distance tail. An
+
+59
+00:01:51.980 --> 00:01:54.020
+improvement certifies a negative cycle
+
+60
+00:01:54.020 --> 00:01:56.420
+reachable from S; the improving
+
+61
+00:01:56.420 --> 00:01:58.200
+edge itself may merely be
+
+62
+00:01:58.200 --> 00:01:59.620
+downstream of that cycle.
+
+63
+00:02:00.300 --> 00:02:02.280
+With n vertices and m
+
+64
+00:02:02.280 --> 00:02:03.880
+edges, there are at most
+
+65
+00:02:03.880 --> 00:02:05.820
+n minus one full scans
+
+66
+00:02:05.820 --> 00:02:08.915
+of m edges, plus initialisation
+
+67
+00:02:08.700 --> 00:02:11.060
+and the detection scan. This
+
+68
+00:02:11.060 --> 00:02:12.940
+gives order n plus n
+
+69
+00:02:12.940 --> 00:02:14.940
+m time and order n
+
+70
+00:02:14.940 --> 00:02:16.780
+auxiliary labels and parents.
+
+71
+00:02:17.300 --> 00:02:19.000
+Things to take note of.
+
+72
+00:02:19.480 --> 00:02:21.500
+Negative edges are allowed, but
+
+73
+00:02:21.500 --> 00:02:23.240
+a reachable negative cycle can
+
+74
+00:02:23.240 --> 00:02:25.260
+make distances unbounded below for
+
+75
+00:02:25.260 --> 00:02:26.940
+targets it can reach. A
+
+76
+00:02:26.940 --> 00:02:28.760
+disconnected negative cycle does not
+
+77
+00:02:28.760 --> 00:02:30.240
+affect this source’s distances.
+
+78
+00:02:30.940 --> 00:02:33.420
+Skip numeric relaxation from infinity
+
+79
+00:02:33.420 --> 00:02:35.280
+and respect the specified edge
+
+80
+00:02:35.280 --> 00:02:37.400
+order when tracing. A singleton
+
+81
+00:02:37.400 --> 00:02:39.100
+needs no ordinary pass but
+
+82
+00:02:39.100 --> 00:02:40.440
+still needs the cycle check
+
+83
+00:02:40.440 --> 00:02:42.600
+for a negative self-loop. Repeated
+
+84
+00:02:42.600 --> 00:02:44.500
+relaxation needs a stopping argument,
+
+85
+00:02:45.180 --> 00:02:46.360
+and now you have one.

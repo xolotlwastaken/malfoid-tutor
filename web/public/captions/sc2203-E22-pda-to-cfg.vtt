@@ -1,0 +1,421 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.820
+How does a grammar simulate
+
+2
+00:00:01.820 --> 00:00:04.520
+a pushdown automaton? Introduce one
+
+3
+00:00:04.520 --> 00:00:06.240
+variable for each ordered pair
+
+4
+00:00:06.240 --> 00:00:08.460
+of control states, representing words
+
+5
+00:00:08.460 --> 00:00:09.820
+that take the machine between
+
+6
+00:00:09.820 --> 00:00:11.200
+them with empty stack at
+
+7
+00:00:11.200 --> 00:00:13.400
+both endpoints. The construction works
+
+8
+00:00:13.400 --> 00:00:15.880
+after a careful normalization, not
+
+9
+00:00:15.880 --> 00:00:17.520
+by assigning one variable to
+
+10
+00:00:17.520 --> 00:00:19.060
+each transition informally.
+
+11
+00:00:19.420 --> 00:00:21.820
+First arrange one accepting state
+
+12
+00:00:21.820 --> 00:00:23.380
+and an empty stack before
+
+13
+00:00:23.380 --> 00:00:25.260
+entering it. A fresh bottom
+
+14
+00:00:25.260 --> 00:00:26.880
+marker and a draining phase
+
+15
+00:00:26.880 --> 00:00:28.900
+can remove leftover stack symbols
+
+16
+00:00:28.900 --> 00:00:30.700
+before the sole final transition.
+
+17
+00:00:31.300 --> 00:00:33.960
+This preserves final-state acceptance without
+
+18
+00:00:33.960 --> 00:00:36.000
+pretending the original machine already
+
+19
+00:00:36.000 --> 00:00:37.260
+used the same convention.
+
+20
+00:00:37.860 --> 00:00:40.040
+Next require every move to
+
+21
+00:00:40.040 --> 00:00:42.000
+push exactly one symbol or
+
+22
+00:00:42.000 --> 00:00:44.320
+pop exactly one symbol, never
+
+23
+00:00:44.320 --> 00:00:46.980
+both and never neither. Split
+
+24
+00:00:46.980 --> 00:00:48.560
+a combined pop and push
+
+25
+00:00:48.560 --> 00:00:50.540
+through a fresh state. Replace
+
+26
+00:00:50.540 --> 00:00:52.020
+a no-stack action by a
+
+27
+00:00:52.020 --> 00:00:53.560
+dummy push followed by a
+
+28
+00:00:53.560 --> 00:00:55.860
+matching pop, preserving the original
+
+29
+00:00:55.860 --> 00:00:57.440
+input consumption on the first
+
+30
+00:00:57.440 --> 00:00:57.660
+step.
+
+31
+00:00:57.980 --> 00:00:59.560
+The wrapping rule pairs a
+
+32
+00:00:59.560 --> 00:01:01.320
+push of symbol u with
+
+33
+00:01:01.320 --> 00:01:02.340
+a later pop of that
+
+34
+00:01:02.340 --> 00:01:04.000
+same symbol. If the push
+
+35
+00:01:04.000 --> 00:01:05.260
+reads a and goes from
+
+36
+00:01:05.260 --> 00:01:06.680
+p to r, while the
+
+37
+00:01:06.680 --> 00:01:08.060
+pop reads b and goes
+
+38
+00:01:08.060 --> 00:01:09.720
+from s to q, add
+
+39
+00:01:09.720 --> 00:01:11.260
+A p q becoming a
+
+40
+00:01:11.260 --> 00:01:13.740
+A r s b. The
+
+41
+00:01:13.740 --> 00:01:15.800
+inner variable describes a computation
+
+42
+00:01:15.800 --> 00:01:17.820
+above the untouched pushed symbol.
+
+43
+00:01:18.820 --> 00:01:20.700
+The other rule families handle
+
+44
+00:01:20.700 --> 00:01:22.180
+splitting and the base case.
+
+45
+00:01:22.780 --> 00:01:24.900
+For every intermediate state r,
+
+46
+00:01:25.500 --> 00:01:26.840
+let the variable indexed by
+
+47
+00:01:26.840 --> 00:01:28.560
+p and q expand into
+
+48
+00:01:28.560 --> 00:01:30.320
+the variable indexed by p
+
+49
+00:01:30.320 --> 00:01:32.000
+and r followed by the
+
+50
+00:01:32.000 --> 00:01:33.380
+one indexed by r and
+
+51
+00:01:33.380 --> 00:01:36.980
+q, concatenating two empty-stack computations.
+
+52
+00:01:37.420 --> 00:01:39.280
+For each state p, its
+
+53
+00:01:39.280 --> 00:01:42.160
+p-to-p variable also generates epsilon,
+
+54
+00:01:42.740 --> 00:01:44.420
+representing a zero-step run.
+
+55
+00:01:44.700 --> 00:01:46.720
+Use the tutorial fragment for
+
+56
+00:01:46.720 --> 00:01:48.880
+w c reverse-w. In the
+
+57
+00:01:48.880 --> 00:01:51.160
+pushing state p, reading a
+
+58
+00:01:51.160 --> 00:01:52.760
+or b pushes that same
+
+59
+00:01:52.760 --> 00:01:55.140
+symbol; in state q, reading
+
+60
+00:01:55.140 --> 00:01:56.700
+a or b pops its
+
+61
+00:01:56.700 --> 00:01:59.100
+matching symbol. Pairing these moves
+
+62
+00:01:59.100 --> 00:02:00.860
+yields A p q becoming
+
+63
+00:02:00.860 --> 00:02:02.460
+a A p q a,
+
+64
+00:02:02.460 --> 00:02:03.580
+or b A p q
+
+65
+00:02:03.580 --> 00:02:04.700
+b.
+
+66
+00:02:05.380 --> 00:02:07.200
+The middle c move from
+
+67
+00:02:07.200 --> 00:02:09.160
+p to q originally changes
+
+68
+00:02:09.160 --> 00:02:11.740
+no stack symbol. Normalize it
+
+69
+00:02:11.740 --> 00:02:13.300
+to a c-reading dummy push
+
+70
+00:02:13.300 --> 00:02:14.960
+into r followed by an
+
+71
+00:02:14.960 --> 00:02:16.680
+epsilon dummy pop into q.
+
+72
+00:02:17.100 --> 00:02:18.260
+The matched rule gives A
+
+73
+00:02:18.260 --> 00:02:20.180
+p q becoming c A
+
+74
+00:02:20.180 --> 00:02:21.680
+r r, and the base
+
+75
+00:02:21.680 --> 00:02:23.280
+rule reduces that to c.
+
+76
+00:02:23.900 --> 00:02:25.620
+Derive a b c b
+
+77
+00:02:25.780 --> 00:02:27.040
+a by wrapping first with
+
+78
+00:02:27.040 --> 00:02:28.980
+a, then with b, then
+
+79
+00:02:28.980 --> 00:02:30.880
+choosing the central c. The
+
+80
+00:02:30.880 --> 00:02:33.020
+corresponding machine pushes a, pushes
+
+81
+00:02:33.020 --> 00:02:34.780
+b, reads c to switch
+
+82
+00:02:34.780 --> 00:02:37.000
+phases, then pops b and
+
+83
+00:02:37.000 --> 00:02:39.100
+a. Both sides therefore encode
+
+84
+00:02:39.100 --> 00:02:40.800
+the same nested matching order.
+
+85
+00:02:41.220 --> 00:02:43.280
+The fragment explains the principal
+
+86
+00:02:43.280 --> 00:02:45.520
+rules without listing every auxiliary
+
+87
+00:02:45.520 --> 00:02:47.280
+variable of the fully normalized
+
+88
+00:02:47.280 --> 00:02:49.220
+accepting machine. In the full
+
+89
+00:02:49.220 --> 00:02:51.200
+construction, all state pairs and
+
+90
+00:02:51.200 --> 00:02:53.100
+rule families are included, and
+
+91
+00:02:53.100 --> 00:02:55.180
+unreachable variables do not change
+
+92
+00:02:55.180 --> 00:02:57.160
+the start variable’s language. Do
+
+93
+00:02:57.160 --> 00:02:59.320
+not confuse this explanatory fragment
+
+94
+00:02:59.320 --> 00:03:01.180
+with a claim that normalization
+
+95
+00:03:01.180 --> 00:03:02.340
+adds no states.
+
+96
+00:03:02.860 --> 00:03:04.240
+Things to take note of.
+
+97
+00:03:04.720 --> 00:03:05.720
+State what each A p
+
+98
+00:03:05.720 --> 00:03:08.720
+q means, normalize acceptance and
+
+99
+00:03:08.720 --> 00:03:10.820
+stack actions, and use matched
+
+100
+00:03:10.820 --> 00:03:13.280
+wrapping, splitting and zero-step rules.
+
+101
+00:03:13.840 --> 00:03:15.140
+Match the pushed symbol to
+
+102
+00:03:15.140 --> 00:03:16.640
+the popped symbol and justify
+
+103
+00:03:16.640 --> 00:03:18.780
+the chosen start variable; a
+
+104
+00:03:18.780 --> 00:03:20.800
+plausible grammar alone is not
+
+105
+00:03:20.800 --> 00:03:22.740
+the requested mechanical construction.

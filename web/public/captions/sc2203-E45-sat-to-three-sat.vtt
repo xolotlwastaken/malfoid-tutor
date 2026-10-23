@@ -1,0 +1,469 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.100
+How does SAT reduce to
+
+2
+00:00:02.100 --> 00:00:05.500
+exactly-three-literal SAT? In this course
+
+3
+00:00:05.740 --> 00:00:07.320
+SAT takes a conjunction of
+
+4
+00:00:07.320 --> 00:00:09.800
+clauses, while three SAT requires
+
+5
+00:00:09.800 --> 00:00:12.240
+exactly three distinct literals per
+
+6
+00:00:12.240 --> 00:00:14.060
+clause. We will add fresh
+
+7
+00:00:14.060 --> 00:00:16.400
+variables so satisfiability is preserved
+
+8
+00:00:16.400 --> 00:00:18.900
+under assignment extension, not claim
+
+9
+00:00:18.900 --> 00:00:20.200
+the new formula has an
+
+10
+00:00:20.200 --> 00:00:21.740
+identical truth function on the
+
+11
+00:00:21.740 --> 00:00:22.780
+old variable set.
+
+12
+00:00:23.260 --> 00:00:25.800
+First remove duplicate literals and
+
+13
+00:00:25.800 --> 00:00:28.440
+discard tautological clauses, and treat
+
+14
+00:00:28.440 --> 00:00:30.040
+an empty clause as a
+
+15
+00:00:30.040 --> 00:00:33.180
+fixed unsatisfiable case. These checks
+
+16
+00:00:33.180 --> 00:00:35.560
+preserve satisfiability and ensure the
+
+17
+00:00:35.560 --> 00:00:37.120
+remaining short clauses have the
+
+18
+00:00:37.120 --> 00:00:40.300
+expected distinct original literals. Auxiliary
+
+19
+00:00:40.300 --> 00:00:41.760
+variables must be fresh for
+
+20
+00:00:41.760 --> 00:00:43.900
+each clause so independently chosen
+
+21
+00:00:43.900 --> 00:00:45.520
+extensions do not interfere.
+
+22
+00:00:46.180 --> 00:00:48.700
+For a two-literal clause, introduce
+
+23
+00:00:48.700 --> 00:00:50.480
+u and make two clauses,
+
+24
+00:00:50.920 --> 00:00:52.280
+one containing u and one
+
+25
+00:00:52.280 --> 00:00:54.540
+containing not u. If either
+
+26
+00:00:54.540 --> 00:00:56.700
+original literal is true, both
+
+27
+00:00:56.700 --> 00:00:57.980
+new clauses are true for
+
+28
+00:00:57.980 --> 00:01:00.340
+either u. If both originals
+
+29
+00:01:00.340 --> 00:01:01.940
+are false, the pair demands
+
+30
+00:01:01.940 --> 00:01:03.980
+u and not u simultaneously,
+
+31
+00:01:03.980 --> 00:01:05.240
+which is impossible.
+
+32
+00:01:05.740 --> 00:01:07.600
+For a one-literal clause x,
+
+33
+00:01:08.140 --> 00:01:09.700
+introduce u and v and
+
+34
+00:01:09.700 --> 00:01:11.220
+use all four sign combinations
+
+35
+00:01:11.220 --> 00:01:12.880
+of those two variables beside
+
+36
+00:01:12.880 --> 00:01:14.740
+x. When x is true,
+
+37
+00:01:15.200 --> 00:01:17.140
+all four clauses hold. When
+
+38
+00:01:17.140 --> 00:01:19.000
+x is false, every assignment
+
+39
+00:01:19.000 --> 00:01:20.420
+to u and v falsifies
+
+40
+00:01:20.420 --> 00:01:21.540
+one of the four clauses,
+
+41
+00:01:22.060 --> 00:01:23.280
+so there is no satisfying
+
+42
+00:01:23.280 --> 00:01:23.900
+extension.
+
+43
+00:01:24.500 --> 00:01:26.860
+A four-literal clause uses one
+
+44
+00:01:26.860 --> 00:01:29.380
+linking variable. The first new
+
+45
+00:01:29.380 --> 00:01:31.060
+clause contains its first two
+
+46
+00:01:31.060 --> 00:01:32.760
+literals and u, while the
+
+47
+00:01:32.760 --> 00:01:34.480
+second contains not u and
+
+48
+00:01:34.480 --> 00:01:36.360
+the last two literals. If
+
+49
+00:01:36.360 --> 00:01:37.680
+the originals are all false,
+
+50
+00:01:38.140 --> 00:01:39.540
+one clause forces u true
+
+51
+00:01:39.540 --> 00:01:40.840
+and the other forces it
+
+52
+00:01:40.840 --> 00:01:41.380
+false.
+
+53
+00:01:41.580 --> 00:01:42.980
+If an original literal on
+
+54
+00:01:42.980 --> 00:01:44.480
+the left is true, choose
+
+55
+00:01:44.480 --> 00:01:45.860
+u false so the right
+
+56
+00:01:45.860 --> 00:01:47.420
+clause is satisfied by not
+
+57
+00:01:47.420 --> 00:01:48.700
+u. If a literal on
+
+58
+00:01:48.700 --> 00:01:50.240
+the right is true, choose
+
+59
+00:01:50.240 --> 00:01:51.520
+u true so the left
+
+60
+00:01:51.520 --> 00:01:53.060
+clause is satisfied by u.
+
+61
+00:01:53.300 --> 00:01:55.000
+This proves the stronger fact
+
+62
+00:01:55.000 --> 00:01:56.700
+that each satisfying assignment to
+
+63
+00:01:56.700 --> 00:01:58.040
+the original variables can be
+
+64
+00:01:58.040 --> 00:01:59.000
+extended to the gadget.
+
+65
+00:01:59.460 --> 00:02:01.580
+For six literals, chain three
+
+66
+00:02:01.580 --> 00:02:03.780
+fresh variables through four clauses.
+
+67
+00:02:04.480 --> 00:02:06.600
+Each intermediate clause passes the
+
+68
+00:02:06.600 --> 00:02:08.140
+obligation to the next link
+
+69
+00:02:08.140 --> 00:02:09.640
+when its original literal is
+
+70
+00:02:09.640 --> 00:02:11.440
+false, while the final clause
+
+71
+00:02:11.440 --> 00:02:13.360
+must eventually be satisfied by
+
+72
+00:02:13.360 --> 00:02:15.520
+an original literal. A true
+
+73
+00:02:15.520 --> 00:02:17.220
+original clause lets the linking
+
+74
+00:02:17.220 --> 00:02:19.620
+choices switch appropriately, whereas all
+
+75
+00:02:19.620 --> 00:02:21.880
+false literals force a contradiction
+
+76
+00:02:21.880 --> 00:02:22.780
+along the chain.
+
+77
+00:02:23.260 --> 00:02:25.260
+In general a k-literal clause
+
+78
+00:02:25.260 --> 00:02:26.860
+with k greater than three
+
+79
+00:02:26.860 --> 00:02:29.120
+needs k minus three linking
+
+80
+00:02:29.120 --> 00:02:30.620
+variables and k minus two
+
+81
+00:02:30.620 --> 00:02:32.780
+clauses. The four-literal case has
+
+82
+00:02:32.780 --> 00:02:34.060
+only the first and final
+
+83
+00:02:34.060 --> 00:02:36.360
+clause, so no nonexistent previous
+
+84
+00:02:36.360 --> 00:02:38.460
+linking variable is introduced. The
+
+85
+00:02:38.460 --> 00:02:39.940
+total gadget size is linear
+
+86
+00:02:39.940 --> 00:02:41.380
+in the original literal occurrences
+
+87
+00:02:41.380 --> 00:02:42.460
+after normalization.
+
+88
+00:02:42.980 --> 00:02:45.080
+For the complete formula, keep
+
+89
+00:02:45.080 --> 00:02:48.100
+each original-variable assignment consistent across
+
+90
+00:02:48.100 --> 00:02:50.380
+all clause gadgets. If the
+
+91
+00:02:50.380 --> 00:02:52.720
+original assignment satisfies every clause,
+
+92
+00:02:53.400 --> 00:02:55.220
+fresh local auxiliary sets let
+
+93
+00:02:55.220 --> 00:02:57.920
+all extensions coexist. If the
+
+94
+00:02:57.920 --> 00:03:00.760
+transformed formula is satisfiable, each
+
+95
+00:03:00.760 --> 00:03:02.540
+gadget forces its original clause
+
+96
+00:03:02.540 --> 00:03:05.000
+true, so the restricted assignment
+
+97
+00:03:05.000 --> 00:03:07.400
+satisfies the entire original conjunction.
+
+98
+00:03:07.900 --> 00:03:10.840
+Showing each clause individually satisfiable
+
+99
+00:03:10.840 --> 00:03:12.440
+is not enough to prove
+
+100
+00:03:12.440 --> 00:03:15.360
+the conjunction satisfiable, because clauses
+
+101
+00:03:15.360 --> 00:03:18.200
+share original variables. The required
+
+102
+00:03:18.200 --> 00:03:20.940
+statement is original-clause truth under
+
+103
+00:03:20.940 --> 00:03:22.880
+a fixed assignment if and
+
+104
+00:03:22.880 --> 00:03:24.600
+only if some local extension
+
+105
+00:03:24.600 --> 00:03:27.620
+satisfies its gadget. Preserve every
+
+106
+00:03:27.620 --> 00:03:30.260
+negation visually, since PDF text
+
+107
+00:03:30.260 --> 00:03:32.380
+extraction can lose overbars.
+
+108
+00:03:32.580 --> 00:03:33.780
+Things to take note of.
+
+109
+00:03:34.200 --> 00:03:36.060
+Handle clauses of one, two,
+
+110
+00:03:36.340 --> 00:03:38.040
+three and more literals separately,
+
+111
+00:03:38.560 --> 00:03:40.720
+introduce fresh auxiliaries, and prove
+
+112
+00:03:40.720 --> 00:03:43.300
+both extension directions. Use the
+
+113
+00:03:43.300 --> 00:03:46.340
+course’s exact-three convention, check empty
+
+114
+00:03:46.340 --> 00:03:48.580
+and tautological cases, and distinguish
+
+115
+00:03:48.580 --> 00:03:50.540
+conjunctive normal form from the
+
+116
+00:03:50.540 --> 00:03:52.200
+Chomsky normal form used for
+
+117
+00:03:52.200 --> 00:03:52.640
+grammars.

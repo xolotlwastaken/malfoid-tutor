@@ -1,0 +1,385 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.380
+How do regular expressions describe
+
+2
+00:00:02.380 --> 00:00:05.000
+languages? A regular expression is
+
+3
+00:00:05.000 --> 00:00:07.240
+syntax assembled from small expressions,
+
+4
+00:00:07.240 --> 00:00:08.940
+while its language is the
+
+5
+00:00:08.940 --> 00:00:10.220
+set of words that syntax
+
+6
+00:00:10.220 --> 00:00:12.880
+describes. We will build expressions
+
+7
+00:00:12.880 --> 00:00:14.260
+from their meanings and check
+
+8
+00:00:14.260 --> 00:00:16.000
+short boundary cases instead of
+
+9
+00:00:16.000 --> 00:00:17.040
+trusting their appearance.
+
+10
+00:00:17.580 --> 00:00:19.660
+The atomic expression a describes
+
+11
+00:00:19.660 --> 00:00:21.860
+the singleton language containing a.
+
+12
+00:00:21.860 --> 00:00:24.500
+Epsilon describes the singleton containing
+
+13
+00:00:24.500 --> 00:00:26.400
+the empty word, whereas the
+
+14
+00:00:26.400 --> 00:00:28.720
+empty-set expression describes no words.
+
+15
+00:00:29.220 --> 00:00:31.000
+These are different base cases,
+
+16
+00:00:31.360 --> 00:00:32.280
+even though both of the
+
+17
+00:00:32.280 --> 00:00:33.620
+latter may involve no visible
+
+18
+00:00:33.620 --> 00:00:34.320
+input symbols.
+
+19
+00:00:34.740 --> 00:00:36.280
+Union chooses a word from
+
+20
+00:00:36.280 --> 00:00:39.220
+either operand language. Concatenation chooses
+
+21
+00:00:39.220 --> 00:00:40.940
+one word from each operand
+
+22
+00:00:40.940 --> 00:00:42.520
+and joins them, while star
+
+23
+00:00:42.520 --> 00:00:44.620
+chooses zero or more operand
+
+24
+00:00:44.620 --> 00:00:46.840
+words. In the usual precedence
+
+25
+00:00:46.840 --> 00:00:48.940
+convention, star binds most tightly,
+
+26
+00:00:48.940 --> 00:00:51.220
+followed by concatenation, then union.
+
+27
+00:00:51.820 --> 00:00:53.700
+Expand the expression zero or
+
+28
+00:00:53.700 --> 00:00:56.200
+epsilon, followed by one or
+
+29
+00:00:56.200 --> 00:00:58.440
+epsilon. There are four combinations
+
+30
+00:00:58.440 --> 00:01:00.800
+of choices, producing epsilon, zero,
+
+31
+00:01:01.060 --> 00:01:02.400
+one, and zero one. The
+
+32
+00:01:02.400 --> 00:01:03.800
+result is not all binary
+
+33
+00:01:03.800 --> 00:01:04.900
+words of length at most
+
+34
+00:01:04.900 --> 00:01:06.840
+two, because one zero and
+
+35
+00:01:06.840 --> 00:01:08.780
+the repeated-symbol pairs are absent.
+
+36
+00:01:09.460 --> 00:01:11.260
+To describe words that begin
+
+37
+00:01:11.260 --> 00:01:12.600
+with one and end with
+
+38
+00:01:12.600 --> 00:01:15.160
+zero, place an arbitrary binary
+
+39
+00:01:15.160 --> 00:01:17.640
+string between those endpoints. The
+
+40
+00:01:17.640 --> 00:01:19.660
+expression one Sigma star zero
+
+41
+00:01:19.660 --> 00:01:21.460
+includes one zero by choosing
+
+42
+00:01:21.460 --> 00:01:23.240
+the middle word empty. It
+
+43
+00:01:23.240 --> 00:01:24.860
+excludes words of length one,
+
+44
+00:01:25.180 --> 00:01:26.560
+which is correct because a
+
+45
+00:01:26.560 --> 00:01:28.160
+single symbol cannot be both
+
+46
+00:01:28.160 --> 00:01:29.400
+those different endpoints.
+
+47
+00:01:29.900 --> 00:01:31.560
+For words beginning and ending
+
+48
+00:01:31.560 --> 00:01:33.580
+with the same symbol, endpoint
+
+49
+00:01:33.580 --> 00:01:35.460
+wrapping alone misses a boundary
+
+50
+00:01:35.460 --> 00:01:37.740
+case. Zero Sigma star zero
+
+51
+00:01:37.740 --> 00:01:39.320
+or one Sigma star one
+
+52
+00:01:39.320 --> 00:01:41.140
+handles lengths at least two,
+
+53
+00:01:41.540 --> 00:01:43.180
+but the one-symbol strings zero
+
+54
+00:01:43.180 --> 00:01:45.640
+and one also qualify. Add
+
+55
+00:01:45.640 --> 00:01:48.420
+those two alternatives explicitly, while
+
+56
+00:01:48.420 --> 00:01:50.740
+epsilon remains excluded because it
+
+57
+00:01:50.740 --> 00:01:52.020
+has no first symbol.
+
+58
+00:01:52.500 --> 00:01:53.920
+At least three ones can
+
+59
+00:01:53.920 --> 00:01:55.860
+be expressed by three required
+
+60
+00:01:55.860 --> 00:01:57.960
+ones separated and surrounded by
+
+61
+00:01:57.960 --> 00:02:01.240
+arbitrary binary strings. Those arbitrary
+
+62
+00:02:01.240 --> 00:02:03.280
+parts may contain more ones,
+
+63
+00:02:03.560 --> 00:02:04.640
+which is exactly what at
+
+64
+00:02:04.640 --> 00:02:06.820
+least permits. Replacing them all
+
+65
+00:02:06.820 --> 00:02:08.840
+with zeros-only stars would impose
+
+66
+00:02:08.840 --> 00:02:11.100
+an unnecessary restriction on where
+
+67
+00:02:11.100 --> 00:02:12.460
+extra ones may occur.
+
+68
+00:02:13.020 --> 00:02:15.480
+The tutorial comment language illustrates
+
+69
+00:02:15.480 --> 00:02:17.360
+a more delicate boundary condition.
+
+70
+00:02:17.800 --> 00:02:19.240
+A word must have disjoint
+
+71
+00:02:19.240 --> 00:02:21.860
+opening slash-hash and closing hash-slash
+
+72
+00:02:21.860 --> 00:02:24.340
+delimiters, with no hash-slash inside
+
+73
+00:02:24.340 --> 00:02:26.500
+the content. Therefore an empty
+
+74
+00:02:26.500 --> 00:02:28.120
+comment still needs four symbols,
+
+75
+00:02:28.120 --> 00:02:30.060
+and an early closing delimiter
+
+76
+00:02:30.060 --> 00:02:31.500
+cannot be ignored just because
+
+77
+00:02:31.500 --> 00:02:32.620
+another appears later.
+
+78
+00:02:33.060 --> 00:02:35.100
+Use identities only when their
+
+79
+00:02:35.100 --> 00:02:37.840
+language meanings justify them. Union
+
+80
+00:02:37.840 --> 00:02:39.640
+with the empty language changes
+
+81
+00:02:39.640 --> 00:02:42.680
+nothing, concatenation with epsilon changes
+
+82
+00:02:42.680 --> 00:02:44.880
+nothing, and concatenation with the
+
+83
+00:02:44.880 --> 00:02:47.420
+empty language destroys every possible
+
+84
+00:02:47.420 --> 00:02:49.240
+pair. Star of the empty
+
+85
+00:02:49.240 --> 00:02:51.200
+language is the singleton epsilon
+
+86
+00:02:51.200 --> 00:02:53.340
+because zero factors are still
+
+87
+00:02:53.340 --> 00:02:53.800
+allowed.
+
+88
+00:02:54.220 --> 00:02:55.540
+Things to take note of.
+
+89
+00:02:56.000 --> 00:02:57.780
+Translate each operation into a
+
+90
+00:02:57.780 --> 00:02:59.920
+choice of words, respect operator
+
+91
+00:02:59.920 --> 00:03:02.060
+precedence, and test epsilon and
+
+92
+00:03:02.060 --> 00:03:04.280
+shortest words. Expressions that look
+
+93
+00:03:04.280 --> 00:03:05.820
+different can describe the same
+
+94
+00:03:05.820 --> 00:03:08.760
+language; examples alone suggest equivalence,
+
+95
+00:03:08.980 --> 00:03:10.680
+while a construction or two-way
+
+96
+00:03:10.680 --> 00:03:12.240
+language argument proves it.

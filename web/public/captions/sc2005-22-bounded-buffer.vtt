@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.320
+How do producers and consumers
+
+2
+00:00:02.320 --> 00:00:04.740
+share a bounded buffer? We
+
+3
+00:00:04.740 --> 00:00:06.340
+need to coordinate the available
+
+4
+00:00:06.340 --> 00:00:08.440
+slots, the available items and
+
+5
+00:00:08.440 --> 00:00:09.840
+safe access to the buffer
+
+6
+00:00:09.840 --> 00:00:12.200
+structure. A single lock does
+
+7
+00:00:12.200 --> 00:00:13.900
+not express all three of
+
+8
+00:00:13.900 --> 00:00:14.680
+those requirements.
+
+9
+00:00:15.500 --> 00:00:17.400
+Use three slots, with empty
+
+10
+00:00:17.680 --> 00:00:20.160
+initially three, full initially zero
+
+11
+00:00:20.640 --> 00:00:23.160
+and mutex initially one. Empty
+
+12
+00:00:23.160 --> 00:00:25.300
+permits producers to reserve capacity,
+
+13
+00:00:25.860 --> 00:00:27.720
+full permits consumers to reserve
+
+14
+00:00:27.720 --> 00:00:30.100
+items, and mutex protects shared
+
+15
+00:00:30.100 --> 00:00:32.300
+insertion or removal data. The
+
+16
+00:00:32.300 --> 00:00:33.580
+values have different meanings.
+
+17
+00:00:34.020 --> 00:00:36.140
+A producer prepares an item,
+
+18
+00:00:36.680 --> 00:00:38.360
+waits on empty, and then
+
+19
+00:00:38.360 --> 00:00:41.320
+waits on mutex. Its capacity
+
+20
+00:00:41.320 --> 00:00:43.700
+reservation changes empty from three
+
+21
+00:00:43.700 --> 00:00:45.440
+to two before the item
+
+22
+00:00:45.440 --> 00:00:47.880
+is physically inserted. Reserving a
+
+23
+00:00:47.880 --> 00:00:49.440
+slot and filling that slot
+
+24
+00:00:49.440 --> 00:00:50.780
+are separate steps in the
+
+25
+00:00:50.780 --> 00:00:51.080
+trace.
+
+26
+00:00:51.580 --> 00:00:53.880
+Inside the protected region, insert
+
+27
+00:00:53.880 --> 00:00:55.920
+item A and update the
+
+28
+00:00:55.920 --> 00:00:58.820
+shared buffer metadata. Release mutex,
+
+29
+00:00:59.000 --> 00:01:00.360
+then signal full so an
+
+30
+00:01:00.360 --> 00:01:02.180
+item becomes available for consumption.
+
+31
+00:01:02.800 --> 00:01:04.600
+At the completed operation boundary,
+
+32
+00:01:05.040 --> 00:01:06.500
+the buffer has one item,
+
+33
+00:01:06.980 --> 00:01:08.680
+empty is two and full
+
+34
+00:01:08.680 --> 00:01:09.220
+is one.
+
+35
+00:01:09.780 --> 00:01:11.680
+A consumer first waits on
+
+36
+00:01:11.680 --> 00:01:13.460
+full and then on mutex.
+
+37
+00:01:13.880 --> 00:01:15.360
+It reserves an available item
+
+38
+00:01:15.360 --> 00:01:17.100
+before removing it under mutual
+
+39
+00:01:17.100 --> 00:01:19.720
+exclusion. After removal it releases
+
+40
+00:01:19.720 --> 00:01:22.220
+mutex and signals empty, returning
+
+41
+00:01:22.220 --> 00:01:24.180
+capacity to the producer side.
+
+42
+00:01:24.700 --> 00:01:26.620
+Fill the remaining example with
+
+43
+00:01:26.620 --> 00:01:29.260
+three produced items A, B
+
+44
+00:01:29.260 --> 00:01:31.180
+and C. When every slot
+
+45
+00:01:31.180 --> 00:01:32.420
+is occupied and there is
+
+46
+00:01:32.420 --> 00:01:34.600
+no free capacity, an additional
+
+47
+00:01:34.600 --> 00:01:36.280
+producer must wait for a
+
+48
+00:01:36.280 --> 00:01:38.460
+consumer to release space. It
+
+49
+00:01:38.460 --> 00:01:39.760
+must not hold the buffer
+
+50
+00:01:39.760 --> 00:01:41.380
+mutex while waiting for that
+
+51
+00:01:41.380 --> 00:01:41.880
+capacity.
+
+52
+00:01:42.420 --> 00:01:44.220
+The consumer has the dual
+
+53
+00:01:44.220 --> 00:01:46.300
+rule: if no item is
+
+54
+00:01:46.300 --> 00:01:47.980
+available, wait on full before
+
+55
+00:01:47.980 --> 00:01:50.080
+taking mutex. If it instead
+
+56
+00:01:50.080 --> 00:01:51.740
+takes mutex first and then
+
+57
+00:01:51.740 --> 00:01:53.140
+blocks on an empty buffer,
+
+58
+00:01:53.740 --> 00:01:55.880
+the producer cannot acquire mutex
+
+59
+00:01:55.880 --> 00:01:57.640
+to insert an item. The
+
+60
+00:01:57.640 --> 00:01:59.240
+two processes can then wait
+
+61
+00:01:59.240 --> 00:01:59.940
+on each other.
+
+62
+00:02:00.300 --> 00:02:01.820
+The same mistake on a
+
+63
+00:02:01.820 --> 00:02:02.940
+full buffer can leave a
+
+64
+00:02:02.940 --> 00:02:04.900
+producer holding mutex while waiting
+
+65
+00:02:04.900 --> 00:02:07.220
+for empty. A consumer needs
+
+66
+00:02:07.220 --> 00:02:08.640
+that mutex to remove an
+
+67
+00:02:08.640 --> 00:02:10.980
+item and create capacity. This
+
+68
+00:02:10.980 --> 00:02:12.820
+ordering defect is not repaired
+
+69
+00:02:12.820 --> 00:02:14.580
+merely by adding another processor.
+
+70
+00:02:15.140 --> 00:02:17.360
+Track physical items and outstanding
+
+71
+00:02:17.360 --> 00:02:20.680
+reservations separately. Empty plus full
+
+72
+00:02:20.680 --> 00:02:22.860
+equals capacity at simple quiescent
+
+73
+00:02:22.860 --> 00:02:25.160
+boundaries, but not necessarily between
+
+74
+00:02:25.160 --> 00:02:26.240
+a wait and its matching
+
+75
+00:02:26.240 --> 00:02:28.300
+completion signal, especially in the
+
+76
+00:02:28.300 --> 00:02:31.180
+signed blocking representation. An invariant
+
+77
+00:02:31.180 --> 00:02:33.040
+must account for in-flight operations
+
+78
+00:02:33.040 --> 00:02:34.900
+rather than pretending each instruction
+
+79
+00:02:34.900 --> 00:02:36.060
+is a completed transaction.
+
+80
+00:02:36.620 --> 00:02:37.860
+Things to take note of.
+
+81
+00:02:38.300 --> 00:02:40.400
+Producers wait for capacity before
+
+82
+00:02:40.400 --> 00:02:42.760
+mutex; consumers wait for an
+
+83
+00:02:42.760 --> 00:02:45.140
+item before mutex. Update buffer
+
+84
+00:02:45.140 --> 00:02:47.080
+data inside the protected region,
+
+85
+00:02:47.580 --> 00:02:49.480
+signal the opposite resource after
+
+86
+00:02:49.480 --> 00:02:51.160
+completing the change, and explain
+
+87
+00:02:51.160 --> 00:02:52.980
+the specific deadlock caused by
+
+88
+00:02:52.980 --> 00:02:54.220
+swapping those waits.

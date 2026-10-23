@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.600
+How does quicksort work? Choose
+
+2
+00:00:02.600 --> 00:00:04.560
+a pivot, partition around it,
+
+3
+00:00:04.580 --> 00:00:06.640
+then recursively sort the two
+
+4
+00:00:06.640 --> 00:00:08.800
+sides. The partition itself does
+
+5
+00:00:08.800 --> 00:00:10.980
+not sort either side, so
+
+6
+00:00:10.980 --> 00:00:12.720
+do try to resist celebrating
+
+7
+00:00:12.720 --> 00:00:13.220
+early.
+
+8
+00:00:13.740 --> 00:00:16.400
+Use a half-open range: start
+
+9
+00:00:16.400 --> 00:00:18.240
+is included and end is
+
+10
+00:00:18.240 --> 00:00:20.460
+excluded. Stop when its size
+
+11
+00:00:20.460 --> 00:00:22.200
+is zero or one, and
+
+12
+00:00:22.200 --> 00:00:23.580
+place the chosen pivot at
+
+13
+00:00:23.580 --> 00:00:24.720
+end minus one.
+
+14
+00:00:25.140 --> 00:00:27.440
+Here are six keys: four,
+
+15
+00:00:28.020 --> 00:00:31.020
+two, six, one, five, three.
+
+16
+00:00:31.340 --> 00:00:32.540
+Keep three at the end
+
+17
+00:00:32.540 --> 00:00:34.320
+as pivot, and start both
+
+18
+00:00:34.320 --> 00:00:35.720
+the scan and the boundary
+
+19
+00:00:35.720 --> 00:00:36.760
+at index zero.
+
+20
+00:00:37.100 --> 00:00:38.840
+Four is not smaller than
+
+21
+00:00:38.840 --> 00:00:40.400
+three, so leave it where
+
+22
+00:00:40.400 --> 00:00:42.300
+it is. Two is smaller,
+
+23
+00:00:42.640 --> 00:00:44.100
+so swap two with four
+
+24
+00:00:44.100 --> 00:00:45.960
+at the boundary, then advance
+
+25
+00:00:45.960 --> 00:00:46.560
+the boundary.
+
+26
+00:00:46.900 --> 00:00:48.740
+Six is not smaller than
+
+27
+00:00:48.740 --> 00:00:50.760
+three, so scan past it.
+
+28
+00:00:51.100 --> 00:00:52.460
+One is smaller, so swap
+
+29
+00:00:52.460 --> 00:00:53.580
+one with four at the
+
+30
+00:00:53.580 --> 00:00:55.520
+boundary, then advance the boundary
+
+31
+00:00:55.520 --> 00:00:55.840
+again.
+
+32
+00:00:56.460 --> 00:00:57.940
+Five stays on the large
+
+33
+00:00:57.940 --> 00:00:59.380
+side, and the scan is
+
+34
+00:00:59.380 --> 00:01:01.300
+finished. Swap the pivot with
+
+35
+00:01:01.300 --> 00:01:03.200
+six at the boundary: three
+
+36
+00:01:03.200 --> 00:01:04.840
+now has its final index,
+
+37
+00:01:05.280 --> 00:01:05.620
+two.
+
+38
+00:01:06.420 --> 00:01:08.180
+The left part is two,
+
+39
+00:01:08.180 --> 00:01:10.400
+one, which still needs sorting.
+
+40
+00:01:11.160 --> 00:01:12.380
+Recurse on the left and
+
+41
+00:01:12.380 --> 00:01:14.160
+right ranges while excluding the
+
+42
+00:01:14.160 --> 00:01:16.497
+settled pivot, producing one through
+
+43
+00:01:15.900 --> 00:01:16.400
+six.
+
+44
+00:01:17.100 --> 00:01:20.100
+Before each scan, everything before
+
+45
+00:01:20.100 --> 00:01:21.800
+the boundary is smaller than
+
+46
+00:01:21.800 --> 00:01:23.620
+the pivot. Between the boundary
+
+47
+00:01:23.620 --> 00:01:25.420
+and scan are processed keys
+
+48
+00:01:25.420 --> 00:01:27.480
+at least as large; everything
+
+49
+00:01:27.480 --> 00:01:28.980
+beyond the scan is still
+
+50
+00:01:28.980 --> 00:01:29.440
+unknown.
+
+51
+00:01:30.020 --> 00:01:32.380
+Now derive the cost. A
+
+52
+00:01:32.380 --> 00:01:34.240
+partition scans a range once,
+
+53
+00:01:34.700 --> 00:01:35.960
+so its work is linear.
+
+54
+00:01:36.420 --> 00:01:38.140
+Balanced splits give about log
+
+55
+00:01:38.140 --> 00:01:39.460
+base two of n levels,
+
+56
+00:01:39.900 --> 00:01:41.440
+with at most linear total
+
+57
+00:01:41.440 --> 00:01:42.620
+work on each level.
+
+58
+00:01:43.100 --> 00:01:44.680
+If every pivot leaves one
+
+59
+00:01:44.680 --> 00:01:46.800
+empty side, the work becomes
+
+60
+00:01:46.800 --> 00:01:48.920
+n minus one, plus n
+
+61
+00:01:48.920 --> 00:01:51.060
+minus two, down to one.
+
+62
+00:01:51.440 --> 00:01:53.460
+That triangular sum is quadratic,
+
+63
+00:01:53.460 --> 00:01:55.160
+and sorted input with a
+
+64
+00:01:55.160 --> 00:01:56.800
+last pivot can trigger it.
+
+65
+00:01:57.220 --> 00:01:59.960
+For distinct keys, uniform random
+
+66
+00:01:59.960 --> 00:02:01.560
+pivots give expected n log
+
+67
+00:02:01.341 --> 00:02:03.480
+n time, but quadratic worst-case
+
+68
+00:02:03.720 --> 00:02:06.340
+time remains possible. Expected means
+
+69
+00:02:06.340 --> 00:02:07.980
+averaged over the random choices;
+
+70
+00:02:08.520 --> 00:02:09.520
+it is not a promise
+
+71
+00:02:09.520 --> 00:02:10.460
+about every run.
+
+72
+00:02:11.020 --> 00:02:12.500
+Things to take note of.
+
+73
+00:02:12.900 --> 00:02:15.620
+Ordinary recursion uses logarithmic stack
+
+74
+00:02:15.620 --> 00:02:17.260
+space when balanced and linear
+
+75
+00:02:17.260 --> 00:02:18.500
+space in the worst case,
+
+76
+00:02:19.140 --> 00:02:20.640
+so this is not constant-space
+
+77
+00:02:20.960 --> 00:02:22.060
+under our course definition.
+
+78
+00:02:22.980 --> 00:02:24.960
+Recursing only on the smaller
+
+79
+00:02:24.960 --> 00:02:26.460
+side and looping on the
+
+80
+00:02:26.460 --> 00:02:28.380
+larger bounds the stack by
+
+81
+00:02:28.380 --> 00:02:30.640
+log n. Quicksort is unstable,
+
+82
+00:02:30.980 --> 00:02:33.418
+and many duplicate keys favour
+
+83
+00:02:32.840 --> 00:02:35.260
+three-way partitioning, which skips the
+
+84
+00:02:35.260 --> 00:02:36.020
+equal region.
+
+85
+00:02:36.540 --> 00:02:38.880
+Keep the pivot convention and
+
+86
+00:02:38.880 --> 00:02:41.440
+recursive bounds consistent. A middle
+
+87
+00:02:41.440 --> 00:02:43.360
+array position is not necessarily
+
+88
+00:02:43.360 --> 00:02:45.260
+a median value, and random
+
+89
+00:02:45.260 --> 00:02:47.700
+pivots improve expectation without removing
+
+90
+00:02:47.700 --> 00:02:50.260
+the worst case. There, now
+
+91
+00:02:50.260 --> 00:02:52.200
+your partition actually means something.

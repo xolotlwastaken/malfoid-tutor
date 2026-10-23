@@ -1,0 +1,441 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.840
+How do you handle harder
+
+2
+00:00:01.840 --> 00:00:05.540
+context-free pumping cases? Consider words
+
+3
+00:00:05.540 --> 00:00:07.520
+w hash t where w
+
+4
+00:00:07.520 --> 00:00:09.060
+must appear as a contiguous
+
+5
+00:00:09.060 --> 00:00:11.020
+substring of t. We will
+
+6
+00:00:11.020 --> 00:00:12.240
+use the witness a to
+
+7
+00:00:12.240 --> 00:00:13.140
+the p b to the
+
+8
+00:00:13.140 --> 00:00:15.060
+p, hash, a to the
+
+9
+00:00:15.060 --> 00:00:16.260
+p b to the p,
+
+10
+00:00:16.260 --> 00:00:18.560
+and organize every split around
+
+11
+00:00:18.560 --> 00:00:19.340
+the separator.
+
+12
+00:00:19.900 --> 00:00:22.440
+Assume this language is context-free
+
+13
+00:00:22.440 --> 00:00:24.680
+with pumping length p. Our
+
+14
+00:00:24.680 --> 00:00:26.340
+witness belongs because its left
+
+15
+00:00:26.340 --> 00:00:28.120
+word is exactly its right
+
+16
+00:00:28.120 --> 00:00:29.960
+word, and its length is
+
+17
+00:00:29.960 --> 00:00:31.860
+at least p. Take an
+
+18
+00:00:31.860 --> 00:00:33.440
+arbitrary legal u v x
+
+19
+00:00:33.440 --> 00:00:36.240
+y z split, remembering that
+
+20
+00:00:36.240 --> 00:00:37.940
+either v or y may
+
+21
+00:00:37.940 --> 00:00:38.500
+be empty.
+
+22
+00:00:39.060 --> 00:00:40.440
+If a pumped piece contains
+
+23
+00:00:40.440 --> 00:00:42.420
+the hash, choose exponent zero.
+
+24
+00:00:42.920 --> 00:00:45.320
+The only separator disappears, so
+
+25
+00:00:45.320 --> 00:00:46.320
+the result is not even
+
+26
+00:00:46.320 --> 00:00:48.120
+a correctly formed w hash
+
+27
+00:00:48.120 --> 00:00:50.040
+t word. This covers either
+
+28
+00:00:50.040 --> 00:00:51.620
+v or y containing the
+
+29
+00:00:51.620 --> 00:00:53.440
+marker, regardless of how the
+
+30
+00:00:53.440 --> 00:00:54.400
+other piece behaves.
+
+31
+00:00:54.860 --> 00:00:56.940
+If both nonempty pumped pieces
+
+32
+00:00:56.940 --> 00:00:58.540
+are entirely on the left,
+
+33
+00:00:59.220 --> 00:01:01.480
+choose exponent two. The left
+
+34
+00:01:01.480 --> 00:01:03.600
+word becomes strictly longer while
+
+35
+00:01:03.600 --> 00:01:05.080
+the right word remains length
+
+36
+00:01:05.080 --> 00:01:07.380
+two p. A longer word
+
+37
+00:01:07.380 --> 00:01:08.880
+cannot be a substring of
+
+38
+00:01:08.880 --> 00:01:10.960
+that unchanged shorter right word.
+
+39
+00:01:11.300 --> 00:01:13.420
+If both nonempty pumped pieces
+
+40
+00:01:13.420 --> 00:01:14.920
+are entirely on the right,
+
+41
+00:01:15.440 --> 00:01:17.860
+choose exponent zero. The right
+
+42
+00:01:17.860 --> 00:01:19.700
+word becomes strictly shorter than
+
+43
+00:01:19.700 --> 00:01:21.260
+the unchanged left word of
+
+44
+00:01:21.260 --> 00:01:24.160
+length two p. Again substringhood
+
+45
+00:01:24.160 --> 00:01:26.000
+is impossible, now because the
+
+46
+00:01:26.000 --> 00:01:27.360
+container became too short.
+
+47
+00:01:27.820 --> 00:01:29.380
+If exactly one piece is
+
+48
+00:01:29.380 --> 00:01:31.340
+nonempty, it lies on one
+
+49
+00:01:31.340 --> 00:01:32.840
+side or contains the hash.
+
+50
+00:01:33.400 --> 00:01:35.580
+The same left-only, right-only or
+
+51
+00:01:35.580 --> 00:01:37.740
+marker case applies. Do not
+
+52
+00:01:37.740 --> 00:01:39.300
+create an uncovered case just
+
+53
+00:01:39.300 --> 00:01:40.740
+because the lemma permits one
+
+54
+00:01:40.740 --> 00:01:41.940
+of its pumped pieces to
+
+55
+00:01:41.940 --> 00:01:42.480
+be epsilon.
+
+56
+00:01:43.220 --> 00:01:45.220
+The remaining possibility has the
+
+57
+00:01:45.220 --> 00:01:47.420
+hash inside x, with v
+
+58
+00:01:47.420 --> 00:01:48.800
+on the left and y
+
+59
+00:01:48.800 --> 00:01:50.440
+on the right. The bounded
+
+60
+00:01:50.440 --> 00:01:52.020
+window forces v to contain
+
+61
+00:01:52.020 --> 00:01:53.900
+only trailing b symbols from
+
+62
+00:01:53.900 --> 00:01:55.160
+the left word and y
+
+63
+00:01:55.560 --> 00:01:56.800
+only leading a symbols from
+
+64
+00:01:56.800 --> 00:01:58.820
+the right. Write v as
+
+65
+00:01:58.820 --> 00:02:00.140
+k copies of b and
+
+66
+00:02:00.140 --> 00:02:01.840
+y as j copies of
+
+67
+00:02:01.840 --> 00:02:03.160
+a, with k plus j
+
+68
+00:02:03.160 --> 00:02:03.580
+positive.
+
+69
+00:02:04.060 --> 00:02:06.020
+If k is positive, pump
+
+70
+00:02:06.020 --> 00:02:08.240
+up. The left word now
+
+71
+00:02:08.240 --> 00:02:09.860
+needs a contiguous run of
+
+72
+00:02:09.860 --> 00:02:11.100
+more than p b symbols,
+
+73
+00:02:11.520 --> 00:02:12.980
+while the right word still
+
+74
+00:02:12.980 --> 00:02:14.800
+has only p b symbols
+
+75
+00:02:14.800 --> 00:02:16.780
+in its final run. Extra
+
+76
+00:02:16.780 --> 00:02:18.000
+leading a symbols on the
+
+77
+00:02:18.000 --> 00:02:20.000
+right cannot manufacture those missing
+
+78
+00:02:20.000 --> 00:02:22.340
+consecutive b symbols, so no
+
+79
+00:02:22.340 --> 00:02:23.560
+substring match exists.
+
+80
+00:02:24.180 --> 00:02:26.020
+If k is zero, then
+
+81
+00:02:26.020 --> 00:02:28.300
+j is positive, so pump
+
+82
+00:02:28.300 --> 00:02:30.320
+down instead. The left word
+
+83
+00:02:30.320 --> 00:02:32.640
+remains length two p while
+
+84
+00:02:32.640 --> 00:02:34.240
+the right loses j symbols,
+
+85
+00:02:34.240 --> 00:02:36.880
+returning to the container-too-short contradiction.
+
+86
+00:02:37.520 --> 00:02:39.540
+Every legal split therefore fails
+
+87
+00:02:39.540 --> 00:02:41.560
+for a chosen exponent, proving
+
+88
+00:02:41.560 --> 00:02:43.400
+the language is not context-free.
+
+89
+00:02:43.980 --> 00:02:46.320
+For the duplicate-half language, the
+
+90
+00:02:46.320 --> 00:02:48.520
+lecture uses four long alternating
+
+91
+00:02:48.520 --> 00:02:50.580
+blocks and a separate midpoint
+
+92
+00:02:50.580 --> 00:02:53.300
+case analysis. Removing symbols moves
+
+93
+00:02:53.300 --> 00:02:55.080
+the midpoint, so saying that
+
+94
+00:02:55.080 --> 00:02:56.920
+only one original half changed
+
+95
+00:02:56.920 --> 00:02:58.540
+is not a sufficient argument
+
+96
+00:02:58.540 --> 00:03:00.120
+about the new halves. The
+
+97
+00:03:00.120 --> 00:03:01.700
+written study guide preserves those
+
+98
+00:03:01.700 --> 00:03:03.720
+cases; use the same careful
+
+99
+00:03:03.720 --> 00:03:06.100
+window discipline rather than reusing
+
+100
+00:03:06.100 --> 00:03:06.620
+a slogan.
+
+101
+00:03:07.300 --> 00:03:08.660
+Things to take note of.
+
+102
+00:03:08.980 --> 00:03:11.060
+Partition cases by what happens
+
+103
+00:03:11.060 --> 00:03:12.680
+to the unique marker and
+
+104
+00:03:12.680 --> 00:03:14.140
+by the sides containing the
+
+105
+00:03:14.140 --> 00:03:16.660
+nonempty pumped pieces. Length alone
+
+106
+00:03:16.660 --> 00:03:19.120
+handles same-side changes, while a
+
+107
+00:03:19.120 --> 00:03:20.900
+straddling window may require a
+
+108
+00:03:20.900 --> 00:03:22.720
+run-length argument and a different
+
+109
+00:03:22.720 --> 00:03:24.840
+exponent; every case must end
+
+110
+00:03:24.840 --> 00:03:26.760
+with explicit failed membership.

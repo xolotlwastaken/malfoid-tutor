@@ -1,0 +1,289 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.000
+How do user threads switch
+
+2
+00:00:02.000 --> 00:00:04.480
+stacks? A user-thread library can
+
+3
+00:00:04.480 --> 00:00:06.780
+save one thread execution context
+
+4
+00:00:06.780 --> 00:00:08.360
+and restore another while the
+
+5
+00:00:08.360 --> 00:00:10.300
+kernel still schedules their containing
+
+6
+00:00:10.300 --> 00:00:12.760
+process. In the lab many-to-one
+
+7
+00:00:12.760 --> 00:00:14.920
+model, these threads share one
+
+8
+00:00:14.920 --> 00:00:16.380
+kernel scheduling context.
+
+9
+00:00:16.940 --> 00:00:18.480
+Each user thread needs its
+
+10
+00:00:18.480 --> 00:00:20.040
+own stack and saved register
+
+11
+00:00:20.040 --> 00:00:22.320
+context. Threads share process code
+
+12
+00:00:22.320 --> 00:00:24.160
+and ordinary global data, so
+
+13
+00:00:24.160 --> 00:00:25.780
+switching stacks does not isolate
+
+14
+00:00:25.780 --> 00:00:27.840
+shared memory. Keep the selected
+
+15
+00:00:27.840 --> 00:00:29.320
+thread identity, its state and
+
+16
+00:00:29.320 --> 00:00:30.580
+its stack pointer consistent.
+
+17
+00:00:31.060 --> 00:00:33.140
+For a suspended thread, saving
+
+18
+00:00:33.140 --> 00:00:34.780
+the stack pointer preserves where
+
+19
+00:00:34.780 --> 00:00:36.340
+its call frames live, while
+
+20
+00:00:36.340 --> 00:00:38.260
+the return address and callee-saved
+
+21
+00:00:38.260 --> 00:00:40.680
+registers preserve the resumption path.
+
+22
+00:00:41.080 --> 00:00:43.060
+Restore those values before returning
+
+23
+00:00:43.060 --> 00:00:45.480
+into that thread. Merely changing
+
+24
+00:00:45.480 --> 00:00:47.640
+a current-thread pointer does not
+
+25
+00:00:47.640 --> 00:00:49.540
+move execution onto its stack.
+
+26
+00:00:49.980 --> 00:00:51.520
+A new thread has no
+
+27
+00:00:51.520 --> 00:00:53.220
+suspended call frame to resume.
+
+28
+00:00:53.800 --> 00:00:55.580
+Initialize its return path to
+
+29
+00:00:55.580 --> 00:00:57.200
+an appropriate entry or startup
+
+30
+00:00:57.200 --> 00:00:58.740
+routine and its stack pointer
+
+31
+00:00:58.740 --> 00:00:59.880
+to the usable top of
+
+32
+00:00:59.880 --> 00:01:01.600
+its own stack. The startup
+
+33
+00:01:01.600 --> 00:01:02.980
+path must handle the thread
+
+34
+00:01:02.980 --> 00:01:05.160
+function finishing rather than returning
+
+35
+00:01:05.160 --> 00:01:06.440
+into an undefined caller.
+
+36
+00:01:06.900 --> 00:01:08.800
+The manual uses the standard
+
+37
+00:01:08.800 --> 00:01:11.400
+sixteen-byte stack-alignment requirement for the
+
+38
+00:01:11.400 --> 00:01:13.960
+RISC-V call boundary. Align the
+
+39
+00:01:13.960 --> 00:01:15.700
+initial stack top accordingly and
+
+40
+00:01:15.700 --> 00:01:17.360
+preserve that requirement through the
+
+41
+00:01:17.360 --> 00:01:19.460
+startup layout. Extra bytes of
+
+42
+00:01:19.460 --> 00:01:21.060
+storage alone do not establish
+
+43
+00:01:21.060 --> 00:01:21.780
+correct alignment.
+
+44
+00:01:22.300 --> 00:01:24.440
+A cooperative thread calls thread
+
+45
+00:01:24.440 --> 00:01:25.840
+yield or exits to let
+
+46
+00:01:25.840 --> 00:01:27.520
+the library select another runnable
+
+47
+00:01:27.520 --> 00:01:29.420
+thread. If it never yields
+
+48
+00:01:29.420 --> 00:01:30.700
+or blocks through a supported
+
+49
+00:01:30.700 --> 00:01:32.780
+library path, its peers may
+
+50
+00:01:32.780 --> 00:01:35.120
+not progress. A blocking kernel
+
+51
+00:01:35.120 --> 00:01:36.560
+call can suspend the whole
+
+52
+00:01:36.560 --> 00:01:38.720
+containing process in this many-to-one
+
+53
+00:01:38.720 --> 00:01:39.080
+model.
+
+54
+00:01:40.180 --> 00:01:41.880
+Trace one round with A
+
+55
+00:01:41.880 --> 00:01:43.260
+yielding to B and B
+
+56
+00:01:43.260 --> 00:01:45.300
+yielding back to A. Each
+
+57
+00:01:45.300 --> 00:01:46.800
+resumes at its own saved
+
+58
+00:01:46.800 --> 00:01:48.080
+return path with its own
+
+59
+00:01:48.080 --> 00:01:50.560
+stack contents. Check thread states
+
+60
+00:01:50.560 --> 00:01:51.960
+and shared counters as well
+
+61
+00:01:51.960 --> 00:01:53.660
+as printed output, because a
+
+62
+00:01:53.660 --> 00:01:55.420
+plausible print sequence alone does
+
+63
+00:01:55.420 --> 00:01:56.840
+not prove a correct context
+
+64
+00:01:56.840 --> 00:01:57.600
+implementation.
+
+65
+00:01:58.140 --> 00:01:59.340
+Things to take note of.
+
+66
+00:01:59.760 --> 00:02:01.720
+Private stacks and saved contexts
+
+67
+00:02:01.720 --> 00:02:04.220
+enable resumption, while shared data
+
+68
+00:02:04.220 --> 00:02:07.240
+still needs coordination. Initialize new
+
+69
+00:02:07.240 --> 00:02:09.220
+threads differently from suspended ones,
+
+70
+00:02:09.680 --> 00:02:12.440
+respect sixteen-byte alignment, and distinguish
+
+71
+00:02:12.440 --> 00:02:14.580
+cooperative user scheduling from kernel
+
+72
+00:02:14.580 --> 00:02:15.080
+preemption.

@@ -1,0 +1,17 @@
+.DS_Store
+.env*
+!.env.example
+node_modules/
+.vercel/
+.impeccable/
+
+# Local lesson production, recordings, models, and research materials.
+/edit/
+/output/
+/tmp/
+/study-notes/
+/skills/
+
+# Generated website bundles and verification screenshots.
+/web/*.zip
+/web/*.png

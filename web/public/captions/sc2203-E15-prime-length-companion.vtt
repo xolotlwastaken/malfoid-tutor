@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.600
+Why are prime-length unary strings
+
+2
+00:00:02.600 --> 00:00:05.820
+nonregular? This harder companion follows
+
+3
+00:00:05.820 --> 00:00:08.280
+the tutorial’s requested Myhill Nerode
+
+4
+00:00:08.280 --> 00:00:10.280
+proof rather than replacing it
+
+5
+00:00:10.280 --> 00:00:12.080
+with a different method. We
+
+6
+00:00:12.080 --> 00:00:13.820
+will use the number-theory theorem
+
+7
+00:00:13.820 --> 00:00:15.320
+supplied in the question to
+
+8
+00:00:15.320 --> 00:00:16.880
+construct a suffix for every
+
+9
+00:00:16.880 --> 00:00:18.780
+pair of prime-length prefixes.
+
+10
+00:00:19.260 --> 00:00:21.340
+The supplied theorem says an
+
+11
+00:00:21.340 --> 00:00:23.480
+arithmetic progression with positive coprime
+
+12
+00:00:23.760 --> 00:00:25.540
+initial term and step contains
+
+13
+00:00:25.540 --> 00:00:27.840
+infinitely many primes. We need
+
+14
+00:00:27.840 --> 00:00:29.300
+that statement as a tool,
+
+15
+00:00:29.620 --> 00:00:30.600
+not a proof of the
+
+16
+00:00:30.600 --> 00:00:33.480
+theorem itself. Its coprimality hypothesis
+
+17
+00:00:33.480 --> 00:00:35.080
+will come from choosing two
+
+18
+00:00:35.080 --> 00:00:36.220
+distinct primes.
+
+19
+00:00:36.660 --> 00:00:38.060
+Choose X to be the
+
+20
+00:00:38.060 --> 00:00:40.400
+language itself, all unary words
+
+21
+00:00:40.400 --> 00:00:42.740
+of prime length. Take arbitrary
+
+22
+00:00:42.740 --> 00:00:44.960
+different members with prime lengths
+
+23
+00:00:44.960 --> 00:00:47.780
+n and m. Distinct primes
+
+24
+00:00:47.780 --> 00:00:49.740
+have greatest common divisor one,
+
+25
+00:00:50.120 --> 00:00:51.800
+so the progression starting at
+
+26
+00:00:51.800 --> 00:00:53.640
+n with step m satisfies
+
+27
+00:00:53.640 --> 00:00:55.080
+the theorem’s hypotheses.
+
+28
+00:00:55.740 --> 00:00:57.880
+There are infinitely many prime
+
+29
+00:00:57.880 --> 00:00:59.880
+terms in that progression, so
+
+30
+00:00:59.880 --> 00:01:01.520
+choose one with k at
+
+31
+00:01:01.520 --> 00:01:03.660
+least one. Define z to
+
+32
+00:01:03.660 --> 00:01:05.260
+be k times m copies
+
+33
+00:01:05.260 --> 00:01:07.220
+of zero. Appending the same
+
+34
+00:01:07.220 --> 00:01:08.880
+z to both prefixes will
+
+35
+00:01:08.880 --> 00:01:10.680
+now produce lengths with deliberately
+
+36
+00:01:10.680 --> 00:01:12.380
+different arithmetic structures.
+
+37
+00:01:12.980 --> 00:01:14.780
+The word x z has
+
+38
+00:01:14.780 --> 00:01:16.560
+length n plus k m,
+
+39
+00:01:16.780 --> 00:01:19.020
+which was chosen prime. Therefore
+
+40
+00:01:19.020 --> 00:01:20.500
+x z belongs to the
+
+41
+00:01:20.500 --> 00:01:22.700
+prime-length language. This is the
+
+42
+00:01:22.700 --> 00:01:24.300
+positive membership half of the
+
+43
+00:01:24.300 --> 00:01:25.380
+distinguishing argument.
+
+44
+00:01:25.900 --> 00:01:27.440
+The word y z has
+
+45
+00:01:27.440 --> 00:01:29.040
+length m plus k m,
+
+46
+00:01:29.040 --> 00:01:30.540
+equal to k plus one
+
+47
+00:01:30.540 --> 00:01:32.500
+times m. Both factors are
+
+48
+00:01:32.500 --> 00:01:33.820
+at least two because k
+
+49
+00:01:33.820 --> 00:01:35.200
+is positive and m is
+
+50
+00:01:35.200 --> 00:01:37.100
+prime. Its length is therefore
+
+51
+00:01:37.100 --> 00:01:39.300
+composite, so y z does
+
+52
+00:01:39.300 --> 00:01:40.600
+not belong to the language.
+
+53
+00:01:41.140 --> 00:01:43.040
+For an illustration, choose n
+
+54
+00:01:43.040 --> 00:01:44.720
+equal to two and m
+
+55
+00:01:44.720 --> 00:01:46.780
+equal to three. Taking k
+
+56
+00:01:46.780 --> 00:01:47.940
+equal to one gives a
+
+57
+00:01:47.940 --> 00:01:50.860
+three-zero suffix, producing length five
+
+58
+00:01:50.860 --> 00:01:52.460
+from the first prefix and
+
+59
+00:01:52.460 --> 00:01:53.740
+length six from the second.
+
+60
+00:01:54.320 --> 00:01:56.120
+Five is prime while six
+
+61
+00:01:56.120 --> 00:01:57.920
+is composite, but the theorem
+
+62
+00:01:57.920 --> 00:01:59.640
+is what covers every arbitrary
+
+63
+00:01:59.640 --> 00:02:00.560
+prime pair.
+
+64
+00:02:00.860 --> 00:02:03.120
+We have distinguished every two
+
+65
+00:02:03.120 --> 00:02:05.380
+distinct members of X. Since
+
+66
+00:02:05.380 --> 00:02:07.260
+there are infinitely many primes,
+
+67
+00:02:07.820 --> 00:02:09.720
+X is infinite, so the
+
+68
+00:02:09.720 --> 00:02:12.700
+language has infinite index. The
+
+69
+00:02:12.700 --> 00:02:15.020
+Myhill Nerode theorem then implies
+
+70
+00:02:15.020 --> 00:02:16.220
+it cannot be regular.
+
+71
+00:02:17.300 --> 00:02:18.980
+Do not claim that testing
+
+72
+00:02:18.980 --> 00:02:21.240
+several small prime lengths establishes
+
+73
+00:02:21.240 --> 00:02:22.900
+the result. Nor does a
+
+74
+00:02:22.900 --> 00:02:24.660
+failed pumping attempt imply that
+
+75
+00:02:24.660 --> 00:02:26.360
+the language is regular. This
+
+76
+00:02:26.360 --> 00:02:27.780
+proof works because it gives
+
+77
+00:02:27.780 --> 00:02:30.180
+an arbitrary-pair suffix and verifies
+
+78
+00:02:30.180 --> 00:02:32.040
+both membership outcomes under a
+
+79
+00:02:32.040 --> 00:02:32.660
+stated theorem.
+
+80
+00:02:33.100 --> 00:02:34.260
+Things to take note of.
+
+81
+00:02:34.720 --> 00:02:36.920
+Separate the provided number-theory fact
+
+82
+00:02:36.920 --> 00:02:39.080
+from the automata argument, choose
+
+83
+00:02:39.080 --> 00:02:41.520
+two distinct prime lengths, and
+
+84
+00:02:41.520 --> 00:02:43.220
+use a positive progression index.
+
+85
+00:02:43.760 --> 00:02:45.780
+The same appended unary suffix
+
+86
+00:02:45.780 --> 00:02:47.480
+makes one length prime and
+
+87
+00:02:47.480 --> 00:02:49.360
+the other composite, giving the
+
+88
+00:02:49.360 --> 00:02:51.820
+required infinite-index contradiction.

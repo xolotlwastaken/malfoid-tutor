@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.840
+How does heapify work? Repair
+
+2
+00:00:02.840 --> 00:00:04.880
+one misplaced root by moving
+
+3
+00:00:04.880 --> 00:00:06.540
+it down a heap, choosing
+
+4
+00:00:06.540 --> 00:00:07.940
+the smaller child in a
+
+5
+00:00:07.940 --> 00:00:10.600
+min-heap. The child subtrees must
+
+6
+00:00:10.600 --> 00:00:12.120
+already be valid heaps.
+
+7
+00:00:12.460 --> 00:00:14.060
+A binary heap is a
+
+8
+00:00:14.060 --> 00:00:16.220
+complete binary tree stored in
+
+9
+00:00:16.220 --> 00:00:18.480
+an array. In zero-based storage,
+
+10
+00:00:18.700 --> 00:00:19.960
+the children of index i
+
+11
+00:00:19.960 --> 00:00:21.400
+are two i plus one
+
+12
+00:00:21.400 --> 00:00:23.100
+and two i plus two,
+
+13
+00:00:23.100 --> 00:00:25.120
+if those indices exist.
+
+14
+00:00:25.620 --> 00:00:27.080
+Here the root is nine,
+
+15
+00:00:27.080 --> 00:00:28.780
+with children two and three.
+
+16
+00:00:29.220 --> 00:00:30.960
+Below them, four, five, six,
+
+17
+00:00:31.160 --> 00:00:32.940
+and seven already satisfy their
+
+18
+00:00:32.940 --> 00:00:35.140
+own parent relationships, so only
+
+19
+00:00:35.140 --> 00:00:36.440
+the root needs repair.
+
+20
+00:00:37.020 --> 00:00:38.900
+Compare the two children and
+
+21
+00:00:38.900 --> 00:00:41.180
+choose two, the smaller one.
+
+22
+00:00:41.620 --> 00:00:43.720
+Since nine is larger, swap
+
+23
+00:00:43.720 --> 00:00:45.140
+nine with two; the root
+
+24
+00:00:45.140 --> 00:00:47.040
+is now correct, but nine
+
+25
+00:00:47.040 --> 00:00:49.020
+may still violate order farther
+
+26
+00:00:49.020 --> 00:00:49.340
+down.
+
+27
+00:00:49.700 --> 00:00:51.680
+Nine now has children four
+
+28
+00:00:51.680 --> 00:00:53.740
+and five. Choose four and
+
+29
+00:00:53.740 --> 00:00:55.880
+swap again; nine reaches a
+
+30
+00:00:55.880 --> 00:00:57.340
+leaf, so the repair stops.
+
+31
+00:00:57.980 --> 00:00:59.920
+The resulting array is two,
+
+32
+00:01:00.120 --> 00:01:01.840
+four, three, nine, five, six,
+
+33
+00:01:01.840 --> 00:01:03.660
+seven. It is a valid
+
+34
+00:01:03.660 --> 00:01:05.360
+min-heap, although it is not
+
+35
+00:01:05.360 --> 00:01:07.600
+a sorted array: siblings and
+
+36
+00:01:07.600 --> 00:01:09.480
+separate branches need no relative
+
+37
+00:01:09.480 --> 00:01:09.880
+order.
+
+38
+00:01:10.420 --> 00:01:12.580
+Why choose the smaller child?
+
+39
+00:01:12.940 --> 00:01:14.300
+Moving it up makes it
+
+40
+00:01:14.300 --> 00:01:15.840
+no larger than either child
+
+41
+00:01:15.840 --> 00:01:18.280
+at the repaired position. Choosing
+
+42
+00:01:18.280 --> 00:01:19.620
+the larger child could leave
+
+43
+00:01:19.620 --> 00:01:21.020
+the smaller child below a
+
+44
+00:01:21.020 --> 00:01:22.340
+parent that is still too
+
+45
+00:01:22.340 --> 00:01:22.760
+large.
+
+46
+00:01:23.820 --> 00:01:25.740
+At each step, stop if
+
+47
+00:01:25.740 --> 00:01:27.320
+the parent is already no
+
+48
+00:01:27.320 --> 00:01:29.200
+larger than both valid children.
+
+49
+00:01:29.760 --> 00:01:32.100
+Otherwise descend one level; the
+
+50
+00:01:32.100 --> 00:01:34.540
+only remaining possible violation follows
+
+51
+00:01:34.540 --> 00:01:35.720
+the item moving down.
+
+52
+00:01:36.340 --> 00:01:38.020
+A node of subtree height
+
+53
+00:01:38.020 --> 00:01:39.540
+h can descend at most
+
+54
+00:01:39.540 --> 00:01:41.740
+h levels. Each level uses
+
+55
+00:01:41.740 --> 00:01:43.320
+a constant number of comparisons
+
+56
+00:01:43.320 --> 00:01:45.440
+and one possible swap, giving
+
+57
+00:01:45.440 --> 00:01:47.440
+order h time and logarithmic
+
+58
+00:01:47.440 --> 00:01:48.880
+worst-case time at the root.
+
+59
+00:01:49.420 --> 00:01:51.700
+An iterative repair needs only
+
+60
+00:01:51.700 --> 00:01:53.060
+an index and a few
+
+61
+00:01:53.060 --> 00:01:55.800
+temporary words, so auxiliary space
+
+62
+00:01:55.800 --> 00:01:58.440
+is constant. A recursive repair
+
+63
+00:01:58.440 --> 00:02:00.440
+instead keeps up to logarithmically
+
+64
+00:02:00.440 --> 00:02:02.960
+many active calls; those frames
+
+65
+00:02:02.960 --> 00:02:03.920
+count as space.
+
+66
+00:02:04.420 --> 00:02:06.060
+Things to take note of.
+
+67
+00:02:06.440 --> 00:02:08.140
+Check child bounds against the
+
+68
+00:02:08.140 --> 00:02:09.740
+active heap size before reading
+
+69
+00:02:09.740 --> 00:02:11.340
+them, and never invent a
+
+70
+00:02:11.340 --> 00:02:13.340
+missing right child. A single
+
+71
+00:02:13.340 --> 00:02:15.160
+root heapify cannot repair an
+
+72
+00:02:15.160 --> 00:02:16.560
+arbitrary unordered tree.
+
+73
+00:02:17.180 --> 00:02:18.938
+Empty heaps have no root
+
+74
+00:02:18.680 --> 00:02:20.440
+to repair, and a singleton
+
+75
+00:02:20.440 --> 00:02:22.480
+is already a heap. Reverse
+
+76
+00:02:22.480 --> 00:02:23.900
+the comparisons and choose the
+
+77
+00:02:23.900 --> 00:02:25.160
+larger child for a max-heap.
+
+78
+00:02:25.840 --> 00:02:27.500
+Follow the violation down one
+
+79
+00:02:27.500 --> 00:02:28.860
+branch, and the whole repair
+
+80
+00:02:28.860 --> 00:02:30.540
+becomes quite civilised.

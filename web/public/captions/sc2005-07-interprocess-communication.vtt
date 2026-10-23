@@ -1,0 +1,361 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.900
+How do processes communicate? They
+
+2
+00:00:02.900 --> 00:00:04.740
+can exchange messages or share
+
+3
+00:00:04.740 --> 00:00:06.640
+a memory region, but both
+
+4
+00:00:06.640 --> 00:00:08.520
+approaches need a clear agreement
+
+5
+00:00:08.520 --> 00:00:10.480
+about who produces data and
+
+6
+00:00:10.480 --> 00:00:11.780
+when it can be consumed.
+
+7
+00:00:12.380 --> 00:00:14.600
+Concurrent execution alone does not
+
+8
+00:00:14.600 --> 00:00:16.900
+magically create a safe communication
+
+9
+00:00:16.900 --> 00:00:17.420
+protocol.
+
+10
+00:00:17.900 --> 00:00:20.120
+With shared memory, both processes
+
+11
+00:00:20.120 --> 00:00:21.660
+map an agreed region and
+
+12
+00:00:21.660 --> 00:00:24.160
+exchange data there. Ordinary private
+
+13
+00:00:24.160 --> 00:00:25.660
+memory after fork is not
+
+14
+00:00:25.660 --> 00:00:27.960
+automatically that shared region. Once
+
+15
+00:00:27.960 --> 00:00:30.480
+shared access exists, conflicting updates
+
+16
+00:00:30.480 --> 00:00:32.360
+need synchronization so the consumer
+
+17
+00:00:32.360 --> 00:00:33.620
+sees a consistent result.
+
+18
+00:00:34.260 --> 00:00:36.320
+Message passing provides send and
+
+19
+00:00:36.320 --> 00:00:38.520
+receive operations rather than requiring
+
+20
+00:00:38.520 --> 00:00:40.480
+direct access to shared variables.
+
+21
+00:00:41.160 --> 00:00:43.000
+Direct communication names the other
+
+22
+00:00:43.000 --> 00:00:45.860
+process. Indirect communication sends to
+
+23
+00:00:45.860 --> 00:00:47.720
+a mailbox or port, so
+
+24
+00:00:47.720 --> 00:00:49.420
+the communicating parties agree on
+
+25
+00:00:49.420 --> 00:00:50.360
+that intermediary.
+
+26
+00:00:51.020 --> 00:00:53.220
+A bounded mailbox has finite
+
+27
+00:00:53.220 --> 00:00:55.340
+capacity. A send may have
+
+28
+00:00:55.340 --> 00:00:56.280
+to wait when there is
+
+29
+00:00:56.280 --> 00:00:57.820
+no free slot, and a
+
+30
+00:00:57.820 --> 00:00:59.000
+receive may have to wait
+
+31
+00:00:59.000 --> 00:01:00.200
+when there is no message.
+
+32
+00:01:01.000 --> 00:01:02.880
+Whether an individual operation blocks
+
+33
+00:01:02.880 --> 00:01:04.260
+is part of its specified
+
+34
+00:01:04.260 --> 00:01:06.380
+semantics, not something you can
+
+35
+00:01:06.380 --> 00:01:07.640
+guess from the word send.
+
+36
+00:01:08.020 --> 00:01:10.020
+The lab uses pipes, which
+
+37
+00:01:10.020 --> 00:01:12.330
+are unidirectional byte streams. Pipe
+
+38
+00:01:12.330 --> 00:01:14.260
+endpoint zero is for reading,
+
+39
+00:01:14.600 --> 00:01:16.260
+and endpoint one is for
+
+40
+00:01:16.260 --> 00:01:18.340
+writing. To send a request
+
+41
+00:01:18.340 --> 00:01:19.720
+one way and a reply
+
+42
+00:01:19.720 --> 00:01:22.200
+back, draw two pipes rather
+
+43
+00:01:22.200 --> 00:01:23.840
+than quietly using a single
+
+44
+00:01:23.840 --> 00:01:25.040
+one as if it were
+
+45
+00:01:25.040 --> 00:01:25.840
+bidirectional.
+
+46
+00:01:26.300 --> 00:01:28.360
+After fork, parent and child
+
+47
+00:01:28.360 --> 00:01:30.600
+descriptor tables can contain references
+
+48
+00:01:30.600 --> 00:01:32.400
+to the same underlying pipe
+
+49
+00:01:32.400 --> 00:01:35.240
+endpoints. Closing one descriptor removes
+
+50
+00:01:35.240 --> 00:01:37.600
+that reference, not every reference
+
+51
+00:01:37.600 --> 00:01:39.700
+in every process. The endpoint
+
+52
+00:01:39.700 --> 00:01:41.380
+can remain open while another
+
+53
+00:01:41.380 --> 00:01:43.360
+descriptor still refers to it.
+
+54
+00:01:43.700 --> 00:01:45.440
+For ping and pong, the
+
+55
+00:01:45.440 --> 00:01:47.140
+parent keeps the request writer
+
+56
+00:01:47.140 --> 00:01:49.580
+and reply reader. The child
+
+57
+00:01:49.580 --> 00:01:51.360
+keeps the request reader and
+
+58
+00:01:51.360 --> 00:01:53.960
+reply writer; each closes its
+
+59
+00:01:53.960 --> 00:01:56.760
+unused ends. Animate ping from
+
+60
+00:01:56.760 --> 00:01:59.080
+parent to child first, then
+
+61
+00:01:59.080 --> 00:02:00.500
+pong back to the parent
+
+62
+00:02:00.500 --> 00:02:01.500
+through the other pipe.
+
+63
+00:02:02.140 --> 00:02:03.620
+A read reaches end of
+
+64
+00:02:03.620 --> 00:02:05.040
+file only when no buffered
+
+65
+00:02:05.040 --> 00:02:06.880
+data remains and all write-end
+
+66
+00:02:07.120 --> 00:02:09.200
+references are closed. If the
+
+67
+00:02:09.200 --> 00:02:11.260
+reader itself accidentally keeps an
+
+68
+00:02:11.260 --> 00:02:13.340
+unused writer open, waiting for
+
+69
+00:02:13.340 --> 00:02:14.460
+end of file may never
+
+70
+00:02:14.460 --> 00:02:16.560
+finish. Merely closing the writer
+
+71
+00:02:16.560 --> 00:02:17.780
+in the other process does
+
+72
+00:02:17.780 --> 00:02:19.360
+not repair that extra reference.
+
+73
+00:02:19.780 --> 00:02:21.560
+Check read and write return
+
+74
+00:02:21.560 --> 00:02:23.300
+values and distinguish byte counts
+
+75
+00:02:23.300 --> 00:02:25.400
+from safe text strings. A
+
+76
+00:02:25.400 --> 00:02:27.420
+received sequence is not necessarily
+
+77
+00:02:27.420 --> 00:02:28.920
+terminated as a C string,
+
+78
+00:02:29.260 --> 00:02:31.080
+and a failed operation is
+
+79
+00:02:31.080 --> 00:02:32.940
+not a successful empty message.
+
+80
+00:02:33.440 --> 00:02:35.260
+The lab also requires closing
+
+81
+00:02:35.260 --> 00:02:37.220
+descriptors and collecting the child
+
+82
+00:02:37.220 --> 00:02:37.900
+appropriately.
+
+83
+00:02:38.700 --> 00:02:40.000
+Things to take note of.
+
+84
+00:02:40.660 --> 00:02:42.900
+Classify shared memory versus messages,
+
+85
+00:02:43.240 --> 00:02:45.140
+direct versus mailbox naming, and
+
+86
+00:02:45.140 --> 00:02:47.580
+bounded capacity versus operation blocking.
+
+87
+00:02:48.080 --> 00:02:49.980
+For pipes, draw every descriptor
+
+88
+00:02:49.980 --> 00:02:51.520
+reference after fork and close
+
+89
+00:02:51.520 --> 00:02:53.620
+unused ends before reasoning about
+
+90
+00:02:53.620 --> 00:02:54.420
+end of file.

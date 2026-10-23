@@ -1,0 +1,361 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.040
+How does a pushdown automaton
+
+2
+00:00:02.040 --> 00:00:04.100
+use its stack? It combines
+
+3
+00:00:04.100 --> 00:00:06.340
+finite control with an unbounded
+
+4
+00:00:06.340 --> 00:00:08.900
+last-in-first-out memory. We will trace
+
+5
+00:00:08.900 --> 00:00:10.640
+equal blocks of zeros and
+
+6
+00:00:10.640 --> 00:00:13.060
+ones, decoding each read, pop
+
+7
+00:00:13.060 --> 00:00:14.980
+and push operation instead of
+
+8
+00:00:14.980 --> 00:00:16.780
+treating epsilon as a mysterious
+
+9
+00:00:16.780 --> 00:00:18.040
+empty-stack test.
+
+10
+00:00:18.540 --> 00:00:20.460
+A label has three separate
+
+11
+00:00:20.460 --> 00:00:23.100
+slots: input read, stack symbol
+
+12
+00:00:23.100 --> 00:00:25.040
+popped, and stack symbol pushed.
+
+13
+00:00:25.940 --> 00:00:27.260
+Epsilon in a slot means
+
+14
+00:00:27.260 --> 00:00:29.060
+no operation in that slot.
+
+15
+00:00:29.640 --> 00:00:31.280
+In particular, an epsilon pop
+
+16
+00:00:31.280 --> 00:00:32.960
+means do not inspect or
+
+17
+00:00:32.960 --> 00:00:34.820
+remove a stack symbol, not
+
+18
+00:00:34.820 --> 00:00:35.900
+that the stack is empty.
+
+19
+00:00:36.500 --> 00:00:38.800
+Initialize the equal-block machine by
+
+20
+00:00:38.800 --> 00:00:40.300
+pushing a fresh dollar marker
+
+21
+00:00:40.300 --> 00:00:42.840
+without consuming input. The marker
+
+22
+00:00:42.840 --> 00:00:44.380
+separates the bottom from all
+
+23
+00:00:44.380 --> 00:00:46.320
+zeros we will count. This
+
+24
+00:00:46.320 --> 00:00:47.940
+is a genuine stack operation
+
+25
+00:00:47.940 --> 00:00:49.620
+even though the input cursor
+
+26
+00:00:49.620 --> 00:00:50.760
+stays at the beginning.
+
+27
+00:00:51.420 --> 00:00:53.180
+Read the first zero and
+
+28
+00:00:53.180 --> 00:00:54.420
+push a zero above the
+
+29
+00:00:54.420 --> 00:00:56.600
+marker. Read another zero and
+
+30
+00:00:56.600 --> 00:00:58.420
+push another copy, so the
+
+31
+00:00:58.420 --> 00:01:00.420
+stack records exactly how many
+
+32
+00:01:00.420 --> 00:01:03.260
+initial zeros remain unmatched. These
+
+33
+00:01:03.260 --> 00:01:04.720
+moves need no pop or
+
+34
+00:01:04.720 --> 00:01:05.980
+prior top-symbol test.
+
+35
+00:01:06.340 --> 00:01:08.120
+At the first one, switch
+
+36
+00:01:08.120 --> 00:01:09.360
+from the pushing phase to
+
+37
+00:01:09.360 --> 00:01:11.420
+the popping phase. Read that
+
+38
+00:01:11.420 --> 00:01:13.020
+one and pop one zero,
+
+39
+00:01:13.020 --> 00:01:15.100
+matching one symbol from each
+
+40
+00:01:15.100 --> 00:01:17.000
+block. The stack now contains
+
+41
+00:01:17.000 --> 00:01:18.760
+one zero above the marker,
+
+42
+00:01:18.760 --> 00:01:20.800
+with one final one still
+
+43
+00:01:20.800 --> 00:01:21.300
+unread.
+
+44
+00:01:21.820 --> 00:01:23.620
+Read the final one and
+
+45
+00:01:23.620 --> 00:01:26.040
+pop the remaining zero. The
+
+46
+00:01:26.040 --> 00:01:27.620
+marker is now exposed and
+
+47
+00:01:27.620 --> 00:01:29.480
+no input remains, so the
+
+48
+00:01:29.480 --> 00:01:30.840
+machine may pop the marker
+
+49
+00:01:30.840 --> 00:01:32.620
+and enter its final state.
+
+50
+00:01:33.040 --> 00:01:34.660
+If extra ones remained, there
+
+51
+00:01:34.660 --> 00:01:35.900
+would be no zero left
+
+52
+00:01:35.900 --> 00:01:37.220
+to match them, and that
+
+53
+00:01:37.220 --> 00:01:38.300
+branch could not accept.
+
+54
+00:01:38.660 --> 00:01:40.880
+For zero zero one, the
+
+55
+00:01:40.880 --> 00:01:42.400
+input ends while a zero
+
+56
+00:01:42.400 --> 00:01:44.480
+remains above the marker, so
+
+57
+00:01:44.480 --> 00:01:46.100
+the final marker-pop move is
+
+58
+00:01:46.100 --> 00:01:48.420
+unavailable. For zero one zero
+
+59
+00:01:48.420 --> 00:01:50.400
+one, a zero arrives after
+
+60
+00:01:50.400 --> 00:01:52.220
+the popping phase began, where
+
+61
+00:01:52.220 --> 00:01:54.680
+no zero-reading continuation is provided.
+
+62
+00:01:55.180 --> 00:01:57.060
+Equal counts alone are insufficient;
+
+63
+00:01:57.600 --> 00:01:59.180
+the required block order matters
+
+64
+00:01:59.180 --> 00:01:59.560
+too.
+
+65
+00:02:00.060 --> 00:02:01.800
+The case n equal to
+
+66
+00:02:01.800 --> 00:02:04.600
+zero requires accepting epsilon. The
+
+67
+00:02:04.600 --> 00:02:06.280
+lecture’s machine makes its original
+
+68
+00:02:06.280 --> 00:02:08.440
+start accepting for exactly this
+
+69
+00:02:08.440 --> 00:02:10.540
+purpose, while its later final
+
+70
+00:02:10.540 --> 00:02:13.000
+state handles nonempty matched blocks.
+
+71
+00:02:13.540 --> 00:02:14.500
+Being at a final state
+
+72
+00:02:14.500 --> 00:02:17.020
+never authorizes ignoring unread input.
+
+73
+00:02:17.460 --> 00:02:20.080
+The general formal definition accepts
+
+74
+00:02:20.080 --> 00:02:22.140
+by final state after complete
+
+75
+00:02:22.140 --> 00:02:24.300
+input consumption. It does not
+
+76
+00:02:24.300 --> 00:02:25.980
+demand an empty final stack
+
+77
+00:02:25.980 --> 00:02:28.020
+for every possible pushdown automaton.
+
+78
+00:02:28.400 --> 00:02:31.240
+Some constructions, including the grammar-equivalence
+
+79
+00:02:31.240 --> 00:02:34.380
+normalization, deliberately arrange empty-stack acceptance
+
+80
+00:02:34.380 --> 00:02:35.880
+as an additional invariant.
+
+81
+00:02:36.220 --> 00:02:37.500
+Things to take note of.
+
+82
+00:02:37.960 --> 00:02:39.680
+Decode the three transition slots
+
+83
+00:02:39.680 --> 00:02:42.640
+independently, write every intermediate stack
+
+84
+00:02:42.640 --> 00:02:43.500
+with its top on the
+
+85
+00:02:43.500 --> 00:02:45.160
+left, and include the epsilon
+
+86
+00:02:45.160 --> 00:02:47.140
+moves in your trace. Explain
+
+87
+00:02:47.140 --> 00:02:49.700
+both the unmatched-count invariant and
+
+88
+00:02:49.700 --> 00:02:51.560
+the phase restriction, then check
+
+89
+00:02:51.560 --> 00:02:53.880
+epsilon, too few ones, too
+
+90
+00:02:53.880 --> 00:02:56.160
+many ones and wrong-order inputs.

@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.340
+How do you build a
+
+2
+00:00:01.340 --> 00:00:03.740
+nondeterministic automaton from a regular
+
+3
+00:00:03.740 --> 00:00:06.320
+expression? Follow the expression’s structure
+
+4
+00:00:06.320 --> 00:00:07.760
+and combine machines for its
+
+5
+00:00:07.760 --> 00:00:10.480
+smaller parts. Our tutorial expression
+
+6
+00:00:10.480 --> 00:00:11.820
+is a b or a,
+
+7
+00:00:12.180 --> 00:00:13.920
+all under star, so every
+
+8
+00:00:13.920 --> 00:00:15.560
+input must decompose into blocks
+
+9
+00:00:15.560 --> 00:00:16.500
+a b or a.
+
+10
+00:00:16.780 --> 00:00:18.800
+Start with the atomic expression
+
+11
+00:00:18.800 --> 00:00:20.760
+a. Use one start state,
+
+12
+00:00:21.040 --> 00:00:22.600
+one final state and an
+
+13
+00:00:22.600 --> 00:00:24.780
+a-arrow between them, leaving every
+
+14
+00:00:24.780 --> 00:00:27.200
+other transition absent. The machine
+
+15
+00:00:27.200 --> 00:00:29.700
+accepts exactly the one-symbol word
+
+16
+00:00:29.700 --> 00:00:31.700
+a, not epsilon or two
+
+17
+00:00:31.700 --> 00:00:32.360
+copies of a.
+
+18
+00:00:32.580 --> 00:00:34.780
+Construct a separate two-state machine
+
+19
+00:00:34.780 --> 00:00:37.060
+for b, then concatenate the
+
+20
+00:00:37.060 --> 00:00:39.280
+two machines. Add an epsilon
+
+21
+00:00:39.280 --> 00:00:40.920
+arrow from the a-final to
+
+22
+00:00:40.920 --> 00:00:43.160
+the b-start, keeping only the
+
+23
+00:00:43.160 --> 00:00:45.800
+b-final accepting. The resulting four-state
+
+24
+00:00:45.800 --> 00:00:47.840
+machine consumes a, crosses for
+
+25
+00:00:47.840 --> 00:00:49.780
+free, then consumes b.
+
+26
+00:00:50.140 --> 00:00:52.500
+The second alternative a needs
+
+27
+00:00:52.500 --> 00:00:54.040
+its own fresh copy of
+
+28
+00:00:54.040 --> 00:00:56.240
+the atomic machine. Sharing states
+
+29
+00:00:56.240 --> 00:00:58.680
+casually could introduce unintended paths
+
+30
+00:00:58.680 --> 00:01:01.420
+between alternatives. A structural construction
+
+31
+00:01:01.420 --> 00:01:02.840
+is meant to work mechanically
+
+32
+00:01:02.840 --> 00:01:04.780
+for every expression, not merely
+
+33
+00:01:04.780 --> 00:01:06.580
+resemble the desired language in
+
+34
+00:01:06.580 --> 00:01:07.160
+this example.
+
+35
+00:01:07.620 --> 00:01:09.680
+For union, introduce a new
+
+36
+00:01:09.680 --> 00:01:11.580
+start with epsilon arrows to
+
+37
+00:01:11.580 --> 00:01:13.660
+the two branch starts. Keep
+
+38
+00:01:13.660 --> 00:01:16.100
+both branch finals accepting, so
+
+39
+00:01:16.100 --> 00:01:18.080
+one complete accepting branch is
+
+40
+00:01:18.080 --> 00:01:20.160
+enough. A word cannot take
+
+41
+00:01:20.160 --> 00:01:21.440
+half the a b branch
+
+42
+00:01:21.440 --> 00:01:22.800
+and then jump into the
+
+43
+00:01:22.800 --> 00:01:24.420
+other branch, because no such
+
+44
+00:01:24.420 --> 00:01:25.260
+edge was added.
+
+45
+00:01:25.660 --> 00:01:27.740
+Now apply star using another
+
+46
+00:01:27.740 --> 00:01:29.740
+fresh accepting start. Link it
+
+47
+00:01:29.740 --> 00:01:30.760
+to the union start by
+
+48
+00:01:30.760 --> 00:01:33.180
+epsilon, and add epsilon restarts
+
+49
+00:01:33.180 --> 00:01:34.580
+from both old finals to
+
+50
+00:01:34.580 --> 00:01:36.520
+the union start. Keep the
+
+51
+00:01:36.520 --> 00:01:38.360
+old finals accepting, so a
+
+52
+00:01:38.360 --> 00:01:40.080
+completed last block need not
+
+53
+00:01:40.080 --> 00:01:41.800
+restart before the word ends.
+
+54
+00:01:42.180 --> 00:01:43.980
+Trace a b a by
+
+55
+00:01:43.980 --> 00:01:45.440
+choosing the a b branch
+
+56
+00:01:45.440 --> 00:01:47.500
+first. After consuming those two
+
+57
+00:01:47.500 --> 00:01:49.120
+symbols, restart at the union
+
+58
+00:01:49.120 --> 00:01:50.600
+start and take the one-symbol
+
+59
+00:01:50.600 --> 00:01:52.640
+a branch. The last symbol
+
+60
+00:01:52.640 --> 00:01:53.780
+is consumed in a final
+
+61
+00:01:53.780 --> 00:01:55.620
+state, matching the factorization a
+
+62
+00:01:55.620 --> 00:01:57.360
+b followed by a.
+
+63
+00:01:57.580 --> 00:01:59.500
+The empty word uses zero
+
+64
+00:01:59.500 --> 00:02:01.640
+repetitions and is accepted immediately
+
+65
+00:02:01.640 --> 00:02:03.300
+at the fresh start. The
+
+66
+00:02:03.300 --> 00:02:04.680
+word b has no valid
+
+67
+00:02:04.680 --> 00:02:06.760
+first block, so every possible
+
+68
+00:02:06.760 --> 00:02:08.760
+branch fails. The word a
+
+69
+00:02:08.760 --> 00:02:10.380
+a is accepted as two
+
+70
+00:02:10.380 --> 00:02:12.400
+a blocks, showing why choosing
+
+71
+00:02:12.400 --> 00:02:14.960
+the shortest-looking alternative greedily is
+
+72
+00:02:14.960 --> 00:02:16.160
+not the definition of the
+
+73
+00:02:16.160 --> 00:02:16.480
+machine.
+
+74
+00:02:17.060 --> 00:02:18.920
+The general proof is structural
+
+75
+00:02:18.920 --> 00:02:21.960
+induction. Atomic fragments recognize their
+
+76
+00:02:21.960 --> 00:02:23.860
+base languages, and each union,
+
+77
+00:02:24.060 --> 00:02:26.540
+concatenation or star construction preserves
+
+78
+00:02:26.540 --> 00:02:29.460
+the corresponding language operation. Therefore
+
+79
+00:02:29.720 --> 00:02:31.800
+the final automaton recognizes the
+
+80
+00:02:31.800 --> 00:02:33.420
+meaning of the entire expression,
+
+81
+00:02:33.800 --> 00:02:35.400
+not merely the examples we
+
+82
+00:02:35.400 --> 00:02:35.740
+traced.
+
+83
+00:02:36.380 --> 00:02:37.740
+Things to take note of.
+
+84
+00:02:38.020 --> 00:02:39.660
+If the question requests the
+
+85
+00:02:39.660 --> 00:02:42.440
+inductive construction, show the intermediate
+
+86
+00:02:42.440 --> 00:02:44.100
+machines even if a smaller
+
+87
+00:02:44.100 --> 00:02:46.180
+one is obvious. Distinguish absent
+
+88
+00:02:46.180 --> 00:02:48.920
+transitions from epsilon arrows, rename
+
+89
+00:02:48.920 --> 00:02:51.140
+components to avoid collisions, and
+
+90
+00:02:51.140 --> 00:02:53.140
+preserve the accepting-state rules for
+
+91
+00:02:53.140 --> 00:02:53.900
+each operator.

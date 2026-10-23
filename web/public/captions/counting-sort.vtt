@@ -1,0 +1,329 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.940
+How does counting sort work?
+
+2
+00:00:02.540 --> 00:00:04.340
+Use small integer keys as
+
+3
+00:00:04.340 --> 00:00:06.880
+array indices, count their frequencies,
+
+4
+00:00:07.420 --> 00:00:08.840
+and turn those counts into
+
+5
+00:00:08.840 --> 00:00:11.380
+output positions. The labels travel
+
+6
+00:00:11.380 --> 00:00:12.840
+with their records, naturally.
+
+7
+00:00:13.500 --> 00:00:15.320
+Our six records have keys
+
+8
+00:00:15.320 --> 00:00:17.160
+from zero through three, so
+
+9
+00:00:17.160 --> 00:00:18.500
+the range size is four.
+
+10
+00:00:19.100 --> 00:00:21.460
+The letters distinguish equal-key records;
+
+11
+00:00:21.860 --> 00:00:23.220
+they are not extra sorting
+
+12
+00:00:23.220 --> 00:00:23.560
+keys.
+
+13
+00:00:24.180 --> 00:00:25.980
+Scan the input once and
+
+14
+00:00:25.980 --> 00:00:27.560
+increment the counter for each
+
+15
+00:00:27.560 --> 00:00:29.980
+key. We get frequencies one,
+
+16
+00:00:30.140 --> 00:00:32.760
+one, two, two: one zero,
+
+17
+00:00:32.900 --> 00:00:34.720
+one one, two twos, and
+
+18
+00:00:34.720 --> 00:00:35.940
+two threes.
+
+19
+00:00:36.140 --> 00:00:38.000
+Add each frequency to the
+
+20
+00:00:38.000 --> 00:00:40.120
+cumulative total before it. The
+
+21
+00:00:40.120 --> 00:00:42.820
+cumulative counts become one, two,
+
+22
+00:00:43.180 --> 00:00:45.840
+four, six; each says how
+
+23
+00:00:45.840 --> 00:00:47.000
+many records have a key
+
+24
+00:00:47.000 --> 00:00:48.240
+at most that value.
+
+25
+00:00:48.740 --> 00:00:51.000
+These are counts, not zero-based
+
+26
+00:00:51.280 --> 00:00:53.120
+output indices. For a key
+
+27
+00:00:53.120 --> 00:00:55.080
+v, decrement its cumulative count
+
+28
+00:00:55.080 --> 00:00:56.940
+first, then use the new
+
+29
+00:00:56.940 --> 00:00:58.420
+count as its output position.
+
+30
+00:00:59.020 --> 00:01:00.640
+Scan the input from right
+
+31
+00:01:00.640 --> 00:01:02.340
+to left. Three b goes
+
+32
+00:01:02.340 --> 00:01:04.300
+to index five, then one
+
+33
+00:01:04.300 --> 00:01:06.200
+goes to index one, and
+
+34
+00:01:06.282 --> 00:01:07.560
+two b goes to index
+
+35
+00:01:07.560 --> 00:01:08.040
+three.
+
+36
+00:01:08.660 --> 00:01:11.800
+Continue backwards: the earlier three
+
+37
+00:01:11.800 --> 00:01:14.160
+goes to index four, zero
+
+38
+00:01:14.160 --> 00:01:16.360
+goes to index zero, and
+
+39
+00:01:15.660 --> 00:01:18.000
+two a goes to index
+
+40
+00:01:18.000 --> 00:01:20.340
+two. Both pairs of equal
+
+41
+00:01:20.340 --> 00:01:22.360
+keys retain their input order.
+
+42
+00:01:22.860 --> 00:01:25.480
+Why is that stable? A
+
+43
+00:01:25.480 --> 00:01:27.240
+later equal record is processed
+
+44
+00:01:27.240 --> 00:01:29.180
+first and receives the later
+
+45
+00:01:29.180 --> 00:01:31.840
+available position. Earlier equals fill
+
+46
+00:01:31.840 --> 00:01:34.060
+earlier positions, preserving their relative
+
+47
+00:01:34.060 --> 00:01:34.420
+order.
+
+48
+00:01:34.980 --> 00:01:36.840
+Derive the time by counting
+
+49
+00:01:36.840 --> 00:01:39.600
+the loops. Initialising and prefixing
+
+50
+00:01:39.600 --> 00:01:41.300
+the k counters costs order
+
+51
+00:01:41.300 --> 00:01:43.780
+k; scanning n inputs and
+
+52
+00:01:43.780 --> 00:01:45.740
+placing n records costs order
+
+53
+00:01:45.740 --> 00:01:47.760
+n. Together that is theta
+
+54
+00:01:47.760 --> 00:01:49.060
+of n plus k.
+
+55
+00:01:49.740 --> 00:01:51.620
+The output buffer holds n
+
+56
+00:01:51.620 --> 00:01:54.179
+records, and the count array
+
+57
+00:01:53.460 --> 00:01:56.440
+holds k counters. Auxiliary space
+
+58
+00:01:56.440 --> 00:01:58.180
+is order n plus k,
+
+59
+00:01:58.740 --> 00:02:00.740
+so this stable implementation is
+
+60
+00:02:00.740 --> 00:02:02.380
+not in-place under the course
+
+61
+00:02:02.380 --> 00:02:02.900
+definition.
+
+62
+00:02:03.700 --> 00:02:05.460
+Things to take note of.
+
+63
+00:02:05.800 --> 00:02:07.620
+Linear time in n requires
+
+64
+00:02:07.620 --> 00:02:08.960
+the range k to be
+
+65
+00:02:08.960 --> 00:02:10.600
+at most proportional to n.
+
+66
+00:02:11.180 --> 00:02:12.840
+Six records spread across a
+
+67
+00:02:12.840 --> 00:02:14.600
+billion possible keys would be
+
+68
+00:02:14.600 --> 00:02:15.820
+a rather wasteful choice.
+
+69
+00:02:16.300 --> 00:02:18.260
+A known bounded negative range
+
+70
+00:02:18.260 --> 00:02:19.480
+can be shifted to start
+
+71
+00:02:19.480 --> 00:02:22.338
+at zero, but its width
+
+72
+00:02:21.120 --> 00:02:23.960
+still determines storage. Empty input
+
+73
+00:02:23.960 --> 00:02:26.560
+needs no placements; singleton input
+
+74
+00:02:26.560 --> 00:02:28.000
+must still respect the chosen
+
+75
+00:02:28.000 --> 00:02:28.720
+range convention.
+
+76
+00:02:29.380 --> 00:02:31.380
+Preserve whole records, choose one
+
+77
+00:02:31.380 --> 00:02:33.660
+count convention, and scan backwards
+
+78
+00:02:33.660 --> 00:02:35.940
+for this placement rule. Counting
+
+79
+00:02:35.940 --> 00:02:38.280
+sort avoids the comparison-only lower
+
+80
+00:02:38.280 --> 00:02:40.440
+bound by using integer indexing,
+
+81
+00:02:40.640 --> 00:02:42.380
+not by magically doing fewer
+
+82
+00:02:42.380 --> 00:02:42.960
+comparisons.

@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.720
+How does a process change
+
+2
+00:00:01.720 --> 00:00:03.980
+state? A process is a
+
+3
+00:00:03.980 --> 00:00:06.560
+program in execution, including its
+
+4
+00:00:06.560 --> 00:00:08.640
+current execution state and resources.
+
+5
+00:00:09.140 --> 00:00:10.760
+The same stored program can
+
+6
+00:00:10.760 --> 00:00:12.860
+have several separate process instances,
+
+7
+00:00:13.260 --> 00:00:14.460
+so the file on disk
+
+8
+00:00:14.460 --> 00:00:15.700
+and a running instance are
+
+9
+00:00:15.700 --> 00:00:16.440
+different concepts.
+
+10
+00:00:16.940 --> 00:00:18.980
+The process image includes code,
+
+11
+00:00:19.460 --> 00:00:20.860
+data, a heap and a
+
+12
+00:00:20.860 --> 00:00:23.260
+stack. Its process control block
+
+13
+00:00:23.260 --> 00:00:24.920
+records information such as the
+
+14
+00:00:24.920 --> 00:00:28.040
+process identifier, state, program counter,
+
+15
+00:00:28.640 --> 00:00:31.140
+registers and resource information. These
+
+16
+00:00:31.140 --> 00:00:33.160
+records allow the operating system
+
+17
+00:00:33.160 --> 00:00:35.040
+to manage and later resume
+
+18
+00:00:35.040 --> 00:00:35.700
+the process.
+
+19
+00:00:36.180 --> 00:00:38.660
+Use five conceptual states: new,
+
+20
+00:00:39.080 --> 00:00:40.840
+ready, running, waiting and terminated.
+
+21
+00:00:41.380 --> 00:00:42.840
+Ready means eligible for a
+
+22
+00:00:42.840 --> 00:00:44.760
+processor but not currently executing.
+
+23
+00:00:45.300 --> 00:00:46.760
+Waiting means the process needs
+
+24
+00:00:46.760 --> 00:00:48.660
+an event, such as input-output
+
+25
+00:00:48.660 --> 00:00:50.520
+completion, before it can make
+
+26
+00:00:50.520 --> 00:00:52.020
+that kind of execution progress.
+
+27
+00:00:52.460 --> 00:00:54.960
+After admission, process A joins
+
+28
+00:00:54.960 --> 00:00:57.120
+the ready queue. Dispatch moves
+
+29
+00:00:57.120 --> 00:00:58.700
+A onto the processor and
+
+30
+00:00:58.700 --> 00:01:01.020
+changes ready to running. Process
+
+31
+00:01:01.020 --> 00:01:02.680
+B can remain ready behind
+
+32
+00:01:02.680 --> 00:01:04.020
+it without being blocked on
+
+33
+00:01:04.020 --> 00:01:04.440
+a device.
+
+34
+00:01:04.980 --> 00:01:07.200
+Suppose a timer causes A
+
+35
+00:01:07.200 --> 00:01:09.400
+to be preempted. A moves
+
+36
+00:01:09.400 --> 00:01:10.740
+from running back to ready,
+
+37
+00:01:11.180 --> 00:01:12.540
+and the scheduler can dispatch
+
+38
+00:01:12.540 --> 00:01:15.340
+B instead. This is different
+
+39
+00:01:15.340 --> 00:01:18.480
+from A requesting input-output: preemption
+
+40
+00:01:18.480 --> 00:01:20.200
+does not itself create an
+
+41
+00:01:20.200 --> 00:01:21.640
+input-output dependency.
+
+42
+00:01:22.460 --> 00:01:24.680
+Now suppose process A runs
+
+43
+00:01:24.680 --> 00:01:26.280
+again and requests a device
+
+44
+00:01:26.280 --> 00:01:28.040
+operation that has not finished.
+
+45
+00:01:28.480 --> 00:01:29.720
+It changes from running to
+
+46
+00:01:29.720 --> 00:01:31.660
+waiting, joining the relevant device
+
+47
+00:01:31.660 --> 00:01:33.460
+or event wait list. The
+
+48
+00:01:33.460 --> 00:01:35.560
+processor can execute another ready
+
+49
+00:01:35.560 --> 00:01:37.640
+process while process A is
+
+50
+00:01:37.640 --> 00:01:38.000
+blocked.
+
+51
+00:01:38.500 --> 00:01:40.240
+When the device completes, A
+
+52
+00:01:40.240 --> 00:01:41.520
+moves from waiting to ready.
+
+53
+00:01:42.280 --> 00:01:43.620
+It does not leap directly
+
+54
+00:01:43.620 --> 00:01:45.520
+onto the processor merely because
+
+55
+00:01:45.520 --> 00:01:47.940
+the event happened. Dispatch is
+
+56
+00:01:47.940 --> 00:01:49.240
+the separate step that turns
+
+57
+00:01:49.240 --> 00:01:50.200
+ready into running.
+
+58
+00:01:50.700 --> 00:01:52.480
+On a process switch, the
+
+59
+00:01:52.480 --> 00:01:54.420
+required context of the outgoing
+
+60
+00:01:54.420 --> 00:01:56.400
+process is saved and the
+
+61
+00:01:56.400 --> 00:01:58.760
+incoming context restored. For an
+
+62
+00:01:58.760 --> 00:02:01.200
+authored example, preserve A at
+
+63
+00:02:01.200 --> 00:02:03.220
+program counter one hundred before
+
+64
+00:02:03.220 --> 00:02:05.820
+executing B, then restore that
+
+65
+00:02:05.820 --> 00:02:08.160
+saved point when A resumes.
+
+66
+00:02:08.160 --> 00:02:10.180
+The exact saved structures depend
+
+67
+00:02:10.180 --> 00:02:10.840
+on the system.
+
+68
+00:02:11.300 --> 00:02:14.920
+Long-term scheduling controls admission, short-term
+
+69
+00:02:14.920 --> 00:02:17.360
+scheduling selects ready execution, and
+
+70
+00:02:17.360 --> 00:02:19.480
+medium-term scheduling can suspend and
+
+71
+00:02:19.480 --> 00:02:21.480
+later resume resident workload through
+
+72
+00:02:21.480 --> 00:02:23.420
+swapping. A process that finishes
+
+73
+00:02:23.420 --> 00:02:25.200
+changes to terminated in the
+
+74
+00:02:25.200 --> 00:02:27.820
+conceptual model. The xv6 lab
+
+75
+00:02:27.820 --> 00:02:29.960
+adds implementation states such as
+
+76
+00:02:29.960 --> 00:02:31.140
+zombie until reaping.
+
+77
+00:02:31.420 --> 00:02:32.780
+Things to take note of.
+
+78
+00:02:33.380 --> 00:02:35.880
+Distinguish ready from waiting, preemption
+
+79
+00:02:35.880 --> 00:02:37.920
+from blocking, and event completion
+
+80
+00:02:37.920 --> 00:02:40.280
+from dispatch. If an xv6
+
+81
+00:02:40.280 --> 00:02:42.200
+listing says runnable, it means
+
+82
+00:02:42.200 --> 00:02:44.580
+eligible for selection, not already
+
+83
+00:02:44.580 --> 00:02:46.940
+executing; show the state-changing event
+
+84
+00:02:46.940 --> 00:02:48.120
+before writing your answer.

@@ -1,0 +1,449 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.640
+How do you reduce Subset
+
+2
+00:00:01.640 --> 00:00:03.760
+Sum to Balanced Partition? The
+
+3
+00:00:03.760 --> 00:00:05.820
+photo requires positive output integers
+
+4
+00:00:05.820 --> 00:00:07.300
+and two groups with both
+
+5
+00:00:07.300 --> 00:00:09.520
+equal sum and equal cardinality.
+
+6
+00:00:10.000 --> 00:00:11.360
+We will use a two-stage
+
+7
+00:00:11.360 --> 00:00:13.840
+construction, because ordinary Partition alone
+
+8
+00:00:13.840 --> 00:00:16.060
+does not impose the equal-number-of-entries
+
+9
+00:00:16.060 --> 00:00:16.500
+condition.
+
+10
+00:00:16.940 --> 00:00:19.260
+First handle easy exceptional cases
+
+11
+00:00:19.260 --> 00:00:20.840
+without solving a hard instance.
+
+12
+00:00:21.460 --> 00:00:22.540
+A zero target is a
+
+13
+00:00:22.540 --> 00:00:24.080
+yes instance using the empty
+
+14
+00:00:24.080 --> 00:00:25.940
+subset, and a target greater
+
+15
+00:00:25.940 --> 00:00:27.580
+than the total is no
+
+16
+00:00:27.580 --> 00:00:30.840
+for nonnegative inputs. Remove zero-valued
+
+17
+00:00:30.840 --> 00:00:32.500
+entries for this existence question,
+
+18
+00:00:32.820 --> 00:00:34.480
+while remembering that such removal
+
+19
+00:00:34.480 --> 00:00:36.460
+would not preserve a counting-of-solutions
+
+20
+00:00:36.460 --> 00:00:36.760
+question.
+
+21
+00:00:37.140 --> 00:00:39.020
+Assume the remaining target is
+
+22
+00:00:39.020 --> 00:00:40.820
+positive and at most total
+
+23
+00:00:40.820 --> 00:00:42.940
+A. Append the positive adjustment
+
+24
+00:00:42.940 --> 00:00:45.100
+absolute A minus twice t
+
+25
+00:00:45.100 --> 00:00:46.920
+when it is nonzero, producing
+
+26
+00:00:46.920 --> 00:00:49.160
+an ordinary positive Partition instance.
+
+27
+00:00:49.700 --> 00:00:50.840
+The new total is twice
+
+28
+00:00:50.840 --> 00:00:52.160
+the larger of t and
+
+29
+00:00:52.160 --> 00:00:53.860
+A minus t, so an
+
+30
+00:00:53.860 --> 00:00:55.520
+equal side must have that
+
+31
+00:00:55.520 --> 00:00:56.220
+larger sum.
+
+32
+00:00:56.700 --> 00:00:58.760
+The partition side containing the
+
+33
+00:00:58.760 --> 00:01:01.220
+adjustment has original-value sum equal
+
+34
+00:01:01.220 --> 00:01:02.380
+to the smaller of t
+
+35
+00:01:02.380 --> 00:01:04.860
+and A minus t. Such
+
+36
+00:01:04.860 --> 00:01:07.060
+a subset exists exactly when
+
+37
+00:01:07.060 --> 00:01:09.660
+a target-t subset exists, using
+
+38
+00:01:09.660 --> 00:01:11.780
+its complement when needed. If
+
+39
+00:01:11.780 --> 00:01:13.700
+the adjustment is zero, the
+
+40
+00:01:13.700 --> 00:01:15.520
+original total is twice t
+
+41
+00:01:15.520 --> 00:01:17.020
+and no extra entry is
+
+42
+00:01:17.020 --> 00:01:17.560
+necessary.
+
+43
+00:01:18.100 --> 00:01:20.140
+Use the authored example one,
+
+44
+00:01:20.420 --> 00:01:22.300
+two, four with target three.
+
+45
+00:01:22.700 --> 00:01:24.440
+Total seven gives adjustment one,
+
+46
+00:01:24.900 --> 00:01:26.460
+so the ordinary Partition list
+
+47
+00:01:26.460 --> 00:01:28.680
+is one, two, four, one.
+
+48
+00:01:29.120 --> 00:01:30.540
+Its equal-sum sides can be
+
+49
+00:01:30.540 --> 00:01:32.280
+the original four alone and
+
+50
+00:01:32.280 --> 00:01:33.680
+the other three entries summing
+
+51
+00:01:33.680 --> 00:01:34.160
+to four.
+
+52
+00:01:34.700 --> 00:01:37.160
+Now suppose that ordinary Partition
+
+53
+00:01:37.160 --> 00:01:39.580
+list has r entries. Raise
+
+54
+00:01:39.580 --> 00:01:41.160
+every b entry by one
+
+55
+00:01:41.160 --> 00:01:42.940
+and add r new entries
+
+56
+00:01:42.940 --> 00:01:45.160
+of value one, making exactly
+
+57
+00:01:45.160 --> 00:01:48.180
+two r positive entries. Require
+
+58
+00:01:48.180 --> 00:01:49.700
+the target’s two groups to
+
+59
+00:01:49.700 --> 00:01:52.180
+contain r entries each; their
+
+60
+00:01:52.180 --> 00:01:54.860
+added base-one contributions then cancel
+
+61
+00:01:54.860 --> 00:01:56.020
+when comparing sums.
+
+62
+00:01:56.420 --> 00:01:58.760
+Any balanced target solution selects
+
+63
+00:01:58.760 --> 00:02:00.460
+some raised original entries and
+
+64
+00:02:00.460 --> 00:02:01.700
+some dummy ones on a
+
+65
+00:02:01.700 --> 00:02:04.020
+side. Subtracting its r baseline
+
+66
+00:02:04.020 --> 00:02:05.920
+ones leaves precisely the sum
+
+67
+00:02:05.920 --> 00:02:07.580
+of the corresponding original b
+
+68
+00:02:07.580 --> 00:02:09.440
+entries, which must be half
+
+69
+00:02:09.440 --> 00:02:11.880
+the original b total. Conversely,
+
+70
+00:02:12.080 --> 00:02:13.160
+pad either side of an
+
+71
+00:02:13.160 --> 00:02:14.940
+ordinary partition with enough dummy
+
+72
+00:02:14.940 --> 00:02:16.300
+ones to reach r entries
+
+73
+00:02:16.300 --> 00:02:16.620
+each.
+
+74
+00:02:17.180 --> 00:02:19.560
+For our example, the output
+
+75
+00:02:19.560 --> 00:02:22.200
+is two, three, five, two,
+
+76
+00:02:22.380 --> 00:02:24.200
+then four dummy ones. One
+
+77
+00:02:24.200 --> 00:02:25.820
+balanced side is five plus
+
+78
+00:02:25.820 --> 00:02:27.640
+three dummy ones; the other
+
+79
+00:02:27.640 --> 00:02:29.000
+is two plus three plus
+
+80
+00:02:29.000 --> 00:02:30.420
+two plus one dummy one.
+
+81
+00:02:30.680 --> 00:02:32.460
+Each side contains four entries
+
+82
+00:02:32.460 --> 00:02:34.380
+and sums to eight, so
+
+83
+00:02:34.380 --> 00:02:36.260
+both target conditions are visible.
+
+84
+00:02:36.820 --> 00:02:39.780
+The transformation performs additions, an
+
+85
+00:02:39.780 --> 00:02:41.980
+absolute difference and linear padding.
+
+86
+00:02:42.620 --> 00:02:44.120
+Binary sums and the adjustment
+
+87
+00:02:44.120 --> 00:02:45.900
+have polynomial bit length in
+
+88
+00:02:45.900 --> 00:02:47.820
+the original encoding, so writing
+
+89
+00:02:47.820 --> 00:02:49.680
+the output is polynomial work.
+
+90
+00:02:50.180 --> 00:02:51.300
+Values that happen to be
+
+91
+00:02:51.300 --> 00:02:53.360
+equal are still different indexed
+
+92
+00:02:53.360 --> 00:02:55.820
+entries, and positivity is guaranteed
+
+93
+00:02:55.820 --> 00:02:56.980
+by the plus-one stage.
+
+94
+00:02:57.500 --> 00:02:59.120
+This is a derived solution
+
+95
+00:02:59.120 --> 00:03:01.100
+to the photographed exercise, not
+
+96
+00:03:01.100 --> 00:03:02.740
+a solution visibly present in
+
+97
+00:03:02.740 --> 00:03:04.480
+the photo. Its proof must
+
+98
+00:03:04.480 --> 00:03:06.420
+preserve yes and no instances
+
+99
+00:03:06.420 --> 00:03:08.580
+through both stages. A construction
+
+100
+00:03:08.580 --> 00:03:10.040
+that balances the sums but
+
+101
+00:03:10.040 --> 00:03:11.680
+forgets the group counts would
+
+102
+00:03:11.680 --> 00:03:13.680
+solve ordinary Partition instead of
+
+103
+00:03:13.680 --> 00:03:14.640
+the requested target.
+
+104
+00:03:15.060 --> 00:03:16.420
+Things to take note of.
+
+105
+00:03:16.760 --> 00:03:19.200
+Handle zero and out-of-range targets
+
+106
+00:03:19.200 --> 00:03:22.060
+explicitly, remove zeros only for
+
+107
+00:03:22.060 --> 00:03:24.440
+the existential problem, and preserve
+
+108
+00:03:24.440 --> 00:03:27.480
+positivity. Prove both stage equivalences,
+
+109
+00:03:27.860 --> 00:03:29.140
+count entries as well as
+
+110
+00:03:29.140 --> 00:03:31.420
+sums, and bound binary arithmetic
+
+111
+00:03:31.420 --> 00:03:33.500
+and output length before claiming
+
+112
+00:03:33.500 --> 00:03:34.720
+a polynomial reduction.

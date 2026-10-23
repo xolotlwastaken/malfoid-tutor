@@ -1,0 +1,421 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.180
+Which operations preserve context-free languages?
+
+2
+00:00:03.660 --> 00:00:06.180
+Union, concatenation and star have
+
+3
+00:00:06.180 --> 00:00:09.060
+grammar constructions, but arbitrary intersection
+
+4
+00:00:09.060 --> 00:00:11.760
+and complement do not. Intersection
+
+5
+00:00:11.760 --> 00:00:13.120
+with a regular language is
+
+6
+00:00:13.120 --> 00:00:15.080
+a special positive case, and
+
+7
+00:00:15.080 --> 00:00:16.460
+we will show exactly why
+
+8
+00:00:16.460 --> 00:00:18.280
+one stack still suffices there.
+
+9
+00:00:18.860 --> 00:00:21.340
+For union, rename component variables
+
+10
+00:00:21.340 --> 00:00:22.900
+and introduce a fresh start
+
+11
+00:00:22.900 --> 00:00:24.720
+choosing either old start. For
+
+12
+00:00:24.720 --> 00:00:26.820
+concatenation, make the new start
+
+13
+00:00:26.820 --> 00:00:28.620
+produce the two component starts
+
+14
+00:00:28.620 --> 00:00:31.200
+in sequence. For star, use
+
+15
+00:00:31.200 --> 00:00:32.740
+a fresh start producing an
+
+16
+00:00:32.740 --> 00:00:34.700
+old-start factor followed by itself,
+
+17
+00:00:35.200 --> 00:00:36.960
+or epsilon for zero factors.
+
+18
+00:00:37.460 --> 00:00:39.520
+Each construction has a two-way
+
+19
+00:00:39.520 --> 00:00:42.240
+derivation argument. A generated word
+
+20
+00:00:42.240 --> 00:00:44.320
+splits into the selected components
+
+21
+00:00:44.320 --> 00:00:46.900
+or factors, and conversely any
+
+22
+00:00:46.900 --> 00:00:48.460
+words from those components have
+
+23
+00:00:48.460 --> 00:00:50.000
+derivations that can be joined.
+
+24
+00:00:50.340 --> 00:00:52.040
+The raw combined grammar need
+
+25
+00:00:52.040 --> 00:00:53.480
+not be in Chomsky normal
+
+26
+00:00:53.480 --> 00:00:55.300
+form unless you convert it
+
+27
+00:00:55.300 --> 00:00:55.820
+afterwards.
+
+28
+00:00:56.300 --> 00:00:58.580
+Consider the context-free language of
+
+29
+00:00:58.580 --> 00:00:59.880
+equal a and b blocks
+
+30
+00:00:59.880 --> 00:01:01.580
+followed by any c block.
+
+31
+00:01:02.080 --> 00:01:03.540
+Also consider any a block
+
+32
+00:01:03.540 --> 00:01:05.000
+followed by equal b and
+
+33
+00:01:05.000 --> 00:01:06.960
+c blocks. Each has a
+
+34
+00:01:06.960 --> 00:01:08.980
+simple grammar using one matched
+
+35
+00:01:08.980 --> 00:01:11.480
+recursive pair and one unconstrained
+
+36
+00:01:11.480 --> 00:01:12.260
+repeated block.
+
+37
+00:01:12.740 --> 00:01:14.400
+A word in their intersection
+
+38
+00:01:14.400 --> 00:01:16.220
+must have all three ordered
+
+39
+00:01:16.220 --> 00:01:18.720
+block counts equal. The intersection
+
+40
+00:01:18.720 --> 00:01:21.320
+is therefore the three-equal-block language,
+
+41
+00:01:21.560 --> 00:01:23.560
+which the context-free pumping lemma
+
+42
+00:01:23.560 --> 00:01:26.620
+proved not context-free. This is
+
+43
+00:01:26.620 --> 00:01:28.900
+a concrete counterexample to general
+
+44
+00:01:28.900 --> 00:01:31.400
+intersection closure, not merely a
+
+45
+00:01:31.400 --> 00:01:32.700
+failed attempt to find a
+
+46
+00:01:32.700 --> 00:01:33.200
+construction.
+
+47
+00:01:34.060 --> 00:01:36.360
+If context-free languages were also
+
+48
+00:01:36.360 --> 00:01:38.640
+closed under complement, union closure
+
+49
+00:01:39.180 --> 00:01:40.180
+and De Morgan would make
+
+50
+00:01:40.180 --> 00:01:42.360
+them closed under intersection. That
+
+51
+00:01:42.360 --> 00:01:45.840
+contradicts our counterexample. Therefore general
+
+52
+00:01:45.840 --> 00:01:47.840
+complement closure fails as well,
+
+53
+00:01:48.360 --> 00:01:49.940
+although this argument does not
+
+54
+00:01:49.940 --> 00:01:51.700
+claim the complement of every
+
+55
+00:01:51.700 --> 00:01:54.440
+individual CFL is non-context-free.
+
+56
+00:01:54.900 --> 00:01:57.120
+For a context-free language C
+
+57
+00:01:57.120 --> 00:01:59.540
+and regular language R, combine
+
+58
+00:01:59.540 --> 00:02:01.700
+a pushdown automaton for C
+
+59
+00:02:01.700 --> 00:02:03.880
+with a deterministic automaton for
+
+60
+00:02:03.880 --> 00:02:05.860
+R. Store their control states
+
+61
+00:02:05.860 --> 00:02:07.440
+as one pair and retain
+
+62
+00:02:07.440 --> 00:02:09.420
+only the pushdown machine’s single
+
+63
+00:02:09.420 --> 00:02:11.320
+stack. On a consumed symbol,
+
+64
+00:02:11.880 --> 00:02:13.820
+update both controls and perform
+
+65
+00:02:13.820 --> 00:02:15.260
+the original stack action.
+
+66
+00:02:15.740 --> 00:02:18.280
+On an epsilon input move
+
+67
+00:02:18.280 --> 00:02:20.440
+of the pushdown machine, keep
+
+68
+00:02:20.440 --> 00:02:23.360
+the deterministic state fixed. No
+
+69
+00:02:23.360 --> 00:02:25.160
+input symbol has been consumed
+
+70
+00:02:25.160 --> 00:02:26.500
+for the regular filter to
+
+71
+00:02:26.500 --> 00:02:29.020
+read. The product’s invariant records
+
+72
+00:02:29.020 --> 00:02:30.580
+the PDA run and the
+
+73
+00:02:30.580 --> 00:02:32.020
+DFA run on the same
+
+74
+00:02:32.020 --> 00:02:34.800
+consumed prefix, proving it recognizes
+
+75
+00:02:34.800 --> 00:02:35.820
+their intersection.
+
+76
+00:02:36.340 --> 00:02:37.900
+Trying the same construction with
+
+77
+00:02:37.900 --> 00:02:40.260
+two pushdown automata would require
+
+78
+00:02:40.260 --> 00:02:42.860
+two independent stacks. A single
+
+79
+00:02:42.860 --> 00:02:44.520
+PDA does not provide that
+
+80
+00:02:44.520 --> 00:02:46.340
+memory model, and the intersection
+
+81
+00:02:46.340 --> 00:02:48.500
+counterexample shows that no general
+
+82
+00:02:48.500 --> 00:02:50.440
+one-stack repair can exist. The
+
+83
+00:02:50.440 --> 00:02:52.500
+regular component is special precisely
+
+84
+00:02:52.500 --> 00:02:54.440
+because its memory fits inside
+
+85
+00:02:54.440 --> 00:02:55.260
+finite control.
+
+86
+00:02:55.660 --> 00:02:57.980
+Apply the regular-filter result to
+
+87
+00:02:57.980 --> 00:02:59.720
+words with equal numbers of
+
+88
+00:02:59.720 --> 00:03:01.280
+a, b and c in
+
+89
+00:03:01.280 --> 00:03:03.400
+any order. Intersect with a
+
+90
+00:03:03.400 --> 00:03:04.760
+star b star c star
+
+91
+00:03:04.760 --> 00:03:06.060
+to force the ordered form,
+
+92
+00:03:06.400 --> 00:03:08.900
+obtaining the known non-context-free equal-block
+
+93
+00:03:08.900 --> 00:03:11.120
+language. If the original language
+
+94
+00:03:11.120 --> 00:03:13.480
+were context-free the filtered result
+
+95
+00:03:13.480 --> 00:03:14.960
+would be too, giving a
+
+96
+00:03:14.960 --> 00:03:15.420
+contradiction.
+
+97
+00:03:16.100 --> 00:03:17.460
+Things to take note of.
+
+98
+00:03:18.000 --> 00:03:20.300
+Prove positive closure by constructions
+
+99
+00:03:20.300 --> 00:03:21.960
+and negative closure by actual
+
+100
+00:03:21.960 --> 00:03:25.180
+counterexample languages. Preserve epsilon semantics
+
+101
+00:03:25.180 --> 00:03:27.980
+in the PDA-DFA product, distinguish
+
+102
+00:03:27.980 --> 00:03:29.760
+one stack from two, and
+
+103
+00:03:29.760 --> 00:03:31.440
+do not confuse nonclosure of
+
+104
+00:03:31.440 --> 00:03:32.560
+a class with a claim
+
+105
+00:03:32.560 --> 00:03:34.680
+about every particular language pair.

@@ -1,0 +1,325 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.520
+Why do dining philosophers deadlock?
+
+2
+00:00:03.120 --> 00:00:05.100
+Each philosopher needs two neighboring
+
+3
+00:00:05.100 --> 00:00:07.440
+chopsticks, but each chopstick can
+
+4
+00:00:07.440 --> 00:00:08.780
+be held by only one
+
+5
+00:00:08.780 --> 00:00:10.660
+philosopher at a time. A
+
+6
+00:00:10.660 --> 00:00:13.120
+locally sensible first acquisition can
+
+7
+00:00:13.120 --> 00:00:15.200
+create a circular dependency when
+
+8
+00:00:15.200 --> 00:00:16.600
+everyone follows it together.
+
+9
+00:00:17.980 --> 00:00:19.740
+There are five philosophers and
+
+10
+00:00:19.740 --> 00:00:21.480
+five chopsticks around the table.
+
+11
+00:00:21.900 --> 00:00:23.340
+Model each chopstick with a
+
+12
+00:00:23.340 --> 00:00:26.300
+binary semaphore initially one. Philosopher
+
+13
+00:00:26.300 --> 00:00:27.580
+i waits for chopstick i
+
+14
+00:00:27.580 --> 00:00:28.880
+and then chopstick i plus
+
+15
+00:00:28.880 --> 00:00:30.660
+one modulo five, eats, and
+
+16
+00:00:30.660 --> 00:00:31.800
+eventually releases both.
+
+17
+00:00:32.420 --> 00:00:34.320
+Let P zero acquire its
+
+18
+00:00:34.320 --> 00:00:36.000
+first chopstick and then be
+
+19
+00:00:36.000 --> 00:00:38.520
+paused. P one acquires its
+
+20
+00:00:38.520 --> 00:00:40.360
+first, followed by P two
+
+21
+00:00:40.360 --> 00:00:42.520
+and P three. None yet
+
+22
+00:00:42.520 --> 00:00:44.020
+has the second resource needed
+
+23
+00:00:44.020 --> 00:00:46.040
+to eat, but each successful
+
+24
+00:00:46.040 --> 00:00:48.740
+acquisition consumes an available chopstick.
+
+25
+00:00:49.260 --> 00:00:51.460
+Finally P four acquires the
+
+26
+00:00:51.460 --> 00:00:53.860
+last remaining first chopstick. Now
+
+27
+00:00:53.860 --> 00:00:55.320
+all five resources are held,
+
+28
+00:00:55.680 --> 00:00:58.080
+one by each philosopher. Every
+
+29
+00:00:58.080 --> 00:00:59.540
+next request targets a stick
+
+30
+00:00:59.540 --> 00:01:00.780
+already held by a neighbor,
+
+31
+00:01:00.780 --> 00:01:02.540
+completing the circular wait.
+
+32
+00:01:02.740 --> 00:01:04.360
+All five block on their
+
+33
+00:01:04.360 --> 00:01:06.320
+second acquisition, and none reaches
+
+34
+00:01:06.320 --> 00:01:08.060
+the release code. A processor
+
+35
+00:01:08.060 --> 00:01:10.040
+scheduler cannot dispatch a blocked
+
+36
+00:01:10.040 --> 00:01:11.660
+philosopher into releasing a resource
+
+37
+00:01:11.660 --> 00:01:13.020
+it has not finished using.
+
+38
+00:01:13.380 --> 00:01:14.500
+Fairness about who runs does
+
+39
+00:01:14.500 --> 00:01:16.260
+not repair the acquisition cycle.
+
+40
+00:01:16.940 --> 00:01:19.560
+One remedy limits simultaneous contenders
+
+41
+00:01:19.560 --> 00:01:21.220
+to four using another counting
+
+42
+00:01:21.220 --> 00:01:23.100
+semaphore. With at most four
+
+43
+00:01:23.100 --> 00:01:25.260
+philosophers attempting to acquire, the
+
+44
+00:01:25.260 --> 00:01:27.340
+five-person circular hold pattern cannot
+
+45
+00:01:27.340 --> 00:01:28.520
+form in the same way.
+
+46
+00:01:29.020 --> 00:01:30.520
+A permitted philosopher can obtain
+
+47
+00:01:30.520 --> 00:01:31.880
+the missing second stick and
+
+48
+00:01:31.880 --> 00:01:32.520
+make progress.
+
+49
+00:01:32.980 --> 00:01:35.160
+Another remedy takes both required
+
+50
+00:01:35.160 --> 00:01:37.360
+chopsticks together as an indivisible
+
+51
+00:01:37.360 --> 00:01:39.760
+allocation decision, or waits without
+
+52
+00:01:39.760 --> 00:01:42.100
+holding either. That removes hold
+
+53
+00:01:42.100 --> 00:01:43.840
+and wait, but the implementation
+
+54
+00:01:43.840 --> 00:01:46.080
+must protect the both-or-none decision
+
+55
+00:01:46.080 --> 00:01:49.520
+correctly. Two unrelated successful-looking tests
+
+56
+00:01:49.520 --> 00:01:50.960
+do not make it atomic.
+
+57
+00:01:51.580 --> 00:01:53.600
+A global resource ordering is
+
+58
+00:01:53.600 --> 00:01:56.060
+also effective: always acquire the
+
+59
+00:01:56.060 --> 00:01:58.320
+lower-numbered chopstick before the higher-numbered
+
+60
+00:01:58.320 --> 00:02:00.640
+one. The philosopher between zero
+
+61
+00:02:00.640 --> 00:02:02.160
+and four must request zero
+
+62
+00:02:02.160 --> 00:02:04.360
+first, breaking the circular direction.
+
+63
+00:02:05.100 --> 00:02:07.300
+An odd-even asymmetric ordering can
+
+64
+00:02:07.300 --> 00:02:09.920
+similarly prevent the all-same-direction cycle.
+
+65
+00:02:10.260 --> 00:02:12.320
+Proving the absence of deadlock
+
+66
+00:02:12.320 --> 00:02:14.420
+does not automatically prove that
+
+67
+00:02:14.420 --> 00:02:16.320
+every philosopher receives a turn
+
+68
+00:02:16.320 --> 00:02:17.880
+within a fixed bound. A
+
+69
+00:02:17.880 --> 00:02:19.580
+poorly chosen permission or queue
+
+70
+00:02:19.580 --> 00:02:20.800
+rule may still starve a
+
+71
+00:02:20.800 --> 00:02:23.400
+particular philosopher. Keep resource safety,
+
+72
+00:02:23.820 --> 00:02:25.380
+deadlock freedom and fairness as
+
+73
+00:02:25.380 --> 00:02:26.120
+separate claims.
+
+74
+00:02:26.620 --> 00:02:28.040
+Things to take note of.
+
+75
+00:02:28.400 --> 00:02:30.280
+Show the five first acquisitions,
+
+76
+00:02:30.600 --> 00:02:32.500
+identify the cycle, and explain
+
+77
+00:02:32.500 --> 00:02:34.520
+which deadlock condition your remedy
+
+78
+00:02:34.520 --> 00:02:36.660
+breaks. More hardware or a
+
+79
+00:02:36.660 --> 00:02:38.300
+different quantum does not itself
+
+80
+00:02:38.300 --> 00:02:39.900
+change the order in which
+
+81
+00:02:39.900 --> 00:02:41.920
+this broken protocol requests chopsticks.

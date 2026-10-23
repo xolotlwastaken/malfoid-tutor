@@ -1,0 +1,345 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.900
+How do guests, hosts and
+
+2
+00:00:01.900 --> 00:00:04.120
+hypervisors fit together? A virtual
+
+3
+00:00:04.120 --> 00:00:06.480
+machine presents a machine-like environment
+
+4
+00:00:06.480 --> 00:00:08.080
+in which a guest operating
+
+5
+00:00:08.080 --> 00:00:11.020
+system runs applications. A hypervisor,
+
+6
+00:00:11.260 --> 00:00:12.760
+also called a virtual machine
+
+7
+00:00:12.760 --> 00:00:15.320
+monitor, controls the relationship between
+
+8
+00:00:15.320 --> 00:00:17.040
+that environment and the physical
+
+9
+00:00:17.040 --> 00:00:17.480
+host.
+
+10
+00:00:17.900 --> 00:00:19.980
+Inside a guest, its scheduler
+
+11
+00:00:19.980 --> 00:00:21.640
+chooses a guest process to
+
+12
+00:00:21.640 --> 00:00:23.140
+run on a virtual processor.
+
+13
+00:00:23.500 --> 00:00:25.260
+The host scheduling layer chooses
+
+14
+00:00:25.260 --> 00:00:27.320
+when that virtual processor receives
+
+15
+00:00:27.320 --> 00:00:29.320
+a physical execution slot. Both
+
+16
+00:00:29.320 --> 00:00:31.200
+scheduling decisions can affect when
+
+17
+00:00:31.200 --> 00:00:32.800
+the application actually progresses.
+
+18
+00:00:33.540 --> 00:00:35.980
+Return to sixteen virtual processors
+
+19
+00:00:35.980 --> 00:00:37.940
+backed by four physical cores.
+
+20
+00:00:38.300 --> 00:00:39.560
+A guest may regard its
+
+21
+00:00:39.560 --> 00:00:41.100
+process as selected for a
+
+22
+00:00:41.100 --> 00:00:43.060
+virtual processor while that virtual
+
+23
+00:00:43.060 --> 00:00:44.940
+processor waits for host service.
+
+24
+00:00:45.660 --> 00:00:47.680
+Distinguish a guest-ready process from
+
+25
+00:00:47.680 --> 00:00:49.020
+a virtual processor that is
+
+26
+00:00:49.020 --> 00:00:50.780
+actually executing on hardware.
+
+27
+00:00:51.660 --> 00:00:53.720
+The conventional Type one diagram
+
+28
+00:00:53.720 --> 00:00:56.080
+places the hypervisor directly above
+
+29
+00:00:56.080 --> 00:00:57.640
+hardware and the guest machines
+
+30
+00:00:57.640 --> 00:00:59.720
+above it. The conventional Type
+
+31
+00:00:59.720 --> 00:01:01.380
+two diagram places a host
+
+32
+00:01:01.380 --> 00:01:03.940
+operating system between the virtualization
+
+33
+00:01:03.940 --> 00:01:05.940
+application and hardware. Trace the
+
+34
+00:01:05.940 --> 00:01:07.480
+layers shown instead of inferring
+
+35
+00:01:07.480 --> 00:01:09.000
+classification from an icon.
+
+36
+00:01:09.540 --> 00:01:11.900
+The course slide labels KVM
+
+37
+00:01:11.900 --> 00:01:13.340
+with Linux using its Type
+
+38
+00:01:13.340 --> 00:01:16.140
+two diagram convention. That example
+
+39
+00:01:16.140 --> 00:01:18.100
+needs instructor clarification if a
+
+40
+00:01:18.100 --> 00:01:19.880
+question expects a universal product
+
+41
+00:01:19.880 --> 00:01:22.600
+classification. For this course, preserve
+
+42
+00:01:22.600 --> 00:01:24.460
+the displayed convention while understanding
+
+43
+00:01:24.460 --> 00:01:26.060
+the actual layers being discussed.
+
+44
+00:01:26.620 --> 00:01:28.960
+A process abstraction supplies an
+
+45
+00:01:28.960 --> 00:01:31.260
+execution context and address space
+
+46
+00:01:31.260 --> 00:01:33.300
+within an operating system. A
+
+47
+00:01:33.300 --> 00:01:35.400
+whole virtual machine additionally hosts
+
+48
+00:01:35.400 --> 00:01:37.100
+an operating system and a
+
+49
+00:01:37.100 --> 00:01:39.880
+virtualized machine interface. The two
+
+50
+00:01:39.880 --> 00:01:41.920
+abstractions operate at different layers
+
+51
+00:01:41.920 --> 00:01:43.720
+even though both can involve
+
+52
+00:01:43.720 --> 00:01:45.080
+isolation and scheduling.
+
+53
+00:01:45.700 --> 00:01:47.580
+The monitor aims to retain
+
+54
+00:01:47.580 --> 00:01:49.400
+control over the underlying machine
+
+55
+00:01:49.400 --> 00:01:51.560
+while supporting useful efficiency and
+
+56
+00:01:51.560 --> 00:01:53.720
+isolation. A guest kernel can
+
+57
+00:01:53.720 --> 00:01:55.800
+administer its own environment without
+
+58
+00:01:55.800 --> 00:01:58.080
+having unrestricted authority over other
+
+59
+00:01:58.080 --> 00:02:00.040
+guests or the physical host.
+
+60
+00:02:00.460 --> 00:02:02.140
+Guest privilege is subordinate to
+
+61
+00:02:02.140 --> 00:02:03.800
+the virtualization control layer.
+
+62
+00:02:04.380 --> 00:02:06.300
+Isolation is a design goal
+
+63
+00:02:06.300 --> 00:02:08.500
+with mechanisms and assumptions, not
+
+64
+00:02:08.500 --> 00:02:10.180
+an automatic consequence of drawing
+
+65
+00:02:10.180 --> 00:02:12.460
+separate boxes. The monitor must
+
+66
+00:02:12.460 --> 00:02:14.660
+mediate sensitive operations and shared
+
+67
+00:02:14.660 --> 00:02:17.500
+physical resources. Performance likewise depends
+
+68
+00:02:17.500 --> 00:02:20.080
+on workload, scheduling and implementation.
+
+69
+00:02:20.740 --> 00:02:22.960
+When drawing an answer, label
+
+70
+00:02:22.960 --> 00:02:26.080
+guest applications, guest operating systems,
+
+71
+00:02:26.620 --> 00:02:29.480
+virtual processors, the monitor and
+
+72
+00:02:29.480 --> 00:02:31.600
+the physical hardware. Add a
+
+73
+00:02:31.600 --> 00:02:33.480
+host operating system where the
+
+74
+00:02:33.480 --> 00:02:36.380
+chosen architecture requires one. Then
+
+75
+00:02:36.380 --> 00:02:37.820
+point to the layer responsible
+
+76
+00:02:37.820 --> 00:02:40.000
+for each dispatch or privileged
+
+77
+00:02:40.000 --> 00:02:40.700
+operation.
+
+78
+00:02:41.180 --> 00:02:42.580
+Things to take note of.
+
+79
+00:02:43.100 --> 00:02:45.100
+Guest processes run on guest
+
+80
+00:02:45.100 --> 00:02:48.380
+virtual processors, and virtual processors
+
+81
+00:02:48.380 --> 00:02:50.120
+need physical service from the
+
+82
+00:02:50.120 --> 00:02:51.940
+host. Learn the Type one
+
+83
+00:02:51.940 --> 00:02:53.540
+and Type two layer diagrams,
+
+84
+00:02:53.540 --> 00:02:55.540
+and keep the slide KVM
+
+85
+00:02:55.540 --> 00:02:57.120
+example qualified as a course
+
+86
+00:02:57.120 --> 00:02:57.640
+convention.

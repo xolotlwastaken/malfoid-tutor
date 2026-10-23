@@ -1,0 +1,389 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.920
+Do extra tapes or nondeterminism
+
+2
+00:00:02.600 --> 00:00:04.360
+make Turing machines more powerful?
+
+3
+00:00:05.120 --> 00:00:06.640
+They can make descriptions shorter
+
+4
+00:00:06.640 --> 00:00:08.820
+or computations faster, but the
+
+5
+00:00:08.820 --> 00:00:10.940
+lecture equivalence theorems preserve the
+
+6
+00:00:10.940 --> 00:00:13.080
+class of recognized languages. We
+
+7
+00:00:13.080 --> 00:00:14.720
+will inspect the simulation ideas
+
+8
+00:00:14.720 --> 00:00:16.760
+and separate expressive power from
+
+9
+00:00:16.760 --> 00:00:17.300
+running time.
+
+10
+00:00:17.820 --> 00:00:20.000
+A multitape machine reads one
+
+11
+00:00:20.000 --> 00:00:21.760
+scanned symbol from each tape
+
+12
+00:00:21.760 --> 00:00:23.720
+in a transition. Its finite
+
+13
+00:00:23.720 --> 00:00:25.900
+control chooses new symbols, directions
+
+14
+00:00:25.900 --> 00:00:28.200
+and state together. The input
+
+15
+00:00:28.200 --> 00:00:29.580
+begins on the first tape
+
+16
+00:00:29.580 --> 00:00:31.120
+with the others blank, and
+
+17
+00:00:31.120 --> 00:00:32.760
+each tape has an independently
+
+18
+00:00:32.760 --> 00:00:33.700
+positioned head.
+
+19
+00:00:34.020 --> 00:00:36.460
+Encode the tapes as delimiter-separated
+
+20
+00:00:36.460 --> 00:00:38.560
+regions on one ordinary tape.
+
+21
+00:00:39.120 --> 00:00:40.360
+Mark one symbol in each
+
+22
+00:00:40.360 --> 00:00:41.980
+region to record its virtual
+
+23
+00:00:41.980 --> 00:00:44.000
+head position. The simulator’s finite
+
+24
+00:00:44.000 --> 00:00:45.900
+control remembers the tuple of
+
+25
+00:00:45.900 --> 00:00:47.480
+scanned symbols during a sweep,
+
+26
+00:00:47.980 --> 00:00:49.400
+then a further sweep performs
+
+27
+00:00:49.400 --> 00:00:51.100
+the required writes and head-mark
+
+28
+00:00:51.100 --> 00:00:51.540
+updates.
+
+29
+00:00:52.060 --> 00:00:53.380
+If a virtual tape needs
+
+30
+00:00:53.380 --> 00:00:55.420
+an additional cell, shift the
+
+31
+00:00:55.420 --> 00:00:57.640
+encoding to make space. These
+
+32
+00:00:57.640 --> 00:00:59.320
+extra sweeps and shifts cost
+
+33
+00:00:59.320 --> 00:01:00.760
+time, but they do not
+
+34
+00:01:00.760 --> 00:01:02.560
+change which input words can
+
+35
+00:01:02.560 --> 00:01:05.400
+eventually be accepted. Thus equivalent
+
+36
+00:01:05.400 --> 00:01:07.240
+recognition does not mean one
+
+37
+00:01:07.240 --> 00:01:09.540
+primitive simulated move always takes
+
+38
+00:01:09.540 --> 00:01:11.340
+one primitive real move.
+
+39
+00:01:11.780 --> 00:01:14.000
+A nondeterministic machine has a
+
+40
+00:01:14.000 --> 00:01:16.380
+tree of possible computations. It
+
+41
+00:01:16.380 --> 00:01:18.160
+accepts if some branch reaches
+
+42
+00:01:18.160 --> 00:01:20.300
+acceptance, even when other branches
+
+43
+00:01:20.300 --> 00:01:22.540
+reject or run forever. A
+
+44
+00:01:22.540 --> 00:01:24.520
+deterministic simulator must search that
+
+45
+00:01:24.520 --> 00:01:26.280
+tree fairly instead of getting
+
+46
+00:01:26.280 --> 00:01:28.480
+trapped following one nonhalting branch.
+
+47
+00:01:28.940 --> 00:01:31.440
+Depth-first search can descend an
+
+48
+00:01:31.440 --> 00:01:33.740
+infinite path and never inspect
+
+49
+00:01:33.740 --> 00:01:36.200
+a finite accepting sibling. Breadth-first
+
+50
+00:01:36.200 --> 00:01:39.200
+exploration, or an equivalent dovetailing
+
+51
+00:01:39.200 --> 00:01:41.640
+of finite branch addresses, eventually
+
+52
+00:01:41.640 --> 00:01:44.160
+reaches every finite computation prefix.
+
+53
+00:01:44.400 --> 00:01:46.020
+Therefore it finds any finite
+
+54
+00:01:46.020 --> 00:01:48.360
+accepting branch without claiming that
+
+55
+00:01:48.360 --> 00:01:49.940
+the branches execute for free
+
+56
+00:01:49.940 --> 00:01:51.360
+in physical parallelism.
+
+57
+00:01:51.700 --> 00:01:53.180
+For an NTM to be
+
+58
+00:01:53.180 --> 00:01:55.300
+a decider, all branches must
+
+59
+00:01:55.300 --> 00:01:57.440
+halt on every input. Its
+
+60
+00:01:57.440 --> 00:01:59.640
+tree is finitely branching, and
+
+61
+00:01:59.640 --> 00:02:01.180
+an infinite such tree would
+
+62
+00:02:01.180 --> 00:02:03.380
+contain an infinite path, so
+
+63
+00:02:03.380 --> 00:02:05.580
+the all-halting computation tree for
+
+64
+00:02:05.580 --> 00:02:07.180
+a fixed input is finite.
+
+65
+00:02:07.780 --> 00:02:10.000
+A fair deterministic simulation can
+
+66
+00:02:10.000 --> 00:02:11.900
+therefore exhaust it and reject
+
+67
+00:02:11.900 --> 00:02:13.200
+if none of its branches
+
+68
+00:02:13.200 --> 00:02:14.180
+accepts.
+
+69
+00:02:14.380 --> 00:02:16.360
+A doubly infinite tape is
+
+70
+00:02:16.360 --> 00:02:18.820
+another equivalent variant. Store its
+
+71
+00:02:18.820 --> 00:02:20.280
+right half on one ordinary
+
+72
+00:02:20.280 --> 00:02:21.800
+tape and its left half
+
+73
+00:02:21.800 --> 00:02:23.260
+in reverse order on another,
+
+74
+00:02:23.640 --> 00:02:25.620
+with finite control remembering which
+
+75
+00:02:25.620 --> 00:02:27.640
+half is active. Crossing the
+
+76
+00:02:27.640 --> 00:02:29.740
+origin switches tapes, and directions
+
+77
+00:02:29.740 --> 00:02:31.400
+reverse while working on the
+
+78
+00:02:31.400 --> 00:02:33.180
+reversed left-half representation.
+
+79
+00:02:33.700 --> 00:02:35.760
+The reverse simulation lets a
+
+80
+00:02:35.760 --> 00:02:37.640
+two-way tape machine reserve a
+
+81
+00:02:37.640 --> 00:02:39.360
+left-end marker and use only
+
+82
+00:02:39.360 --> 00:02:41.160
+one side, imitating an ordinary
+
+83
+00:02:41.160 --> 00:02:43.680
+tape. Together the two simulations
+
+84
+00:02:43.680 --> 00:02:46.720
+prove equal recognition power. One
+
+85
+00:02:46.720 --> 00:02:48.480
+inclusion alone would show only
+
+86
+00:02:48.480 --> 00:02:49.720
+that one model can do
+
+87
+00:02:49.720 --> 00:02:50.720
+at least as much as
+
+88
+00:02:50.720 --> 00:02:51.060
+the other.
+
+89
+00:02:51.500 --> 00:02:52.880
+Things to take note of.
+
+90
+00:02:53.300 --> 00:02:55.020
+Explain the encoding and head
+
+91
+00:02:55.020 --> 00:02:56.940
+markers, use fair search for
+
+92
+00:02:56.940 --> 00:03:00.020
+nondeterminism, and distinguish a recognizer’s
+
+93
+00:03:00.020 --> 00:03:01.860
+looping branches from a decider’s
+
+94
+00:03:01.860 --> 00:03:05.140
+all-halting condition. Equivalent computability classes
+
+95
+00:03:05.140 --> 00:03:07.440
+do not automatically provide equal
+
+96
+00:03:07.440 --> 00:03:09.640
+runtimes or resolve the efficiency
+
+97
+00:03:09.640 --> 00:03:12.080
+question behind P versus NP.

@@ -1,0 +1,325 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.020
+How does radix sort work?
+
+2
+00:00:02.540 --> 00:00:03.820
+Stably sort by the least
+
+3
+00:00:03.820 --> 00:00:06.340
+significant digit first, then move
+
+4
+00:00:06.340 --> 00:00:07.520
+one digit left at a
+
+5
+00:00:07.520 --> 00:00:09.600
+time. Stability is doing the
+
+6
+00:00:09.600 --> 00:00:11.560
+clever work here, so do
+
+7
+00:00:11.560 --> 00:00:12.280
+pay attention.
+
+8
+00:00:12.940 --> 00:00:15.280
+Use eight three-digit decimal numbers,
+
+9
+00:00:15.280 --> 00:00:17.680
+matching the course example. Units
+
+10
+00:00:17.680 --> 00:00:19.860
+come first, then tens, then
+
+11
+00:00:19.860 --> 00:00:21.960
+hundreds; a shorter number would
+
+12
+00:00:21.960 --> 00:00:23.300
+be treated as having leading
+
+13
+00:00:23.300 --> 00:00:23.720
+zeros.
+
+14
+00:00:24.260 --> 00:00:26.260
+Sort by units while preserving
+
+15
+00:00:26.260 --> 00:00:27.640
+the order of equal digits.
+
+16
+00:00:28.240 --> 00:00:30.260
+Four thirty moves first, the
+
+17
+00:00:30.260 --> 00:00:31.780
+three numbers ending in one
+
+18
+00:00:31.780 --> 00:00:33.380
+follow in their current order,
+
+19
+00:00:33.860 --> 00:00:35.920
+then two, three, and the
+
+20
+00:00:35.920 --> 00:00:36.740
+two fours.
+
+21
+00:00:37.020 --> 00:00:38.480
+The result is four thirty,
+
+22
+00:00:38.480 --> 00:00:41.440
+one forty-one, three forty-one, one
+
+23
+00:00:40.520 --> 00:00:43.200
+twenty-one, two oh two, three
+
+24
+00:00:42.300 --> 00:00:45.520
+thirteen, two twenty-four, three oh
+
+25
+00:00:44.140 --> 00:00:47.180
+four. Only the last digit
+
+26
+00:00:47.180 --> 00:00:48.460
+is sorted so far.
+
+27
+00:00:48.740 --> 00:00:50.840
+Now stably sort that result
+
+28
+00:00:50.840 --> 00:00:52.840
+by tens. The zeros come
+
+29
+00:00:52.840 --> 00:00:55.160
+first, followed by one, the
+
+30
+00:00:55.169 --> 00:00:57.311
+twenties, thirty, and the forties;
+
+31
+00:00:57.800 --> 00:00:59.320
+equal tens retain the units
+
+32
+00:00:59.320 --> 00:01:00.640
+ordering established before.
+
+33
+00:01:00.940 --> 00:01:02.760
+We now have two oh
+
+34
+00:01:01.780 --> 00:01:04.840
+two, three oh four, three
+
+35
+00:01:04.160 --> 00:01:07.840
+thirteen, one twenty-one, two twenty-four,
+
+36
+00:01:08.180 --> 00:01:11.080
+four thirty, one forty-one, three
+
+37
+00:01:10.140 --> 00:01:12.820
+forty-one. The last two digits
+
+38
+00:01:12.820 --> 00:01:14.940
+are sorted, although the whole
+
+39
+00:01:14.940 --> 00:01:15.800
+numbers are not.
+
+40
+00:01:16.420 --> 00:01:18.760
+Finally, stably sort by hundreds.
+
+41
+00:01:19.460 --> 00:01:21.220
+One twenty-one and one forty-one
+
+42
+00:01:21.220 --> 00:01:23.120
+remain in that order, followed
+
+43
+00:01:23.120 --> 00:01:24.780
+by the two hundreds, the
+
+44
+00:01:24.780 --> 00:01:26.300
+three hundreds, and four thirty.
+
+45
+00:01:26.860 --> 00:01:29.380
+After t passes, the sequence
+
+46
+00:01:29.380 --> 00:01:30.980
+is sorted by its t
+
+47
+00:01:30.980 --> 00:01:33.780
+least significant digits. The next
+
+48
+00:01:33.780 --> 00:01:35.460
+stable pass orders the new
+
+49
+00:01:35.460 --> 00:01:37.320
+digit while preserving the previous
+
+50
+00:01:37.320 --> 00:01:40.280
+suffix order inside ties. Induction
+
+51
+00:01:40.280 --> 00:01:42.160
+gives the final sorted sequence.
+
+52
+00:01:42.580 --> 00:01:44.360
+Suppose there are d digits
+
+53
+00:01:44.360 --> 00:01:46.180
+in base b. Counting sort
+
+54
+00:01:46.600 --> 00:01:47.960
+takes theta of n plus
+
+55
+00:01:47.960 --> 00:01:49.800
+b per digit, so d
+
+56
+00:01:49.800 --> 00:01:51.500
+passes take theta of d
+
+57
+00:01:51.500 --> 00:01:53.680
+times n plus b. The
+
+58
+00:01:53.680 --> 00:01:55.260
+buffers can be reused between
+
+59
+00:01:55.260 --> 00:01:55.720
+passes.
+
+60
+00:01:56.220 --> 00:01:58.540
+For keys below k, choose
+
+61
+00:01:58.540 --> 00:02:00.140
+enough digits that b to
+
+62
+00:02:00.140 --> 00:02:01.280
+the power d is at
+
+63
+00:02:01.280 --> 00:02:03.620
+least k. If b equals
+
+64
+00:02:03.620 --> 00:02:05.080
+n and k is at
+
+65
+00:02:05.080 --> 00:02:06.540
+most n to a fixed
+
+66
+00:02:06.540 --> 00:02:09.700
+constant power, only constantly many
+
+67
+00:02:09.700 --> 00:02:10.640
+passes are needed.
+
+68
+00:02:11.220 --> 00:02:12.780
+Things to take note of.
+
+69
+00:02:13.180 --> 00:02:14.660
+Each digit sort must be
+
+70
+00:02:14.660 --> 00:02:17.060
+stable: reversing equal tens can
+
+71
+00:02:17.060 --> 00:02:19.220
+destroy the units order. This
+
+72
+00:02:19.220 --> 00:02:21.440
+implementation uses extra buffers and
+
+73
+00:02:21.440 --> 00:02:22.340
+is not constant-space.
+
+74
+00:02:23.260 --> 00:02:24.800
+State the base and digit
+
+75
+00:02:24.800 --> 00:02:26.720
+count instead of simply claiming
+
+76
+00:02:26.720 --> 00:02:29.420
+linear time. Empty input needs
+
+77
+00:02:29.420 --> 00:02:32.000
+no passes, all-zero input needs
+
+78
+00:02:32.000 --> 00:02:33.900
+a clear digit convention, and
+
+79
+00:02:33.900 --> 00:02:35.520
+very long keys increase the
+
+80
+00:02:35.520 --> 00:02:38.020
+work. Hmph, digits do not
+
+81
+00:02:38.020 --> 00:02:38.620
+sort themselves.
