@@ -2,7 +2,9 @@
   "status": "passed",
   "topics": 31,
   "questions": 403,
-  "numeric_answer_checks": 68,
+  "numeric_answer_checks": 93,
+  "longer_transfer_challenges": 31,
+  "challenge_review": "All31 challenge statements,answers and distractors independently reviewed against the approved plan;25 additional numeric trace checks are included in evidence.",
   "unique_questions": true,
   "unique_options": true,
   "balanced_difficulties": true,
@@ -417,7 +419,157 @@
       "lesson": "N8",
       "derived": "220",
       "method": "Independent enumeration of every whole-item subset"
+    },
+    {
+      "id": 589,
+      "lesson": "A3",
+      "derived": "Depth5;243 leaves;T(1024)=3367",
+      "method": "Direct recursive expansion of the new1024-input case"
+    },
+    {
+      "id": 576,
+      "lesson": "A2",
+      "derived": "8 outer iterations;255 inner executions;\u0398(n)",
+      "method": "Explicit simulation and geometric-sum proof"
+    },
+    {
+      "id": 628,
+      "lesson": "A6",
+      "derived": "T(32)=161;T(n)\u2264n log\u2082n+n for all powers of two n\u22651",
+      "method": "Direct recurrence evaluation and base/induction algebra review"
+    },
+    {
+      "id": 641,
+      "lesson": "A7",
+      "derived": "Originally(89,99);after the change(93,99)",
+      "method": "Expanded both parity branches under both base assignments"
+    },
+    {
+      "id": 654,
+      "lesson": "G1",
+      "derived": "14:(5,2);28:(4,4)",
+      "method": "Greedy simulation versus breadth-first exact-change search"
+    },
+    {
+      "id": 667,
+      "lesson": "G2",
+      "derived": "Greedy selects F,G,H,I;weighted optimum100",
+      "method": "Enumerated all512 subsets and simulated deterministic finish ties"
+    },
+    {
+      "id": 680,
+      "lesson": "G3",
+      "derived": "Fractional99 using7/10 of item3;0/1 optimum86",
+      "method": "Independent LP-vertex and whole-subset enumeration"
+    },
+    {
+      "id": 693,
+      "lesson": "D1",
+      "derived": "67 naive invocations;9 distinct states;O(n) cache plus O(n) stack",
+      "method": "Instrumented every recursive invocation including bases"
+    },
+    {
+      "id": 706,
+      "lesson": "D2",
+      "derived": "V(12)=47;second predecessor6;the old V(6) must remain available",
+      "method": "Computed new recurrence table through12"
+    },
+    {
+      "id": 719,
+      "lesson": "D3",
+      "derived": "Greedy gets stuck at remainder1;DP uses3 coins,9+7+7, and two coins cannot reach23",
+      "method": "Greedy remainder versus BFS minimum;checked 9+7+7 and max two-coin value18"
+    },
+    {
+      "id": 732,
+      "lesson": "D4",
+      "derived": "Length4;BCBA",
+      "method": "Independent table/backtrack simulation;optimum verified by complete subsequence-set intersection"
+    },
+    {
+      "id": 745,
+      "lesson": "D5",
+      "derived": "0/1 optimum12 via items1+3;unbounded optimum15 via three copies of item1",
+      "method": "Enumerated all legal zero-one and repeated-item multiplicities"
+    },
+    {
+      "id": 771,
+      "lesson": "D7",
+      "derived": "Keep remaining budget:the first history can reach profit15;the second cannot take the edge",
+      "method": "Independent resource-feasibility evaluation for both retained histories"
+    },
+    {
+      "id": 784,
+      "lesson": "S1",
+      "derived": "First index4,25 checks;the separate all-matches scan uses12 checks",
+      "method": "Direct character comparisons for first-match and all-window variants"
+    },
+    {
+      "id": 797,
+      "lesson": "S2",
+      "derived": "Hashes12,9,12,0,12;true starts2,4;5 character checks",
+      "method": "Parsed each literal window separately and directly verified every hash-equal candidate"
+    },
+    {
+      "id": 810,
+      "lesson": "S3",
+      "derived": "8 hash decisions;7 rolls;15 character checks\u226420",
+      "method": "Counted legal starts,adjacent transitions and actual given candidate work separately"
+    },
+    {
+      "id": 823,
+      "lesson": "S4",
+      "derived": "Endpoints4,6,7;8 comparisons;return4",
+      "method": "Explicit course-pointer simulator with every compared character counted"
+    },
+    {
+      "id": 836,
+      "lesson": "S5",
+      "derived": "Slide5;matchJump7;new endpoint18;new start13",
+      "method": "Enumerated every possible pattern slide against known suffix/mismatch constraints"
+    },
+    {
+      "id": 849,
+      "lesson": "S6",
+      "derived": "Endpoints6,12,15,21,24;18 comparisons;start19",
+      "method": "Fresh full pointer trace;match independently checked against literal substring search"
+    },
+    {
+      "id": 862,
+      "lesson": "N1",
+      "derived": "31 moves;63 invocations;explicit move listing needs \u03a9(2\u207f) output work",
+      "method": "Instrumented all invocations and explicit move emissions"
+    },
+    {
+      "id": 875,
+      "lesson": "N2",
+      "derived": "Reject the first,accept the second;one rejected candidate does not prove no",
+      "method": "Independent full permutation/closure/threshold verifier"
+    },
+    {
+      "id": 901,
+      "lesson": "N4",
+      "derived": "Threshold7;X costs8 and fails,Y costs7 and passes;delete Y\u2019s weight-two edge",
+      "method": "Explicit six-edge cost and threshold evaluation"
+    },
+    {
+      "id": 927,
+      "lesson": "N6",
+      "derived": "From A:ABCDA costs104;from B:BCADB costs7;start and tie choices can matter",
+      "method": "Independent nearest-unvisited simulation under explicit starting tie"
+    },
+    {
+      "id": 940,
+      "lesson": "N7",
+      "derived": "Shortest-link:{AB,BC,CD,DE,AE},21;Kruskal:{AB,BC,BD,DE},13",
+      "method": "Enumerated all four-edge spanning trees;checked explicit selected-cycle edges"
+    },
+    {
+      "id": 953,
+      "lesson": "N8",
+      "derived": "Greedy12;exact0/1 optimum18;fractional optimum19.2",
+      "method": "Independent greedy scan,subset enumeration and fractional LP vertices"
     }
   ],
-  "bank_sha256": "75cb6e6ea7daa6e14f114af79108761aebf3c31cf1ac3b44805b171cd6b98660"
+  "bank_sha256": "f40953be915705024084c0174d0370e2dba5c22281057cca4f17f1e357a33e81"
 }

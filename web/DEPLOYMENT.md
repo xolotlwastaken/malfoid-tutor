@@ -16,9 +16,9 @@ Published on 23 October 2026 through the authenticated Chrome Vercel dashboard u
 
 The published courses are SC2001 and SC2005. The October 24 expansion adds SC2001 Weeks 8–13: 31 verified lessons and 403 questions. The resulting catalog contains 90 videos, 72 narration downloads, 90 captions/transcripts, 72 source notes and 953 interactive questions (793 SC2001,160 SC2005). The linked original SC2001 PDF remains the 90-question Weeks 1–7 edition. SC2203 remains local and is excluded through `content/hosting.json`.
 
-The existing public Blob store contains 162 streaming files, approximately508.6 MB. The 62 new files were read back and SHA256-checked against the local streaming copies; all31 video range requests returned HTTP206. Videos use720×1280 H.264 and narration usesMP3. Original1080×1920 masters remain local.
+The existing public Blob store contains 162 streaming files, approximately 508.6 MB. The 62 new files were read back and SHA256-checked against the local streaming copies; all 31 video range requests returned HTTP 206. Videos use 720×1280 H.264 and narration uses MP3. Original 1080×1920 masters remain local.
 
-Later SC2001 lessons use approved slides-and-notes grounding because matching Weeks8–13 recordings were unavailable. Each source map states that gap. The analysis, question audit and delivery evidence are versioned in the repository.
+Later SC2001 lessons use approved slides-and-notes grounding because matching Weeks 8–13 recordings were unavailable. Each source map states that gap. The analysis, question audit and delivery evidence are versioned in the repository.
 
 ## GitHub automatic deployments
 

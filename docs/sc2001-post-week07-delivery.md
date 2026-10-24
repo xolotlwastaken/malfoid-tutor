@@ -20,7 +20,7 @@ Speech screening preserves unprompted local Base ASR and targeted independent Ti
 
 Mathematics checks include exhaustive LCS subsequence and knapsack subset comparisons, all9841 WOX texts of lengths0–8 for the Boyer–Moore convention, parity formulas, coin minima, fractional LP vertices, TSP traces, legal Hanoi moves and all64 four-vertex HP→TSP reduction instances.
 
-The question-bank audit independently derives68 numerical answers and checks all64 reduction graphs, IDs, balanced counts and distinct choices. Conceptual answers/distractors were reviewed against the lesson assumptions. Rebuild and validate with:
+The question-bank audit independently derives93 numerical answers and checks all64 reduction graphs, IDs, balanced counts and distinct choices. Conceptual answers/distractors were reviewed against the lesson assumptions. Rebuild and validate with:
 
 ```sh
 rtk proxy python3 content/sc2001-later-authoring/build.py
@@ -36,3 +36,5 @@ The62 new720×1280 MP4/MP3 streaming files total182,265,615 bytes and were uploa
 Installed skill: `/Users/joelloh/.codex/skills/malfoid-course-pipeline/`. A versioned copy is under `docs/skills/malfoid-course-pipeline/`. It preserves the analysis approval gate, ordered production stages, source-gap handling, media verification, stable IDs and explicit hosting/GitHub distinctions.
 
 The repository engineering-skill setup uses the user-approved GitHub Issues tracker, default triage labels, single-context domain-document rules and root AGENTS.md.
+
+All31 Baka items were strengthened to longer transfer/trace challenges after independent spec review; their IDs are unchanged. Both review axes have no remaining findings. See `docs/sc2001-post-week07-review.md`.

@@ -227,16 +227,16 @@
       {
         "id": 563,
         "difficulty": "Baka",
-        "stem": "Malfoid sees an O(n²) upper bound and declares the algorithm cannot be linear. What is wrong?",
-        "correct": "A linear function also satisfies O(n²)",
+        "stem": "Let f(n)=n² for even n and n³ for odd n, for positive integers n. Classify f against both n² and n³, requiring each bound to hold for every sufficiently large integer. Which complete classification is correct?",
+        "correct": "f∈Ω(n²)∩O(n³), but f is Θ of neither n² nor n³",
         "options": [
-          "Big O forbids loose bounds",
-          "A linear function also satisfies O(n²)",
-          "Only constants can have multiple upper bounds",
-          "Every O(n²) function is Ω(n²)"
+          "f∈Θ(n²) because infinitely many inputs are quadratic",
+          "f∈Ω(n²)∩O(n³), but f is Θ of neither n² nor n³",
+          "f∉O(n³) and f∉Ω(n²)",
+          "f∈Θ(n³) because the largest branch is cubic"
         ],
         "answer": "B",
-        "why": "An upper bound alone does not establish a matching lower bound; n≤n² for n≥1.",
+        "why": "n²≤f≤n³ for every n≥1. Odd n make f/n²=n unbounded, ruling out O(n²); even n make f/n³=1/n tend to zero, ruling out Ω(n³). Infinitely many matching inputs do not supply an eventual two-sided bound.",
         "source": "Analysis Techniques pp5–12; Review Week 8 pp2–3; study notes 01-analysis §§1.1–1.2.",
         "lessonId": "A1",
         "context": "Functions are eventually nonnegative, n is a positive integer, and asymptotic constants are fixed independently of n.",
@@ -472,16 +472,16 @@
       {
         "id": 576,
         "difficulty": "Baka",
-        "stem": "An exponential algorithm wins at n=8. Does that establish better asymptotic growth than a quadratic algorithm?",
-        "correct": "No; finite measurements do not determine eventual growth",
+        "stem": "A loop sets i=1, and while i≤n runs an inner loop exactly i times before doubling i. For n=128, find the number of outer iterations and total inner executions; then classify total work on powers of two under constant-time loop operations.",
+        "correct": "8 outer iterations;255 inner executions;Θ(n)",
         "options": [
-          "Yes; one input determines asymptotics",
-          "Yes if the exponential has a smaller constant",
-          "No; finite measurements do not determine eventual growth",
-          "Both must therefore be Θ(n²)"
+          "7 outer iterations;128 inner executions;Θ(log n)",
+          "8 outer iterations;1024 inner executions;Θ(n log n)",
+          "8 outer iterations;255 inner executions;Θ(n)",
+          "128 outer iterations;8256 inner executions;Θ(n²)"
         ],
         "answer": "C",
-        "why": "Constants and small-input effects can dominate finite tests; asymptotic comparison concerns sufficiently large n.",
+        "why": "The outer values are1,2,4,8,16,32,64,128. Their sum is255=2n−1. The logarithmic number of levels has geometrically increasing inner work, whose sum is linear rather than n times the number of levels.",
         "source": "Analysis Techniques p13; Review Week 8 pp4–8; study notes 01-analysis §§1.1,1.3.",
         "lessonId": "A2",
         "context": "Compare eventual growth as n tends to infinity. Logarithm bases are fixed constants greater than one; exact loop counts use the explicitly stated update and stopping test.",
@@ -717,16 +717,16 @@
       {
         "id": 589,
         "difficulty": "Baka",
-        "stem": "A student multiplies root cost n by depth and ignores changing level work for 3T(n/4)+n. What should replace that calculation?",
-        "correct": "Sum n(3/4)ⁱ and include leaves",
+        "stem": "Transfer the worked recurrence to n=1024: T(1)=1,T(n)=3T(n/4)+n on powers of four. Give depth, leaf count and exact total cost, counting the root at depth zero and every base call as one.",
+        "correct": "Depth5;243 leaves;T(1024)=3367",
         "options": [
-          "Assume all levels cost n",
-          "Use depth as total time",
-          "Multiply n by number of children only",
-          "Sum n(3/4)ⁱ and include leaves"
+          "Depth10;1024 leaves;T(1024)=10240",
+          "Depth5;1024 leaves;T(1024)=4148",
+          "Depth5;243 leaves;T(1024)=3124",
+          "Depth5;243 leaves;T(1024)=3367"
         ],
         "answer": "D",
-        "why": "The geometric level ratio is 3/4, so work decreases; copying the n log n merge-sort argument is invalid.",
+        "why": "The five internal levels cost1024,768,576,432,324, totaling3124. Depth log₄1024=5 gives3⁵=243 leaves. Add their cost to obtain3367;3124 omits every base call.",
         "source": "Analysis Techniques pp14–19,21–22,24–27; study notes 01-analysis §§1.4–1.5.",
         "lessonId": "A3",
         "context": "Unless a question states another recurrence, use T(1)=1 and T(n)=3T(n/4)+n for powers of four. The root is depth zero; count each base call as cost one.",
@@ -962,16 +962,16 @@
       {
         "id": 602,
         "difficulty": "Baka",
-        "stem": "A student sees f(n)>nᵖ for n=100 and chooses case 3. What evidence is missing?",
-        "correct": "An eventual polynomial gap and regularity",
+        "stem": "Apply the supplied Master Theorem, including its k≥0 logarithmic case2 extension, to R(n)=7R(n/2)+n², S(n)=4S(n/4)+n log n, and U(n)=2U(n/4)+n, with constant positive bases. Which ordered triple of tight bounds is correct?",
+        "correct": "R:Θ(n^(log₂7));S:Θ(n log²n);U:Θ(n)",
         "options": [
-          "The proof that a=b",
-          "The value of T(100) only",
-          "An eventual polynomial gap and regularity",
-          "A graph at ten more inputs only"
+          "R:Θ(n² log n);S:Θ(n²);U:Θ(n log n)",
+          "R:Θ(n²);S:Θ(n log n);U:Θ(√n)",
+          "R:Θ(n^(log₂7));S:Θ(n log²n);U:Θ(n)",
+          "R:Θ(n^(log₂7) log n);S:Θ(log²n);U:Θ(n²)"
         ],
         "answer": "C",
-        "why": "A single inequality does not establish the theorem hypotheses.",
+        "why": "R has p=log₂7>2 and a fixed polynomial gap below the leaf scale. S has p=1 and k=1, adding one log power. U has p=1/2, polynomially larger toll n and regularity2f(n/4)=n/2.",
         "source": "Analysis Techniques pp20–31; Review Week 8 p13; Review Week 10 pp2–4; study notes 01-analysis §1.6.",
         "lessonId": "A4",
         "context": "Use the supplied equal-shrink Master Theorem with fixed a≥1,b>1 and p=log_b a. The course logarithmic case-2 extension allows k≥0; case3 also requires regularity.",
@@ -1207,16 +1207,16 @@
       {
         "id": 615,
         "difficulty": "Baka",
-        "stem": "A student writes “Master Theorem fails, therefore no solution.” What is the sound correction?",
-        "correct": "The chosen theorem is insufficient; expand or prove a bound another way",
+        "stem": "Let T(3)=1 and T(n)=3T(n/3)+n/log₃n for n=3ᴸ,L≥2. The supplied logarithmic case2 assumes k≥0. Expand the tree instead: internal level i costs n/(L−i), and sum from r=2 to L of1/r is Θ(log L). Which result and theorem diagnosis follow?",
+        "correct": "Θ(n log log n);the supplied cases miss the inverse-log toll",
         "options": [
-          "The base case must be deleted",
-          "The chosen theorem is insufficient; expand or prove a bound another way",
-          "Use a guessed case without hypotheses",
-          "All such recurrences are NP-complete"
+          "Θ(n);case1 applies with epsilon=1/log n",
+          "Θ(n log log n);the supplied cases miss the inverse-log toll",
+          "Θ(n/log n);case3 needs no regularity",
+          "Θ(n log n);ordinary case2 applies because p=1"
         ],
         "answer": "B",
-        "why": "Recursion trees, substitution and other applicable methods remain available.",
+        "why": "The internal sum is n times the harmonic sum from2 through L, giving Θ(n log L), and n/3 leaves add Θ(n). Since L=log₃n, this is Θ(n log log n). The inverse-log toll is below n without a fixed polynomial gap and has k=−1 outside the stated extension.",
         "source": "Analysis Techniques pp32–33; study notes 01-analysis §1.6.",
         "lessonId": "A5",
         "context": "Use the supplied Master-Theorem cases and the course logarithmic extension with k≥0. Every polynomial-gap epsilon must be one fixed positive constant.",
@@ -1452,16 +1452,16 @@
       {
         "id": 628,
         "difficulty": "Baka",
-        "stem": "Malfoid guesses O(n log n), checks n=2, and stops. What is still required?",
-        "correct": "An induction step and all relevant bases/domains",
+        "stem": "For T(1)=1,T(n)=2T(n/2)+n−1 on powers of two, derive T(32) and select an upper-bound induction claim valid even at n=1. Which pair is correct?",
+        "correct": "T(32)=161;T(n)≤n log₂n+n for all powers of two n≥1",
         "options": [
-          "Only a timing benchmark",
-          "Nothing; one base proves all n",
-          "An induction step and all relevant bases/domains",
-          "A picture with a logarithm"
+          "T(32)=160;T(n)≤n log₂n for all n≥1",
+          "T(32)=63;T(n)≤2n−1",
+          "T(32)=161;T(n)≤n log₂n+n for all powers of two n≥1",
+          "T(32)=1024;T(n)≤n² is the exact solution"
         ],
         "answer": "C",
-        "why": "A guess plus one numeric check is not a quantified asymptotic proof.",
+        "why": "The exact recurrence solves to n log₂n+1: substitution gives n log₂n+1 and the base is1. ThusT(32)=32·5+1=161. Since1≤n, the proposed bound holds at the base and leaves enough additive slack; n log n alone fails at1.",
         "source": "Analysis Techniques pp35–42,46; Review Week 8 pp14–16; Review Week 9 pp2–3; study notes 01-analysis §1.7.",
         "lessonId": "A6",
         "context": "Substitution means a quantified induction proof, not merely substitution of sample values. Use each question’s stated recurrence and base; powers-of-two recurrences are restricted to that domain.",
@@ -1697,16 +1697,16 @@
       {
         "id": 641,
         "difficulty": "Baka",
-        "stem": "A student expands T(8) as 8+6+4+2. What correction is needed for T(2)=1?",
-        "correct": "Replace the terminal 2 by 1, giving 19",
+        "stem": "For T(1)=0,T(2)=1,T(n)=T(n−2)+n, compute T(18),T(19). Then change only T(2) to5 and recompute both. Which ordered values are correct?",
+        "correct": "Originally(89,99);after the change(93,99)",
         "options": [
-          "Add T(1) as well",
-          "Replace every even term by 1",
-          "Replace the terminal 2 by 1, giving 19",
-          "No correction; base values are optional"
+          "Originally(90,100);after the change(94,104)",
+          "Originally(89,99);after the change(93,103)",
+          "Originally(89,99);after the change(93,99)",
+          "Originally(81,100);after the change(85,100)"
         ],
         "answer": "C",
-        "why": "Expansion stops at the stated base function value; it does not apply the recurrence to that base.",
+        "why": "For18=2·9, the even formula gives9·10−1=89. For19=2·9+1, the odd formula gives9·11=99. Only even expansions reach T(2), exactly once, so changing that base by4 adds4 only to T(18).",
         "source": "Review Week 8 pp10–12; Analysis Techniques pp43–45; study notes 01-analysis §§1.5,1.7.",
         "lessonId": "A7",
         "context": "Unless explicitly changed, T(1)=0,T(2)=1 and T(n)=T(n−2)+n for integer n≥3. Write even n=2k and odd n=2k+1, preserving the terminal base.",
@@ -1942,16 +1942,16 @@
       {
         "id": 654,
         "difficulty": "Baka",
-        "stem": "Malfoid says “sorted coins imply optimal greedy.” What is the missing issue?",
-        "correct": "Sorting chooses the order but does not prove the greedy-choice property",
+        "stem": "Use unlimited coins{1,7,10}, descending largest-first without backtracking. For each target14 and28, report(greedy coin count,exact minimum count). Which pair of pairs is correct?",
+        "correct": "14:(5,2);28:(4,4)",
         "options": [
-          "Sorting chooses the order but does not prove the greedy-choice property",
-          "Coins must be sorted alphabetically",
-          "The largest coin must be deleted",
-          "All denominations must be equal"
+          "14:(5,2);28:(4,4)",
+          "14:(2,2);28:(4,4)",
+          "14:(5,2);28:(10,4)",
+          "14:(5,5);28:(4,2)"
         ],
         "answer": "A",
-        "why": "Correctness depends on denomination structure and an argument, not the mechanics of sorting.",
+        "why": "For14 greedy takes10+four ones, while7+7 uses2. For28 greedy takes10+10+7+1, using4, and four sevens also use4. No three coins sum28: their maximum30 requires replacing at least one10 by7 or1, giving at most27. Greedy can fail on one target and succeed on another.",
         "source": "Greedy Algorithms pp3–7; study notes 06-greedy-and-dp §§6.1–6.2.",
         "lessonId": "G1",
         "context": "Unlimited positive integer coin denominations; form the exact target. Largest-first greedy repeatedly chooses the largest feasible denomination. Do not invent unavailable coins.",
@@ -2187,16 +2187,16 @@
       {
         "id": 667,
         "difficulty": "Baka",
-        "stem": "A student rejects a job starting exactly at the last finish under [s,f). What is wrong?",
-        "correct": "The test should allow start=last finish",
+        "stem": "Jobs are A=[0,8),B=[1,3),C=[3,5),D=[5,7),E=[7,9),F=[0,2),G=[2,4),H=[4,6),I=[6,8). Intervals are half-open; finish-time ties use alphabetical labels. First run unweighted earliest-finish. Then assign profit100 to A and profit1 to every other job. Which selected set and weighted optimum value follow?",
+        "correct": "Greedy selects F,G,H,I;weighted optimum100",
         "options": [
-          "All equal endpoints are invalid input",
-          "The finish key must be reversed",
-          "The objective becomes weighted automatically",
-          "The test should allow start=last finish"
+          "Greedy selects B,C,D,E;weighted optimum4",
+          "Greedy selects A;weighted optimum4",
+          "Greedy selects F,G,H,I,E;weighted optimum104",
+          "Greedy selects F,G,H,I;weighted optimum100"
         ],
         "answer": "D",
-        "why": "Using > instead of ≥ rejects legal touching intervals and can reduce the selected count.",
+        "why": "Finish-order scanning accepts F at2,G at4,H at6 and I at8; A is incompatible when examined, and E starts7 before8. Four short jobs also establish cardinality4, with no room for five length-two jobs in this horizon. Weighted selection instead takes A alone for100, showing the cardinality proof does not optimise arbitrary profits.",
         "source": "Greedy Algorithms pp8–13; Review Week 9 p4; study notes 06-greedy-and-dp §§6.1,6.3.",
         "lessonId": "G2",
         "context": "Unweighted maximum-cardinality interval selection. Intervals are half-open [s,f), so touching endpoints are compatible. The worked jobs are A=[0,3),B=[1,2),C=[2,4),D=[3,5),E=[4,6).",
@@ -2432,16 +2432,16 @@
       {
         "id": 680,
         "difficulty": "Baka",
-        "stem": "Malfoid reuses the fractional proof for 0/1 items. Where can the proof break?",
-        "correct": "A required partial-item exchange may be illegal",
+        "stem": "Capacity17,items(weight,profit):1=(4,28),2=(6,36),3=(10,50),4=(5,20). Compare the fractional density optimum with the exact whole-item optimum. Which values and fractional amount are correct?",
+        "correct": "Fractional99 using7/10 of item3;0/1 optimum86",
         "options": [
-          "Density becomes undefined for all positive weights",
-          "A required partial-item exchange may be illegal",
-          "Capacity stops being an upper bound",
-          "Sorting cannot be done"
+          "Fractional99 using7/10 of item3;0/1 optimum99",
+          "Fractional99 using7/10 of item3;0/1 optimum86",
+          "Fractional114 using all items;0/1 optimum86",
+          "Fractional86 using1/2 of item4;0/1 optimum84"
         ],
         "answer": "B",
-        "why": "The proof depends on legal fractional substitutions; indivisible items require a separate argument or exact method.",
+        "why": "Densities7,6,5,4 select items1 and2 fully, leaving7 capacity for item3:28+36+35=99. For whole items,2+3 weighs16 and profits86;1+2+4 gives84, and enumeration of remaining feasible subsets gives no larger value.",
         "source": "Greedy Algorithms pp14–17; study notes 06-greedy-and-dp §6.4.",
         "lessonId": "G3",
         "context": "Fractional knapsack has positive weights, nonnegative profits, optional items and at-most capacity. Worked instance: capacity50; items1=(10,60),2=(20,100),3=(30,120), written (weight,profit).",
@@ -2677,16 +2677,16 @@
       {
         "id": 693,
         "difficulty": "Baka",
-        "stem": "A student says “recursive means exponential, iterative means polynomial.” What is the correction?",
-        "correct": "Repeated-state work and dependencies determine cost, not syntax alone",
+        "stem": "The naive recursive Fibonacci function has bases F(0)=0,F(1)=1 and makes exactly two recursive calls on every nonbase invocation. Count all invocations including the initial F(8) and base calls. Compare this with the number of distinct states a memoised computation of F(8) can compute and its general cache-plus-stack bound.",
+        "correct": "67 naive invocations;9 distinct states;O(n) cache plus O(n) stack",
         "options": [
-          "Every loop is polynomial",
-          "Every recursion is exponential",
-          "Repeated-state work and dependencies determine cost, not syntax alone",
-          "Memoisation is just a spelling change"
+          "67 naive invocations;67 distinct states;O(2ⁿ) cache",
+          "34 naive invocations;8 states;O(1) stack",
+          "67 naive invocations;9 distinct states;O(n) cache plus O(n) stack",
+          "256 naive invocations;9 states;O(log n) stack"
         ],
         "answer": "C",
-        "why": "Memoised recursion can be polynomial; loops can enumerate exponentially many objects.",
+        "why": "Call counts satisfy C(0)=C(1)=1,C(n)=1+C(n−1)+C(n−2), yielding1,1,3,5,9,15,25,41,67. Distinct indices are0..8, nine states. Memoisation removes repeated computation but a recursive dependency chain still has linear depth.",
         "source": "Dynamic Programming pp3–18; study notes 06-greedy-and-dp §§6.5–6.7.",
         "lessonId": "D1",
         "context": "Use F(0)=0,F(1)=1,F(n)=F(n−1)+F(n−2) for the Fibonacci examples. Complexity counts constant-time arithmetic operations unless bit costs are explicitly discussed.",
@@ -2922,16 +2922,16 @@
       {
         "id": 706,
         "difficulty": "Baka",
-        "stem": "A student sets V(0)=0 because that is familiar from Fibonacci. What is wrong?",
-        "correct": "This changes the specified recurrence problem",
+        "stem": "For V(0)=V(1)=1,V(n)=V(n−1)+V(floor(n/2)), extend the table through12. Give V(12),its second predecessor index,and why keeping only the last two computed entries is insufficient for a straightforward increasing-index implementation.",
+        "correct": "V(12)=47;second predecessor6;the old V(6) must remain available",
         "options": [
-          "This changes the specified recurrence problem",
-          "All recurrences require a zero base",
-          "V(0) can never affect any value",
-          "Only notation changes"
+          "V(12)=47;second predecessor6;the old V(6) must remain available",
+          "V(12)=60;second predecessor11;two entries always suffice",
+          "V(12)=37;second predecessor5;the floor can be omitted",
+          "V(12)=47;second predecessor11;two entries always suffice"
         ],
         "answer": "A",
-        "why": "Use the supplied bases, not a superficially similar named sequence.",
+        "why": "Continuing after V(8)=18 givesV(9)=23,V(10)=30,V(11)=37,V(12)=37+V(6)=37+10=47. The half-index predecessor6 is far older than entries10 and11; the Fibonacci two-recent-values shortcut does not directly carry over.",
         "source": "Review Week 9 pp8–13; Dynamic Programming pp15–18; study notes 06-greedy-and-dp §§6.6–6.7.",
         "lessonId": "D2",
         "context": "Use V(0)=V(1)=1 and V(n)=V(n−1)+V(floor(n/2)) for integer n≥2. Values are indexed by integer n; time counts constant-time arithmetic unless stated otherwise.",
@@ -3167,16 +3167,16 @@
       {
         "id": 719,
         "difficulty": "Baka",
-        "stem": "A student minimises the denomination itself rather than 1+C[a−d]. What is the flaw?",
-        "correct": "The objective is coin count including the optimal remainder",
+        "stem": "Override the default coins with unlimited{4,7,9},target23. Run largest-first without backtracking, and also solve exact minimum-coin change. Which description gives both outcomes and a minimality justification?",
+        "correct": "Greedy gets stuck at remainder1;DP uses3 coins,9+7+7, and two coins cannot reach23",
         "options": [
-          "The smallest coin always gives minimum count",
-          "The objective is coin count including the optimal remainder",
-          "DP needs no objective definition",
-          "All denominations have the same count effect on the remainder"
+          "Greedy finds9+9+4+1;DP also uses4 coins",
+          "Greedy gets stuck at remainder1;DP uses3 coins,9+7+7, and two coins cannot reach23",
+          "Both report unreachable because greedy gets stuck",
+          "Greedy finds9+7+7 automatically;DP uses2 coins"
         ],
         "answer": "B",
-        "why": "Choosing a small face value alone ignores how many coins are needed to complete the exact amount.",
+        "why": "Greedy takes9,9,4 and leaves1, which has no legal coin. Exact DP finds9+7+7=23. Any two coins have sum at most18, so this three-coin solution is minimum. Greedy failure is not an infeasibility proof.",
         "source": "Dynamic Programming pp19–27; study notes 06-greedy-and-dp §§6.5,6.8.",
         "lessonId": "D3",
         "context": "Minimum-coin exact change with unlimited positive integer denominations. Default worked set {1,3,4}; C[0]=0 and unreachable amounts have infinity. Explicit question sets override the default.",
@@ -3412,16 +3412,16 @@
       {
         "id": 732,
         "difficulty": "Baka",
-        "stem": "A student treats ACG as invalid because X=ACGGA contains gaps before its chosen G. What is wrong?",
-        "correct": "LCS requires order, not contiguity",
+        "stem": "Override the default strings with X=ABCBDAB,Y=BDCABA. Fill the prefix LCS table and backtrack from(7,6);take a diagonal on equal final characters and choose the upper neighbour on unequal-character ties. Give the optimum length and reconstructed string.",
+        "correct": "Length4;BCBA",
         "options": [
-          "Every LCS must use all input characters",
-          "Only equal-length inputs have subsequences",
-          "LCS allows reordering instead",
-          "LCS requires order, not contiguity"
+          "Length5;BCBDA",
+          "Length3;BCA",
+          "Length4;BDCA",
+          "Length4;BCBA"
         ],
         "answer": "D",
-        "why": "Skipping characters is permitted; confusing subsequences with substrings changes the problem.",
+        "why": "The table ends at4. Backtracking moves up from(7,6),emits A at(6,6),moves up from(5,5),emits B at(4,5),moves left from(3,4),emits C at(3,3),then reaches B at(2,1). Emissions A,B,C,B reverse to BCBA,which is a length-four subsequence of both strings.",
         "source": "Dynamic Programming pp30–51, visually checked p44; study notes 06-greedy-and-dp §6.9. The source strings are X=ACGGA and Y=ACTG in visual order.",
         "lessonId": "D4",
         "context": "Default worked strings X=ACGGA,Y=ACTG. L[i,j] is the LCS length of first i and j characters. Backtrack from bottom-right; on unequal-character ties choose up. Explicit alternative strings override these.",
@@ -3657,16 +3657,16 @@
       {
         "id": 745,
         "difficulty": "Baka",
-        "stem": "A student fills unused capacity with invented copies of the best item. What constraint is violated?",
-        "correct": "Each input item is available at most once",
+        "stem": "Override the default items with(weight,profit)1=(2,5),2=(3,6),3=(4,7),capacity6. Compare correct0/1 DP with the unbounded recurrence that keeps the current item available,as can happen with an ascending in-place capacity update. Which optima result?",
+        "correct": "0/1 optimum12 via items1+3;unbounded optimum15 via three copies of item1",
         "options": [
-          "Each input item is available at most once",
-          "The table must be square",
-          "All profits must be equal",
-          "All capacities must be exactly filled"
+          "0/1 optimum12 via items1+3;unbounded optimum15 via three copies of item1",
+          "0/1 optimum11 via items1+2;unbounded optimum18",
+          "0/1 optimum15;unbounded optimum12",
+          "Both give12 because update order cannot change legality"
         ],
         "answer": "A",
-        "why": "At-most capacity does not require exact filling, and spare capacity does not create new item copies.",
+        "why": "Whole-item subsets give best feasible value5+7=12 at weight6. If item1 can repeat,three copies weigh6 and give15. Other unbounded combinations do not exceed15; the erroneous state dependency changes the problem rather than merely its speed.",
         "source": "Dynamic Programming pp52–63; study notes 06-greedy-and-dp §6.10.",
         "lessonId": "D5",
         "context": "0/1 knapsack: each positive-weight item is available at most once; capacity is an upper bound. P[c,j] uses the first j items. Worked items are (2,3),(3,4),(4,5), capacity5, as (weight,profit).",
@@ -3902,16 +3902,16 @@
       {
         "id": 758,
         "difficulty": "Baka",
-        "stem": "Malfoid says “DP means polynomial, so O(nC) settles P versus NP.” What is wrong?",
-        "correct": "Polynomial in C is not necessarily polynomial in its binary encoding length",
+        "stem": "Consider a family with b items,capacity C=2ᵇ−1,and positive weights/profits each at most2ᵇ. Their explicit binary encodings have O(b²) total bits. A full capacity DP evaluates every item/capacity pair. Which state count and encoded-size conclusion are correct?",
+        "correct": "Θ(b2ᵇ) states;this is not polynomial in the O(b²)-bit input bound",
         "options": [
-          "O(nC) is always smaller than input length",
-          "DP cannot be exact",
-          "Polynomial in C is not necessarily polynomial in its binary encoding length",
-          "NP means no programs exist"
+          "Θ(b2ᵇ) states;therefore every algorithm for the problem is exponential",
+          "Θ(b²) states;capacity has only b bits so the table is polynomial",
+          "Θ(b2ᵇ) states;this is not polynomial in the O(b²)-bit input bound",
+          "Θ(2b) states;doubling capacity adds only one state"
         ],
         "answer": "C",
-        "why": "The encoded-size distinction is exactly why the pseudo-polynomial bound does not settle that question.",
+        "why": "The table dimensions are b+1 and C+1=2ᵇ,so its size is Θ(b2ᵇ). The short capacity field does not shrink the numeric capacity range. This establishes a pseudo-polynomial limitation of this DP,not a lower bound for every possible algorithm.",
         "source": "Dynamic Programming pp64–65; Introduction to NP p14; study notes 06-greedy-and-dp §6.11.",
         "lessonId": "D6",
         "context": "Measure encoded input length, distinguishing numeric capacity C or amount A from its binary digit count. O(nC) and O(kA) count assumed constant-time arithmetic operations.",
@@ -4147,16 +4147,16 @@
       {
         "id": 771,
         "difficulty": "Baka",
-        "stem": "A student merges two states merely because their current profits match. What must be checked first?",
-        "correct": "Whether their legal future choices and resulting subproblem values are equivalent",
+        "stem": "In a DAG profit-maximisation problem with total resource budget5,two histories reach v with the same profit10. The first used1 resource unit,the second4. The only outgoing edge from v consumes3 and adds5 profit;there are no other history constraints. Which state distinction and continuation outcomes are correct?",
+        "correct": "Keep remaining budget:the first history can reach profit15;the second cannot take the edge",
         "options": [
-          "Whether the state names rhyme",
-          "Whether the profits are positive",
-          "Whether their legal future choices and resulting subproblem values are equivalent",
-          "Whether both came from recursion"
+          "Merge by location and profit:both can reach15",
+          "Merge by location:neither can extend because a history used4",
+          "Keep remaining budget:the first history can reach profit15;the second cannot take the edge",
+          "Discard the first history because it used less resource"
         ],
         "answer": "C",
-        "why": "Equal current scores alone do not establish equivalent future subproblems.",
+        "why": "Remaining budgets are4 and1. The edge is legal only with at least3 available. Equal location/current profit does not imply equivalent feasible futures;state(location,remaining budget) preserves the relevant difference for this DAG formulation.",
         "source": "Dynamic Programming pp20–21,28–29,66–67; Greedy Algorithms p18; study notes 06-greedy-and-dp §§6.5,6.12.",
         "lessonId": "D7",
         "context": "DP states must preserve future legality and value; transitions must represent every relevant choice. State and graph assumptions are part of the problem, not implicit permissions to replace constraints.",
@@ -4392,16 +4392,16 @@
       {
         "id": 784,
         "difficulty": "Baka",
-        "stem": "Malfoid finds pattern ACG inside text ATCG by skipping T. Is that an exact substring match?",
-        "correct": "No; that is a subsequence, not a consecutive occurrence",
+        "stem": "Override the default inputs. First-match naive scanning compares left-to-right in T=AAAAAAAAB,P=AAAAB. Separately an all-matches naive scan checks every full window for P=AAA in T=AAAAAA. Count actual character checks,including mismatches. Which first index and two totals are correct?",
+        "correct": "First index4,25 checks;the separate all-matches scan uses12 checks",
         "options": [
-          "Yes because order alone is enough",
-          "No; that is a subsequence, not a consecutive occurrence",
-          "Yes because both begin A",
-          "Only if indices start at one"
+          "First index4,9 checks;the separate scan uses3 checks",
+          "First index4,25 checks;the separate all-matches scan uses12 checks",
+          "First index5,20 checks;the separate scan uses18 checks",
+          "First index4,20 checks;the separate scan uses12 checks"
         ],
         "answer": "B",
-        "why": "String matching requires adjacent text positions for the full pattern.",
+        "why": "The first text has five legal windows:four fail only on their fifth comparison and the last matches fully,so25 checks and start4. The separate length-six text has four length-three windows;all match,but an all-matches scan continues,using4·3=12 checks.",
         "source": "String Matching pp2–10; study notes 07-string-matching §§7.1–7.2.",
         "lessonId": "S1",
         "context": "Default text T=ABABABAC,pattern P=ABAC. Use zero-based indices, left-to-right naive comparisons, reset pattern index at each window and return the first match. Count character checks only.",
@@ -4637,16 +4637,16 @@
       {
         "id": 797,
         "difficulty": "Baka",
-        "stem": "A student returns index zero for P=25,T=1225 solely because both first hashes are 12. What is wrong?",
-        "correct": "Window 12 collides with 25 and fails character verification",
+        "stem": "Run an all-matches verified Rabin–Karp variant on T=122525,P=25,d=10,q=13. Unlike first-match search,it continues after success. List every length-two window hash,every zero-based true start,and total direct character comparisons,stopping each failed verification at its first mismatch.",
+        "correct": "Hashes12,9,12,0,12;true starts2,4;5 character checks",
         "options": [
-          "The modulus must equal the pattern",
-          "There are no complete windows",
-          "Window 12 collides with 25 and fails character verification",
-          "Equal hashes imply equal strings by definition"
+          "Hashes12,9,12,0,12;true starts0,2,4;6 checks",
+          "Hashes12,9,12;true start2;3 checks",
+          "Hashes12,9,12,0,12;true starts2,4;5 character checks",
+          "Hashes12,9,12,12,12;true starts2,3,4;8 checks"
         ],
         "answer": "C",
-        "why": "The first digits 1 and 2 differ; the genuine first match is at zero-based index two.",
+        "why": "Windows12,22,25,52,25 reduce to12,9,12,0,12. Hash-equal12 is rejected with one character check;each true25 needs two. Total1+2+2=5. Continuing after the first occurrence exposes the second true match at4.",
         "source": "String Matching pp11–15,20–24; study notes 07-string-matching §§7.3–7.4.",
         "lessonId": "S2",
         "context": "Exact verified Rabin–Karp. Worked decimal example T=1225,P=25,d=10,q=13,window length2,H=10. Use canonical residues 0..q−1; zero-based occurrence starts.",
@@ -4882,16 +4882,16 @@
       {
         "id": 810,
         "difficulty": "Baka",
-        "stem": "A student counts three hash decisions as three character comparisons in the 1225 example. Why is the reasoning unsound even though both totals happen to be three?",
-        "correct": "They are different operations whose counts need not agree on other inputs",
+        "stem": "A first-match Rabin–Karp scan has n=12,m=5. Its hash-equal candidates occur at starts0,2,5,7 and cost respectively1,5,4,5 direct comparisons;only the final candidate is a true match. Other starts have different hashes. Give hash decisions,rolling updates,and actual verification work;compare actual verification with the bound h m.",
+        "correct": "8 hash decisions;7 rolls;15 character checks≤20",
         "options": [
-          "Hash comparisons always cost zero",
-          "Character comparisons are always hashes",
-          "They are different operations whose counts need not agree on other inputs",
-          "The example has only one window"
+          "4 hash decisions;4 rolls;20 checks exactly",
+          "8 hash decisions;8 rolls;15 checks>20",
+          "8 hash decisions;7 rolls;15 character checks≤20",
+          "7 hash decisions;6 rolls;12 checks≤20"
         ],
         "answer": "C",
-        "why": "The matching totals are coincidental: verification costs 1,0,2 while each window gets one hash decision.",
+        "why": "All n−m+1=8 windows through start7 are considered. The first hash is initialized,so only seven rolls follow. Verification costs1+5+4+5=15;h=4 yields upper bound h m=20,which need not be attained.",
         "source": "String Matching pp15–19,25,56; study notes 07-string-matching §7.4.",
         "lessonId": "S3",
         "context": "Exact first-match Rabin–Karp. Worked decimal example T=1225,P=25,d=10,q=13. Count hash decisions, rolling updates and direct character checks separately; h counts verified equal-hash candidates.",
@@ -5127,16 +5127,16 @@
       {
         "id": 823,
         "difficulty": "Baka",
-        "stem": "A student uses j jump4 as the pattern slide after two successful leftward matches. What is wrong?",
-        "correct": "The matched-suffix length must be subtracted to get alignment slide",
+        "stem": "Using one-based P=ABCA,T=AXCABCA,charJump[A]=0,B=2,C=1,absent=4,and mismatch increment max(charJump[T[j]],m−k+1),trace from j=k=4 through the first match. Give successive alignment endpoints,total character checks and returned start.",
+        "correct": "Endpoints4,6,7;8 comparisons;return4",
         "options": [
-          "j and the alignment endpoint are always identical",
-          "The matched-suffix length must be subtracted to get alignment slide",
-          "Every jump is measured from the text start",
-          "The slide must instead be8"
+          "Endpoints4,8;4 comparisons;return5",
+          "Endpoints4,6,7;8 comparisons;return4",
+          "Endpoints4,6,10;8 comparisons;no match",
+          "Endpoints4,6,7;6 comparisons;return3"
         ],
         "answer": "B",
-        "why": "Here two matched positions moved j left; pointer increment4 can correspond to alignment slide2.",
+        "why": "At endpoint4,A and C match,then X mismatches B at j=k=2:three checks. Increment4 moves endpoint to6;C mismatches A for check4,and increment1 moves to7. Four reverse matches then succeed,making8 checks;final j=3 gives start4.",
         "source": "String Matching pp26–38; study notes 07-string-matching §§7.5–7.6.",
         "lessonId": "S4",
         "context": "Course one-based mismatch-pointer variant. P=ABCA,m=4; charJump[c]=m−rightmost(c), absent defaults m. On mismatch j+=max(charJump[T[j]],m−k+1), then k=m. A string drawing may use an independently labelled alignment.",
@@ -5372,16 +5372,16 @@
       {
         "id": 836,
         "difficulty": "Baka",
-        "stem": "A student reads the slide table [3,3,3,5,2,1] directly as matchJump for WOWWOW. What is missing?",
-        "correct": "Add m−k to each entry",
+        "stem": "For P=WOWWOW,m=6,a mismatch occurs at k=4 after suffix OW has matched;the actual text pointer is j=11 and the old alignment endpoint13. Apply the course good-suffix cases,including the predecessor restriction. Give the safe pattern slide,matchJump,new endpoint and new one-based alignment start.",
+        "correct": "Slide5;matchJump7;new endpoint18;new start13",
         "options": [
-          "Multiply every entry by m",
-          "Reverse the text instead",
-          "Add m−k to each entry",
-          "Subtract every entry from zero"
+          "Slide3;matchJump3;new endpoint14;new start9",
+          "Slide5;matchJump5;new endpoint16;new start11",
+          "Slide5;matchJump7;new endpoint18;new start13",
+          "Slide6;matchJump8;new endpoint19;new start14"
         ],
         "answer": "C",
-        "why": "This code jumps from the actual mismatch pointer, which is already left of the old endpoint.",
+        "why": "The earlier full OW is preceded by the same W as P[4],so it repeats a known mismatch and is excluded. Prefix overlap W yields slide5. Add the two matched positions to get jump7 from j=11 to18;reset k=6,so the new start is18−6+1=13.",
         "source": "String Matching pp39–49,51–54; physical p40 visually checked; study notes 07-string-matching §7.7.",
         "lessonId": "S5",
         "context": "Course one-based pattern positions. At mismatch k, suffix P[k+1..m] is matched. matchJump[k]=(m−k)+Slide[k]. Default table example WOWWOW,m=6, entries ordered k=1..6.",
@@ -5617,16 +5617,16 @@
       {
         "id": 849,
         "difficulty": "Baka",
-        "stem": "Malfoid returns the text pointer j=18 after complete matching. What correction follows from the one-based course convention?",
-        "correct": "Return j+1=19",
+        "stem": "Trace the complete course example T=LOWOWNOWLWOWWOMMOWWOWWOW,P=WOWWOW,using one-based indices and matchJump[1..6]=[8,7,6,7,3,1]. Character jumps are W0,O1,absent6. Give the successive alignment endpoints,the total comparisons and the first returned start.",
+        "correct": "Endpoints6,12,15,21,24;18 comparisons;start19",
         "options": [
-          "Return j−1=17",
-          "Return the old endpoint24",
-          "Return k=0",
-          "Return j+1=19"
+          "Endpoints6,12,18,24;16 comparisons;start19",
+          "Endpoints6,12,15,21,24;18 comparisons;start18",
+          "Endpoints6,12,15,21,30;12 comparisons;no match",
+          "Endpoints6,12,15,21,24;18 comparisons;start19"
         ],
         "answer": "D",
-        "why": "j has already moved one before the leftmost matched character.",
+        "why": "The alignments cost1,4,1,6,6 checks. The mismatch at j=9,k=3 advances6 to15;later j=16,k=1 advances max(6,8)=8 to24. The final six matches leave j=18,k=0,so return19. Pointer increments are measured from mismatch locations,not old endpoints.",
         "source": "String Matching pp27,50,55–58; study notes 07-string-matching §7.8; independent trace in edit/planning/sc2001-post-week07/worked-example-checks.json.",
         "lessonId": "S6",
         "context": "Course one-based scan for P=WOWWOW,m=6. matchJump[1..6]=[8,7,6,7,3,1]. On mismatch add max(charJump[T[j]],matchJump[k]) to j, then k=m; successful comparisons decrement both pointers.",
@@ -5862,16 +5862,16 @@
       {
         "id": 862,
         "difficulty": "Baka",
-        "stem": "Malfoid equates “computationally hard” with “I found this trace confusing.” What should replace that claim?",
-        "correct": "A precise task, input-size measure and justified complexity argument",
+        "stem": "Define Hanoi H(n):if n=0 return;otherwise call H(n−1),emit one disk move,then call H(n−1). For n=5,count emitted moves and all invocations,including zero-base calls. What output lower-bound conclusion applies as n grows?",
+        "correct": "31 moves;63 invocations;explicit move listing needs Ω(2ⁿ) output work",
         "options": [
-          "A claim that recursion is impossible",
-          "A precise task, input-size measure and justified complexity argument",
-          "A single slow laptop run",
-          "A longer variable name"
+          "15 moves;31 invocations;recursion alone proves universal hardness",
+          "31 moves;63 invocations;explicit move listing needs Ω(2ⁿ) output work",
+          "32 moves;63 invocations;every related decision problem is therefore exponential",
+          "31 moves;31 invocations;explicit listing needs only O(n) work"
         ],
         "answer": "B",
-        "why": "Informal difficulty is not a computational complexity proof.",
+        "why": "Move counts satisfy M(0)=0,M(n)=2M(n−1)+1,giving2ⁿ−1=31. Invocation counts include the full binary tree through depth5,1+2+4+8+16+32=63. Exponentially many explicitly emitted moves require exponential output work;that does not automatically transfer to a different yes/no task.",
         "source": "Introduction to NP pp3–8; study notes 08-np-and-heuristics §§8.1–8.2.",
         "lessonId": "N1",
         "context": "Distinguish decision, exact optimisation and explicit enumeration. Standard Hanoi uses three pegs, moves one disk at a time and never places a larger disk on a smaller one.",
@@ -6107,16 +6107,16 @@
       {
         "id": 875,
         "difficulty": "Baka",
-        "stem": "Malfoid says NP problems have no polynomial algorithm because NP means non-polynomial. What is wrong?",
-        "correct": "NP includes P, and the abbreviation has a different meaning",
+        "stem": "For an undirected four-vertex TSP instance let AB=BC=CD=1,DA=10,AC=BD=2 and threshold6. A verifier receives candidate tours A-B-C-A and A-B-D-C-A. Check the full tour predicate,not only cost. Which acceptance decisions and implication are correct?",
+        "correct": "Reject the first,accept the second;one rejected candidate does not prove no",
         "options": [
-          "NP includes P, and the abbreviation has a different meaning",
-          "P⊆NP is false",
-          "NP excludes easy verification",
-          "Every NP problem is known exponential"
+          "Reject the first,accept the second;one rejected candidate does not prove no",
+          "Accept both because both costs are at most6",
+          "Accept the first only;shorter certificates are always preferred",
+          "Reject both because DA=10 must occur in every tour"
         ],
         "answer": "A",
-        "why": "The definition is nondeterministic polynomial time; it does not assert deterministic hardness of every member.",
+        "why": "A-B-C-A costs1+1+2=4 but omits D,so it is not a Hamiltonian tour. A-B-D-C-A visits all vertices once and closes,costing1+2+1+2=6. That valid second witness establishes yes despite the first candidate failing.",
         "source": "Introduction to NP pp9–19; study notes 08-np-and-heuristics §§8.3–8.5.",
         "lessonId": "N2",
         "context": "P and NP refer to decision languages measured in encoded input length. Use the full feasibility predicate when checking a proposed certificate.",
@@ -6352,16 +6352,16 @@
       {
         "id": 888,
         "difficulty": "Baka",
-        "stem": "Malfoid proves B≤pA for known-hard A and calls B hard. What is the correction?",
-        "correct": "That direction shows B is no harder than A; hardness needs A≤pB",
+        "stem": "A is NP-complete. A many-one map f reduces A to B in O(n²) time with output length O(n²);g reduces B to C in O(m³) time on m-bit inputs. Suppose C has a polynomial-time decider. Which composition bound and class consequence are justified?",
+        "correct": "g∘f takes O(n⁶) time;A and B are in P,and P=NP",
         "options": [
-          "B must equal A",
-          "Any arrow involving A proves B hard",
-          "Reverse implication is never needed",
-          "That direction shows B is no harder than A; hardness needs A≤pB"
+          "The maps run in opposite directions,so no consequence follows",
+          "g∘f takes O(n⁶) time;A remains known outside P",
+          "g∘f takes O(n⁵) time;only C is in P",
+          "g∘f takes O(n⁶) time;A and B are in P,and P=NP"
         ],
         "answer": "D",
-        "why": "A solver for A can solve B under the given direction, which does not establish difficulty of B.",
+        "why": "The second map runs on an O(n²)-length output,so its cubic bound becomes O(n⁶),not the product of exponents written additively. A C solver solves B via g and A via both maps. A polynomial solver for NP-complete A then gives P=NP.",
         "source": "Introduction to NP pp20–23; study notes 08-np-and-heuristics §8.6.",
         "lessonId": "N3",
         "context": "Use deterministic polynomial-time many-one reductions, denoted A≤pB. Keep source and target roles distinct; both logical directions must be considered.",
@@ -6597,16 +6597,16 @@
       {
         "id": 901,
         "difficulty": "Baka",
-        "stem": "Malfoid deletes an arbitrary edge when the only weight-two edge is elsewhere in the tour. What is wrong?",
-        "correct": "The remaining path may still contain a nonedge of the original graph",
+        "stem": "Apply the taught HP→TSP construction to n=6. Candidate tour X has four weight-one and two weight-two edges;candidate Y has five weight-one and one weight-two edge. Classify them at the specified threshold,and explain the reverse construction for an accepted candidate.",
+        "correct": "Threshold7;X costs8 and fails,Y costs7 and passes;delete Y’s weight-two edge",
         "options": [
-          "The remaining path may still contain a nonedge of the original graph",
-          "Any deletion always gives an original path",
-          "All weight-two edges were original",
-          "The threshold guarantees no weight-two edge"
+          "Threshold7;X costs8 and fails,Y costs7 and passes;delete Y’s weight-two edge",
+          "Threshold6;both fail,so no original Hamiltonian path can exist",
+          "Threshold8;both pass;delete any edge even if a weight-two edge remains",
+          "Threshold7;X costs6 and passes,Y costs7 and fails"
         ],
         "answer": "A",
-        "why": "When one weight-two edge exists, delete that edge specifically so every retained edge belongs to the original graph.",
+        "why": "A six-vertex cycle has six edges. Its cost is6 plus the number of weight-two edges. Thus X=8>7 and Y=7. Removing Y’s unique non-original edge leaves five original weight-one edges forming an original Hamiltonian path. Failure of X alone does not decide the instance.",
         "source": "Introduction to NP pp22–23, physical p22 visually checked; study notes 08-np-and-heuristics §8.7.",
         "lessonId": "N4",
         "context": "HP→decision-TSP construction for a simple undirected n-vertex graph,n≥3: complete graph on the same vertices, original edges weight1, nonedges weight2, tour threshold n+1.",
@@ -6842,16 +6842,16 @@
       {
         "id": 914,
         "difficulty": "Baka",
-        "stem": "Malfoid says “NP-complete means mathematically proved exponential.” What is the correction?",
-        "correct": "NP-completeness does not itself prove a superpolynomial deterministic lower bound",
+        "stem": "A is known NP-complete. A proof first supplies a polynomial verifier for B and only B≤pA. Later it also supplies A≤pB with output length O(n²). If B then has an O(m⁴) decider and that forward map takes O(n²),which combined assessment is correct?",
+        "correct": "The first proof lacks hardness;the added forward map completes NP-completeness;the hypothetical A solver is O(n⁸),implying P=NP",
         "options": [
-          "NP-complete problems have no algorithms",
-          "Every exponential program proves completeness",
-          "Every NP-complete problem is linear",
-          "NP-completeness does not itself prove a superpolynomial deterministic lower bound"
+          "The added map proves B outside NP;the solver is exponential",
+          "A verifier alone proves P=NP;the maps are irrelevant",
+          "The first proof already establishes completeness;the solver is O(n⁶)",
+          "The first proof lacks hardness;the added forward map completes NP-completeness;the hypothetical A solver is O(n⁸),implying P=NP"
         ],
         "answer": "D",
-        "why": "A polynomial algorithm for one would imply P=NP; that conditional is distinct from an established exponential lower bound.",
+        "why": "NP membership plus the wrong-way map does not show B hard. A≤pB supplies the needed hardness. Running B’s quartic solver on O(n²) output costs O(n⁸),yielding a polynomial solver for NP-complete A and hence P=NP.",
         "source": "Introduction to NP pp24–28; study notes 08-np-and-heuristics §§8.8–8.9. Verifier-to-circuit construction and p36 formal NP-hard extension are excluded from this lesson.",
         "lessonId": "N5",
         "context": "Consider formal NP-completeness for decision languages with polynomial many-one reductions. A and B are language names; any stated NP-completeness of A is a given premise.",
@@ -7087,16 +7087,16 @@
       {
         "id": 927,
         "difficulty": "Baka",
-        "stem": "Malfoid reports cost102 for A→B→C→D on the example and calls it the tour cost. What is missing?",
-        "correct": "The D→A return edge of cost2",
+        "stem": "Use the default four-vertex graph. Compare nearest-neighbour starting A with starting B when its initial equal-cost A/C tie is resolved in favour of C. Trace each until it returns to its own start. Which tours,costs and conclusion follow?",
+        "correct": "From A:ABCDA costs104;from B:BCADB costs7;start and tie choices can matter",
         "options": [
-          "A new starting vertex",
-          "All six graph edges",
-          "The D→A return edge of cost2",
-          "The B→A edge of cost1"
+          "From A:ACBDA costs7;from B:BACDB costs104;nearest-neighbour always finds the optimum",
+          "Both starts cost104 because every tie is irrelevant",
+          "From A:ABCDA costs104;from B:BCADB costs7;start and tie choices can matter",
+          "From A:ABCDA costs102;from B:BCADB costs5;return edges can be omitted"
         ],
         "answer": "C",
-        "why": "The open path costs102; the closed tour costs104.",
+        "why": "From A,the unique cheapest choices force B then C,then the expensive C-D edge100 and return D-A2,total104. From B,the stipulated tie picks C;C then picks A2 rather than D100,and A→D2→B2 closes at7. The graph is nonmetric;the example demonstrates trace sensitivity,not a metric approximation theorem.",
         "source": "Introduction to NP pp29–31; study notes 08-np-and-heuristics §§8.10–8.11. Fresh counterexample assumes a complete undirected graph without triangle inequality.",
         "lessonId": "N6",
         "context": "Complete undirected graph with AB=1,BC=1,AC=2,AD=2,BD=2,CD=100. Nearest-neighbour starts A, picks the cheapest unvisited neighbour and finally returns A. No triangle-inequality assumption.",
@@ -7332,16 +7332,16 @@
       {
         "id": 940,
         "difficulty": "Baka",
-        "stem": "Malfoid copies Kruskal and rejects every cycle including final AE. What goes wrong for TSP construction?",
-        "correct": "The result remains an open spanning path, not a tour",
+        "stem": "Run both shortest-link TSP and Kruskal on the default five-vertex weighted graph in the supplied edge order. Give each final accepted edge set and total cost;explain why the two algorithms differ at BD.",
+        "correct": "Shortest-link:{AB,BC,CD,DE,AE},21;Kruskal:{AB,BC,BD,DE},13",
         "options": [
-          "A tree is already a Hamiltonian cycle",
-          "The result remains an open spanning path, not a tour",
-          "The degree cap is automatically fixed",
-          "The tour becomes optimal"
+          "Shortest-link:{AB,BC,BD,DE},13;Kruskal:{AB,BC,CD,DE,AE},21",
+          "Shortest-link:{AB,BC,CD,DE,AE},21;Kruskal:{AB,BC,BD,DE},13",
+          "Both:{AB,BC,BD,DE,AE},20",
+          "Shortest-link:{AB,BC,AC},6;Kruskal:{AB,BC,CD,DE},14"
         ],
         "answer": "B",
-        "why": "Shortest-link permits the final spanning closure; Kruskal’s all-cycle rejection serves a different objective.",
+        "why": "Both reject AC as a cycle. Shortest-link rejects BD because B already has degree2,then accepts CD,DE and final AE for21. Kruskal permits B’s third incident edge,accepts BD4,rejects CD as a cycle and accepts DE6,forming a tree of cost1+2+4+6=13. Its objective and final cycle rule differ.",
         "source": "Introduction to NP pp32–33; study notes 08-np-and-heuristics §8.12. Fresh five-vertex trace; implementation cost derivation is an explanatory addition.",
         "lessonId": "N7",
         "context": "Five-vertex complete undirected graph, sorted edge weights AB1,BC2,AC3,BD4,CD5,DE6,AE7,BE8,AD9,CE10. Shortest-link rejects degree>2 and premature cycles; final spanning closure is allowed.",
@@ -7577,16 +7577,16 @@
       {
         "id": 953,
         "difficulty": "Baka",
-        "stem": "Malfoid subtracts an overweight rejected item and obtains negative capacity. What invariant was broken?",
-        "correct": "Remaining capacity changes only for accepted feasible whole items",
+        "stem": "Override the default items with capacity10 and(weight,profit)1=(6,12),2=(5,9),3=(5,9). Density ties use increasing item ID. Compare skip-and-continue0/1 density greedy,the exact0/1 optimum,and the fractional optimum.",
+        "correct": "Greedy12;exact0/1 optimum18;fractional optimum19.2",
         "options": [
-          "Negative capacity improves the objective",
-          "Every item must be accepted",
-          "Sorting requires capacity to decrease at every step",
-          "Remaining capacity changes only for accepted feasible whole items"
+          "Greedy12;exact19.2;fractional18",
+          "Greedy18;exact18;fractional18",
+          "Greedy30;exact18;fractional19.2",
+          "Greedy12;exact0/1 optimum18;fractional optimum19.2"
         ],
         "answer": "D",
-        "why": "Rejecting an item must preserve the current feasible partial selection and its capacity.",
+        "why": "Densities2,1.8,1.8 take item1 first,leaving4;both weight-five items are skipped,so profit12. Exact0/1 chooses items2+3 for18. Fractional greedy instead adds4/5 of item2 to item1,giving12+(4/5)·9=19.2. The three algorithms solve or approximate different feasible-choice structures.",
         "source": "Introduction to NP pp34–35; Greedy Algorithms pp14–17; Dynamic Programming pp52–65; study notes 08-np-and-heuristics §8.13.",
         "lessonId": "N8",
         "context": "0/1 density heuristic sorts descending profit/weight, takes an item only if it fits, then continues. Worked capacity50; items1=(10,60),2=(20,100),3=(30,120) as(weight,profit). Fractions are forbidden.",
