@@ -1,0 +1,377 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.020
+How can nearest-neighbour TSP miss
+
+2
+00:00:03.020 --> 00:00:04.900
+the best tour? We will
+
+3
+00:00:04.900 --> 00:00:06.880
+trace its locally cheapest moves,
+
+4
+00:00:07.200 --> 00:00:09.020
+include the final return edge,
+
+5
+00:00:09.400 --> 00:00:10.980
+and compare the completed route
+
+6
+00:00:10.980 --> 00:00:12.660
+with a much cheaper feasible
+
+7
+00:00:12.660 --> 00:00:13.120
+tour.
+
+8
+00:00:13.740 --> 00:00:15.700
+Start at a specified vertex
+
+9
+00:00:15.700 --> 00:00:17.920
+and repeatedly choose its cheapest
+
+10
+00:00:17.920 --> 00:00:20.500
+unvisited neighbour. Keep a visited
+
+11
+00:00:20.500 --> 00:00:22.240
+set, move to the chosen
+
+12
+00:00:22.240 --> 00:00:24.080
+neighbour, and finally return to
+
+13
+00:00:24.080 --> 00:00:25.820
+the starting vertex once every
+
+14
+00:00:25.820 --> 00:00:26.980
+vertex has been visited.
+
+15
+00:00:27.460 --> 00:00:29.540
+Our four vertices are A,
+
+16
+00:00:29.700 --> 00:00:31.160
+B, C and D, with
+
+17
+00:00:31.160 --> 00:00:32.340
+A B and B C
+
+18
+00:00:32.340 --> 00:00:34.420
+both costing one. Edges A
+
+19
+00:00:34.620 --> 00:00:35.680
+C, A D and B
+
+20
+00:00:35.700 --> 00:00:37.320
+D cost two, while C
+
+21
+00:00:37.460 --> 00:00:39.000
+D costs one hundred, making
+
+22
+00:00:39.000 --> 00:00:41.200
+one late continuation very expensive.
+
+23
+00:00:41.900 --> 00:00:43.280
+Start at A and choose
+
+24
+00:00:43.280 --> 00:00:45.320
+B, because its edge costs
+
+25
+00:00:45.320 --> 00:00:47.820
+one rather than two. Mark
+
+26
+00:00:47.820 --> 00:00:49.840
+B visited, and consider only
+
+27
+00:00:49.840 --> 00:00:51.340
+vertices that have not already
+
+28
+00:00:51.340 --> 00:00:52.940
+appeared in the partial route.
+
+29
+00:00:53.140 --> 00:00:55.260
+From B, C costs one
+
+30
+00:00:55.260 --> 00:00:57.440
+and D costs two, so
+
+31
+00:00:57.440 --> 00:00:59.680
+choose C. The partial route
+
+32
+00:00:59.680 --> 00:01:01.040
+A, B, C has cost
+
+33
+00:01:01.040 --> 00:01:03.180
+two, but its cheap prefix
+
+34
+00:01:03.180 --> 00:01:04.980
+has left only D unvisited.
+
+35
+00:01:05.500 --> 00:01:07.120
+The next move C to
+
+36
+00:01:07.120 --> 00:01:08.820
+D is forced and costs
+
+37
+00:01:08.820 --> 00:01:11.180
+one hundred. Then include the
+
+38
+00:01:11.180 --> 00:01:12.800
+final return D to A
+
+39
+00:01:12.800 --> 00:01:15.060
+costing two, giving a complete
+
+40
+00:01:15.060 --> 00:01:16.340
+greedy tour of one hundred
+
+41
+00:01:16.340 --> 00:01:17.080
+four.
+
+42
+00:01:17.460 --> 00:01:19.500
+Now inspect the feasible tour
+
+43
+00:01:19.840 --> 00:01:21.420
+A, C, B, D, A
+
+44
+00:01:21.420 --> 00:01:23.840
+instead. Its edge costs are
+
+45
+00:01:23.840 --> 00:01:25.980
+two, one, two and two,
+
+46
+00:01:25.980 --> 00:01:27.240
+for a total of seven,
+
+47
+00:01:27.700 --> 00:01:29.380
+strictly below one hundred four.
+
+48
+00:01:30.140 --> 00:01:32.280
+One better feasible tour is
+
+49
+00:01:32.280 --> 00:01:33.380
+enough to show the greedy
+
+50
+00:01:33.380 --> 00:01:35.900
+result is not optimal. We
+
+51
+00:01:35.900 --> 00:01:37.420
+do not need an exhaustive
+
+52
+00:01:37.420 --> 00:01:39.300
+optimality proof for the seven-cost
+
+53
+00:01:39.300 --> 00:01:40.660
+route to refute the claim
+
+54
+00:01:40.660 --> 00:01:42.300
+that the one-hundred-four route is
+
+55
+00:01:42.300 --> 00:01:43.060
+always best.
+
+56
+00:01:43.700 --> 00:01:45.440
+A heuristic aims to find
+
+57
+00:01:45.440 --> 00:01:47.320
+a useful solution quickly without
+
+58
+00:01:47.320 --> 00:01:50.340
+an automatic optimality guarantee. A
+
+59
+00:01:50.340 --> 00:01:52.520
+proven approximation ratio is a
+
+60
+00:01:52.520 --> 00:01:54.960
+different claim and requires explicit
+
+61
+00:01:54.960 --> 00:01:57.000
+assumptions and a theorem, not
+
+62
+00:01:57.000 --> 00:01:58.640
+merely a few successful runs.
+
+63
+00:01:59.020 --> 00:02:00.900
+This graph does not satisfy
+
+64
+00:02:00.900 --> 00:02:03.100
+the triangle inequality, since the
+
+65
+00:02:03.100 --> 00:02:04.060
+C to D edge is
+
+66
+00:02:04.060 --> 00:02:05.660
+far more expensive than travelling
+
+67
+00:02:05.660 --> 00:02:07.660
+through B. Keep that limitation
+
+68
+00:02:07.660 --> 00:02:09.700
+explicit rather than using this
+
+69
+00:02:09.700 --> 00:02:11.120
+example to assert a theorem
+
+70
+00:02:11.120 --> 00:02:12.880
+about metric TSP variants.
+
+71
+00:02:13.380 --> 00:02:15.660
+Scanning all unvisited neighbours at
+
+72
+00:02:15.660 --> 00:02:17.060
+each of n steps gives
+
+73
+00:02:17.060 --> 00:02:18.620
+big O of n squared
+
+74
+00:02:18.620 --> 00:02:20.580
+time and linear visited bookkeeping.
+
+75
+00:02:20.960 --> 00:02:22.980
+The graph representation has its
+
+76
+00:02:22.980 --> 00:02:25.100
+own storage cost, and different
+
+77
+00:02:25.100 --> 00:02:26.900
+starting vertices or ties can
+
+78
+00:02:26.900 --> 00:02:28.380
+change the produced tour.
+
+79
+00:02:29.180 --> 00:02:31.860
+On an incomplete graph, the
+
+80
+00:02:31.860 --> 00:02:33.380
+simple rule can also get
+
+81
+00:02:33.380 --> 00:02:34.920
+stuck or fail to close
+
+82
+00:02:34.920 --> 00:02:37.860
+its tour. Our complete-graph assumption
+
+83
+00:02:37.860 --> 00:02:40.020
+avoids that feasibility issue but
+
+84
+00:02:40.020 --> 00:02:41.280
+does not repair its lack
+
+85
+00:02:41.280 --> 00:02:42.040
+of optimality.
+
+86
+00:02:42.580 --> 00:02:44.620
+Things to take note of:
+
+87
+00:02:44.900 --> 00:02:46.640
+show the start, visited set,
+
+88
+00:02:47.060 --> 00:02:49.020
+local comparisons and final closing
+
+89
+00:02:49.020 --> 00:02:51.180
+edge. Compare the whole tour
+
+90
+00:02:51.180 --> 00:02:52.660
+with a concrete better route,
+
+91
+00:02:53.160 --> 00:02:54.500
+state ties and graph assumptions,
+
+92
+00:02:54.820 --> 00:02:56.060
+and remember that a cheap
+
+93
+00:02:56.060 --> 00:02:57.700
+beginning can conceal a very
+
+94
+00:02:57.700 --> 00:02:59.620
+expensive ending, how charming.

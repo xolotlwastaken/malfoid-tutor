@@ -1,0 +1,417 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.920
+How does Boyer–Moore use the
+
+2
+00:00:01.920 --> 00:00:03.880
+bad character? We will compare
+
+3
+00:00:03.880 --> 00:00:05.680
+from right to left, build
+
+4
+00:00:05.680 --> 00:00:07.920
+the course's character-jump table, and
+
+5
+00:00:07.920 --> 00:00:09.700
+distinguish moving a text pointer
+
+6
+00:00:09.700 --> 00:00:11.420
+from sliding the pattern alignment.
+
+7
+00:00:12.060 --> 00:00:13.940
+The pattern still moves overall
+
+8
+00:00:13.940 --> 00:00:14.940
+to the right across the
+
+9
+00:00:14.940 --> 00:00:17.200
+text, but comparisons within one
+
+10
+00:00:17.200 --> 00:00:19.060
+alignment run from the pattern's
+
+11
+00:00:19.060 --> 00:00:21.060
+end toward its beginning. Set
+
+12
+00:00:21.060 --> 00:00:22.500
+both j and k to
+
+13
+00:00:22.500 --> 00:00:23.780
+the pattern length m.
+
+14
+00:00:24.260 --> 00:00:26.660
+For every alphabet character, start
+
+15
+00:00:26.660 --> 00:00:28.540
+its character jump at m,
+
+16
+00:00:29.340 --> 00:00:30.740
+representing absence from the pattern.
+
+17
+00:00:31.240 --> 00:00:32.640
+Then scan the pattern from
+
+18
+00:00:32.640 --> 00:00:34.140
+one to m and set
+
+19
+00:00:34.140 --> 00:00:36.100
+each present character's entry to
+
+20
+00:00:36.100 --> 00:00:38.440
+m minus its position, leaving
+
+21
+00:00:38.440 --> 00:00:39.620
+the rightmost occurrence.
+
+22
+00:00:40.660 --> 00:00:42.540
+Take pattern A B C
+
+23
+00:00:42.760 --> 00:00:44.420
+A of length four. Its
+
+24
+00:00:44.420 --> 00:00:46.020
+rightmost A is at position
+
+25
+00:00:46.020 --> 00:00:47.720
+four, so the A entry
+
+26
+00:00:47.720 --> 00:00:49.580
+is zero; B is two
+
+27
+00:00:49.580 --> 00:00:50.860
+from the end, C is
+
+28
+00:00:50.860 --> 00:00:52.000
+one from the end, and
+
+29
+00:00:52.000 --> 00:00:53.760
+an absent X receives four.
+
+30
+00:00:54.420 --> 00:00:56.220
+Align this pattern with the
+
+31
+00:00:56.220 --> 00:00:57.560
+start of text A X
+
+32
+00:00:57.560 --> 00:00:59.140
+C A B C A.
+
+33
+00:00:59.140 --> 00:01:01.440
+At text position four, A
+
+34
+00:01:01.440 --> 00:01:03.400
+matches A; at position three,
+
+35
+00:01:03.920 --> 00:01:05.800
+C matches C, leaving a
+
+36
+00:01:05.800 --> 00:01:07.480
+matched suffix C A.
+
+37
+00:01:07.900 --> 00:01:09.300
+At j equal to two
+
+38
+00:01:09.300 --> 00:01:10.780
+and k equal to two,
+
+39
+00:01:11.360 --> 00:01:12.980
+text X disagrees with pattern
+
+40
+00:01:12.980 --> 00:01:15.200
+B. The character table suggests
+
+41
+00:01:15.200 --> 00:01:17.460
+increment four, while the fallback
+
+42
+00:01:17.460 --> 00:01:19.140
+m minus k plus one
+
+43
+00:01:19.140 --> 00:01:21.060
+is three, so the simplified
+
+44
+00:01:21.060 --> 00:01:22.960
+scan takes their maximum, four.
+
+45
+00:01:23.300 --> 00:01:24.720
+Increment j from two to
+
+46
+00:01:24.720 --> 00:01:26.100
+six and reset k to
+
+47
+00:01:26.100 --> 00:01:28.080
+four. The old alignment ended
+
+48
+00:01:28.080 --> 00:01:29.520
+at text position four and
+
+49
+00:01:29.520 --> 00:01:30.420
+the new one ends at
+
+50
+00:01:30.420 --> 00:01:32.520
+six, so the pattern itself
+
+51
+00:01:32.520 --> 00:01:34.680
+slid only two positions even
+
+52
+00:01:34.680 --> 00:01:36.060
+though the text pointer advanced
+
+53
+00:01:36.060 --> 00:01:36.520
+four.
+
+54
+00:01:37.100 --> 00:01:38.740
+The difference comes from the
+
+55
+00:01:38.740 --> 00:01:41.000
+two successful comparisons that moved
+
+56
+00:01:41.000 --> 00:01:42.880
+j left before the mismatch.
+
+57
+00:01:43.300 --> 00:01:44.900
+A jump measured from the
+
+58
+00:01:44.900 --> 00:01:46.660
+mismatch pointer must account for
+
+59
+00:01:46.660 --> 00:01:48.680
+that matched suffix, so it
+
+60
+00:01:48.680 --> 00:01:50.000
+cannot be treated as an
+
+61
+00:01:50.000 --> 00:01:51.760
+alignment slide without conversion.
+
+62
+00:01:52.860 --> 00:01:54.700
+At the new endpoint six,
+
+63
+00:01:55.120 --> 00:01:56.820
+text C disagrees with pattern
+
+64
+00:01:56.820 --> 00:01:59.040
+A. Character jump one and
+
+65
+00:01:59.040 --> 00:02:00.780
+fallback one advance j to
+
+66
+00:02:00.780 --> 00:02:02.880
+seven; reset k and the
+
+67
+00:02:02.880 --> 00:02:04.220
+pattern now aligns with A
+
+68
+00:02:04.320 --> 00:02:05.420
+B C A at text
+
+69
+00:02:05.420 --> 00:02:06.860
+positions four through seven.
+
+70
+00:02:07.580 --> 00:02:09.840
+All four comparisons then match
+
+71
+00:02:09.840 --> 00:02:11.420
+from right to left, reducing
+
+72
+00:02:11.420 --> 00:02:13.340
+k to zero. Under this
+
+73
+00:02:13.340 --> 00:02:15.200
+one-based course convention the successful
+
+74
+00:02:15.200 --> 00:02:16.680
+start is j plus one,
+
+75
+00:02:17.120 --> 00:02:18.200
+which is four for our
+
+76
+00:02:18.200 --> 00:02:18.620
+example.
+
+77
+00:02:19.140 --> 00:02:20.800
+The fallback m minus k
+
+78
+00:02:20.800 --> 00:02:22.280
+plus one is essential because
+
+79
+00:02:22.280 --> 00:02:24.080
+character jumps alone can suggest
+
+80
+00:02:24.080 --> 00:02:26.160
+a nonprogressing or backward alignment
+
+81
+00:02:26.160 --> 00:02:27.780
+when the rightmost occurrence lies
+
+82
+00:02:27.780 --> 00:02:29.980
+beyond the mismatch position. The
+
+83
+00:02:29.980 --> 00:02:31.520
+extra term restores the old
+
+84
+00:02:31.520 --> 00:02:32.840
+endpoint and forces at least
+
+85
+00:02:32.840 --> 00:02:34.540
+one position of alignment progress.
+
+86
+00:02:35.020 --> 00:02:37.180
+Initialising the alphabet table and
+
+87
+00:02:37.180 --> 00:02:39.280
+scanning the pattern costs big
+
+88
+00:02:39.280 --> 00:02:41.060
+O of alphabet size plus
+
+89
+00:02:41.060 --> 00:02:43.740
+m, with corresponding table storage.
+
+90
+00:02:44.080 --> 00:02:45.840
+The simplified scan still has
+
+91
+00:02:45.840 --> 00:02:47.380
+a general big O of
+
+92
+00:02:47.380 --> 00:02:49.340
+n m bound; skipping many
+
+93
+00:02:49.340 --> 00:02:51.040
+comparisons on some inputs is
+
+94
+00:02:51.040 --> 00:02:53.220
+not a sublinear worst-case guarantee.
+
+95
+00:02:53.860 --> 00:02:55.420
+Things to take note of:
+
+96
+00:02:55.900 --> 00:02:58.500
+preserve one-based indices, keep the
+
+97
+00:02:58.500 --> 00:03:01.040
+rightmost occurrence, reset k after
+
+98
+00:03:01.040 --> 00:03:03.140
+jumping, and distinguish a zero
+
+99
+00:03:03.140 --> 00:03:04.760
+table entry from a safe
+
+100
+00:03:04.900 --> 00:03:07.240
+zero alignment shift. Track j
+
+101
+00:03:07.240 --> 00:03:09.140
+from its actual mismatch location;
+
+102
+00:03:09.540 --> 00:03:10.620
+borrowing a table from a
+
+103
+00:03:10.620 --> 00:03:12.340
+different pointer convention can produce
+
+104
+00:03:12.340 --> 00:03:13.700
+a beautifully wrong trace.

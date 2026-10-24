@@ -1,0 +1,397 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.380
+How do we choose a
+
+2
+00:00:01.380 --> 00:00:03.660
+correct state and algorithmic strategy?
+
+3
+00:00:04.420 --> 00:00:06.080
+We will compare divide and
+
+4
+00:00:06.080 --> 00:00:08.740
+conquer, greedy and dynamic programming,
+
+5
+00:00:09.100 --> 00:00:10.620
+then use a path example
+
+6
+00:00:10.620 --> 00:00:12.280
+to test whether a proposed
+
+7
+00:00:12.280 --> 00:00:14.340
+state remembers enough information.
+
+8
+00:00:14.860 --> 00:00:17.340
+Divide and conquer solves smaller
+
+9
+00:00:17.340 --> 00:00:19.300
+versions and combines their answers,
+
+10
+00:00:19.300 --> 00:00:21.040
+as merge sort solves two
+
+11
+00:00:21.040 --> 00:00:23.280
+halves and merges them. Greedy
+
+12
+00:00:23.280 --> 00:00:25.200
+instead commits to one locally
+
+13
+00:00:25.200 --> 00:00:27.220
+best feasible choice, and needs
+
+14
+00:00:27.220 --> 00:00:28.480
+a proof that this choice
+
+15
+00:00:28.480 --> 00:00:29.920
+can safely agree with an
+
+16
+00:00:29.920 --> 00:00:30.360
+optimum.
+
+17
+00:00:30.900 --> 00:00:34.240
+Dynamic programming compares relevant alternatives
+
+18
+00:00:34.240 --> 00:00:36.140
+while reusing stored answers for
+
+19
+00:00:36.140 --> 00:00:38.180
+overlapping states. It may be
+
+20
+00:00:38.180 --> 00:00:40.480
+recursive or iterative, and it
+
+21
+00:00:40.480 --> 00:00:41.560
+does not need to try
+
+22
+00:00:41.560 --> 00:00:43.700
+every numerical split unless that
+
+23
+00:00:43.700 --> 00:00:45.740
+problem's recurrence actually demands it.
+
+24
+00:00:46.140 --> 00:00:47.740
+Start by defining a state
+
+25
+00:00:47.740 --> 00:00:48.900
+in a sentence rather than
+
+26
+00:00:48.900 --> 00:00:50.760
+writing a table shape. The
+
+27
+00:00:50.760 --> 00:00:52.620
+state must contain everything needed
+
+28
+00:00:52.620 --> 00:00:54.000
+to determine the best future
+
+29
+00:00:54.000 --> 00:00:56.380
+answer independently of the particular
+
+30
+00:00:56.380 --> 00:00:57.600
+history that reached it.
+
+31
+00:00:58.100 --> 00:00:59.940
+For minimum coin change with
+
+32
+00:00:59.940 --> 00:01:02.080
+unlimited coins, the remaining amount
+
+33
+00:01:02.080 --> 00:01:04.800
+is enough. For zero-one knapsack
+
+34
+00:01:04.800 --> 00:01:05.940
+it is not enough, because
+
+35
+00:01:05.940 --> 00:01:07.620
+the available item set changes;
+
+36
+00:01:08.080 --> 00:01:10.020
+the standard prefix formulation therefore
+
+37
+00:01:10.020 --> 00:01:11.920
+also records how many initial
+
+38
+00:01:11.920 --> 00:01:13.100
+items remain eligible.
+
+39
+00:01:13.660 --> 00:01:16.500
+Optimal substructure can be justified
+
+40
+00:01:16.500 --> 00:01:18.920
+by replacement: if an optimum
+
+41
+00:01:18.920 --> 00:01:21.620
+used a nonoptimal subsolution, a
+
+42
+00:01:21.620 --> 00:01:23.480
+better legal replacement would improve
+
+43
+00:01:23.480 --> 00:01:25.360
+the whole answer. The word
+
+44
+00:01:25.360 --> 00:01:27.580
+legal matters, because a replacement
+
+45
+00:01:27.580 --> 00:01:29.580
+that violates the original constraints
+
+46
+00:01:29.580 --> 00:01:30.540
+proves nothing.
+
+47
+00:01:31.140 --> 00:01:33.220
+Consider a shortest path split
+
+48
+00:01:33.220 --> 00:01:34.900
+into a prefix and suffix
+
+49
+00:01:34.900 --> 00:01:36.660
+under conditions where the shortest
+
+50
+00:01:36.660 --> 00:01:39.280
+route is well-defined. Replacing a
+
+51
+00:01:39.280 --> 00:01:40.880
+subpath by a cheaper route
+
+52
+00:01:40.880 --> 00:01:42.540
+cannot improve on a true
+
+53
+00:01:42.540 --> 00:01:44.940
+optimum, which motivates the familiar
+
+54
+00:01:44.940 --> 00:01:46.320
+shortest-path property.
+
+55
+00:01:46.940 --> 00:01:49.320
+Now consider longest simple paths,
+
+56
+00:01:49.320 --> 00:01:51.400
+where no vertex may repeat.
+
+57
+00:01:51.920 --> 00:01:53.360
+A state naming only the
+
+58
+00:01:53.360 --> 00:01:55.460
+current endpoint forgets which vertices
+
+59
+00:01:55.460 --> 00:01:57.440
+have already been used, even
+
+60
+00:01:57.440 --> 00:01:59.260
+though those choices decide which
+
+61
+00:01:59.260 --> 00:02:00.720
+continuations are legal.
+
+62
+00:02:01.300 --> 00:02:03.580
+Suppose two partial paths reach
+
+63
+00:02:03.580 --> 00:02:05.340
+the same vertex, but one
+
+64
+00:02:05.340 --> 00:02:06.700
+has already used a vertex
+
+65
+00:02:06.700 --> 00:02:08.260
+required by a later extension.
+
+66
+00:02:08.920 --> 00:02:10.400
+Merging those histories into one
+
+67
+00:02:10.400 --> 00:02:12.440
+endpoint-only answer can keep a
+
+68
+00:02:12.440 --> 00:02:14.760
+numerically attractive path whose future
+
+69
+00:02:14.760 --> 00:02:15.900
+extension is forbidden.
+
+70
+00:02:16.460 --> 00:02:18.100
+Adding a visited set can
+
+71
+00:02:18.100 --> 00:02:19.900
+restore the missing information in
+
+72
+00:02:19.900 --> 00:02:23.500
+a longest-simple-path formulation. However, n
+
+73
+00:02:23.500 --> 00:02:25.000
+vertices have two to the
+
+74
+00:02:25.000 --> 00:02:27.160
+n possible subsets, so a
+
+75
+00:02:27.160 --> 00:02:28.960
+sufficient state does not automatically
+
+76
+00:02:28.960 --> 00:02:31.580
+produce a polynomial-size dynamic program.
+
+77
+00:02:32.020 --> 00:02:34.100
+The same discipline explains our
+
+78
+00:02:34.100 --> 00:02:36.880
+greedy examples. Fractional density ordering
+
+79
+00:02:36.880 --> 00:02:38.740
+has a legal equal-weight exchange,
+
+80
+00:02:38.740 --> 00:02:41.140
+while indivisible knapsack and arbitrary
+
+81
+00:02:41.140 --> 00:02:43.240
+coin denominations can defeat a
+
+82
+00:02:43.240 --> 00:02:45.440
+local choice, so each requires
+
+83
+00:02:45.440 --> 00:02:46.880
+its own proof or counterexample.
+
+84
+00:02:47.820 --> 00:02:49.620
+After deriving the state and
+
+85
+00:02:49.620 --> 00:02:51.940
+recurrence, give an evaluation order
+
+86
+00:02:51.940 --> 00:02:54.720
+that respects dependencies. Then multiply
+
+87
+00:02:54.720 --> 00:02:56.120
+the number of distinct states
+
+88
+00:02:56.120 --> 00:02:58.040
+by transition work, and add
+
+89
+00:02:58.040 --> 00:03:01.340
+initialisation, reconstruction and stack costs
+
+90
+00:03:01.340 --> 00:03:02.140
+where they matter.
+
+91
+00:03:02.740 --> 00:03:04.200
+Things to take note of:
+
+92
+00:03:04.500 --> 00:03:06.180
+an algorithmic label is not
+
+93
+00:03:06.180 --> 00:03:08.260
+a correctness proof, and optimal
+
+94
+00:03:08.260 --> 00:03:10.420
+substructure alone does not guarantee
+
+95
+00:03:10.420 --> 00:03:12.600
+a small table. Keep every
+
+96
+00:03:12.600 --> 00:03:14.140
+relevant constraint in the state,
+
+97
+00:03:14.500 --> 00:03:16.420
+distinguish reachable states from repeated
+
+98
+00:03:16.420 --> 00:03:18.100
+calls, and let the actual
+
+99
+00:03:18.100 --> 00:03:21.320
+dependencies choose your implementation, obviously.

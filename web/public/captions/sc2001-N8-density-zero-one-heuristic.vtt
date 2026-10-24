@@ -1,0 +1,397 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.080
+Why does density greedy fail
+
+2
+00:00:02.080 --> 00:00:04.500
+for zero-one knapsack? We will
+
+3
+00:00:04.500 --> 00:00:07.000
+reuse our fractional example, enforce
+
+4
+00:00:07.000 --> 00:00:09.460
+whole-item choices, compare the resulting
+
+5
+00:00:09.460 --> 00:00:11.760
+profits and identify exactly where
+
+6
+00:00:11.760 --> 00:00:13.340
+the earlier exchange proof breaks.
+
+7
+00:00:13.740 --> 00:00:15.820
+The heuristic sorts items by
+
+8
+00:00:15.820 --> 00:00:18.040
+decreasing profit divided by weight.
+
+9
+00:00:18.740 --> 00:00:20.240
+Scan that order, take a
+
+10
+00:00:20.240 --> 00:00:21.500
+whole item if it fits,
+
+11
+00:00:21.940 --> 00:00:23.260
+and otherwise skip it and
+
+12
+00:00:23.260 --> 00:00:24.900
+continue rather than taking a
+
+13
+00:00:24.900 --> 00:00:25.320
+fraction.
+
+14
+00:00:26.020 --> 00:00:28.020
+Use the weight-profit pairs ten
+
+15
+00:00:28.020 --> 00:00:29.680
+and sixty, twenty and one
+
+16
+00:00:29.680 --> 00:00:31.380
+hundred, and thirty and one
+
+17
+00:00:31.380 --> 00:00:33.820
+hundred twenty. Their densities are
+
+18
+00:00:33.820 --> 00:00:35.840
+six, five and four, so
+
+19
+00:00:35.840 --> 00:00:37.300
+the scan order is exactly
+
+20
+00:00:37.300 --> 00:00:38.140
+the same as in the
+
+21
+00:00:38.140 --> 00:00:38.940
+fractional lesson.
+
+22
+00:00:39.420 --> 00:00:41.380
+Take item one fully, using
+
+23
+00:00:41.380 --> 00:00:43.140
+ten weight and earning sixty.
+
+24
+00:00:43.820 --> 00:00:46.080
+Item two also fits, so
+
+25
+00:00:46.080 --> 00:00:47.820
+take it, bringing the totals
+
+26
+00:00:47.820 --> 00:00:49.880
+to weight thirty and profit
+
+27
+00:00:49.880 --> 00:00:50.700
+one hundred sixty.
+
+28
+00:00:51.300 --> 00:00:53.440
+The remaining capacity is twenty,
+
+29
+00:00:53.800 --> 00:00:55.600
+but item three weighs thirty
+
+30
+00:00:55.600 --> 00:00:57.740
+and cannot be divided. Skip
+
+31
+00:00:57.740 --> 00:00:59.100
+it, ending with profit one
+
+32
+00:00:59.100 --> 00:01:00.980
+hundred sixty rather than the
+
+33
+00:01:00.980 --> 00:01:02.900
+fractional answer two hundred forty.
+
+34
+00:01:03.500 --> 00:01:05.400
+Instead select items two and
+
+35
+00:01:05.400 --> 00:01:07.500
+three, whose weights twenty and
+
+36
+00:01:07.500 --> 00:01:09.580
+thirty exactly fill the bag.
+
+37
+00:01:10.100 --> 00:01:11.360
+Their profits sum to two
+
+38
+00:01:11.360 --> 00:01:13.760
+hundred twenty, already proving that
+
+39
+00:01:13.760 --> 00:01:16.180
+the greedy one-hundred-sixty result is
+
+40
+00:01:16.180 --> 00:01:17.140
+not optimal.
+
+41
+00:01:17.700 --> 00:01:19.340
+For these three items we
+
+42
+00:01:19.340 --> 00:01:20.940
+can verify the optimum by
+
+43
+00:01:20.940 --> 00:01:23.440
+inspecting all feasible subsets. The
+
+44
+00:01:23.440 --> 00:01:24.880
+best individual profit is one
+
+45
+00:01:24.880 --> 00:01:26.900
+hundred twenty, the other feasible
+
+46
+00:01:26.900 --> 00:01:28.180
+pairs give one hundred sixty
+
+47
+00:01:28.180 --> 00:01:30.200
+and one hundred eighty, and
+
+48
+00:01:30.200 --> 00:01:32.140
+all three exceed capacity, so
+
+49
+00:01:32.140 --> 00:01:33.320
+two hundred twenty is the
+
+50
+00:01:33.320 --> 00:01:33.700
+optimum.
+
+51
+00:01:34.300 --> 00:01:36.040
+Fractional greedy reaches two hundred
+
+52
+00:01:36.040 --> 00:01:38.600
+forty by taking only twenty
+
+53
+00:01:38.600 --> 00:01:40.020
+of the last item's thirty
+
+54
+00:01:40.020 --> 00:01:42.360
+weight units. The zero-one optimum
+
+55
+00:01:42.360 --> 00:01:44.340
+is two hundred twenty, and
+
+56
+00:01:44.340 --> 00:01:46.560
+the density-greedy zero-one result is
+
+57
+00:01:46.560 --> 00:01:48.700
+one hundred sixty, so these
+
+58
+00:01:48.700 --> 00:01:50.260
+are three different quantities.
+
+59
+00:01:50.820 --> 00:01:53.320
+The fractional proof exchanged equal
+
+60
+00:01:53.320 --> 00:01:55.000
+small amounts of weight between
+
+61
+00:01:55.000 --> 00:01:57.560
+different materials. Such an exchange
+
+62
+00:01:57.560 --> 00:01:59.240
+may cut an item into
+
+63
+00:01:59.240 --> 00:02:01.140
+forbidden pieces here, so it
+
+64
+00:02:01.140 --> 00:02:03.080
+cannot justify the same density
+
+65
+00:02:03.080 --> 00:02:05.100
+rule for indivisible choices.
+
+66
+00:02:05.580 --> 00:02:08.240
+Correct implementation updates total weight
+
+67
+00:02:08.240 --> 00:02:09.880
+and profit only when an
+
+68
+00:02:09.880 --> 00:02:12.420
+item is actually accepted. The
+
+69
+00:02:12.420 --> 00:02:14.300
+slide's informal grouping must not
+
+70
+00:02:14.300 --> 00:02:15.840
+be copied as an unconditional
+
+71
+00:02:15.840 --> 00:02:17.560
+weight update after a rejection,
+
+72
+00:02:17.980 --> 00:02:19.960
+because that would incorrectly reduce
+
+73
+00:02:19.960 --> 00:02:21.640
+room for later fitting items.
+
+74
+00:02:22.180 --> 00:02:24.500
+Sorting takes order n times
+
+75
+00:02:24.500 --> 00:02:26.460
+the logarithm of n, followed
+
+76
+00:02:26.460 --> 00:02:27.980
+by a linear scan through
+
+77
+00:02:27.980 --> 00:02:30.060
+the items. The exact dynamic
+
+78
+00:02:30.060 --> 00:02:31.700
+program uses a table with
+
+79
+00:02:31.700 --> 00:02:33.420
+n item choices and C
+
+80
+00:02:33.420 --> 00:02:35.880
+capacity values, giving order n
+
+81
+00:02:35.880 --> 00:02:37.680
+times C work that depends
+
+82
+00:02:37.680 --> 00:02:39.060
+on the numeric capacity.
+
+83
+00:02:39.660 --> 00:02:41.180
+An instance where greedy happens
+
+84
+00:02:41.180 --> 00:02:42.540
+to match the optimum cannot
+
+85
+00:02:42.540 --> 00:02:45.520
+establish universal correctness. State whether
+
+86
+00:02:45.520 --> 00:02:46.840
+the question asks you to
+
+87
+00:02:46.840 --> 00:02:48.520
+trace a heuristic, find an
+
+88
+00:02:48.520 --> 00:02:50.620
+exact optimum, or explain a
+
+89
+00:02:50.620 --> 00:02:52.460
+counterexample before choosing which result
+
+90
+00:02:52.460 --> 00:02:52.980
+to report.
+
+91
+00:02:53.380 --> 00:02:54.720
+Things to take note of:
+
+92
+00:02:55.100 --> 00:02:57.260
+preserve the item variant, skip
+
+93
+00:02:57.260 --> 00:02:59.800
+rather than fractionally fill, continue
+
+94
+00:02:59.800 --> 00:03:02.060
+scanning, and update totals only
+
+95
+00:03:02.060 --> 00:03:04.940
+on acceptance. Compare feasibility and
+
+96
+00:03:04.940 --> 00:03:07.180
+profit explicitly, and do not
+
+97
+00:03:07.180 --> 00:03:09.140
+let an optimal fractional argument
+
+98
+00:03:09.140 --> 00:03:11.280
+smuggle illegal pieces into a
+
+99
+00:03:11.280 --> 00:03:13.360
+whole-item bag, how charming.

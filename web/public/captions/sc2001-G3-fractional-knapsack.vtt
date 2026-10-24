@@ -1,0 +1,417 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.340
+Why is density greedy optimal
+
+2
+00:00:02.340 --> 00:00:04.980
+for fractional knapsack? We will
+
+3
+00:00:04.980 --> 00:00:06.320
+fill a bag with divisible
+
+4
+00:00:06.320 --> 00:00:08.900
+items, compute the exact profit,
+
+5
+00:00:09.420 --> 00:00:11.340
+and use an equal-weight exchange
+
+6
+00:00:11.340 --> 00:00:12.980
+to explain why the rule
+
+7
+00:00:12.980 --> 00:00:13.460
+works.
+
+8
+00:00:13.900 --> 00:00:15.620
+Each item has a positive
+
+9
+00:00:15.620 --> 00:00:17.540
+weight and a positive profit
+
+10
+00:00:17.540 --> 00:00:19.020
+for taking all of it.
+
+11
+00:00:19.400 --> 00:00:20.980
+Taking a fraction earns the
+
+12
+00:00:20.980 --> 00:00:22.660
+same fraction of its profit,
+
+13
+00:00:23.100 --> 00:00:25.000
+so profit divided by weight
+
+14
+00:00:25.000 --> 00:00:26.980
+measures the value of each
+
+15
+00:00:26.980 --> 00:00:28.040
+unit of capacity.
+
+16
+00:00:28.660 --> 00:00:31.080
+Our capacity is fifty, and
+
+17
+00:00:31.080 --> 00:00:33.220
+the items have weight-profit pairs
+
+18
+00:00:33.220 --> 00:00:35.000
+ten and sixty, twenty and
+
+19
+00:00:35.000 --> 00:00:36.860
+one hundred, and thirty and
+
+20
+00:00:36.860 --> 00:00:38.740
+one hundred twenty. Their densities
+
+21
+00:00:38.740 --> 00:00:40.360
+are six, five and four,
+
+22
+00:00:40.760 --> 00:00:42.020
+so that is also the
+
+23
+00:00:42.020 --> 00:00:43.480
+descending order for filling the
+
+24
+00:00:43.480 --> 00:00:43.760
+bag.
+
+25
+00:00:44.460 --> 00:00:46.420
+Take the first item fully,
+
+26
+00:00:46.880 --> 00:00:48.280
+using ten units of weight
+
+27
+00:00:48.280 --> 00:00:50.740
+and earning sixty. Forty units
+
+28
+00:00:50.740 --> 00:00:53.000
+of capacity remain, and no
+
+29
+00:00:53.000 --> 00:00:54.800
+other material gives more profit
+
+30
+00:00:54.800 --> 00:00:56.900
+per unit than the density-six
+
+31
+00:00:56.900 --> 00:00:58.260
+item just selected.
+
+32
+00:00:58.660 --> 00:01:00.520
+Take the second item fully,
+
+33
+00:01:00.900 --> 00:01:02.080
+adding twenty units of weight
+
+34
+00:01:02.080 --> 00:01:04.460
+and one hundred profit. The
+
+35
+00:01:04.460 --> 00:01:06.020
+bag now has weight thirty
+
+36
+00:01:06.020 --> 00:01:08.020
+and profit one hundred sixty,
+
+37
+00:01:08.760 --> 00:01:10.200
+leaving twenty units for the
+
+38
+00:01:10.200 --> 00:01:10.840
+last item.
+
+39
+00:01:11.340 --> 00:01:13.300
+The last item weighs thirty,
+
+40
+00:01:13.520 --> 00:01:15.120
+but only twenty units fit.
+
+41
+00:01:15.400 --> 00:01:17.220
+Because fractions are allowed, take
+
+42
+00:01:17.220 --> 00:01:18.560
+two thirds of it, adding
+
+43
+00:01:18.560 --> 00:01:20.160
+eighty profit and filling the
+
+44
+00:01:20.160 --> 00:01:21.160
+capacity exactly.
+
+45
+00:01:21.860 --> 00:01:23.840
+Total profit is sixty plus
+
+46
+00:01:23.840 --> 00:01:25.780
+one hundred plus eighty, which
+
+47
+00:01:25.780 --> 00:01:28.160
+equals two hundred forty. This
+
+48
+00:01:28.160 --> 00:01:29.880
+total uses fifty units of
+
+49
+00:01:29.880 --> 00:01:31.380
+weight; taking the whole third
+
+50
+00:01:31.380 --> 00:01:33.040
+item instead would violate the
+
+51
+00:01:33.040 --> 00:01:33.820
+capacity limit.
+
+52
+00:01:34.380 --> 00:01:36.120
+Why is that local density
+
+53
+00:01:36.120 --> 00:01:39.060
+rule globally safe? Suppose some
+
+54
+00:01:39.060 --> 00:01:41.780
+feasible solution includes lower-density material
+
+55
+00:01:41.780 --> 00:01:43.600
+while higher-density material is still
+
+56
+00:01:43.600 --> 00:01:43.920
+available.
+
+57
+00:01:44.500 --> 00:01:46.120
+Exchange an equal small amount
+
+58
+00:01:46.120 --> 00:01:47.560
+of weight from the lower-density
+
+59
+00:01:47.560 --> 00:01:50.060
+material for the higher-density material.
+
+60
+00:01:50.540 --> 00:01:52.640
+Weight stays unchanged, while profit
+
+61
+00:01:52.640 --> 00:01:55.220
+cannot decrease and strictly increases
+
+62
+00:01:55.220 --> 00:01:56.440
+when the densities differ.
+
+63
+00:01:57.020 --> 00:01:59.560
+Continue exchanging until no such
+
+64
+00:01:59.560 --> 00:02:02.060
+inversion remains. The resulting solution
+
+65
+00:02:02.060 --> 00:02:04.560
+takes the highest-density material first,
+
+66
+00:02:04.960 --> 00:02:06.200
+which is the greedy structure,
+
+67
+00:02:06.660 --> 00:02:08.420
+so an optimal solution can
+
+68
+00:02:08.420 --> 00:02:10.080
+be transformed into a greedy
+
+69
+00:02:10.080 --> 00:02:11.940
+one without losing profit.
+
+70
+00:02:12.740 --> 00:02:14.340
+The ability to take equal
+
+71
+00:02:14.340 --> 00:02:15.940
+portions of different items is
+
+72
+00:02:15.940 --> 00:02:17.660
+what makes that argument possible.
+
+73
+00:02:18.200 --> 00:02:20.520
+With indivisible items, the exchange
+
+74
+00:02:20.520 --> 00:02:22.180
+might be forbidden, so the
+
+75
+00:02:22.180 --> 00:02:23.640
+same proof does not establish
+
+76
+00:02:23.640 --> 00:02:25.940
+optimality for zero-one knapsack.
+
+77
+00:02:26.140 --> 00:02:28.720
+Compute densities, sort them in
+
+78
+00:02:28.720 --> 00:02:31.080
+descending order, and scan once,
+
+79
+00:02:31.400 --> 00:02:32.800
+taking the smaller of remaining
+
+80
+00:02:32.800 --> 00:02:35.580
+capacity and item weight. Stop
+
+81
+00:02:35.580 --> 00:02:36.580
+when the bag is full
+
+82
+00:02:36.580 --> 00:02:38.160
+or the items run out;
+
+83
+00:02:38.540 --> 00:02:40.080
+forgetting the second condition can
+
+84
+00:02:40.080 --> 00:02:41.660
+index beyond the list when
+
+85
+00:02:41.660 --> 00:02:43.340
+total available weight is too
+
+86
+00:02:43.340 --> 00:02:43.700
+small.
+
+87
+00:02:44.180 --> 00:02:46.140
+Sorting costs big O of
+
+88
+00:02:46.140 --> 00:02:47.960
+n log n, followed by
+
+89
+00:02:47.960 --> 00:02:49.640
+a linear scan, while an
+
+90
+00:02:49.640 --> 00:02:52.260
+already density-sorted list needs only
+
+91
+00:02:52.260 --> 00:02:54.640
+that scan. A conventional stored
+
+92
+00:02:54.640 --> 00:02:56.820
+list uses linear space, and
+
+93
+00:02:56.820 --> 00:02:58.940
+any additional sorting workspace depends
+
+94
+00:02:58.940 --> 00:03:00.380
+on the chosen sorting method.
+
+95
+00:03:00.860 --> 00:03:02.060
+Things to take note of:
+
+96
+00:03:02.520 --> 00:03:04.480
+compute profit per weight, allow
+
+97
+00:03:04.480 --> 00:03:07.040
+proportional fractions, and state why
+
+98
+00:03:07.040 --> 00:03:09.640
+an equal-weight exchange preserves feasibility.
+
+99
+00:03:10.340 --> 00:03:11.980
+Highest total profit and smallest
+
+100
+00:03:11.980 --> 00:03:13.780
+weight are different rules; the
+
+101
+00:03:13.780 --> 00:03:15.200
+density order wins because of
+
+102
+00:03:15.200 --> 00:03:17.440
+this problem's assumptions, not because
+
+103
+00:03:17.440 --> 00:03:19.320
+the word greedy sounds confident,
+
+104
+00:03:19.320 --> 00:03:20.140
+hmph.

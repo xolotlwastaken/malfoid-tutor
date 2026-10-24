@@ -1,0 +1,433 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.580
+What do big O, big
+
+2
+00:00:01.580 --> 00:00:03.880
+Omega, and big Theta actually
+
+3
+00:00:03.880 --> 00:00:05.720
+mean? We will build their
+
+4
+00:00:05.720 --> 00:00:08.040
+definitions around one running-cost function,
+
+5
+00:00:08.400 --> 00:00:09.980
+prove its bounds, and finish
+
+6
+00:00:09.980 --> 00:00:11.120
+with the mistakes that make
+
+7
+00:00:11.120 --> 00:00:12.940
+an otherwise sensible answer wrong.
+
+8
+00:00:13.500 --> 00:00:15.440
+First say what n measures
+
+9
+00:00:15.440 --> 00:00:17.280
+and what operation you count.
+
+10
+00:00:17.860 --> 00:00:19.540
+For a sorting problem, n
+
+11
+00:00:19.540 --> 00:00:20.600
+might be the number of
+
+12
+00:00:20.600 --> 00:00:22.420
+records, while the cost counts
+
+13
+00:00:22.420 --> 00:00:25.180
+key comparisons; copies and swaps
+
+14
+00:00:25.180 --> 00:00:26.400
+would be different counters.
+
+15
+00:00:26.900 --> 00:00:28.700
+Suppose our chosen cost is
+
+16
+00:00:28.700 --> 00:00:29.980
+three n squared plus seven
+
+17
+00:00:29.980 --> 00:00:32.120
+n plus four. The whole
+
+18
+00:00:32.120 --> 00:00:34.160
+expression matters for exact work,
+
+19
+00:00:34.540 --> 00:00:35.940
+but its quadratic term will
+
+20
+00:00:35.940 --> 00:00:37.600
+control its asymptotic growth.
+
+21
+00:00:38.060 --> 00:00:40.040
+Big O gives an eventual
+
+22
+00:00:40.040 --> 00:00:41.920
+upper bound, allowing a positive
+
+23
+00:00:41.920 --> 00:00:44.700
+constant multiplier. There must be
+
+24
+00:00:44.700 --> 00:00:46.620
+one constant c and one
+
+25
+00:00:46.620 --> 00:00:48.380
+threshold n zero such that
+
+26
+00:00:48.380 --> 00:00:50.180
+every input size beyond that
+
+27
+00:00:50.180 --> 00:00:52.080
+threshold satisfies f of n
+
+28
+00:00:52.080 --> 00:00:53.660
+at most c times g
+
+29
+00:00:53.660 --> 00:00:54.040
+of n.
+
+30
+00:00:54.500 --> 00:00:56.060
+For every n at least
+
+31
+00:00:56.060 --> 00:00:57.500
+one, seven n is at
+
+32
+00:00:57.500 --> 00:00:59.460
+most seven n squared, and
+
+33
+00:00:59.460 --> 00:01:00.820
+four is at most four
+
+34
+00:01:00.820 --> 00:01:02.760
+n squared. Adding these inequalities
+
+35
+00:01:02.760 --> 00:01:04.100
+puts our whole function at
+
+36
+00:01:04.100 --> 00:01:05.880
+most fourteen n squared, so
+
+37
+00:01:05.880 --> 00:01:07.580
+c equals fourteen is a
+
+38
+00:01:07.580 --> 00:01:08.860
+valid upper-bound witness.
+
+39
+00:01:09.340 --> 00:01:11.700
+Big Omega reverses the inequality
+
+40
+00:01:11.700 --> 00:01:13.700
+and supplies an eventual lower
+
+41
+00:01:13.700 --> 00:01:15.880
+bound. Here the positive extra
+
+42
+00:01:15.880 --> 00:01:17.560
+terms cannot reduce the quadratic
+
+43
+00:01:17.560 --> 00:01:19.080
+term, so our function is
+
+44
+00:01:19.080 --> 00:01:20.460
+at least three n squared
+
+45
+00:01:20.460 --> 00:01:21.680
+for every positive n.
+
+46
+00:01:22.180 --> 00:01:24.500
+Big Theta requires both sides
+
+47
+00:01:24.500 --> 00:01:26.760
+with positive constants. We have
+
+48
+00:01:26.760 --> 00:01:28.560
+already trapped the function between
+
+49
+00:01:28.560 --> 00:01:30.060
+three n squared and fourteen
+
+50
+00:01:30.060 --> 00:01:32.200
+n squared, which proves a
+
+51
+00:01:32.200 --> 00:01:33.620
+tight quadratic bound.
+
+52
+00:01:34.140 --> 00:01:36.400
+A tight asymptotic bound does
+
+53
+00:01:36.400 --> 00:01:38.940
+not mean exact equality: the
+
+54
+00:01:38.940 --> 00:01:40.640
+function need not equal n
+
+55
+00:01:40.640 --> 00:01:42.540
+squared, and the two bounding
+
+56
+00:01:42.540 --> 00:01:45.140
+constants may differ. Theta groups
+
+57
+00:01:45.140 --> 00:01:46.900
+functions whose growth differs by
+
+58
+00:01:46.900 --> 00:01:49.000
+at most constant factors after
+
+59
+00:01:49.000 --> 00:01:49.920
+a suitable threshold.
+
+60
+00:01:50.980 --> 00:01:52.900
+Our function is also big
+
+61
+00:01:52.900 --> 00:01:54.720
+O of n cubed, because
+
+62
+00:01:54.720 --> 00:01:56.160
+n squared is at most
+
+63
+00:01:56.160 --> 00:01:57.640
+n cubed once n reaches
+
+64
+00:01:57.640 --> 00:01:59.880
+one. That upper bound is
+
+65
+00:01:59.880 --> 00:02:01.760
+true but loose, so use
+
+66
+00:02:01.760 --> 00:02:03.100
+Theta when you have actually
+
+67
+00:02:03.100 --> 00:02:04.500
+established a tight order.
+
+68
+00:02:05.020 --> 00:02:06.740
+A ratio limit can provide
+
+69
+00:02:06.740 --> 00:02:08.360
+a convenient shortcut when it
+
+70
+00:02:08.360 --> 00:02:10.760
+exists. Dividing our function by
+
+71
+00:02:10.760 --> 00:02:12.500
+n squared gives three plus
+
+72
+00:02:12.500 --> 00:02:14.060
+seven over n plus four
+
+73
+00:02:14.060 --> 00:02:15.840
+over n squared, whose limit
+
+74
+00:02:15.840 --> 00:02:17.500
+is the positive constant three.
+
+75
+00:02:18.180 --> 00:02:20.740
+A ratio approaching zero supplies
+
+76
+00:02:20.740 --> 00:02:22.320
+an upper bound, while a
+
+77
+00:02:22.320 --> 00:02:24.340
+ratio growing without limit supplies
+
+78
+00:02:24.340 --> 00:02:26.400
+a lower bound. These are
+
+79
+00:02:26.400 --> 00:02:28.140
+sufficient tests under the usual
+
+80
+00:02:28.140 --> 00:02:31.180
+positivity assumptions; an oscillating ratio
+
+81
+00:02:31.180 --> 00:02:32.320
+can lack a limit even
+
+82
+00:02:32.320 --> 00:02:34.160
+when asymptotic bounds exist.
+
+83
+00:02:34.700 --> 00:02:36.560
+Now separate the notation from
+
+84
+00:02:36.560 --> 00:02:38.720
+the input case being analysed.
+
+85
+00:02:38.720 --> 00:02:39.980
+Big O does not mean
+
+86
+00:02:39.980 --> 00:02:41.900
+worst case, and big Omega
+
+87
+00:02:41.900 --> 00:02:43.620
+does not mean best case;
+
+88
+00:02:44.220 --> 00:02:46.000
+either can describe a best-case,
+
+89
+00:02:46.000 --> 00:02:49.180
+worst-case, or suitably defined expected-cost
+
+90
+00:02:49.180 --> 00:02:49.680
+function.
+
+91
+00:02:50.100 --> 00:02:52.860
+For example, a worst-case function
+
+92
+00:02:52.860 --> 00:02:54.320
+may have both a quadratic
+
+93
+00:02:54.320 --> 00:02:56.500
+upper bound and a quadratic
+
+94
+00:02:56.500 --> 00:02:59.140
+lower bound. An average-case statement
+
+95
+00:02:59.140 --> 00:03:01.280
+additionally needs a distribution on
+
+96
+00:03:01.280 --> 00:03:03.280
+inputs, so do not hide
+
+97
+00:03:03.360 --> 00:03:04.820
+that assumption behind a symbol.
+
+98
+00:03:05.260 --> 00:03:06.520
+Things to take note of:
+
+99
+00:03:06.960 --> 00:03:08.500
+name the input size and
+
+100
+00:03:08.500 --> 00:03:11.020
+counted operation, keep the constants
+
+101
+00:03:11.020 --> 00:03:13.000
+fixed, and make the inequality
+
+102
+00:03:13.000 --> 00:03:15.100
+hold eventually for every size.
+
+103
+00:03:15.820 --> 00:03:17.560
+Prove both sides for Theta,
+
+104
+00:03:18.020 --> 00:03:19.680
+distinguish a tight bound from
+
+105
+00:03:19.680 --> 00:03:21.260
+a merely valid one, and
+
+106
+00:03:21.260 --> 00:03:22.620
+stop making the letters do
+
+107
+00:03:22.620 --> 00:03:23.540
+the job of a case
+
+108
+00:03:23.540 --> 00:03:25.420
+definition, hmph.

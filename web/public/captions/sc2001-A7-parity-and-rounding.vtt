@@ -1,0 +1,401 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.960
+How do parity and rounding
+
+2
+00:00:01.960 --> 00:00:04.800
+affect recurrence solutions? We will
+
+3
+00:00:04.800 --> 00:00:06.220
+expand a recurrence that decreases
+
+4
+00:00:06.220 --> 00:00:08.140
+by two, handle its two
+
+5
+00:00:08.140 --> 00:00:09.820
+base cases, and then explain
+
+6
+00:00:09.820 --> 00:00:11.360
+when rounding can safely be
+
+7
+00:00:11.360 --> 00:00:13.240
+suppressed in an asymptotic analysis.
+
+8
+00:00:14.060 --> 00:00:16.000
+The review analyses a particular
+
+9
+00:00:16.000 --> 00:00:19.320
+median-of-three quicksort comparison count using
+
+10
+00:00:19.320 --> 00:00:21.180
+T of n equals T
+
+11
+00:00:21.180 --> 00:00:22.660
+of n minus two plus
+
+12
+00:00:22.660 --> 00:00:25.120
+n. It sets T of
+
+13
+00:00:25.120 --> 00:00:27.080
+one to zero and T
+
+14
+00:00:27.080 --> 00:00:29.160
+of two to one, so
+
+15
+00:00:29.160 --> 00:00:31.160
+odd and even inputs finish
+
+16
+00:00:31.160 --> 00:00:32.280
+at different bases.
+
+17
+00:00:32.820 --> 00:00:34.340
+The local n in this
+
+18
+00:00:34.340 --> 00:00:36.380
+review comes from three pivot-selection
+
+19
+00:00:36.380 --> 00:00:38.440
+comparisons and n minus three
+
+20
+00:00:38.440 --> 00:00:40.220
+partition comparisons. It is a
+
+21
+00:00:40.220 --> 00:00:41.800
+convention for the shown algorithm,
+
+22
+00:00:42.060 --> 00:00:44.140
+not a universal exact comparison
+
+23
+00:00:44.140 --> 00:00:46.660
+count for every median-of-three implementation.
+
+24
+00:00:47.340 --> 00:00:49.440
+Take an even input size
+
+25
+00:00:49.440 --> 00:00:51.160
+of eight and expand the
+
+26
+00:00:51.160 --> 00:00:53.820
+recurrence. We obtain eight plus
+
+27
+00:00:53.820 --> 00:00:55.480
+six plus four plus the
+
+28
+00:00:55.480 --> 00:00:57.360
+base value one, for nineteen
+
+29
+00:00:57.360 --> 00:00:58.960
+comparisons under this model.
+
+30
+00:00:59.540 --> 00:01:01.440
+Write a general even input
+
+31
+00:01:01.440 --> 00:01:03.320
+as two k. The terms
+
+32
+00:01:03.320 --> 00:01:04.820
+are four through two k
+
+33
+00:01:04.820 --> 00:01:06.700
+in steps of two, together
+
+34
+00:01:06.700 --> 00:01:08.160
+with T of two equal
+
+35
+00:01:08.160 --> 00:01:09.700
+to one, so their sum
+
+36
+00:01:09.700 --> 00:01:11.240
+is k times k plus
+
+37
+00:01:11.240 --> 00:01:12.240
+one minus one.
+
+38
+00:01:12.540 --> 00:01:13.860
+For an odd input of
+
+39
+00:01:13.860 --> 00:01:16.560
+seven, expansion instead gives seven
+
+40
+00:01:16.560 --> 00:01:18.320
+plus five plus three plus
+
+41
+00:01:18.320 --> 00:01:20.280
+zero. The result is fifteen,
+
+42
+00:01:20.560 --> 00:01:22.280
+because the recurrence reaches T
+
+43
+00:01:22.280 --> 00:01:23.580
+of one rather than T
+
+44
+00:01:23.580 --> 00:01:24.040
+of two.
+
+45
+00:01:24.500 --> 00:01:26.220
+For a general odd input
+
+46
+00:01:26.560 --> 00:01:28.380
+two k plus one, sum
+
+47
+00:01:28.380 --> 00:01:29.740
+the k odd terms from
+
+48
+00:01:29.740 --> 00:01:31.380
+three through two k plus
+
+49
+00:01:31.380 --> 00:01:33.920
+one. Their arithmetic-series sum is
+
+50
+00:01:33.920 --> 00:01:36.060
+k times k plus two,
+
+51
+00:01:36.420 --> 00:01:38.200
+again quadratic in n.
+
+52
+00:01:38.620 --> 00:01:40.140
+Both the even and odd
+
+53
+00:01:40.140 --> 00:01:41.840
+cases therefore have Theta of
+
+54
+00:01:41.840 --> 00:01:43.500
+n squared growth despite different
+
+55
+00:01:43.500 --> 00:01:46.600
+exact totals. Median-of-three can improve
+
+56
+00:01:46.600 --> 00:01:48.720
+pivot selection, but this example
+
+57
+00:01:48.720 --> 00:01:50.060
+shows it does not guarantee
+
+58
+00:01:50.060 --> 00:01:51.660
+balanced splits in the worst
+
+59
+00:01:51.660 --> 00:01:52.000
+case.
+
+60
+00:01:52.500 --> 00:01:54.900
+Now consider recurrences that divide
+
+61
+00:01:54.900 --> 00:01:57.000
+input sizes by two and
+
+62
+00:01:57.000 --> 00:01:58.980
+therefore need floors or ceilings.
+
+63
+00:01:59.500 --> 00:02:01.060
+Solving on exact powers of
+
+64
+00:02:01.060 --> 00:02:03.040
+two is convenient, but extending
+
+65
+00:02:03.040 --> 00:02:04.900
+that result to arbitrary n
+
+66
+00:02:04.900 --> 00:02:06.400
+requires a justification.
+
+67
+00:02:07.180 --> 00:02:09.240
+The slides call a nonnegative
+
+68
+00:02:09.240 --> 00:02:11.180
+function smooth when its value
+
+69
+00:02:11.180 --> 00:02:12.680
+at two n is Theta
+
+70
+00:02:12.680 --> 00:02:14.560
+of its value at n.
+
+71
+00:02:14.940 --> 00:02:16.420
+A polynomial n to the
+
+72
+00:02:16.420 --> 00:02:18.700
+c qualifies, since doubling n
+
+73
+00:02:18.700 --> 00:02:20.040
+multiplies it by the fixed
+
+74
+00:02:20.040 --> 00:02:21.400
+constant two to the c.
+
+75
+00:02:21.860 --> 00:02:23.720
+The function n log n
+
+76
+00:02:23.720 --> 00:02:25.460
+is also smooth for sufficiently
+
+77
+00:02:25.460 --> 00:02:27.760
+large n, while two to
+
+78
+00:02:27.760 --> 00:02:29.660
+the n is not. Doubling
+
+79
+00:02:29.660 --> 00:02:31.340
+the input in that exponential
+
+80
+00:02:31.340 --> 00:02:33.100
+changes its ratio by another
+
+81
+00:02:33.100 --> 00:02:34.620
+factor two to the n,
+
+82
+00:02:34.940 --> 00:02:36.460
+which cannot be bounded by
+
+83
+00:02:36.460 --> 00:02:37.520
+a fixed constant.
+
+84
+00:02:38.060 --> 00:02:40.440
+For an ordinary monotone running-time
+
+85
+00:02:40.440 --> 00:02:42.820
+function, sandwich n between the
+
+86
+00:02:42.820 --> 00:02:44.640
+adjacent powers of two. Bounds
+
+87
+00:02:44.640 --> 00:02:46.280
+at those endpoints and a
+
+88
+00:02:46.280 --> 00:02:48.280
+smooth comparison function then control
+
+89
+00:02:48.280 --> 00:02:50.500
+the in-between values, which explains
+
+90
+00:02:50.500 --> 00:02:52.400
+the usual rounding shortcut for
+
+91
+00:02:52.400 --> 00:02:54.160
+standard algorithmic recurrences.
+
+92
+00:02:54.740 --> 00:02:56.100
+Things to take note of:
+
+93
+00:02:56.440 --> 00:02:58.040
+expand until the correct base,
+
+94
+00:02:58.440 --> 00:03:00.160
+keep parity when exact counts
+
+95
+00:03:00.160 --> 00:03:02.440
+matter, and distinguish exact formulas
+
+96
+00:03:02.440 --> 00:03:03.760
+from their common growth class.
+
+97
+00:03:04.360 --> 00:03:05.840
+Ignore rounding only when the
+
+98
+00:03:05.840 --> 00:03:07.840
+algorithm and comparison bounds justify
+
+99
+00:03:07.840 --> 00:03:09.820
+it, not because floors happen
+
+100
+00:03:09.820 --> 00:03:11.060
+to look untidy, hmph.

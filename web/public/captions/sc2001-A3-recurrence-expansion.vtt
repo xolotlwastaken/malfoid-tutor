@@ -1,0 +1,385 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.540
+How do we build and
+
+2
+00:00:01.540 --> 00:00:03.860
+expand a recurrence? We will
+
+3
+00:00:03.860 --> 00:00:06.040
+count subproblems, track the work
+
+4
+00:00:06.040 --> 00:00:07.780
+at every level, and include
+
+5
+00:00:07.780 --> 00:00:09.440
+the leaves before deriving a
+
+6
+00:00:09.440 --> 00:00:10.980
+tight running-time bound.
+
+7
+00:00:11.740 --> 00:00:13.820
+A recurrence must describe what
+
+8
+00:00:13.820 --> 00:00:16.300
+the algorithm actually does. Count
+
+9
+00:00:16.300 --> 00:00:17.900
+the number of recursive calls,
+
+10
+00:00:18.180 --> 00:00:19.480
+the input size of each
+
+11
+00:00:19.480 --> 00:00:21.040
+call, and the local work
+
+12
+00:00:21.040 --> 00:00:23.260
+outside those calls, instead of
+
+13
+00:00:23.260 --> 00:00:24.580
+guessing from the height alone.
+
+14
+00:00:25.060 --> 00:00:27.100
+Our course example makes three
+
+15
+00:00:27.100 --> 00:00:29.340
+recursive calls on quarter-size inputs
+
+16
+00:00:29.340 --> 00:00:31.260
+and performs n units of
+
+17
+00:00:31.260 --> 00:00:33.220
+local work. With constant base
+
+18
+00:00:33.220 --> 00:00:35.480
+cost one, this becomes T
+
+19
+00:00:35.480 --> 00:00:37.160
+of n equals three T
+
+20
+00:00:37.160 --> 00:00:38.660
+of n over four plus
+
+21
+00:00:38.660 --> 00:00:40.500
+n, with T of one
+
+22
+00:00:40.500 --> 00:00:42.240
+equal to one. For this
+
+23
+00:00:42.240 --> 00:00:44.180
+expansion, take n to be
+
+24
+00:00:44.180 --> 00:00:45.280
+a power of four.
+
+25
+00:00:45.500 --> 00:00:47.520
+Start at input size sixty-four
+
+26
+00:00:47.520 --> 00:00:49.120
+and draw the first three
+
+27
+00:00:49.120 --> 00:00:51.480
+children, each of size sixteen.
+
+28
+00:00:51.960 --> 00:00:54.200
+The root performs sixty-four units
+
+29
+00:00:54.200 --> 00:00:56.160
+locally, while those three children
+
+30
+00:00:56.160 --> 00:00:57.820
+together perform forty-eight units.
+
+31
+00:00:58.260 --> 00:01:00.840
+Each size-sixteen child creates three
+
+32
+00:01:00.840 --> 00:01:03.720
+size-four children, giving nine nodes
+
+33
+00:01:03.720 --> 00:01:05.680
+on the next level. Their
+
+34
+00:01:05.680 --> 00:01:08.120
+local work totals thirty-six, which
+
+35
+00:01:08.120 --> 00:01:09.320
+is another factor of three
+
+36
+00:01:09.320 --> 00:01:10.140
+quarters smaller.
+
+37
+00:01:10.780 --> 00:01:13.400
+One more expansion creates twenty-seven
+
+38
+00:01:13.400 --> 00:01:16.020
+size-one leaves. Each costs one
+
+39
+00:01:16.020 --> 00:01:17.760
+by the base condition, so
+
+40
+00:01:17.760 --> 00:01:19.560
+their total cost is twenty-seven
+
+41
+00:01:19.560 --> 00:01:21.700
+rather than thirty-six or sixty-four.
+
+42
+00:01:22.420 --> 00:01:24.040
+At a general level i,
+
+43
+00:01:24.540 --> 00:01:25.820
+there are three to the
+
+44
+00:01:25.820 --> 00:01:28.140
+i subproblems, each with size
+
+45
+00:01:28.140 --> 00:01:29.600
+n over four to the
+
+46
+00:01:29.600 --> 00:01:32.120
+i. Multiplying those quantities gives
+
+47
+00:01:32.120 --> 00:01:34.160
+n times three quarters to
+
+48
+00:01:34.160 --> 00:01:35.540
+the i as the total
+
+49
+00:01:35.540 --> 00:01:37.140
+non-leaf work on that level.
+
+50
+00:01:37.820 --> 00:01:39.800
+Stop when n divided by
+
+51
+00:01:39.800 --> 00:01:41.040
+four to the L reaches
+
+52
+00:01:41.040 --> 00:01:43.140
+one. The depth L is
+
+53
+00:01:43.140 --> 00:01:44.520
+therefore log base four of
+
+54
+00:01:44.520 --> 00:01:45.840
+n, and the number of
+
+55
+00:01:45.840 --> 00:01:47.160
+leaves is three to the
+
+56
+00:01:47.160 --> 00:01:49.020
+L, equivalently n to the
+
+57
+00:01:49.020 --> 00:01:50.300
+log base four of three.
+
+58
+00:01:50.980 --> 00:01:53.300
+Now add every internal level
+
+59
+00:01:53.300 --> 00:01:55.160
+and the leaf cost, without
+
+60
+00:01:55.160 --> 00:01:56.720
+counting the leaf level twice.
+
+61
+00:01:57.260 --> 00:01:58.940
+The internal sum is n
+
+62
+00:01:58.940 --> 00:02:00.820
+times a geometric series with
+
+63
+00:02:00.820 --> 00:02:03.220
+ratio three quarters, ending just
+
+64
+00:02:03.220 --> 00:02:04.440
+before depth L.
+
+65
+00:02:05.260 --> 00:02:07.080
+The infinite version of that
+
+66
+00:02:07.080 --> 00:02:08.920
+geometric series sums to four,
+
+67
+00:02:09.400 --> 00:02:11.220
+so our finite internal sum
+
+68
+00:02:11.220 --> 00:02:12.780
+is at most four n.
+
+69
+00:02:13.320 --> 00:02:14.660
+The leaf exponent is less
+
+70
+00:02:14.660 --> 00:02:16.140
+than one, so the leaves
+
+71
+00:02:16.140 --> 00:02:17.440
+do not raise the order
+
+72
+00:02:17.440 --> 00:02:18.220
+above linear.
+
+73
+00:02:18.900 --> 00:02:21.200
+The root alone already performs
+
+74
+00:02:21.200 --> 00:02:23.760
+n units, supplying a matching
+
+75
+00:02:23.760 --> 00:02:26.500
+linear lower bound. Combining the
+
+76
+00:02:26.500 --> 00:02:28.200
+lower and upper bounds proves
+
+77
+00:02:28.200 --> 00:02:30.400
+Theta of n, not merely
+
+78
+00:02:30.400 --> 00:02:31.740
+big O of n.
+
+79
+00:02:32.220 --> 00:02:34.260
+Compare this with merge sort,
+
+80
+00:02:34.560 --> 00:02:36.660
+where two half-size calls make
+
+81
+00:02:36.660 --> 00:02:38.380
+total work per level stay
+
+82
+00:02:38.380 --> 00:02:40.920
+linear. There the linear work
+
+83
+00:02:40.920 --> 00:02:43.300
+repeats for logarithmically many levels,
+
+84
+00:02:43.680 --> 00:02:45.180
+giving Theta of n log
+
+85
+00:02:45.180 --> 00:02:47.620
+n; binary search instead follows
+
+86
+00:02:47.620 --> 00:02:49.520
+one branch with constant local
+
+87
+00:02:49.520 --> 00:02:49.960
+work.
+
+88
+00:02:50.500 --> 00:02:51.800
+Things to take note of:
+
+89
+00:02:52.120 --> 00:02:53.900
+state the base case, count
+
+90
+00:02:53.900 --> 00:02:56.040
+branches and shrinkage separately, and
+
+91
+00:02:56.040 --> 00:02:57.480
+find the stopping depth before
+
+92
+00:02:57.480 --> 00:02:59.720
+simplifying the sum. Include the
+
+93
+00:02:59.720 --> 00:03:01.720
+leaf work, justify both sides
+
+94
+00:03:01.720 --> 00:03:03.060
+of a tight bound, and
+
+95
+00:03:03.060 --> 00:03:04.620
+never mistake tree depth for
+
+96
+00:03:04.620 --> 00:03:05.940
+total work, hmph.

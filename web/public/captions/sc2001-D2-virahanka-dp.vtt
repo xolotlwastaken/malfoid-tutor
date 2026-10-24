@@ -1,0 +1,373 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.220
+How do we turn a
+
+2
+00:00:01.220 --> 00:00:02.880
+new recurrence into a dynamic
+
+3
+00:00:02.880 --> 00:00:04.960
+program? We will use the
+
+4
+00:00:04.960 --> 00:00:07.540
+review's Virahanka definition, build its
+
+5
+00:00:07.540 --> 00:00:09.380
+state graph and table, and
+
+6
+00:00:09.380 --> 00:00:11.920
+derive memoised and bottom-up solutions
+
+7
+00:00:11.920 --> 00:00:13.240
+from the same dependencies.
+
+8
+00:00:13.820 --> 00:00:16.300
+Use the definition actually supplied
+
+9
+00:00:16.300 --> 00:00:18.480
+in this course: both base
+
+10
+00:00:18.480 --> 00:00:20.680
+values are one. For a
+
+11
+00:00:20.680 --> 00:00:22.880
+larger index, add the value
+
+12
+00:00:22.880 --> 00:00:24.460
+at the previous index to
+
+13
+00:00:24.460 --> 00:00:25.500
+the value at the floor
+
+14
+00:00:25.500 --> 00:00:27.340
+of half the index; do
+
+15
+00:00:27.340 --> 00:00:29.080
+not replace this recurrence with
+
+16
+00:00:29.080 --> 00:00:30.860
+a familiar Fibonacci formula.
+
+17
+00:00:31.700 --> 00:00:33.100
+Let the state V of
+
+18
+00:00:33.100 --> 00:00:35.220
+j mean exactly the value
+
+19
+00:00:35.220 --> 00:00:36.760
+of that recurrence at index
+
+20
+00:00:36.760 --> 00:00:39.400
+j. Both dependencies are smaller
+
+21
+00:00:39.400 --> 00:00:40.840
+than j when j exceeds
+
+22
+00:00:40.840 --> 00:00:43.700
+one, which permits an increasing-index
+
+23
+00:00:43.700 --> 00:00:44.440
+table order.
+
+24
+00:00:44.860 --> 00:00:46.340
+Begin the table with one
+
+25
+00:00:46.340 --> 00:00:47.460
+at zero and one at
+
+26
+00:00:47.460 --> 00:00:48.980
+one. For a request at
+
+27
+00:00:48.980 --> 00:00:51.340
+zero, return its base value
+
+28
+00:00:51.340 --> 00:00:52.800
+before attempting to write index
+
+29
+00:00:52.800 --> 00:00:54.060
+one in an array that
+
+30
+00:00:54.060 --> 00:00:55.360
+may contain only a single
+
+31
+00:00:55.360 --> 00:00:55.760
+slot.
+
+32
+00:00:56.340 --> 00:00:58.240
+At index two, the dependencies
+
+33
+00:00:58.240 --> 00:01:00.060
+are index one and floor
+
+34
+00:01:00.060 --> 00:01:01.800
+of two over two, which
+
+35
+00:01:01.800 --> 00:01:03.820
+is also one. Add the
+
+36
+00:01:03.820 --> 00:01:05.600
+stored one twice, giving two;
+
+37
+00:01:05.600 --> 00:01:07.320
+repeated dependence on a state
+
+38
+00:01:07.320 --> 00:01:09.080
+does not require computing that
+
+39
+00:01:09.080 --> 00:01:09.840
+state twice.
+
+40
+00:01:10.300 --> 00:01:12.780
+At index three, the dependencies
+
+41
+00:01:12.780 --> 00:01:14.960
+are index two and index
+
+42
+00:01:14.960 --> 00:01:17.320
+one, giving two plus one
+
+43
+00:01:17.320 --> 00:01:19.300
+equal to three. At index
+
+44
+00:01:19.300 --> 00:01:22.080
+four, use index three and
+
+45
+00:01:22.080 --> 00:01:24.340
+index two, giving three plus
+
+46
+00:01:24.340 --> 00:01:25.740
+two equal to five.
+
+47
+00:01:26.100 --> 00:01:27.940
+At index five, use V
+
+48
+00:01:27.940 --> 00:01:29.080
+of four plus V of
+
+49
+00:01:29.080 --> 00:01:30.620
+two to get seven. At
+
+50
+00:01:30.620 --> 00:01:32.220
+index six, use V of
+
+51
+00:01:32.220 --> 00:01:33.300
+five plus V of three
+
+52
+00:01:33.300 --> 00:01:34.940
+to get ten, completing the
+
+53
+00:01:34.940 --> 00:01:36.980
+table one, one, two, three,
+
+54
+00:01:37.200 --> 00:01:39.060
+five, seven, ten.
+
+55
+00:01:39.260 --> 00:01:41.480
+In a bottom-up implementation, loop
+
+56
+00:01:41.480 --> 00:01:42.560
+j from two to n
+
+57
+00:01:42.560 --> 00:01:45.100
+inclusive. Each iteration reads the
+
+58
+00:01:45.100 --> 00:01:46.960
+two required earlier cells and
+
+59
+00:01:46.960 --> 00:01:48.180
+stores their sum in V
+
+60
+00:01:48.180 --> 00:01:49.820
+at j, then the function
+
+61
+00:01:49.820 --> 00:01:50.980
+returns V at n.
+
+62
+00:01:51.300 --> 00:01:54.060
+A top-down implementation instead checks
+
+63
+00:01:54.060 --> 00:01:55.560
+whether V at the requested
+
+64
+00:01:55.560 --> 00:01:57.720
+index is already cached. If
+
+65
+00:01:57.720 --> 00:01:59.900
+not, it recursively obtains those
+
+66
+00:01:59.900 --> 00:02:02.120
+same two smaller states, adds
+
+67
+00:02:02.120 --> 00:02:03.400
+them and stores the result
+
+68
+00:02:03.400 --> 00:02:04.440
+before returning.
+
+69
+00:02:05.260 --> 00:02:06.800
+There are n plus one
+
+70
+00:02:06.800 --> 00:02:08.880
+state positions, and each costs
+
+71
+00:02:08.880 --> 00:02:10.540
+a constant number of arithmetic
+
+72
+00:02:10.540 --> 00:02:13.360
+and cache operations. Both implementations
+
+73
+00:02:13.360 --> 00:02:15.460
+therefore take linear arithmetic time
+
+74
+00:02:15.460 --> 00:02:17.980
+and linear table space; the
+
+75
+00:02:17.980 --> 00:02:20.140
+recursive version additionally counts its
+
+76
+00:02:20.140 --> 00:02:21.800
+possible linear stack depth.
+
+77
+00:02:22.260 --> 00:02:24.320
+Two rolling values are not
+
+78
+00:02:24.320 --> 00:02:26.360
+sufficient here, because a future
+
+79
+00:02:26.360 --> 00:02:27.900
+state may need an older
+
+80
+00:02:27.900 --> 00:02:30.660
+half-index entry. The dependency pattern
+
+81
+00:02:30.660 --> 00:02:32.000
+decides what memory can be
+
+82
+00:02:32.000 --> 00:02:34.700
+discarded, so a Fibonacci optimisation
+
+83
+00:02:34.700 --> 00:02:36.740
+cannot be copied just because
+
+84
+00:02:36.740 --> 00:02:38.720
+both definitions contain two terms.
+
+85
+00:02:39.340 --> 00:02:41.000
+Things to take note of:
+
+86
+00:02:41.420 --> 00:02:43.220
+preserve the supplied bases and
+
+87
+00:02:43.220 --> 00:02:45.460
+floor operation, justify the fill
+
+88
+00:02:45.460 --> 00:02:47.480
+order, and distinguish repeated use
+
+89
+00:02:47.480 --> 00:02:50.160
+from repeated computation. The method
+
+90
+00:02:50.160 --> 00:02:52.760
+is state, dependencies, order and
+
+91
+00:02:52.760 --> 00:02:55.220
+cost; remembering someone else's loop
+
+92
+00:02:55.220 --> 00:02:56.540
+without those meanings is a
+
+93
+00:02:56.540 --> 00:02:58.120
+rather fragile sort of confidence.

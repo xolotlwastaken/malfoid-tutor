@@ -1,0 +1,405 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.780
+What are P and NP,
+
+2
+00:00:02.260 --> 00:00:03.880
+and what does verification mean?
+
+3
+00:00:04.640 --> 00:00:06.020
+We will separate finding a
+
+4
+00:00:06.020 --> 00:00:07.700
+solution from checking a complete
+
+5
+00:00:07.700 --> 00:00:09.940
+certificate, explain why P is
+
+6
+00:00:09.940 --> 00:00:12.160
+contained in NP, and examine
+
+7
+00:00:12.160 --> 00:00:14.760
+a tempting but invalid universal-tour
+
+8
+00:00:14.760 --> 00:00:15.080
+claim.
+
+9
+00:00:15.500 --> 00:00:18.340
+P contains decision problems solvable
+
+10
+00:00:18.340 --> 00:00:20.620
+by a deterministic algorithm in
+
+11
+00:00:20.620 --> 00:00:23.600
+polynomial worst-case time. A polynomial
+
+12
+00:00:23.600 --> 00:00:25.900
+bound is an asymptotic classification,
+
+13
+00:00:26.320 --> 00:00:27.440
+not a promise that every
+
+14
+00:00:27.440 --> 00:00:29.400
+polynomial algorithm is practical for
+
+15
+00:00:29.400 --> 00:00:30.300
+every input size.
+
+16
+00:00:30.740 --> 00:00:34.280
+NP contains decision problems whose
+
+17
+00:00:34.280 --> 00:00:37.600
+yes-instances have polynomial-length certificates that
+
+18
+00:00:37.600 --> 00:00:40.460
+a deterministic polynomial-time procedure can
+
+19
+00:00:40.460 --> 00:00:42.680
+verify. The course's equivalent description
+
+20
+00:00:42.680 --> 00:00:45.540
+uses a nondeterministic guess followed
+
+21
+00:00:45.540 --> 00:00:48.080
+by verification, not ordinary random
+
+22
+00:00:48.080 --> 00:00:49.920
+guessing with a guaranteed good
+
+23
+00:00:49.920 --> 00:00:50.360
+outcome.
+
+24
+00:00:50.940 --> 00:00:53.080
+For a TSP threshold question,
+
+25
+00:00:53.540 --> 00:00:54.820
+a certificate can list a
+
+26
+00:00:54.820 --> 00:00:57.160
+proposed tour. The verifier must
+
+27
+00:00:57.160 --> 00:00:58.900
+check the vertices, all required
+
+28
+00:00:58.900 --> 00:01:01.000
+edges, the closing return and
+
+29
+00:01:01.000 --> 00:01:02.700
+the total cost, rather than
+
+30
+00:01:02.700 --> 00:01:04.400
+accepting because the route merely
+
+31
+00:01:04.400 --> 00:01:05.340
+looks plausible.
+
+32
+00:01:06.020 --> 00:01:07.440
+A route that repeats a
+
+33
+00:01:07.440 --> 00:01:09.640
+vertex and omits another fails
+
+34
+00:01:09.640 --> 00:01:10.680
+even if it is cheap.
+
+35
+00:01:11.200 --> 00:01:12.780
+A route visiting every vertex
+
+36
+00:01:12.780 --> 00:01:14.280
+also fails if its cost
+
+37
+00:01:14.280 --> 00:01:16.600
+exceeds K, because the certificate
+
+38
+00:01:16.600 --> 00:01:19.000
+must establish the entire yes-condition.
+
+39
+00:01:19.500 --> 00:01:21.840
+For knapsack, a certificate can
+
+40
+00:01:21.840 --> 00:01:24.120
+specify the selected item indices.
+
+41
+00:01:24.720 --> 00:01:26.160
+Check that no item is
+
+42
+00:01:26.160 --> 00:01:28.260
+repeated, total weight is at
+
+43
+00:01:28.260 --> 00:01:30.300
+most capacity and total profit
+
+44
+00:01:30.300 --> 00:01:31.980
+is at least the requested
+
+45
+00:01:31.980 --> 00:01:34.840
+threshold, with numeric operations accounted
+
+46
+00:01:34.840 --> 00:01:36.660
+for in the representation model.
+
+47
+00:01:37.220 --> 00:01:39.660
+If one candidate fails verification,
+
+48
+00:01:40.260 --> 00:01:41.720
+only that candidate has been
+
+49
+00:01:41.720 --> 00:01:44.460
+rejected. Another candidate may succeed,
+
+50
+00:01:44.960 --> 00:01:46.440
+so failure of a proposed
+
+51
+00:01:46.440 --> 00:01:48.460
+certificate does not establish that
+
+52
+00:01:48.460 --> 00:01:49.660
+the whole input is a
+
+53
+00:01:49.660 --> 00:01:50.400
+no-instance.
+
+54
+00:01:50.940 --> 00:01:52.860
+Every problem in P also
+
+55
+00:01:52.860 --> 00:01:54.780
+belongs to NP, because a
+
+56
+00:01:54.780 --> 00:01:56.840
+polynomial verifier can simply run
+
+57
+00:01:56.840 --> 00:01:58.560
+the polynomial solver. It does
+
+58
+00:01:58.560 --> 00:01:59.980
+not need a useful certificate
+
+59
+00:01:59.980 --> 00:02:02.400
+at all, which immediately disproves
+
+60
+00:02:02.400 --> 00:02:03.860
+the idea that NP means
+
+61
+00:02:03.860 --> 00:02:04.760
+not polynomial.
+
+62
+00:02:05.460 --> 00:02:06.780
+The absence of a known
+
+63
+00:02:06.780 --> 00:02:08.580
+efficient algorithm is not part
+
+64
+00:02:08.580 --> 00:02:10.320
+of the NP membership definition.
+
+65
+00:02:10.880 --> 00:02:13.000
+Whether P equals NP is
+
+66
+00:02:13.000 --> 00:02:14.600
+unresolved in the course framework,
+
+67
+00:02:14.900 --> 00:02:16.080
+so do not draw a
+
+68
+00:02:16.080 --> 00:02:18.000
+strict separation as an established
+
+69
+00:02:18.000 --> 00:02:18.400
+theorem.
+
+70
+00:02:19.180 --> 00:02:20.980
+Compare the question whether some
+
+71
+00:02:20.980 --> 00:02:22.440
+tour costs at most K
+
+72
+00:02:22.440 --> 00:02:24.480
+with the question whether every
+
+73
+00:02:24.480 --> 00:02:26.280
+tour does. A single cheap
+
+74
+00:02:26.280 --> 00:02:28.720
+tour witnesses the existential yes-condition,
+
+75
+00:02:28.980 --> 00:02:30.880
+but cannot establish that every
+
+76
+00:02:30.880 --> 00:02:31.960
+other tour is cheap.
+
+77
+00:02:32.500 --> 00:02:34.940
+For the universal question, one
+
+78
+00:02:34.940 --> 00:02:37.040
+expensive tour can instead witness
+
+79
+00:02:37.040 --> 00:02:41.240
+a no-answer. This complementary-certificate observation
+
+80
+00:02:41.240 --> 00:02:42.580
+does not prove that the
+
+81
+00:02:42.580 --> 00:02:45.040
+universal problem lies outside NP
+
+82
+00:02:45.040 --> 00:02:48.340
+or requires exponential time, despite
+
+83
+00:02:48.340 --> 00:02:49.820
+the unsupported claims on the
+
+84
+00:02:49.820 --> 00:02:50.220
+slide.
+
+85
+00:02:50.620 --> 00:02:52.880
+Certificate length must be polynomial
+
+86
+00:02:52.880 --> 00:02:54.860
+as well as verification time,
+
+87
+00:02:55.020 --> 00:02:56.600
+and the verifier checks a
+
+88
+00:02:56.600 --> 00:02:58.640
+yes-witness for the exact decision
+
+89
+00:02:58.640 --> 00:03:00.840
+predicate. Guessing a whole enormous
+
+90
+00:03:00.840 --> 00:03:02.940
+computation is not useful if
+
+91
+00:03:02.940 --> 00:03:04.920
+merely reading the claimed certificate
+
+92
+00:03:04.920 --> 00:03:06.860
+already exceeds the allowed bound.
+
+93
+00:03:07.300 --> 00:03:08.840
+Things to take note of:
+
+94
+00:03:09.240 --> 00:03:11.580
+define the decision question, give
+
+95
+00:03:11.580 --> 00:03:13.200
+a complete witness and explain
+
+96
+00:03:13.200 --> 00:03:16.020
+every verification check. Keep solving
+
+97
+00:03:16.020 --> 00:03:18.340
+separate from checking, remember P
+
+98
+00:03:18.340 --> 00:03:20.360
+is inside NP, and never
+
+99
+00:03:20.360 --> 00:03:21.680
+turn a failed witness into
+
+100
+00:03:21.680 --> 00:03:23.580
+a proof of nonexistence, how
+
+101
+00:03:23.580 --> 00:03:24.100
+charming.

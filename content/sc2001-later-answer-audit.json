@@ -1,0 +1,423 @@
+{
+  "status": "passed",
+  "topics": 31,
+  "questions": 403,
+  "numeric_answer_checks": 68,
+  "unique_questions": true,
+  "unique_options": true,
+  "balanced_difficulties": true,
+  "ids_preserve_existing_range": "New only 551..953; topics401..431",
+  "reduction_graphs_exhaustively_checked": 64,
+  "conceptual_review": "Authored answers and all three distractors inspected against stated assumptions and source-grounded lessons; corrections include explicit parity bases and self-contained mixed-quiz context.",
+  "evidence": [
+    {
+      "id": 567,
+      "lesson": "A2",
+      "derived": "6",
+      "method": "Simulated repeated integer division"
+    },
+    {
+      "id": 582,
+      "lesson": "A3",
+      "derived": "37",
+      "method": "Direct recursive evaluation with base cost one"
+    },
+    {
+      "id": 583,
+      "lesson": "A3",
+      "derived": "27",
+      "method": "Enumerated root-to-leaf branch sequences"
+    },
+    {
+      "id": 585,
+      "lesson": "A3",
+      "derived": "175",
+      "method": "Direct recursive evaluation, independent of level sum"
+    },
+    {
+      "id": 593,
+      "lesson": "A4",
+      "derived": "1",
+      "method": "Computed logarithmic comparison exponent"
+    },
+    {
+      "id": 621,
+      "lesson": "A6",
+      "derived": "6",
+      "method": "Expanded unit-decrease recurrence to zero base"
+    },
+    {
+      "id": 630,
+      "lesson": "A7",
+      "derived": "3",
+      "method": "Direct recurrence expansion to stated parity base"
+    },
+    {
+      "id": 631,
+      "lesson": "A7",
+      "derived": "5",
+      "method": "Direct recurrence expansion to stated parity base"
+    },
+    {
+      "id": 633,
+      "lesson": "A7",
+      "derived": "19",
+      "method": "Direct recurrence expansion to stated parity base"
+    },
+    {
+      "id": 634,
+      "lesson": "A7",
+      "derived": "15",
+      "method": "Direct recurrence expansion to stated parity base"
+    },
+    {
+      "id": 638,
+      "lesson": "A7",
+      "derived": "24",
+      "method": "Direct recurrence expansion to stated parity base"
+    },
+    {
+      "id": 643,
+      "lesson": "G1",
+      "derived": "25",
+      "method": "Simulated largest-feasible scan"
+    },
+    {
+      "id": 644,
+      "lesson": "G1",
+      "derived": "12",
+      "method": "Independent remainder subtraction"
+    },
+    {
+      "id": 646,
+      "lesson": "G1",
+      "derived": "4+1+1, three coins",
+      "method": "Simulated greedy choices; breadth-first optimum two"
+    },
+    {
+      "id": 647,
+      "lesson": "G1",
+      "derived": "25,10,1,1",
+      "method": "Simulated denomination multiplicities"
+    },
+    {
+      "id": 649,
+      "lesson": "G1",
+      "derived": "Greedy 5; optimum 2",
+      "method": "Greedy simulation versus independent breadth-first exact change"
+    },
+    {
+      "id": 659,
+      "lesson": "G2",
+      "derived": "B,C,E",
+      "method": "Finish-order simulation"
+    },
+    {
+      "id": 670,
+      "lesson": "G3",
+      "derived": "6",
+      "method": "Direct density division"
+    },
+    {
+      "id": 672,
+      "lesson": "G3",
+      "derived": "Item 1, item 2, item 3",
+      "method": "Computed descending density order"
+    },
+    {
+      "id": 674,
+      "lesson": "G3",
+      "derived": "240",
+      "method": "Enumerated fractional linear-program vertices"
+    },
+    {
+      "id": 676,
+      "lesson": "G3",
+      "derived": "14",
+      "method": "Enumerated all fractional LP vertices"
+    },
+    {
+      "id": 685,
+      "lesson": "D1",
+      "derived": "7",
+      "method": "Enumerated distinct indices including zero"
+    },
+    {
+      "id": 694,
+      "lesson": "D2",
+      "derived": "1",
+      "method": "Independently evaluated recurrence table"
+    },
+    {
+      "id": 697,
+      "lesson": "D2",
+      "derived": "2",
+      "method": "Independently evaluated recurrence table"
+    },
+    {
+      "id": 698,
+      "lesson": "D2",
+      "derived": "5",
+      "method": "Independently evaluated recurrence table"
+    },
+    {
+      "id": 699,
+      "lesson": "D2",
+      "derived": "10",
+      "method": "Independently evaluated recurrence table"
+    },
+    {
+      "id": 703,
+      "lesson": "D2",
+      "derived": "18",
+      "method": "Independently evaluated recurrence table"
+    },
+    {
+      "id": 710,
+      "lesson": "D3",
+      "derived": "1",
+      "method": "Breadth-first search through reachable exact amounts"
+    },
+    {
+      "id": 711,
+      "lesson": "D3",
+      "derived": "2",
+      "method": "Breadth-first search through reachable exact amounts"
+    },
+    {
+      "id": 713,
+      "lesson": "D3",
+      "derived": "Infinity and 2",
+      "method": "Breadth-first reachability, amount1 unreachable"
+    },
+    {
+      "id": 715,
+      "lesson": "D3",
+      "derived": "[0,1,2,1,1,2,2]",
+      "method": "Breadth-first exact change for every amount"
+    },
+    {
+      "id": 724,
+      "lesson": "D4",
+      "derived": "3",
+      "method": "Enumerated all subsequences of both inputs and intersected sets"
+    },
+    {
+      "id": 728,
+      "lesson": "D4",
+      "derived": "3",
+      "method": "Independent prefix-subsequence enumeration"
+    },
+    {
+      "id": 738,
+      "lesson": "D5",
+      "derived": "7",
+      "method": "Exhaustive subset enumeration"
+    },
+    {
+      "id": 739,
+      "lesson": "D5",
+      "derived": "3",
+      "method": "Enumerated empty and singleton subsets, no repeated copies"
+    },
+    {
+      "id": 747,
+      "lesson": "D6",
+      "derived": "8",
+      "method": "Independent binary integer parsing"
+    },
+    {
+      "id": 755,
+      "lesson": "D6",
+      "derived": "20,480",
+      "method": "Counted item/capacity Cartesian-product elements"
+    },
+    {
+      "id": 776,
+      "lesson": "S1",
+      "derived": "4",
+      "method": "Independent naive-character simulator"
+    },
+    {
+      "id": 777,
+      "lesson": "S1",
+      "derived": "4",
+      "method": "Independent comparison counter at first alignment"
+    },
+    {
+      "id": 778,
+      "lesson": "S1",
+      "derived": "5",
+      "method": "Enumerated complete starts"
+    },
+    {
+      "id": 779,
+      "lesson": "S1",
+      "derived": "14",
+      "method": "Independent comparison counter through first success"
+    },
+    {
+      "id": 780,
+      "lesson": "S1",
+      "derived": "40",
+      "method": "Explicit all-A near-match enumeration"
+    },
+    {
+      "id": 789,
+      "lesson": "S2",
+      "derived": "64152",
+      "method": "String-window shift independent of rolling arithmetic"
+    },
+    {
+      "id": 793,
+      "lesson": "S2",
+      "derived": "12",
+      "method": "Direct parsing and modulus, independent of rolling update"
+    },
+    {
+      "id": 792,
+      "lesson": "S2",
+      "derived": "12,9,12",
+      "method": "Directly hashed each literal window independently"
+    },
+    {
+      "id": 802,
+      "lesson": "S3",
+      "derived": "2",
+      "method": "Enumerated hash-equal windows"
+    },
+    {
+      "id": 803,
+      "lesson": "S3",
+      "derived": "3",
+      "method": "Directly compared each hash-equal candidate"
+    },
+    {
+      "id": 804,
+      "lesson": "S3",
+      "derived": "2",
+      "method": "Enumerated adjacent-window transitions"
+    },
+    {
+      "id": 815,
+      "lesson": "S4",
+      "derived": "0",
+      "method": "Computed rightmost occurrence from literal pattern"
+    },
+    {
+      "id": 816,
+      "lesson": "S4",
+      "derived": "2 and 4",
+      "method": "Computed rightmost and absent-character defaults"
+    },
+    {
+      "id": 817,
+      "lesson": "S4",
+      "derived": "4",
+      "method": "Evaluated explicit course mismatch rule"
+    },
+    {
+      "id": 818,
+      "lesson": "S4",
+      "derived": "2",
+      "method": "Endpoint displacement independent of mismatch pointer increment"
+    },
+    {
+      "id": 820,
+      "lesson": "S4",
+      "derived": "3",
+      "method": "Evaluated fallback when character table is zero"
+    },
+    {
+      "id": 829,
+      "lesson": "S5",
+      "derived": "7",
+      "method": "Aligned earlier suffix endpoint to old endpoint"
+    },
+    {
+      "id": 830,
+      "lesson": "S5",
+      "derived": "10",
+      "method": "Added leftward matches to pattern slide"
+    },
+    {
+      "id": 834,
+      "lesson": "S5",
+      "derived": "7",
+      "method": "Converted slide to mismatch-pointer increment"
+    },
+    {
+      "id": 841,
+      "lesson": "S6",
+      "derived": "12",
+      "method": "Explicit mismatch step"
+    },
+    {
+      "id": 842,
+      "lesson": "S6",
+      "derived": "15",
+      "method": "Explicit mismatch step"
+    },
+    {
+      "id": 843,
+      "lesson": "S6",
+      "derived": "24",
+      "method": "Explicit mismatch step"
+    },
+    {
+      "id": 844,
+      "lesson": "S6",
+      "derived": "18",
+      "method": "Summed independently recorded per-alignment counts"
+    },
+    {
+      "id": 845,
+      "lesson": "S6",
+      "derived": "19",
+      "method": "Computed first index from final window endpoint"
+    },
+    {
+      "id": 854,
+      "lesson": "N1",
+      "derived": "7",
+      "method": "Generated and checked every Hanoi move for legality"
+    },
+    {
+      "id": 898,
+      "lesson": "N4",
+      "derived": "No; its cost is7",
+      "method": "Explicit five-edge tour-cost sum"
+    },
+    {
+      "id": 921,
+      "lesson": "N6",
+      "derived": "104",
+      "method": "Direct closed-tour edge summation"
+    },
+    {
+      "id": 922,
+      "lesson": "N6",
+      "derived": "7",
+      "method": "Independent alternate feasible-tour sum"
+    },
+    {
+      "id": 936,
+      "lesson": "N7",
+      "derived": "21",
+      "method": "Direct final spanning-cycle edge sum"
+    },
+    {
+      "id": 946,
+      "lesson": "N8",
+      "derived": "160",
+      "method": "Explicit accepted-item profit sum"
+    },
+    {
+      "id": 947,
+      "lesson": "N8",
+      "derived": "220",
+      "method": "Independent enumeration of every whole-item subset"
+    }
+  ],
+  "bank_sha256": "75cb6e6ea7daa6e14f114af79108761aebf3c31cf1ac3b44805b171cd6b98660"
+}

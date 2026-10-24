@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.180
+How does naive string matching
+
+2
+00:00:02.180 --> 00:00:03.960
+scan the text? We will
+
+3
+00:00:03.960 --> 00:00:06.140
+align a pattern, compare characters,
+
+4
+00:00:06.720 --> 00:00:09.080
+reset after mismatches, and derive
+
+5
+00:00:09.080 --> 00:00:10.340
+the scan bound from the
+
+6
+00:00:10.340 --> 00:00:11.820
+number of legal alignments.
+
+7
+00:00:12.220 --> 00:00:14.140
+Our output is the first
+
+8
+00:00:14.140 --> 00:00:15.940
+starting index where every pattern
+
+9
+00:00:15.940 --> 00:00:17.820
+character matches a consecutive text
+
+10
+00:00:17.820 --> 00:00:20.260
+window. We will use zero-based
+
+11
+00:00:20.260 --> 00:00:22.640
+indices here, with text A
+
+12
+00:00:22.780 --> 00:00:24.600
+B A B A B
+
+13
+00:00:24.600 --> 00:00:26.520
+A C and pattern A
+
+14
+00:00:26.700 --> 00:00:27.680
+B A C.
+
+15
+00:00:28.020 --> 00:00:30.080
+A legal starting index i
+
+16
+00:00:30.080 --> 00:00:31.880
+ranges from zero through n
+
+17
+00:00:31.880 --> 00:00:34.240
+minus m inclusive. If the
+
+18
+00:00:34.240 --> 00:00:35.360
+pattern is longer than the
+
+19
+00:00:35.360 --> 00:00:37.020
+text, there is no complete
+
+20
+00:00:37.020 --> 00:00:39.060
+window, so return no match
+
+21
+00:00:39.060 --> 00:00:40.920
+without reading past the text.
+
+22
+00:00:41.420 --> 00:00:43.840
+At start zero, compare A
+
+23
+00:00:43.840 --> 00:00:45.120
+with A, B with B,
+
+24
+00:00:45.300 --> 00:00:47.080
+and A with A successfully.
+
+25
+00:00:47.900 --> 00:00:49.980
+The fourth comparison checks pattern
+
+26
+00:00:49.980 --> 00:00:51.900
+C against text B and
+
+27
+00:00:51.900 --> 00:00:53.600
+fails, so that window is
+
+28
+00:00:53.600 --> 00:00:54.160
+not a match.
+
+29
+00:00:54.900 --> 00:00:56.980
+Move the entire pattern one
+
+30
+00:00:56.980 --> 00:00:59.220
+position right and restart at
+
+31
+00:00:59.220 --> 00:01:01.340
+its first character. At start
+
+32
+00:01:01.340 --> 00:01:04.140
+one, pattern A immediately disagrees
+
+33
+00:01:04.140 --> 00:01:06.140
+with text B, so reject
+
+34
+00:01:06.140 --> 00:01:08.540
+after one comparison rather than
+
+35
+00:01:08.540 --> 00:01:10.520
+continuing from the previous mismatch.
+
+36
+00:01:11.020 --> 00:01:13.000
+At start two, the first
+
+37
+00:01:13.000 --> 00:01:15.220
+three characters again match A,
+
+38
+00:01:15.560 --> 00:01:17.160
+B and A. Pattern C
+
+39
+00:01:17.640 --> 00:01:19.280
+then disagrees with text B,
+
+40
+00:01:19.280 --> 00:01:21.160
+using four comparisons for this
+
+41
+00:01:21.160 --> 00:01:21.580
+alignment.
+
+42
+00:01:22.180 --> 00:01:24.640
+At start three, A immediately
+
+43
+00:01:24.640 --> 00:01:26.900
+disagrees with B, so reject
+
+44
+00:01:26.900 --> 00:01:29.020
+with one comparison. At start
+
+45
+00:01:29.020 --> 00:01:31.060
+four, all four characters A,
+
+46
+00:01:31.240 --> 00:01:32.880
+B, A, C match, so
+
+47
+00:01:32.880 --> 00:01:34.380
+return index four as the
+
+48
+00:01:34.380 --> 00:01:35.080
+first occurrence.
+
+49
+00:01:35.580 --> 00:01:37.400
+The trace used four plus
+
+50
+00:01:37.400 --> 00:01:39.100
+one plus four plus one
+
+51
+00:01:39.100 --> 00:01:41.580
+plus four comparisons, for fourteen
+
+52
+00:01:41.580 --> 00:01:44.080
+in total. Count actual character
+
+53
+00:01:44.080 --> 00:01:46.400
+checks separately from loop-control tests
+
+54
+00:01:46.400 --> 00:01:47.880
+when that is the question's
+
+55
+00:01:47.880 --> 00:01:48.840
+chosen operation.
+
+56
+00:01:49.540 --> 00:01:51.600
+For the worst-case pattern, place
+
+57
+00:01:51.600 --> 00:01:53.300
+many A characters before a
+
+58
+00:01:53.300 --> 00:01:54.880
+final C and search an
+
+59
+00:01:54.880 --> 00:01:57.680
+all-A text. Each legal alignment
+
+60
+00:01:57.680 --> 00:01:59.420
+matches almost the whole pattern
+
+61
+00:01:59.420 --> 00:02:00.820
+before failing on its last
+
+62
+00:02:00.820 --> 00:02:01.320
+character.
+
+63
+00:02:01.820 --> 00:02:03.320
+There are n minus m
+
+64
+00:02:03.320 --> 00:02:05.780
+plus one complete windows, and
+
+65
+00:02:05.780 --> 00:02:07.660
+each can require m character
+
+66
+00:02:07.660 --> 00:02:09.880
+comparisons. That gives a scan
+
+67
+00:02:09.880 --> 00:02:11.360
+upper bound of m times
+
+68
+00:02:11.360 --> 00:02:13.020
+n minus m plus one,
+
+69
+00:02:13.020 --> 00:02:15.420
+with the near-match family attaining
+
+70
+00:02:15.420 --> 00:02:16.100
+that order.
+
+71
+00:02:16.740 --> 00:02:19.340
+The straightforward implementation uses a
+
+72
+00:02:19.340 --> 00:02:21.220
+constant number of indices beyond
+
+73
+00:02:21.220 --> 00:02:23.140
+the input strings. A full
+
+74
+00:02:23.140 --> 00:02:24.960
+specification should also state an
+
+75
+00:02:24.960 --> 00:02:27.700
+empty-pattern convention; returning zero is
+
+76
+00:02:27.700 --> 00:02:29.780
+common, but blindly reading pattern
+
+77
+00:02:29.780 --> 00:02:31.260
+position zero when the pattern
+
+78
+00:02:31.260 --> 00:02:32.360
+is empty is invalid.
+
+79
+00:02:32.860 --> 00:02:34.420
+Things to take note of:
+
+80
+00:02:34.860 --> 00:02:36.420
+keep the alignment start distinct
+
+81
+00:02:36.420 --> 00:02:37.860
+from the current character pointers
+
+82
+00:02:37.860 --> 00:02:39.700
+and reset the pattern after
+
+83
+00:02:39.700 --> 00:02:41.540
+a mismatch. Stop at the
+
+84
+00:02:41.540 --> 00:02:43.500
+last complete window, return the
+
+85
+00:02:43.500 --> 00:02:45.220
+first successful start, and do
+
+86
+00:02:45.220 --> 00:02:46.840
+not confuse a subsequence with
+
+87
+00:02:46.840 --> 00:02:48.360
+the consecutive substring we are
+
+88
+00:02:48.360 --> 00:02:49.980
+searching for, hmph.

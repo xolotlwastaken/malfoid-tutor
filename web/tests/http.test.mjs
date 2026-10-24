@@ -11,8 +11,8 @@ test('the app serves lessons and seekable video without exposing source files', 
   const examBank=await fetch(base+'/sc2203-exam-question-bank.md');
   assert.equal(examBank.status,200);
   assert.match(await examBank.text(),/## Topic 11 — SAT, 3SAT, Cook–Levin and NP-completeness/);
-  assert.equal(catalog.lessons.length,107);
-  assert.equal(catalog.lessons.filter(l=>l.courseId==='sc2001').length,18);
+  assert.equal(catalog.lessons.length,138);
+  assert.equal(catalog.lessons.filter(l=>l.courseId==='sc2001').length,49);
   const operatingSystems=catalog.lessons.filter(l=>l.courseId==='sc2005');
   assert.equal(operatingSystems.length,41);
   assert.equal(new Set(operatingSystems.map(l=>l.slug)).size,41);
@@ -46,8 +46,8 @@ test('the app serves lessons and seekable video without exposing source files', 
     assert.equal(sourceMap.status,200);assert.ok((await sourceMap.text()).length>100);
     const poster=await fetch(base+lesson.poster,{method:'HEAD'});assert.equal(poster.status,200);
   }
-  assert.equal(catalog.topics.flatMap(t=>t.qs).length,550);
-  assert.equal(new Set(catalog.lessons.flatMap(l=>l.topicIds)).size,40);
+  assert.equal(catalog.topics.flatMap(t=>t.qs).length,953);
+  assert.equal(new Set(catalog.lessons.flatMap(l=>l.topicIds)).size,71);
   const range=await fetch(base+catalog.lessons[0].video,{headers:{Range:'bytes=0-1023'}});
   assert.equal(range.status,206);assert.equal((await range.arrayBuffer()).byteLength,1024);
   assert.match(range.headers.get('content-range'),/^bytes 0-1023\//);

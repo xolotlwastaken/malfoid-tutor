@@ -1,0 +1,413 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.220
+What makes a computational task
+
+2
+00:00:02.220 --> 00:00:04.260
+hard? We will identify the
+
+3
+00:00:04.260 --> 00:00:06.240
+required output, derive the work
+
+4
+00:00:06.240 --> 00:00:07.740
+of printing a Hanoi solution,
+
+5
+00:00:08.100 --> 00:00:09.840
+and distinguish decision questions from
+
+6
+00:00:09.840 --> 00:00:11.260
+optimisation objectives.
+
+7
+00:00:11.900 --> 00:00:13.300
+A task can be difficult
+
+8
+00:00:13.300 --> 00:00:15.460
+to understand or code without
+
+9
+00:00:15.460 --> 00:00:17.440
+having a bad asymptotic running
+
+10
+00:00:17.440 --> 00:00:20.580
+time. Complexity analysis instead asks
+
+11
+00:00:20.580 --> 00:00:22.380
+how the required resources grow
+
+12
+00:00:22.380 --> 00:00:24.180
+as the encoded input grows,
+
+13
+00:00:24.180 --> 00:00:25.960
+with a clear statement of
+
+14
+00:00:25.960 --> 00:00:27.520
+what the algorithm must produce.
+
+15
+00:00:28.020 --> 00:00:30.040
+For Towers of Hanoi, move
+
+16
+00:00:30.040 --> 00:00:32.060
+disks between three pegs without
+
+17
+00:00:32.060 --> 00:00:33.700
+placing a larger disk on
+
+18
+00:00:33.700 --> 00:00:35.620
+a smaller one. The standard
+
+19
+00:00:35.620 --> 00:00:37.660
+recursive method transfers the smaller
+
+20
+00:00:37.660 --> 00:00:39.680
+stack, moves the largest disk,
+
+21
+00:00:39.680 --> 00:00:41.560
+and transfers the smaller stack
+
+22
+00:00:41.560 --> 00:00:41.840
+again.
+
+23
+00:00:42.460 --> 00:00:44.160
+With three disks, label the
+
+24
+00:00:44.160 --> 00:00:46.120
+source A, destination B and
+
+25
+00:00:46.120 --> 00:00:48.080
+spare C. The seven moves
+
+26
+00:00:48.080 --> 00:00:49.540
+are A to B, A
+
+27
+00:00:49.540 --> 00:00:50.660
+to C, B to C,
+
+28
+00:00:50.840 --> 00:00:51.540
+A to B, C to
+
+29
+00:00:51.540 --> 00:00:52.480
+A, C to B and
+
+30
+00:00:52.480 --> 00:00:53.820
+A to B, with each
+
+31
+00:00:53.820 --> 00:00:55.420
+move involving the only legal
+
+32
+00:00:55.420 --> 00:00:56.640
+top disk for that step.
+
+33
+00:00:56.980 --> 00:00:58.540
+The move count has base
+
+34
+00:00:58.540 --> 00:01:00.020
+one for one disk and
+
+35
+00:01:00.020 --> 00:01:01.560
+recurrence M of n equals
+
+36
+00:01:01.560 --> 00:01:03.840
+twice M of n minus
+
+37
+00:01:03.840 --> 00:01:06.100
+one plus one. Expanding gives
+
+38
+00:01:06.100 --> 00:01:07.580
+two to the n minus
+
+39
+00:01:07.580 --> 00:01:09.560
+one, so printing every move
+
+40
+00:01:09.560 --> 00:01:12.140
+necessarily requires time proportional to
+
+41
+00:01:12.140 --> 00:01:14.040
+that exponentially long output.
+
+42
+00:01:14.940 --> 00:01:16.640
+Computing only the number of
+
+43
+00:01:16.640 --> 00:01:18.100
+moves is a different output
+
+44
+00:01:18.100 --> 00:01:19.720
+task from listing them all.
+
+45
+00:01:20.180 --> 00:01:22.240
+The binary representation of two
+
+46
+00:01:22.240 --> 00:01:23.420
+to the n minus one
+
+47
+00:01:23.420 --> 00:01:25.500
+has only n bits, so
+
+48
+00:01:25.500 --> 00:01:27.160
+an output-size argument about the
+
+49
+00:01:27.160 --> 00:01:28.440
+full move list cannot be
+
+50
+00:01:28.440 --> 00:01:30.300
+transferred unchanged to returning that
+
+51
+00:01:30.300 --> 00:01:30.620
+count.
+
+52
+00:01:31.060 --> 00:01:33.260
+The slide's numerical estimate for
+
+53
+00:01:33.260 --> 00:01:35.880
+sixty-four disks is incorrect, so
+
+54
+00:01:35.880 --> 00:01:38.220
+retain the exact move-count derivation
+
+55
+00:01:38.220 --> 00:01:40.340
+rather than memorising that runtime.
+
+56
+00:01:41.100 --> 00:01:43.520
+An exponential output requirement is
+
+57
+00:01:43.520 --> 00:01:45.320
+concrete evidence for this listing
+
+58
+00:01:45.320 --> 00:01:47.300
+task, while a slow known
+
+59
+00:01:47.300 --> 00:01:49.060
+algorithm alone is not a
+
+60
+00:01:49.060 --> 00:01:50.940
+proof that every algorithm for
+
+61
+00:01:50.940 --> 00:01:52.600
+another task must be slow.
+
+62
+00:01:53.020 --> 00:01:54.800
+A decision problem asks for
+
+63
+00:01:54.800 --> 00:01:56.200
+yes or no, such as
+
+64
+00:01:56.200 --> 00:01:57.420
+whether a tour has cost
+
+65
+00:01:57.420 --> 00:01:59.200
+at most K. An optimisation
+
+66
+00:01:59.200 --> 00:02:01.120
+problem instead asks for the
+
+67
+00:02:01.120 --> 00:02:02.720
+cheapest valid tour or its
+
+68
+00:02:02.720 --> 00:02:03.500
+minimum cost.
+
+69
+00:02:04.020 --> 00:02:05.380
+For a spanning tree, the
+
+70
+00:02:05.380 --> 00:02:07.380
+decision question asks whether some
+
+71
+00:02:07.380 --> 00:02:09.080
+spanning tree has total cost
+
+72
+00:02:09.080 --> 00:02:10.960
+at most K. For zero-one
+
+73
+00:02:10.960 --> 00:02:13.060
+knapsack, it asks whether some
+
+74
+00:02:13.060 --> 00:02:14.540
+subset has weight at most
+
+75
+00:02:14.540 --> 00:02:16.420
+C and profit at least
+
+76
+00:02:16.420 --> 00:02:18.820
+K, keeping the two inequalities
+
+77
+00:02:18.820 --> 00:02:19.420
+distinct.
+
+78
+00:02:19.900 --> 00:02:22.160
+An exact optimisation solver can
+
+79
+00:02:22.160 --> 00:02:24.220
+answer its related threshold question
+
+80
+00:02:24.220 --> 00:02:26.120
+by comparing its optimum with
+
+81
+00:02:26.120 --> 00:02:27.820
+K. Thus a hardness result
+
+82
+00:02:27.820 --> 00:02:29.300
+for the decision version can
+
+83
+00:02:29.300 --> 00:02:32.860
+imply difficulty for exact optimisation,
+
+84
+00:02:32.860 --> 00:02:34.100
+but the formal P and
+
+85
+00:02:34.100 --> 00:02:36.980
+NP definitions here classify decision
+
+86
+00:02:36.980 --> 00:02:37.420
+problems.
+
+87
+00:02:37.940 --> 00:02:40.360
+Input representation also matters when
+
+88
+00:02:40.360 --> 00:02:41.800
+numbers appear in a problem.
+
+89
+00:02:42.320 --> 00:02:44.520
+A binary capacity has logarithmic
+
+90
+00:02:44.520 --> 00:02:46.160
+encoding length in its numeric
+
+91
+00:02:46.160 --> 00:02:48.720
+value, so an algorithm looping
+
+92
+00:02:48.720 --> 00:02:50.400
+over that entire value needs
+
+93
+00:02:50.400 --> 00:02:52.540
+a different complexity interpretation from
+
+94
+00:02:52.540 --> 00:02:54.380
+one reading an explicitly listed
+
+95
+00:02:54.380 --> 00:02:54.740
+string.
+
+96
+00:02:55.260 --> 00:02:56.740
+Things to take note of:
+
+97
+00:02:57.140 --> 00:02:58.900
+state the input encoding, output
+
+98
+00:02:58.900 --> 00:03:01.740
+requirement and objective before classifying
+
+99
+00:03:01.740 --> 00:03:03.880
+a task. Distinguish a listing
+
+100
+00:03:03.880 --> 00:03:05.060
+lower bound from a slow
+
+101
+00:03:05.060 --> 00:03:07.640
+known search, preserve threshold inequalities,
+
+102
+00:03:08.160 --> 00:03:10.040
+and avoid calling every inconvenient
+
+103
+00:03:10.040 --> 00:03:12.700
+problem provably exponential, hmph.

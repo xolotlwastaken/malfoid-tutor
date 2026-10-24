@@ -1,0 +1,409 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.360
+How do we prove a
+
+2
+00:00:01.360 --> 00:00:04.280
+recurrence bound by substitution? We
+
+3
+00:00:04.280 --> 00:00:06.380
+will guess a concrete inequality,
+
+4
+00:00:07.040 --> 00:00:08.760
+verify its base case, and
+
+5
+00:00:08.760 --> 00:00:09.980
+carry it through an induction
+
+6
+00:00:09.980 --> 00:00:11.780
+step without assuming the conclusion.
+
+7
+00:00:12.300 --> 00:00:14.280
+Our example has T of
+
+8
+00:00:14.280 --> 00:00:16.140
+one equal to zero and
+
+9
+00:00:16.140 --> 00:00:17.480
+T of n equal to
+
+10
+00:00:17.480 --> 00:00:18.860
+T of n minus one
+
+11
+00:00:18.860 --> 00:00:22.000
+plus n minus one. Expanding
+
+12
+00:00:22.000 --> 00:00:23.960
+a few terms suggests quadratic
+
+13
+00:00:23.960 --> 00:00:25.960
+growth, but we must still
+
+14
+00:00:25.960 --> 00:00:27.780
+justify that quadratic guess.
+
+15
+00:00:28.660 --> 00:00:30.640
+We choose the concrete upper
+
+16
+00:00:30.640 --> 00:00:32.420
+bound T of n at
+
+17
+00:00:32.420 --> 00:00:35.100
+most n squared. This fixes
+
+18
+00:00:35.100 --> 00:00:37.280
+the multiplicative constant at one;
+
+19
+00:00:37.900 --> 00:00:39.960
+if that attempt failed, we
+
+20
+00:00:39.960 --> 00:00:41.380
+would need a different constant
+
+21
+00:00:41.380 --> 00:00:43.800
+or a stronger candidate inequality.
+
+22
+00:00:44.460 --> 00:00:45.900
+Begin at n equal to
+
+23
+00:00:45.900 --> 00:00:48.080
+one, where the actual recurrence
+
+24
+00:00:48.080 --> 00:00:50.080
+gives zero. Since zero is
+
+25
+00:00:50.080 --> 00:00:51.420
+at most one squared, the
+
+26
+00:00:51.420 --> 00:00:52.180
+base case holds.
+
+27
+00:00:52.740 --> 00:00:54.860
+Now assume the bound holds
+
+28
+00:00:54.860 --> 00:00:57.200
+at k, namely T of
+
+29
+00:00:57.200 --> 00:00:58.840
+k at most k squared.
+
+30
+00:00:59.500 --> 00:01:01.220
+This is our induction hypothesis
+
+31
+00:01:01.220 --> 00:01:03.180
+about the smaller input, not
+
+32
+00:01:03.180 --> 00:01:04.320
+an assumption that the desired
+
+33
+00:01:04.320 --> 00:01:05.800
+bound already holds at k
+
+34
+00:01:05.800 --> 00:01:06.300
+plus one.
+
+35
+00:01:07.020 --> 00:01:09.660
+Apply the recurrence first: T
+
+36
+00:01:09.660 --> 00:01:11.280
+of k plus one equals
+
+37
+00:01:11.280 --> 00:01:13.360
+T of k plus k.
+
+38
+00:01:13.980 --> 00:01:15.940
+Substituting the hypothesis gives at
+
+39
+00:01:15.940 --> 00:01:17.860
+most k squared plus k,
+
+40
+00:01:18.220 --> 00:01:19.860
+which is at most k
+
+41
+00:01:19.860 --> 00:01:21.480
+squared plus two k plus
+
+42
+00:01:21.480 --> 00:01:21.820
+one.
+
+43
+00:01:22.340 --> 00:01:24.360
+That closes the step, and
+
+44
+00:01:24.360 --> 00:01:26.500
+induction proves the claimed upper
+
+45
+00:01:26.500 --> 00:01:28.420
+bound for all positive integer
+
+46
+00:01:28.420 --> 00:01:30.380
+n. Therefore the function is
+
+47
+00:01:30.380 --> 00:01:32.100
+big O of n squared,
+
+48
+00:01:32.580 --> 00:01:34.120
+but this proof alone has
+
+49
+00:01:34.120 --> 00:01:35.800
+not supplied a matching lower
+
+50
+00:01:35.800 --> 00:01:36.100
+bound.
+
+51
+00:01:36.460 --> 00:01:38.000
+To make the result tight,
+
+52
+00:01:38.480 --> 00:01:41.080
+expand the recurrence completely. It
+
+53
+00:01:41.080 --> 00:01:42.680
+sums one through n minus
+
+54
+00:01:42.680 --> 00:01:44.760
+one, giving n times n
+
+55
+00:01:44.760 --> 00:01:46.520
+minus one over two and
+
+56
+00:01:46.520 --> 00:01:48.220
+therefore Theta of n squared.
+
+57
+00:01:48.660 --> 00:01:50.820
+For a divide-by-two recurrence, it
+
+58
+00:01:50.820 --> 00:01:52.080
+can be easier to induct
+
+59
+00:01:52.080 --> 00:01:54.300
+over powers of two. Assume
+
+60
+00:01:54.300 --> 00:01:55.640
+the statement for input two
+
+61
+00:01:55.640 --> 00:01:56.680
+to the k and use
+
+62
+00:01:56.680 --> 00:01:57.680
+it to prove the statement
+
+63
+00:01:57.680 --> 00:01:58.880
+for input two to the
+
+64
+00:01:58.880 --> 00:01:59.840
+k plus one.
+
+65
+00:02:01.020 --> 00:02:02.920
+Consider T of n equals
+
+66
+00:02:02.920 --> 00:02:04.760
+two T of n over
+
+67
+00:02:04.760 --> 00:02:06.660
+two plus n minus one,
+
+68
+00:02:07.060 --> 00:02:08.440
+with T of one equal
+
+69
+00:02:08.440 --> 00:02:10.160
+to one. The tempting inequality
+
+70
+00:02:10.160 --> 00:02:11.600
+T of n at most
+
+71
+00:02:11.600 --> 00:02:13.460
+c n log base two
+
+72
+00:02:13.460 --> 00:02:14.920
+of n fails at n
+
+73
+00:02:14.920 --> 00:02:16.900
+equal to one, because its
+
+74
+00:02:16.900 --> 00:02:17.980
+right side is zero.
+
+75
+00:02:18.420 --> 00:02:20.000
+We can instead start the
+
+76
+00:02:20.000 --> 00:02:22.380
+power-of-two induction at n equal
+
+77
+00:02:22.380 --> 00:02:24.060
+to two, where T of
+
+78
+00:02:24.060 --> 00:02:26.480
+two equals three. Choosing c
+
+79
+00:02:26.480 --> 00:02:27.940
+at least two makes the
+
+80
+00:02:27.940 --> 00:02:29.880
+base hold, and substituting the
+
+81
+00:02:29.880 --> 00:02:32.020
+hypothesis yields c n log
+
+82
+00:02:32.020 --> 00:02:33.880
+n minus c n plus
+
+83
+00:02:33.880 --> 00:02:35.940
+n minus one, which stays
+
+84
+00:02:35.940 --> 00:02:37.540
+below c n log n.
+
+85
+00:02:37.820 --> 00:02:39.840
+A different valid repair is
+
+86
+00:02:39.840 --> 00:02:41.440
+to strengthen the candidate bound
+
+87
+00:02:41.440 --> 00:02:43.120
+by adding a linear term.
+
+88
+00:02:43.740 --> 00:02:45.640
+Whatever repair you choose, it
+
+89
+00:02:45.640 --> 00:02:46.900
+must be checked against the
+
+90
+00:02:46.900 --> 00:02:48.720
+recurrence and the actual domain
+
+91
+00:02:48.720 --> 00:02:50.720
+rather than being waved away
+
+92
+00:02:50.720 --> 00:02:52.180
+as a small-input detail.
+
+93
+00:02:52.900 --> 00:02:54.240
+Things to take note of:
+
+94
+00:02:54.240 --> 00:02:56.100
+distinguish the guess from its
+
+95
+00:02:56.100 --> 00:02:58.640
+proof, fix your constants, and
+
+96
+00:02:58.640 --> 00:03:01.060
+substitute only a hypothesis established
+
+97
+00:03:01.060 --> 00:03:03.420
+for smaller inputs. Check the
+
+98
+00:03:03.420 --> 00:03:04.780
+base and state whether you
+
+99
+00:03:04.780 --> 00:03:06.700
+proved O or Theta; the
+
+100
+00:03:06.700 --> 00:03:08.100
+missing half of a tight-bound
+
+101
+00:03:08.100 --> 00:03:09.780
+argument will not prove itself,
+
+102
+00:03:09.780 --> 00:03:10.400
+obviously.

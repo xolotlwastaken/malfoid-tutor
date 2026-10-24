@@ -1,0 +1,389 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.360
+How do memoisation and tabulation
+
+2
+00:00:02.360 --> 00:00:04.880
+remove repeated work? We will
+
+3
+00:00:04.880 --> 00:00:07.880
+compute Fibonacci six, distinguish repeated
+
+4
+00:00:07.880 --> 00:00:10.020
+calls from distinct states, and
+
+5
+00:00:10.020 --> 00:00:11.880
+derive both a recursive cached
+
+6
+00:00:11.880 --> 00:00:13.880
+solution and a bottom-up table.
+
+7
+00:00:14.380 --> 00:00:16.960
+The ordinary recursive function asks
+
+8
+00:00:16.960 --> 00:00:19.260
+for Fibonacci five and Fibonacci
+
+9
+00:00:19.260 --> 00:00:21.120
+four to compute Fibonacci six.
+
+10
+00:00:21.620 --> 00:00:23.680
+Fibonacci five then asks for
+
+11
+00:00:23.680 --> 00:00:25.800
+Fibonacci four again, so two
+
+12
+00:00:25.800 --> 00:00:27.940
+branches immediately repeat the same
+
+13
+00:00:27.940 --> 00:00:28.960
+mathematical question.
+
+14
+00:00:29.380 --> 00:00:31.320
+Continuing the call tree repeats
+
+15
+00:00:31.320 --> 00:00:33.360
+smaller inputs many more times.
+
+16
+00:00:34.060 --> 00:00:36.440
+The uncached recursion has exponential
+
+17
+00:00:36.440 --> 00:00:38.500
+growth, with big O of
+
+18
+00:00:38.500 --> 00:00:39.740
+two to the n as
+
+19
+00:00:39.740 --> 00:00:41.600
+a valid upper bound, even
+
+20
+00:00:41.600 --> 00:00:43.200
+though its maximum call depth
+
+21
+00:00:43.200 --> 00:00:44.260
+is only linear.
+
+22
+00:00:44.860 --> 00:00:47.520
+Dynamic programming identifies a state
+
+23
+00:00:47.520 --> 00:00:49.200
+by the information needed to
+
+24
+00:00:49.200 --> 00:00:51.380
+determine its answer. Here that
+
+25
+00:00:51.380 --> 00:00:53.500
+information is just the integer
+
+26
+00:00:53.500 --> 00:00:56.060
+index, so all calls requesting
+
+27
+00:00:56.060 --> 00:00:58.000
+Fibonacci four can share one
+
+28
+00:00:58.000 --> 00:00:58.800
+stored result.
+
+29
+00:00:59.300 --> 00:01:02.080
+In top-down memoisation, check the
+
+30
+00:01:02.080 --> 00:01:03.520
+cache before solving a state
+
+31
+00:01:03.520 --> 00:01:05.200
+again. If an answer is
+
+32
+00:01:05.200 --> 00:01:07.600
+present, return it; otherwise obtain
+
+33
+00:01:07.600 --> 00:01:09.500
+the smaller answers, add them,
+
+34
+00:01:09.820 --> 00:01:11.280
+store the result and return
+
+35
+00:01:11.280 --> 00:01:11.580
+it.
+
+36
+00:01:11.900 --> 00:01:13.940
+Zero is a valid Fibonacci
+
+37
+00:01:13.940 --> 00:01:16.080
+answer, so it cannot double
+
+38
+00:01:16.080 --> 00:01:17.960
+as the unknown marker. An
+
+39
+00:01:17.960 --> 00:01:20.060
+initially unused sentinel or a
+
+40
+00:01:20.060 --> 00:01:22.260
+separate presence flag distinguishes an
+
+41
+00:01:22.260 --> 00:01:23.840
+unsolved state from the already
+
+42
+00:01:23.840 --> 00:01:25.160
+computed value zero.
+
+43
+00:01:25.780 --> 00:01:27.900
+Collapse the repeated call tree
+
+44
+00:01:27.900 --> 00:01:29.500
+into a graph with one
+
+45
+00:01:29.500 --> 00:01:31.640
+vertex for each index from
+
+46
+00:01:31.640 --> 00:01:33.800
+zero to six. An arrow
+
+47
+00:01:33.800 --> 00:01:35.140
+here points from a caller
+
+48
+00:01:35.140 --> 00:01:36.320
+to a state it depends
+
+49
+00:01:36.320 --> 00:01:38.340
+on, so the destination must
+
+50
+00:01:38.340 --> 00:01:39.860
+be solved before that caller
+
+51
+00:01:39.860 --> 00:01:40.400
+can finish.
+
+52
+00:01:41.020 --> 00:01:43.820
+Bottom-up tabulation uses those dependencies
+
+53
+00:01:43.820 --> 00:01:45.780
+to select an evaluation order.
+
+54
+00:01:46.140 --> 00:01:47.220
+Set the first two cells
+
+55
+00:01:47.220 --> 00:01:48.760
+to zero and one, then
+
+56
+00:01:48.760 --> 00:01:50.580
+visit indices from two onward
+
+57
+00:01:50.580 --> 00:01:52.420
+so both preceding answers already
+
+58
+00:01:52.420 --> 00:01:52.880
+exist.
+
+59
+00:01:53.620 --> 00:01:55.700
+At index two, add zero
+
+60
+00:01:55.700 --> 00:01:56.920
+and one to get one;
+
+61
+00:01:57.280 --> 00:01:59.100
+at index three, add one
+
+62
+00:01:59.100 --> 00:02:00.120
+and one to get two.
+
+63
+00:02:00.660 --> 00:02:02.500
+At index four, the two
+
+64
+00:02:02.500 --> 00:02:04.280
+preceding answers are one and
+
+65
+00:02:04.280 --> 00:02:05.560
+two, so the result is
+
+66
+00:02:05.560 --> 00:02:05.920
+three.
+
+67
+00:02:06.700 --> 00:02:08.600
+At index five the sum
+
+68
+00:02:08.600 --> 00:02:10.580
+is two plus three, giving
+
+69
+00:02:10.580 --> 00:02:12.680
+five. At index six the
+
+70
+00:02:12.680 --> 00:02:14.100
+sum is three plus five,
+
+71
+00:02:14.280 --> 00:02:15.820
+giving eight, so the final
+
+72
+00:02:15.820 --> 00:02:18.900
+table is zero, one, one,
+
+73
+00:02:19.160 --> 00:02:22.320
+two, three, five, eight.
+
+74
+00:02:22.980 --> 00:02:24.400
+There are n plus one
+
+75
+00:02:24.400 --> 00:02:26.460
+possible states and constant arithmetic
+
+76
+00:02:26.460 --> 00:02:28.380
+work for each evaluated state,
+
+77
+00:02:28.780 --> 00:02:31.180
+giving linear arithmetic time. A
+
+78
+00:02:31.180 --> 00:02:32.860
+full table uses linear space,
+
+79
+00:02:33.360 --> 00:02:35.160
+and the top-down version also
+
+80
+00:02:35.160 --> 00:02:37.260
+has a linear-depth recursion stack.
+
+81
+00:02:37.900 --> 00:02:39.680
+If only the final Fibonacci
+
+82
+00:02:39.680 --> 00:02:42.300
+value is required, bottom-up evaluation
+
+83
+00:02:42.300 --> 00:02:44.080
+needs just the two previous
+
+84
+00:02:44.080 --> 00:02:46.420
+values. That reduces extra storage
+
+85
+00:02:46.420 --> 00:02:47.680
+to a constant number of
+
+86
+00:02:47.680 --> 00:02:49.020
+machine words under the course
+
+87
+00:02:49.020 --> 00:02:52.100
+arithmetic model; exact large-integer bit
+
+88
+00:02:52.100 --> 00:02:53.660
+costs are a separate analysis.
+
+89
+00:02:54.260 --> 00:02:55.920
+Things to take note of:
+
+90
+00:02:56.100 --> 00:02:58.260
+define the state, distinguish calls
+
+91
+00:02:58.260 --> 00:03:00.480
+from first computations, and respect
+
+92
+00:03:00.480 --> 00:03:03.660
+the dependency direction. Memoisation is
+
+93
+00:03:03.660 --> 00:03:05.760
+still recursive and DP is
+
+94
+00:03:05.760 --> 00:03:08.400
+not automatically polynomial; its cost
+
+95
+00:03:08.400 --> 00:03:09.780
+follows the number of states
+
+96
+00:03:09.780 --> 00:03:11.980
+and transitions, not the comforting
+
+97
+00:03:11.980 --> 00:03:13.460
+sound of the word cache.

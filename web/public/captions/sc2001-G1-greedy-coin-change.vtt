@@ -1,0 +1,369 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.900
+How does greedy coin change
+
+2
+00:00:01.900 --> 00:00:03.580
+work, and when does it
+
+3
+00:00:03.580 --> 00:00:05.520
+fail? We will make change
+
+4
+00:00:05.520 --> 00:00:07.100
+with a locally best choice,
+
+5
+00:00:07.500 --> 00:00:09.020
+count the work, and then
+
+6
+00:00:09.020 --> 00:00:11.020
+use one counterexample to test
+
+7
+00:00:11.020 --> 00:00:12.640
+whether that choice is always
+
+8
+00:00:12.640 --> 00:00:13.200
+optimal.
+
+9
+00:00:13.740 --> 00:00:16.020
+A greedy algorithm commits to
+
+10
+00:00:16.020 --> 00:00:17.580
+its next choice using the
+
+11
+00:00:17.580 --> 00:00:20.240
+information currently available. It does
+
+12
+00:00:20.240 --> 00:00:22.640
+not systematically compare all future
+
+13
+00:00:22.640 --> 00:00:24.620
+continuations or undo the choice
+
+14
+00:00:24.620 --> 00:00:25.920
+when a later step becomes
+
+15
+00:00:25.920 --> 00:00:26.400
+awkward.
+
+16
+00:00:26.820 --> 00:00:28.500
+For coin change, the natural
+
+17
+00:00:28.500 --> 00:00:29.760
+rule is to select the
+
+18
+00:00:29.760 --> 00:00:31.100
+largest coin that does not
+
+19
+00:00:31.100 --> 00:00:33.520
+exceed the remaining amount. Repeat
+
+20
+00:00:33.520 --> 00:00:35.080
+until the remainder is zero,
+
+21
+00:00:35.540 --> 00:00:37.880
+assuming positive integer denominations and
+
+22
+00:00:37.880 --> 00:00:39.520
+an unlimited supply of coins.
+
+23
+00:00:40.300 --> 00:00:43.460
+Take denominations one, five, ten
+
+24
+00:00:43.460 --> 00:00:45.900
+and twenty-five, and make thirty-seven.
+
+25
+00:00:46.420 --> 00:00:48.060
+The largest affordable coin is
+
+26
+00:00:48.060 --> 00:00:50.560
+twenty-five, leaving twelve; move that
+
+27
+00:00:50.560 --> 00:00:52.200
+coin into the selected row
+
+28
+00:00:52.200 --> 00:00:53.760
+rather than treating it as
+
+29
+00:00:53.760 --> 00:00:54.840
+a mathematical wish.
+
+30
+00:00:55.140 --> 00:00:57.360
+For the remainder twelve, the
+
+31
+00:00:57.360 --> 00:00:59.360
+largest affordable coin is ten.
+
+32
+00:00:59.980 --> 00:01:02.000
+Selecting it leaves two, which
+
+33
+00:01:02.000 --> 00:01:03.740
+neither five nor ten can
+
+34
+00:01:03.740 --> 00:01:05.280
+fill exactly by itself.
+
+35
+00:01:05.740 --> 00:01:07.960
+Take a one, leaving one,
+
+36
+00:01:08.340 --> 00:01:10.280
+then a final one, leaving
+
+37
+00:01:10.280 --> 00:01:13.080
+zero. The completed change is
+
+38
+00:01:13.080 --> 00:01:15.480
+twenty-five plus ten plus one
+
+39
+00:01:15.480 --> 00:01:17.760
+plus one, using four coins.
+
+40
+00:01:18.260 --> 00:01:20.720
+A faster implementation handles one
+
+41
+00:01:20.720 --> 00:01:22.260
+denomination at a time in
+
+42
+00:01:22.260 --> 00:01:24.880
+descending order. Integer division tells
+
+43
+00:01:24.880 --> 00:01:26.280
+how many copies to take,
+
+44
+00:01:26.700 --> 00:01:28.140
+and the remainder moves directly
+
+45
+00:01:28.140 --> 00:01:30.220
+to the next denomination without
+
+46
+00:01:30.220 --> 00:01:32.180
+an iteration for every individual
+
+47
+00:01:32.180 --> 00:01:32.600
+coin.
+
+48
+00:01:33.100 --> 00:01:35.120
+If k denominations are already
+
+49
+00:01:35.120 --> 00:01:37.500
+ordered, this division-based scan uses
+
+50
+00:01:37.500 --> 00:01:39.000
+big O of k arithmetic
+
+51
+00:01:39.000 --> 00:01:40.900
+operations under the course word
+
+52
+00:01:40.900 --> 00:01:43.180
+model. Printing the chosen coins
+
+53
+00:01:43.180 --> 00:01:45.480
+separately adds output work, while
+
+54
+00:01:45.480 --> 00:01:47.260
+an unsorted input may also
+
+55
+00:01:47.260 --> 00:01:48.120
+require sorting.
+
+56
+00:01:48.660 --> 00:01:51.560
+The repeated-subtraction version instead performs
+
+57
+00:01:51.560 --> 00:01:53.500
+one choice for every coin
+
+58
+00:01:53.500 --> 00:01:55.760
+selected. Its cost depends on
+
+59
+00:01:55.760 --> 00:01:57.380
+how the largest affordable coin
+
+60
+00:01:57.380 --> 00:01:59.740
+is found; rescanning all k
+
+61
+00:01:59.740 --> 00:02:01.680
+denominations each time adds a
+
+62
+00:02:01.680 --> 00:02:04.460
+factor that a constant-denomination assumption
+
+63
+00:02:04.460 --> 00:02:05.020
+would hide.
+
+64
+00:02:05.420 --> 00:02:07.500
+Now change the denominations to
+
+65
+00:02:07.500 --> 00:02:09.740
+one, ten and twenty-five, and
+
+66
+00:02:09.740 --> 00:02:12.400
+request thirty. Greedy still takes
+
+67
+00:02:12.400 --> 00:02:14.860
+twenty-five first, but the remainder
+
+68
+00:02:14.860 --> 00:02:17.700
+five requires five separate one-coins,
+
+69
+00:02:17.700 --> 00:02:19.820
+giving six coins in total.
+
+70
+00:02:20.260 --> 00:02:22.740
+Three ten-coins also make thirty,
+
+71
+00:02:22.740 --> 00:02:24.680
+and use only three coins.
+
+72
+00:02:25.260 --> 00:02:27.300
+This single strictly better feasible
+
+73
+00:02:27.300 --> 00:02:29.300
+solution is enough to disprove
+
+74
+00:02:29.300 --> 00:02:32.640
+universal optimality of largest-first greedy
+
+75
+00:02:32.640 --> 00:02:34.860
+on arbitrary denomination systems.
+
+76
+00:02:35.420 --> 00:02:37.600
+Having a one-coin ensures every
+
+77
+00:02:37.600 --> 00:02:39.700
+nonnegative integer amount is reachable,
+
+78
+00:02:39.920 --> 00:02:41.420
+but it says nothing about
+
+79
+00:02:41.420 --> 00:02:43.960
+minimum coin count. Some denomination
+
+80
+00:02:43.960 --> 00:02:45.800
+systems do admit this greedy
+
+81
+00:02:45.800 --> 00:02:47.940
+rule, whereas proving that property
+
+82
+00:02:47.940 --> 00:02:49.480
+requires more than testing a
+
+83
+00:02:49.480 --> 00:02:50.440
+few convenient amounts.
+
+84
+00:02:50.900 --> 00:02:52.360
+Things to take note of:
+
+85
+00:02:52.680 --> 00:02:55.500
+state the objective, denomination assumptions,
+
+86
+00:02:55.880 --> 00:02:57.700
+choice rule and actual implementation
+
+87
+00:02:57.700 --> 00:03:00.460
+cost. A counterexample disproves a
+
+88
+00:03:00.460 --> 00:03:02.300
+general greedy claim, while many
+
+89
+00:03:02.300 --> 00:03:04.460
+successful traces cannot establish it;
+
+90
+00:03:04.760 --> 00:03:06.540
+when the choice fails, dynamic
+
+91
+00:03:06.540 --> 00:03:08.620
+programming can compare the alternatives,
+
+92
+00:03:08.620 --> 00:03:09.700
+hmph.

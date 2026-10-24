@@ -1,0 +1,4 @@
+interface:
+  display_name: "Malfoid Course Pipeline"
+  short_description: "Plan course topics, videos, questions and website updates"
+  default_prompt: "Use $malfoid-course-pipeline to extend WaifuTutor course coverage, starting with a source-grounded topic breakdown for approval."

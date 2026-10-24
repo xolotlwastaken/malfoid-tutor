@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 const catalog=JSON.parse(await readFile(new URL('../public/data/catalog.json',import.meta.url),'utf8'));
 test('every topic has four fresh levels: 4 easy, 4 medium, 4 hard and 1 Baka',()=>{
- assert.equal(catalog.topics.flatMap(t=>t.qs).length,550);
+ assert.equal(catalog.topics.flatMap(t=>t.qs).length,953);
  const sc2005Ids=new Set(catalog.lessons.filter(l=>l.courseId==='sc2005').flatMap(l=>l.topicIds));
  const ids=new Set();
  for(const topic of catalog.topics){

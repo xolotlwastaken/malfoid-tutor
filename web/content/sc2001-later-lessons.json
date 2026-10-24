@@ -1,0 +1,312 @@
+[
+  {
+    "id": "A1",
+    "slug": "asymptotic-bounds",
+    "title": "What do O, Omega and Theta actually mean?",
+    "group": "Analysis techniques",
+    "week": 8,
+    "folder": "edit/revisions/sc2001-A1-asymptotic-bounds",
+    "sources": "Analysis Techniques pp5\u201312; Review Week 8 pp2\u20133; study notes 01-analysis \u00a7\u00a71.1\u20131.2.",
+    "word_count": 519
+  },
+  {
+    "id": "A2",
+    "slug": "growth-rates",
+    "title": "How do we compare growth rates?",
+    "group": "Analysis techniques",
+    "week": 8,
+    "folder": "edit/revisions/sc2001-A2-growth-rates",
+    "sources": "Analysis Techniques p13; Review Week 8 pp4\u20138; study notes 01-analysis \u00a7\u00a71.1,1.3.",
+    "word_count": 436
+  },
+  {
+    "id": "A3",
+    "slug": "recurrence-expansion",
+    "title": "How do we build and expand a recurrence?",
+    "group": "Analysis techniques",
+    "week": 8,
+    "folder": "edit/revisions/sc2001-A3-recurrence-expansion",
+    "sources": "Analysis Techniques pp14\u201319,21\u201322,24\u201327; study notes 01-analysis \u00a7\u00a71.4\u20131.5.",
+    "word_count": 461
+  },
+  {
+    "id": "A4",
+    "slug": "master-theorem",
+    "title": "How do we apply the full Master Theorem?",
+    "group": "Analysis techniques",
+    "week": 8,
+    "folder": "edit/revisions/sc2001-A4-master-theorem",
+    "sources": "Analysis Techniques pp20\u201331; Review Week 8 p13; Review Week 10 pp2\u20134; study notes 01-analysis \u00a71.6.",
+    "word_count": 524
+  },
+  {
+    "id": "A5",
+    "slug": "master-limitations",
+    "title": "When does the Master Theorem fail?",
+    "group": "Analysis techniques",
+    "week": 9,
+    "folder": "edit/revisions/sc2001-A5-master-limitations",
+    "sources": "Analysis Techniques pp32\u201333; study notes 01-analysis \u00a71.6.",
+    "word_count": 496
+  },
+  {
+    "id": "A6",
+    "slug": "substitution-induction",
+    "title": "How do we prove a recurrence bound by substitution?",
+    "group": "Analysis techniques",
+    "week": 9,
+    "folder": "edit/revisions/sc2001-A6-substitution-induction",
+    "sources": "Analysis Techniques pp35\u201342,46; Review Week 8 pp14\u201316; Review Week 9 pp2\u20133; study notes 01-analysis \u00a71.7.",
+    "word_count": 488
+  },
+  {
+    "id": "A7",
+    "slug": "parity-and-rounding",
+    "title": "How do parity and rounding affect recurrences?",
+    "group": "Analysis techniques",
+    "week": 9,
+    "folder": "edit/revisions/sc2001-A7-parity-and-rounding",
+    "sources": "Review Week 8 pp10\u201312; Analysis Techniques pp43\u201345; study notes 01-analysis \u00a7\u00a71.5,1.7.",
+    "word_count": 480
+  },
+  {
+    "id": "G1",
+    "slug": "greedy-coin-change",
+    "title": "How does greedy coin change work, and when does it fail?",
+    "group": "Greedy algorithms",
+    "week": 9,
+    "folder": "edit/revisions/sc2001-G1-greedy-coin-change",
+    "sources": "Greedy Algorithms pp3\u20137; study notes 06-greedy-and-dp \u00a7\u00a76.1\u20136.2.",
+    "word_count": 432
+  },
+  {
+    "id": "G2",
+    "slug": "interval-scheduling",
+    "title": "Why does earliest-finish interval scheduling work?",
+    "group": "Greedy algorithms",
+    "week": 9,
+    "folder": "edit/revisions/sc2001-G2-interval-scheduling",
+    "sources": "Greedy Algorithms pp8\u201313; Review Week 9 p4; study notes 06-greedy-and-dp \u00a7\u00a76.1,6.3.",
+    "word_count": 497
+  },
+  {
+    "id": "G3",
+    "slug": "fractional-knapsack",
+    "title": "Why is density greedy optimal for fractional knapsack?",
+    "group": "Greedy algorithms",
+    "week": 9,
+    "folder": "edit/revisions/sc2001-G3-fractional-knapsack",
+    "sources": "Greedy Algorithms pp14\u201317; study notes 06-greedy-and-dp \u00a76.4.",
+    "word_count": 484
+  },
+  {
+    "id": "D1",
+    "slug": "memoisation-tabulation",
+    "title": "How do memoisation and tabulation remove repeated work?",
+    "group": "Dynamic programming",
+    "week": 9,
+    "folder": "edit/revisions/sc2001-D1-memoisation-tabulation",
+    "sources": "Dynamic Programming pp3\u201318; study notes 06-greedy-and-dp \u00a7\u00a76.5\u20136.7.",
+    "word_count": 459
+  },
+  {
+    "id": "D2",
+    "slug": "virahanka-dp",
+    "title": "How do we turn a new recurrence into a DP?",
+    "group": "Dynamic programming",
+    "week": 10,
+    "folder": "edit/revisions/sc2001-D2-virahanka-dp",
+    "sources": "Review Week 9 pp8\u201313; Dynamic Programming pp15\u201318; study notes 06-greedy-and-dp \u00a7\u00a76.6\u20136.7.",
+    "word_count": 445
+  },
+  {
+    "id": "D3",
+    "slug": "minimum-coin-dp",
+    "title": "How does DP find the minimum number of coins?",
+    "group": "Dynamic programming",
+    "week": 10,
+    "folder": "edit/revisions/sc2001-D3-minimum-coin-dp",
+    "sources": "Dynamic Programming pp19\u201327; study notes 06-greedy-and-dp \u00a7\u00a76.5,6.8.",
+    "word_count": 460
+  },
+  {
+    "id": "D4",
+    "slug": "longest-common-subsequence",
+    "title": "How does longest common subsequence work?",
+    "group": "Dynamic programming",
+    "week": 10,
+    "folder": "edit/revisions/sc2001-D4-longest-common-subsequence",
+    "sources": "Dynamic Programming pp30\u201351, visually checked p44; study notes 06-greedy-and-dp \u00a76.9. The source strings are X=ACGGA and Y=ACTG in visual order.",
+    "word_count": 567
+  },
+  {
+    "id": "D5",
+    "slug": "zero-one-knapsack-dp",
+    "title": "How does 0/1 knapsack DP enforce single use?",
+    "group": "Dynamic programming",
+    "week": 11,
+    "folder": "edit/revisions/sc2001-D5-zero-one-knapsack-dp",
+    "sources": "Dynamic Programming pp52\u201363; study notes 06-greedy-and-dp \u00a76.10.",
+    "word_count": 522
+  },
+  {
+    "id": "D6",
+    "slug": "pseudo-polynomial-time",
+    "title": "Why is knapsack DP only pseudo-polynomial?",
+    "group": "Dynamic programming",
+    "week": 11,
+    "folder": "edit/revisions/sc2001-D6-pseudo-polynomial-time",
+    "sources": "Dynamic Programming pp64\u201365; Introduction to NP p14; study notes 06-greedy-and-dp \u00a76.11.",
+    "word_count": 453
+  },
+  {
+    "id": "D7",
+    "slug": "dp-state-design",
+    "title": "How do we choose a correct state and strategy?",
+    "group": "Dynamic programming",
+    "week": 11,
+    "folder": "edit/revisions/sc2001-D7-dp-state-design",
+    "sources": "Dynamic Programming pp20\u201321,28\u201329,66\u201367; Greedy Algorithms p18; study notes 06-greedy-and-dp \u00a7\u00a76.5,6.12.",
+    "word_count": 475
+  },
+  {
+    "id": "S1",
+    "slug": "naive-string-matching",
+    "title": "How does naive string matching scan the text?",
+    "group": "String matching",
+    "week": 11,
+    "folder": "edit/revisions/sc2001-S1-naive-string-matching",
+    "sources": "String Matching pp2\u201310; study notes 07-string-matching \u00a7\u00a77.1\u20137.2.",
+    "word_count": 415
+  },
+  {
+    "id": "S2",
+    "slug": "rabin-karp",
+    "title": "How do rolling hashes make Rabin\u2013Karp work?",
+    "group": "String matching",
+    "week": 11,
+    "folder": "edit/revisions/sc2001-S2-rabin-karp",
+    "sources": "String Matching pp11\u201315,20\u201324; study notes 07-string-matching \u00a7\u00a77.3\u20137.4.",
+    "word_count": 428
+  },
+  {
+    "id": "S3",
+    "slug": "rabin-karp-runtime",
+    "title": "What determines Rabin\u2013Karp\u2019s actual runtime?",
+    "group": "String matching",
+    "week": 12,
+    "folder": "edit/revisions/sc2001-S3-rabin-karp-runtime",
+    "sources": "String Matching pp15\u201319,25,56; study notes 07-string-matching \u00a77.4.",
+    "word_count": 451
+  },
+  {
+    "id": "S4",
+    "slug": "boyer-moore-bad-character",
+    "title": "How does Boyer\u2013Moore use the bad character?",
+    "group": "String matching",
+    "week": 12,
+    "folder": "edit/revisions/sc2001-S4-boyer-moore-bad-character",
+    "sources": "String Matching pp26\u201338; study notes 07-string-matching \u00a7\u00a77.5\u20137.6.",
+    "word_count": 505
+  },
+  {
+    "id": "S5",
+    "slug": "boyer-moore-good-suffix",
+    "title": "How does Boyer\u2013Moore use the good suffix?",
+    "group": "String matching",
+    "week": 12,
+    "folder": "edit/revisions/sc2001-S5-boyer-moore-good-suffix",
+    "sources": "String Matching pp39\u201349,51\u201354; physical p40 visually checked; study notes 07-string-matching \u00a77.7.",
+    "word_count": 543
+  },
+  {
+    "id": "S6",
+    "slug": "boyer-moore-full-scan",
+    "title": "How do both Boyer\u2013Moore rules combine in a search?",
+    "group": "String matching",
+    "week": 12,
+    "folder": "edit/revisions/sc2001-S6-boyer-moore-full-scan",
+    "sources": "String Matching pp27,50,55\u201358; study notes 07-string-matching \u00a77.8; independent trace in edit/planning/sc2001-post-week07/worked-example-checks.json.",
+    "word_count": 511
+  },
+  {
+    "id": "N1",
+    "slug": "computational-tasks",
+    "title": "What makes a computational task hard?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N1-computational-tasks",
+    "sources": "Introduction to NP pp3\u20138; study notes 08-np-and-heuristics \u00a7\u00a78.1\u20138.2.",
+    "word_count": 487
+  },
+  {
+    "id": "N2",
+    "slug": "p-and-np",
+    "title": "What are P and NP, and what does verification mean?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N2-p-and-np",
+    "sources": "Introduction to NP pp9\u201319; study notes 08-np-and-heuristics \u00a7\u00a78.3\u20138.5.",
+    "word_count": 472
+  },
+  {
+    "id": "N3",
+    "slug": "polynomial-reductions",
+    "title": "Which direction does a polynomial reduction go?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N3-polynomial-reductions",
+    "sources": "Introduction to NP pp20\u201323; study notes 08-np-and-heuristics \u00a78.6.",
+    "word_count": 441
+  },
+  {
+    "id": "N4",
+    "slug": "hamiltonian-path-to-tsp",
+    "title": "How does Hamiltonian path reduce to TSP?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N4-hamiltonian-path-to-tsp",
+    "sources": "Introduction to NP pp22\u201323, physical p22 visually checked; study notes 08-np-and-heuristics \u00a78.7.",
+    "word_count": 468
+  },
+  {
+    "id": "N5",
+    "slug": "np-completeness",
+    "title": "How do we prove NP-completeness?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N5-np-completeness",
+    "sources": "Introduction to NP pp24\u201328; study notes 08-np-and-heuristics \u00a7\u00a78.8\u20138.9. Verifier-to-circuit construction and p36 formal NP-hard extension are excluded from this lesson.",
+    "word_count": 475
+  },
+  {
+    "id": "N6",
+    "slug": "nearest-neighbour-tsp",
+    "title": "How can nearest-neighbour TSP miss the best tour?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N6-nearest-neighbour-tsp",
+    "sources": "Introduction to NP pp29\u201331; study notes 08-np-and-heuristics \u00a7\u00a78.10\u20138.11. Fresh counterexample assumes a complete undirected graph without triangle inequality.",
+    "word_count": 452
+  },
+  {
+    "id": "N7",
+    "slug": "shortest-link-tsp",
+    "title": "How does shortest-link TSP differ from Kruskal?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N7-shortest-link-tsp",
+    "sources": "Introduction to NP pp32\u201333; study notes 08-np-and-heuristics \u00a78.12. Fresh five-vertex trace; implementation cost derivation is an explanatory addition.",
+    "word_count": 477
+  },
+  {
+    "id": "N8",
+    "slug": "density-zero-one-heuristic",
+    "title": "Why does density greedy fail for 0/1 knapsack?",
+    "group": "NP and heuristics",
+    "week": 13,
+    "folder": "edit/revisions/sc2001-N8-density-zero-one-heuristic",
+    "sources": "Introduction to NP pp34\u201335; Greedy Algorithms pp14\u201317; Dynamic Programming pp52\u201365; study notes 08-np-and-heuristics \u00a78.13.",
+    "word_count": 472
+  }
+]

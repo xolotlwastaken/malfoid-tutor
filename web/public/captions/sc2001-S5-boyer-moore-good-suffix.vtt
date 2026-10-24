@@ -1,0 +1,453 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.940
+How does Boyer–Moore use the
+
+2
+00:00:01.940 --> 00:00:03.540
+good suffix? We will find
+
+3
+00:00:03.540 --> 00:00:05.400
+the suffix already matched before
+
+4
+00:00:05.400 --> 00:00:07.180
+a mismatch, choose a safe
+
+5
+00:00:07.180 --> 00:00:08.900
+pattern slide, and convert that
+
+6
+00:00:08.900 --> 00:00:10.480
+slide into the match-jump table
+
+7
+00:00:10.480 --> 00:00:11.740
+used by the course code.
+
+8
+00:00:12.220 --> 00:00:15.160
+Suppose right-to-left comparisons matched the
+
+9
+00:00:15.160 --> 00:00:16.660
+last m minus k pattern
+
+10
+00:00:16.660 --> 00:00:18.540
+characters before failing at k.
+
+11
+00:00:19.320 --> 00:00:21.220
+That matched text suffix is
+
+12
+00:00:21.220 --> 00:00:22.800
+information we should preserve when
+
+13
+00:00:22.800 --> 00:00:24.400
+choosing the next possible alignment.
+
+14
+00:00:24.980 --> 00:00:26.640
+First look for an earlier
+
+15
+00:00:26.640 --> 00:00:28.260
+full occurrence of that suffix
+
+16
+00:00:28.260 --> 00:00:30.100
+in the pattern, preceded by
+
+17
+00:00:30.100 --> 00:00:31.700
+a different character from P
+
+18
+00:00:31.700 --> 00:00:33.280
+at k. Choose the rightmost
+
+19
+00:00:33.680 --> 00:00:35.940
+suitable occurrence, which gives the
+
+20
+00:00:35.940 --> 00:00:38.100
+smallest positive slide preserving this
+
+21
+00:00:38.100 --> 00:00:38.820
+useful match.
+
+22
+00:00:39.420 --> 00:00:41.020
+Why insist on a different
+
+23
+00:00:41.020 --> 00:00:43.500
+preceding character? If the earlier
+
+24
+00:00:43.500 --> 00:00:45.120
+suffix had the same preceding
+
+25
+00:00:45.120 --> 00:00:47.100
+pattern character, aligning it would
+
+26
+00:00:47.100 --> 00:00:48.780
+reproduce the mismatch we already
+
+27
+00:00:48.780 --> 00:00:50.480
+know, so it cannot supply
+
+28
+00:00:50.480 --> 00:00:51.880
+the next viable alignment.
+
+29
+00:00:52.580 --> 00:00:54.820
+The slide example uses pattern
+
+30
+00:00:55.260 --> 00:00:56.540
+R A T S A
+
+31
+00:00:56.540 --> 00:00:57.920
+N D C A T
+
+32
+00:00:57.920 --> 00:01:00.360
+S, length eleven, with mismatch
+
+33
+00:01:00.360 --> 00:01:02.440
+at position eight after matching
+
+34
+00:01:02.440 --> 00:01:04.140
+A T S. The earlier
+
+35
+00:01:04.140 --> 00:01:05.600
+A T S ends at
+
+36
+00:01:05.600 --> 00:01:07.900
+position four and is preceded
+
+37
+00:01:07.900 --> 00:01:09.240
+by R rather than C.
+
+38
+00:01:09.740 --> 00:01:11.720
+The actual pattern slide is
+
+39
+00:01:11.720 --> 00:01:13.680
+eleven minus four, which equals
+
+40
+00:01:13.680 --> 00:01:15.820
+seven. But j has already
+
+41
+00:01:15.820 --> 00:01:17.980
+moved three places left, so
+
+42
+00:01:17.980 --> 00:01:19.380
+its increment is those three
+
+43
+00:01:19.380 --> 00:01:21.740
+places plus seven, giving match
+
+44
+00:01:21.740 --> 00:01:22.560
+jump ten.
+
+45
+00:01:23.140 --> 00:01:24.960
+If no suitable full suffix
+
+46
+00:01:24.960 --> 00:01:27.520
+occurrence exists, try aligning the
+
+47
+00:01:27.520 --> 00:01:29.220
+longest suffix of that matched
+
+48
+00:01:29.220 --> 00:01:31.040
+portion which is also a
+
+49
+00:01:31.040 --> 00:01:33.300
+prefix of the pattern. This
+
+50
+00:01:33.300 --> 00:01:35.040
+second case preserves a partial
+
+51
+00:01:35.040 --> 00:01:36.520
+overlap that could still grow
+
+52
+00:01:36.520 --> 00:01:37.620
+into a complete match.
+
+53
+00:01:38.300 --> 00:01:39.840
+If neither a full occurrence
+
+54
+00:01:39.840 --> 00:01:41.860
+nor a prefix overlap works,
+
+55
+00:01:42.140 --> 00:01:43.840
+move the pattern beyond the
+
+56
+00:01:43.840 --> 00:01:45.980
+matched suffix. In that third
+
+57
+00:01:45.980 --> 00:01:48.040
+case the actual pattern slide
+
+58
+00:01:48.040 --> 00:01:49.960
+is m, while the pointer
+
+59
+00:01:49.960 --> 00:01:51.840
+increment still includes the m
+
+60
+00:01:51.840 --> 00:01:53.580
+minus k matched positions.
+
+61
+00:01:53.780 --> 00:01:55.340
+Now build the course table
+
+62
+00:01:55.340 --> 00:01:57.500
+for W O W W
+
+63
+00:01:57.500 --> 00:01:59.520
+O W, with positions listed
+
+64
+00:01:59.520 --> 00:02:01.580
+in increasing k. When no
+
+65
+00:02:01.580 --> 00:02:02.940
+suffix has matched at k
+
+66
+00:02:02.940 --> 00:02:04.700
+equal to six, the convention
+
+67
+00:02:04.700 --> 00:02:06.160
+is slide one and match
+
+68
+00:02:06.160 --> 00:02:06.700
+jump one.
+
+69
+00:02:07.020 --> 00:02:08.640
+For k equal to five,
+
+70
+00:02:09.140 --> 00:02:10.620
+suffix W can align to
+
+71
+00:02:10.620 --> 00:02:12.240
+a suitable earlier W with
+
+72
+00:02:12.240 --> 00:02:14.280
+slide two, giving pointer increment
+
+73
+00:02:14.280 --> 00:02:16.640
+three. For k equal to
+
+74
+00:02:16.640 --> 00:02:18.580
+four, suffix O W has
+
+75
+00:02:18.580 --> 00:02:20.380
+an earlier full occurrence preceded
+
+76
+00:02:20.380 --> 00:02:21.580
+by the same W as
+
+77
+00:02:21.580 --> 00:02:23.400
+the mismatch position, so that
+
+78
+00:02:23.400 --> 00:02:24.560
+occurrence is excluded.
+
+79
+00:02:24.980 --> 00:02:26.700
+For that k equal to
+
+80
+00:02:26.700 --> 00:02:28.600
+four case, a prefix overlap
+
+81
+00:02:28.600 --> 00:02:30.760
+W instead gives slide five,
+
+82
+00:02:30.920 --> 00:02:32.400
+and the pointer increment is
+
+83
+00:02:32.400 --> 00:02:33.800
+two plus five, or seven.
+
+84
+00:02:34.320 --> 00:02:35.580
+For k equal to three,
+
+85
+00:02:36.020 --> 00:02:37.680
+two and one, the useful
+
+86
+00:02:37.680 --> 00:02:39.200
+shift is three, giving jumps
+
+87
+00:02:39.200 --> 00:02:41.260
+six, seven and eight respectively.
+
+88
+00:02:41.900 --> 00:02:43.840
+Reading entries from k one
+
+89
+00:02:43.840 --> 00:02:45.760
+through six, the slide table
+
+90
+00:02:45.760 --> 00:02:48.900
+is three, three, three, five,
+
+91
+00:02:49.260 --> 00:02:52.340
+two, one. The corresponding match-jump
+
+92
+00:02:52.340 --> 00:02:54.920
+table is eight, seven, six,
+
+93
+00:02:55.320 --> 00:02:57.780
+seven, three, one, because each
+
+94
+00:02:57.780 --> 00:02:59.920
+entry adds its matched-suffix length.
+
+95
+00:03:00.420 --> 00:03:02.340
+The deck teaches these cases
+
+96
+00:03:02.340 --> 00:03:04.240
+and tables without developing a
+
+97
+00:03:04.240 --> 00:03:07.700
+complete preprocessing implementation. Do not
+
+98
+00:03:07.700 --> 00:03:09.920
+invent its preprocessing cost or
+
+99
+00:03:09.920 --> 00:03:12.280
+borrow a differently indexed good-suffix
+
+100
+00:03:12.280 --> 00:03:14.320
+table; the number required by
+
+101
+00:03:14.320 --> 00:03:15.700
+this scan is always the
+
+102
+00:03:15.700 --> 00:03:17.600
+pointer increment, not just the
+
+103
+00:03:17.600 --> 00:03:17.920
+slide.
+
+104
+00:03:18.540 --> 00:03:19.720
+Things to take note of:
+
+105
+00:03:20.160 --> 00:03:22.520
+identify the exact matched suffix,
+
+106
+00:03:22.960 --> 00:03:24.720
+test full occurrence before prefix
+
+107
+00:03:24.720 --> 00:03:27.260
+overlap, and check the preceding-character
+
+108
+00:03:27.260 --> 00:03:30.060
+condition. Add the matched-suffix length
+
+109
+00:03:30.060 --> 00:03:31.400
+when converting to the pointer
+
+110
+00:03:31.400 --> 00:03:33.640
+increment, and label table order
+
+111
+00:03:33.640 --> 00:03:36.440
+explicitly so an extracted PDF
+
+112
+00:03:36.440 --> 00:03:38.520
+cannot silently reverse your answer,
+
+113
+00:03:38.520 --> 00:03:39.660
+hmph.

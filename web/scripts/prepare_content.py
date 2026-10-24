@@ -126,6 +126,9 @@ for index,(topic, (lesson_slug, group)) in enumerate(zip(sc2005_bank,os_topic_le
  bank.append(topic)
  for lesson in lessons:
   if lesson['slug']==lesson_slug: lesson['topicIds'].append(topic['id'])
+# The later SC2001 sequence is appended after legacy OS IDs have been allocated.
+from import_sc2001_later import import_later_lessons
+import_later_lessons(ROOT,WEB,lessons,bank,mounts)
 # Import the reviewed Automata playlist, keeping its episode order and real chapters.
 automata=ROOT/'edit/series/sc2203'
 for entry in json.loads((automata/'playlist.json').read_text()):
@@ -145,8 +148,8 @@ for entry in json.loads((automata/'playlist.json').read_text()):
  sourcecopy=WEB/'content/cloud-support'/source.lstrip('/');sourcecopy.parent.mkdir(parents=True,exist_ok=True)
  shutil.copyfile(automata/entry['sources'],sourcecopy)
  lessons.append(dict(slug=slug,courseId='sc2203',title=entry['title'],group=entry['group'],description=f"{entry['id']} · {entry['group']}",periodLabel='Weeks 1–11',duration=round(entry['seconds'],2),video=url,poster=f'/assets/{slug}.webp',captions=f'/captions/{slug}.vtt',narration=audio,chapters=chapters,transcript=transcript,topicIds=[],source=dict(summary='SC2203 supplied lecture slides and tutorials through Week 11. Weeks 12–13 materials were not supplied.',map=source)))
-courses=[dict(id='sc2001',code='SC2001',title='Algorithms',periodLabel='Weeks 1–7',description='From the first sorted element to the shortest path.',libraryIntro='Thoughtful practice. One topic at a time.'),dict(id='sc2005',code='SC2005',title='Operating Systems',periodLabel='Weeks 1–7',description='Processes, scheduling and the systems behind every program.',libraryIntro='Slides, examples and exam reminders through Week 7.'),dict(id='sc2203',code='SC2203',title='Automata',periodLabel='Weeks 1–11',description='From finite automata to Turing machines, reductions and NP-completeness.',libraryIntro='Proofs, constructions and worked examples from the supplied Weeks 1–11 materials. Weeks 12–13 materials were not supplied.')]
+courses=[dict(id='sc2001',code='SC2001',title='Algorithms',periodLabel='Weeks 1–13',description='From the first sorted element to the shortest path.',libraryIntro='Thoughtful practice. One topic at a time.'),dict(id='sc2005',code='SC2005',title='Operating Systems',periodLabel='Weeks 1–7',description='Processes, scheduling and the systems behind every program.',libraryIntro='Slides, examples and exam reminders through Week 7.'),dict(id='sc2203',code='SC2203',title='Automata',periodLabel='Weeks 1–11',description='From finite automata to Turing machines, reductions and NP-completeness.',libraryIntro='Proofs, constructions and worked examples from the supplied Weeks 1–11 materials. Weeks 12–13 materials were not supplied.')]
 Image.open(ROOT/'edit/v2/assets/malfoid-encouraging.png').save(PUBLIC/'assets/malfoid.webp','WEBP',quality=90)
-(DATA/'catalog.json').write_text(json.dumps(dict(courses=courses,lessons=lessons,topics=bank,bankVersion='expanded-2026-10-23' if bank_path.exists() else 'original'),ensure_ascii=False,separators=(',',':')))
+(DATA/'catalog.json').write_text(json.dumps(dict(courses=courses,lessons=lessons,topics=bank,bankVersion='sc2001-complete-2026-10-24' if bank_path.exists() else 'original'),ensure_ascii=False,separators=(',',':')))
 (WEB/'media-manifest.json').write_text(json.dumps(mounts,indent=2))
 print(f'Prepared {len(lessons)} full lessons, {len(bank)} topics, {sum(len(t["qs"]) for t in bank)} questions, captions and chapter links.')

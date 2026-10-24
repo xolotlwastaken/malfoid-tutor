@@ -1,0 +1,421 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:01.900
+When does the Master Theorem
+
+2
+00:00:01.900 --> 00:00:03.940
+fail? We will test its
+
+3
+00:00:03.940 --> 00:00:06.920
+required form, distinguish logarithmic and
+
+4
+00:00:06.920 --> 00:00:09.320
+polynomial gaps, and explain why
+
+5
+00:00:09.320 --> 00:00:11.620
+the regularity condition cannot simply
+
+6
+00:00:11.620 --> 00:00:12.220
+be ignored.
+
+7
+00:00:13.100 --> 00:00:14.920
+First check that the recurrence
+
+8
+00:00:14.920 --> 00:00:16.580
+really has a constant number
+
+9
+00:00:16.580 --> 00:00:19.720
+of equal-shrink subproblems. T of
+
+10
+00:00:19.720 --> 00:00:21.140
+n minus one plus n
+
+11
+00:00:21.140 --> 00:00:22.160
+does not have a fixed
+
+12
+00:00:22.160 --> 00:00:23.680
+shrink factor greater than one,
+
+13
+00:00:24.140 --> 00:00:25.740
+so this Master Theorem does
+
+14
+00:00:25.740 --> 00:00:26.940
+not directly apply.
+
+15
+00:00:27.460 --> 00:00:29.360
+Likewise, a call on n
+
+16
+00:00:29.360 --> 00:00:31.260
+over two and another on
+
+17
+00:00:31.260 --> 00:00:33.200
+n over three do not
+
+18
+00:00:33.200 --> 00:00:35.300
+fit the equal-size form. That
+
+19
+00:00:35.300 --> 00:00:36.700
+does not make the recurrence
+
+20
+00:00:36.700 --> 00:00:38.860
+unsolvable; it means you must
+
+21
+00:00:38.860 --> 00:00:40.760
+use another justified method.
+
+22
+00:00:41.260 --> 00:00:43.680
+Now consider three T of
+
+23
+00:00:43.680 --> 00:00:45.260
+n over three plus n
+
+24
+00:00:45.260 --> 00:00:47.460
+divided by log n, with
+
+25
+00:00:47.460 --> 00:00:50.120
+a suitable constant-size base. Its
+
+26
+00:00:50.120 --> 00:00:51.920
+form fits, and p equals
+
+27
+00:00:51.920 --> 00:00:53.940
+one, so the benchmark is
+
+28
+00:00:53.940 --> 00:00:54.300
+n.
+
+29
+00:00:54.660 --> 00:00:56.180
+The local work is smaller
+
+30
+00:00:56.180 --> 00:00:58.440
+than n, because dividing by
+
+31
+00:00:58.440 --> 00:01:00.400
+log n makes its ratio
+
+32
+00:01:00.400 --> 00:01:02.800
+to n approach zero. But
+
+33
+00:01:02.800 --> 00:01:04.220
+case one needs more than
+
+34
+00:01:04.220 --> 00:01:06.320
+simply being smaller: it needs
+
+35
+00:01:06.320 --> 00:01:08.080
+a fixed polynomial gap.
+
+36
+00:01:08.700 --> 00:01:11.040
+Divide n over log n
+
+37
+00:01:11.040 --> 00:01:12.240
+by n to the one
+
+38
+00:01:12.240 --> 00:01:15.100
+minus epsilon. The ratio becomes
+
+39
+00:01:15.100 --> 00:01:16.900
+n to the epsilon over
+
+40
+00:01:16.900 --> 00:01:19.020
+log n, which grows without
+
+41
+00:01:19.020 --> 00:01:20.640
+limit for every fixed positive
+
+42
+00:01:20.640 --> 00:01:23.180
+epsilon, so the required case-one
+
+43
+00:01:23.180 --> 00:01:24.320
+upper bound fails.
+
+44
+00:01:24.980 --> 00:01:27.020
+Case two does not apply
+
+45
+00:01:27.020 --> 00:01:29.180
+either, because n over log
+
+46
+00:01:29.180 --> 00:01:31.000
+n is not Theta of
+
+47
+00:01:31.000 --> 00:01:33.300
+n. The extended logarithmic version
+
+48
+00:01:33.300 --> 00:01:35.260
+supplied by this course requires
+
+49
+00:01:35.260 --> 00:01:38.280
+a nonnegative logarithmic exponent, whereas
+
+50
+00:01:38.400 --> 00:01:40.160
+this example would need minus
+
+51
+00:01:40.160 --> 00:01:40.560
+one.
+
+52
+00:01:41.100 --> 00:01:43.700
+Case three cannot help because
+
+53
+00:01:43.700 --> 00:01:45.560
+this local cost is smaller,
+
+54
+00:01:46.040 --> 00:01:48.220
+not polynomially larger, than the
+
+55
+00:01:48.220 --> 00:01:50.960
+benchmark. The example lies between
+
+56
+00:01:50.960 --> 00:01:52.560
+cases one and two of
+
+57
+00:01:52.560 --> 00:01:54.580
+the stated theorem, correcting the
+
+58
+00:01:54.580 --> 00:01:56.280
+case-number label on the slide.
+
+59
+00:01:56.900 --> 00:01:59.440
+A recursion-tree expansion offers a
+
+60
+00:01:59.440 --> 00:02:01.100
+way forward without forcing the
+
+61
+00:02:01.100 --> 00:02:03.080
+wrong theorem. At level i
+
+62
+00:02:03.220 --> 00:02:04.660
+the combined work is n
+
+63
+00:02:04.660 --> 00:02:06.180
+divided by log of n
+
+64
+00:02:06.180 --> 00:02:07.580
+over three to the i,
+
+65
+00:02:07.920 --> 00:02:09.320
+so you must sum those
+
+66
+00:02:09.320 --> 00:02:11.000
+varying level costs with a
+
+67
+00:02:11.000 --> 00:02:12.280
+proper base threshold.
+
+68
+00:02:13.020 --> 00:02:14.380
+Now look at the other
+
+69
+00:02:14.380 --> 00:02:18.360
+common omission, case-three regularity. A
+
+70
+00:02:18.360 --> 00:02:19.640
+large value of f at
+
+71
+00:02:19.640 --> 00:02:21.200
+one scale does not guarantee
+
+72
+00:02:21.200 --> 00:02:22.300
+that the sum of the
+
+73
+00:02:22.300 --> 00:02:24.660
+child-scale costs contracts by a
+
+74
+00:02:24.660 --> 00:02:25.540
+constant factor.
+
+75
+00:02:26.100 --> 00:02:29.000
+For a clean counterexample, define
+
+76
+00:02:29.000 --> 00:02:30.300
+f of n as n
+
+77
+00:02:30.300 --> 00:02:31.800
+cubed at powers of two
+
+78
+00:02:31.800 --> 00:02:33.740
+and n otherwise, and consider
+
+79
+00:02:33.740 --> 00:02:35.380
+T of n equals T
+
+80
+00:02:35.380 --> 00:02:36.740
+of n over three plus
+
+81
+00:02:36.740 --> 00:02:37.760
+f of n on exact
+
+82
+00:02:37.760 --> 00:02:39.980
+multiples. Although f is always
+
+83
+00:02:39.980 --> 00:02:41.680
+at least n, at n
+
+84
+00:02:41.680 --> 00:02:42.940
+equal to three times a
+
+85
+00:02:42.940 --> 00:02:44.320
+power of two the child
+
+86
+00:02:44.320 --> 00:02:45.960
+cost can be cubic while
+
+87
+00:02:45.960 --> 00:02:47.300
+the parent cost is only
+
+88
+00:02:47.300 --> 00:02:47.720
+linear.
+
+89
+00:02:48.220 --> 00:02:51.760
+Consequently, no fixed contraction constant
+
+90
+00:02:51.760 --> 00:02:54.360
+can establish regularity there, even
+
+91
+00:02:54.360 --> 00:02:56.080
+though f exceeds the constant
+
+92
+00:02:56.080 --> 00:02:57.900
+leaf benchmark by a polynomial
+
+93
+00:02:57.900 --> 00:03:00.080
+factor. This is an explanatory
+
+94
+00:03:00.080 --> 00:03:02.080
+example of the condition, not
+
+95
+00:03:02.080 --> 00:03:03.420
+a transcription of the slide
+
+96
+00:03:03.420 --> 00:03:05.280
+whose extracted formula is ambiguous.
+
+97
+00:03:05.780 --> 00:03:07.240
+Things to take note of:
+
+98
+00:03:07.700 --> 00:03:09.300
+verify the recurrence shape and
+
+99
+00:03:09.300 --> 00:03:11.040
+every case condition before using
+
+100
+00:03:11.040 --> 00:03:13.460
+the conclusion. A logarithmic gap
+
+101
+00:03:13.460 --> 00:03:15.080
+is not a polynomial gap,
+
+102
+00:03:15.540 --> 00:03:17.900
+missing regularity matters, and iteration
+
+103
+00:03:17.900 --> 00:03:20.320
+or substitution remains available when
+
+104
+00:03:20.320 --> 00:03:21.680
+this theorem has nothing to
+
+105
+00:03:21.680 --> 00:03:22.500
+say, hmph.

@@ -1,0 +1,417 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.780
+Why does earliest-finish interval scheduling
+
+2
+00:00:02.780 --> 00:00:05.060
+work? We will choose the
+
+3
+00:00:05.060 --> 00:00:06.900
+largest compatible subset of jobs
+
+4
+00:00:06.900 --> 00:00:09.620
+on one resource, trace every
+
+5
+00:00:09.620 --> 00:00:11.960
+acceptance and rejection, and justify
+
+6
+00:00:11.960 --> 00:00:13.200
+the greedy rule by an
+
+7
+00:00:13.200 --> 00:00:14.180
+exchange argument.
+
+8
+00:00:14.620 --> 00:00:16.000
+Represent a job as an
+
+9
+00:00:16.000 --> 00:00:18.200
+interval including its start but
+
+10
+00:00:18.200 --> 00:00:20.980
+excluding its finish. Two jobs
+
+11
+00:00:20.980 --> 00:00:22.220
+that meet at an endpoint
+
+12
+00:00:22.220 --> 00:00:24.840
+are therefore compatible, because the
+
+13
+00:00:24.840 --> 00:00:26.680
+first has finished exactly when
+
+14
+00:00:26.680 --> 00:00:27.420
+the second begins.
+
+15
+00:00:28.340 --> 00:00:29.620
+The rule is to sort
+
+16
+00:00:29.620 --> 00:00:31.640
+jobs by increasing finish time.
+
+17
+00:00:32.120 --> 00:00:33.660
+Scan that order and accept
+
+18
+00:00:33.660 --> 00:00:35.200
+a job exactly when its
+
+19
+00:00:35.200 --> 00:00:36.440
+start is at least the
+
+20
+00:00:36.440 --> 00:00:38.020
+finish of the last accepted
+
+21
+00:00:38.020 --> 00:00:38.380
+job.
+
+22
+00:00:38.860 --> 00:00:40.720
+Our five jobs are A
+
+23
+00:00:40.720 --> 00:00:42.660
+from zero to three, B
+
+24
+00:00:42.660 --> 00:00:44.380
+from one to two, C
+
+25
+00:00:44.380 --> 00:00:46.140
+from two to four, D
+
+26
+00:00:46.140 --> 00:00:47.440
+from three to five, and
+
+27
+00:00:47.440 --> 00:00:48.740
+E from four to six.
+
+28
+00:00:49.300 --> 00:00:50.760
+Their finish order is B,
+
+29
+00:00:51.140 --> 00:00:53.680
+A, C, D, E, so
+
+30
+00:00:53.680 --> 00:00:55.220
+the scan begins with B.
+
+31
+00:00:55.620 --> 00:00:58.080
+Accept B, which occupies the
+
+32
+00:00:58.080 --> 00:00:59.720
+resource from one to two.
+
+33
+00:01:00.300 --> 00:01:02.000
+Set the last accepted finish
+
+34
+00:01:02.000 --> 00:01:03.720
+to two; A then starts
+
+35
+00:01:03.720 --> 00:01:06.000
+at zero and conflicts, so
+
+36
+00:01:06.000 --> 00:01:08.040
+reject A without changing that
+
+37
+00:01:08.040 --> 00:01:08.720
+finish marker.
+
+38
+00:01:09.260 --> 00:01:11.680
+C starts at two, exactly
+
+39
+00:01:11.680 --> 00:01:13.840
+the marker, so accept C
+
+40
+00:01:13.840 --> 00:01:15.060
+and move the marker to
+
+41
+00:01:15.060 --> 00:01:17.200
+four. D starts at three
+
+42
+00:01:17.200 --> 00:01:18.860
+and conflicts, so it is
+
+43
+00:01:18.860 --> 00:01:20.420
+rejected while the marker stays
+
+44
+00:01:20.420 --> 00:01:21.020
+at four.
+
+45
+00:01:21.860 --> 00:01:24.400
+E starts at four, so
+
+46
+00:01:24.400 --> 00:01:26.480
+accept it after C. The
+
+47
+00:01:26.480 --> 00:01:28.620
+result B, C, E contains
+
+48
+00:01:28.620 --> 00:01:30.480
+three jobs, and its touching
+
+49
+00:01:30.480 --> 00:01:32.340
+endpoints are valid under our
+
+50
+00:01:32.340 --> 00:01:33.280
+interval convention.
+
+51
+00:01:34.060 --> 00:01:36.000
+To prove the rule, consider
+
+52
+00:01:36.000 --> 00:01:38.080
+an optimal solution agreeing with
+
+53
+00:01:38.080 --> 00:01:39.900
+greedy for the longest possible
+
+54
+00:01:39.900 --> 00:01:42.080
+prefix. At the first difference,
+
+55
+00:01:42.540 --> 00:01:44.220
+greedy chooses a compatible job
+
+56
+00:01:44.220 --> 00:01:45.920
+that finishes no later than
+
+57
+00:01:45.920 --> 00:01:47.640
+the optimal solution's next job.
+
+58
+00:01:47.940 --> 00:01:49.980
+Replace that optimal job by
+
+59
+00:01:49.980 --> 00:01:52.520
+greedy's choice. It remains compatible
+
+60
+00:01:52.520 --> 00:01:54.420
+with the common prefix, and
+
+61
+00:01:54.420 --> 00:01:55.900
+because it finishes no later,
+
+62
+00:01:56.320 --> 00:01:57.600
+every later job from the
+
+63
+00:01:57.600 --> 00:01:59.240
+optimal schedule still fits.
+
+64
+00:01:59.740 --> 00:02:02.340
+The replacement preserves optimality and
+
+65
+00:02:02.340 --> 00:02:05.340
+extends the agreeing prefix, contradicting
+
+66
+00:02:05.340 --> 00:02:07.920
+its maximal choice. Repeating this
+
+67
+00:02:07.920 --> 00:02:10.500
+reasoning establishes that earliest-finish greedy
+
+68
+00:02:10.500 --> 00:02:13.480
+attains a maximum-cardinality compatible subset.
+
+69
+00:02:13.880 --> 00:02:15.440
+If greedy stopped with another
+
+70
+00:02:15.440 --> 00:02:17.880
+optimal job still compatible, its
+
+71
+00:02:17.880 --> 00:02:19.140
+scan would have accepted another
+
+72
+00:02:19.140 --> 00:02:21.100
+job, so it cannot terminate
+
+73
+00:02:21.100 --> 00:02:22.880
+earlier than that agreeing optimum.
+
+74
+00:02:23.300 --> 00:02:25.740
+Choosing the smallest start time
+
+75
+00:02:25.740 --> 00:02:27.840
+is not interchangeable: a job
+
+76
+00:02:27.840 --> 00:02:29.200
+from zero to ten can
+
+77
+00:02:29.200 --> 00:02:30.600
+block three jobs from one
+
+78
+00:02:30.600 --> 00:02:32.100
+to two, two to three,
+
+79
+00:02:32.380 --> 00:02:34.940
+and three to four. Shortest
+
+80
+00:02:34.940 --> 00:02:36.700
+duration also fails, because the
+
+81
+00:02:36.700 --> 00:02:37.920
+job from three to five
+
+82
+00:02:37.920 --> 00:02:39.600
+blocks both zero to four
+
+83
+00:02:39.600 --> 00:02:40.640
+and four to eight.
+
+84
+00:02:41.020 --> 00:02:43.060
+Sorting costs big O of
+
+85
+00:02:43.060 --> 00:02:44.480
+n log n, and the
+
+86
+00:02:44.480 --> 00:02:46.400
+scan costs big O of
+
+87
+00:02:46.400 --> 00:02:47.900
+n, or linear total if
+
+88
+00:02:47.900 --> 00:02:49.460
+finish order is already given.
+
+89
+00:02:49.920 --> 00:02:51.820
+Only accepted jobs update the
+
+90
+00:02:51.820 --> 00:02:53.700
+marker, and its initial value
+
+91
+00:02:53.700 --> 00:02:55.140
+must be a valid lower
+
+92
+00:02:55.140 --> 00:02:57.300
+bound on starts, rather than
+
+93
+00:02:57.300 --> 00:02:59.920
+blindly zero when negative times
+
+94
+00:02:59.920 --> 00:03:00.580
+are allowed.
+
+95
+00:03:01.060 --> 00:03:02.380
+Things to take note of:
+
+96
+00:03:02.740 --> 00:03:04.860
+this is unweighted subset selection
+
+97
+00:03:04.860 --> 00:03:06.640
+on one resource, and changing
+
+98
+00:03:06.640 --> 00:03:08.240
+the objective can invalidate the
+
+99
+00:03:08.240 --> 00:03:11.020
+proof. Interval partitioning schedules every
+
+100
+00:03:11.020 --> 00:03:12.600
+job using the fewest resources
+
+101
+00:03:12.600 --> 00:03:13.900
+and is excluded in the
+
+102
+00:03:13.900 --> 00:03:15.620
+supplied review, so do not
+
+103
+00:03:15.620 --> 00:03:17.080
+answer a different problem just
+
+104
+00:03:17.080 --> 00:03:18.620
+because its name sounds familiar.

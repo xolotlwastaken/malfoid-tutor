@@ -1,0 +1,381 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.620
+Why is knapsack dynamic programming
+
+2
+00:00:02.620 --> 00:00:05.100
+only pseudo polynomial? We will
+
+3
+00:00:05.100 --> 00:00:06.900
+distinguish a numeric value from
+
+4
+00:00:06.900 --> 00:00:08.220
+the number of bits encoding
+
+5
+00:00:08.220 --> 00:00:10.360
+it, then compare knapsack and
+
+6
+00:00:10.360 --> 00:00:12.000
+coin change with longest common
+
+7
+00:00:12.000 --> 00:00:12.740
+subsequence.
+
+8
+00:00:13.260 --> 00:00:15.420
+A polynomial-time claim is measured
+
+9
+00:00:15.420 --> 00:00:16.520
+against the length of the
+
+10
+00:00:16.520 --> 00:00:19.100
+input representation. Writing a string
+
+11
+00:00:19.100 --> 00:00:21.100
+of n characters explicitly supplies
+
+12
+00:00:21.100 --> 00:00:22.680
+n symbols, but a binary
+
+13
+00:00:22.680 --> 00:00:24.180
+integer can represent a much
+
+14
+00:00:24.180 --> 00:00:25.820
+larger numeric value in only
+
+15
+00:00:25.820 --> 00:00:26.540
+a few bits.
+
+16
+00:00:27.540 --> 00:00:30.440
+For example, binary one thousand
+
+17
+00:00:30.440 --> 00:00:32.360
+is the number eight, represented
+
+18
+00:00:32.360 --> 00:00:35.280
+by four bits. A capacity-eight
+
+19
+00:00:35.280 --> 00:00:36.880
+table uses entries up to
+
+20
+00:00:36.880 --> 00:00:38.860
+eight even though the capacity
+
+21
+00:00:38.860 --> 00:00:40.780
+field itself has only four
+
+22
+00:00:40.780 --> 00:00:41.540
+written symbols.
+
+23
+00:00:42.060 --> 00:00:43.760
+With b bits, the largest
+
+24
+00:00:43.760 --> 00:00:45.580
+unsigned capacity is two to
+
+25
+00:00:45.580 --> 00:00:47.160
+the b minus one. A
+
+26
+00:00:47.160 --> 00:00:48.960
+table indexed through every capacity
+
+27
+00:00:48.960 --> 00:00:51.320
+may therefore require exponentially many
+
+28
+00:00:51.320 --> 00:00:53.320
+entries in b, despite being
+
+29
+00:00:53.320 --> 00:00:54.740
+linear in the value C.
+
+30
+00:00:55.460 --> 00:00:57.740
+The zero-one knapsack table has
+
+31
+00:00:57.740 --> 00:00:59.380
+n item choices and C
+
+32
+00:00:59.380 --> 00:01:01.720
+capacity values, giving big O
+
+33
+00:01:01.720 --> 00:01:03.440
+of n C work. If
+
+34
+00:01:03.440 --> 00:01:04.700
+C is near two to
+
+35
+00:01:04.700 --> 00:01:06.600
+the b, that expression becomes
+
+36
+00:01:06.600 --> 00:01:08.420
+order n times two to
+
+37
+00:01:08.420 --> 00:01:10.180
+the b, not a polynomial
+
+38
+00:01:10.180 --> 00:01:11.560
+in n and b.
+
+39
+00:01:12.140 --> 00:01:14.260
+We call this pseudo polynomial
+
+40
+00:01:14.260 --> 00:01:16.620
+time. The runtime is polynomial
+
+41
+00:01:16.620 --> 00:01:18.900
+in the numeric capacity, without
+
+42
+00:01:18.900 --> 00:01:20.420
+a polynomial bound in the
+
+43
+00:01:20.420 --> 00:01:23.240
+encoded input length. This describes
+
+44
+00:01:23.240 --> 00:01:25.420
+the given algorithm and representation,
+
+45
+00:01:25.920 --> 00:01:27.260
+not a claim that every
+
+46
+00:01:27.260 --> 00:01:29.560
+input always takes its largest
+
+47
+00:01:29.560 --> 00:01:30.640
+possible table.
+
+48
+00:01:31.220 --> 00:01:33.320
+Minimum-coin DP has the same
+
+49
+00:01:33.320 --> 00:01:34.660
+issue with its target amount
+
+50
+00:01:34.660 --> 00:01:36.450
+A. Big O of k
+
+51
+00:01:36.450 --> 00:01:37.940
+A depends on all amounts
+
+52
+00:01:37.940 --> 00:01:39.480
+up to A, while the
+
+53
+00:01:39.480 --> 00:01:41.380
+binary target field occupies only
+
+54
+00:01:41.380 --> 00:01:42.620
+order log A bits.
+
+55
+00:01:43.180 --> 00:01:45.880
+Longest common subsequence is different
+
+56
+00:01:45.880 --> 00:01:47.540
+because its two strings are
+
+57
+00:01:47.540 --> 00:01:50.260
+explicitly listed. Their lengths n
+
+58
+00:01:50.260 --> 00:01:52.440
+and m already contribute n
+
+59
+00:01:52.440 --> 00:01:55.100
+plus m input symbols, so
+
+60
+00:01:55.100 --> 00:01:56.360
+the n m table is
+
+61
+00:01:56.360 --> 00:01:57.960
+polynomial in that total length.
+
+62
+00:01:58.420 --> 00:02:00.060
+The symbols n and m
+
+63
+00:02:00.060 --> 00:02:01.520
+alone do not decide the
+
+64
+00:02:01.520 --> 00:02:04.160
+classification. You must state whether
+
+65
+00:02:04.160 --> 00:02:05.880
+a parameter measures an explicit
+
+66
+00:02:05.880 --> 00:02:08.040
+sequence length, a numeric amount,
+
+67
+00:02:08.480 --> 00:02:10.080
+or an encoding length before
+
+68
+00:02:10.080 --> 00:02:11.680
+interpreting its appearance in a
+
+69
+00:02:11.680 --> 00:02:11.940
+runtime.
+
+70
+00:02:12.620 --> 00:02:14.760
+Our operation counts use the
+
+71
+00:02:14.760 --> 00:02:17.280
+course assumption of constant-time arithmetic
+
+72
+00:02:17.280 --> 00:02:19.560
+on suitable machine words. For
+
+73
+00:02:19.560 --> 00:02:21.540
+enormous exact integers, the cost
+
+74
+00:02:21.540 --> 00:02:23.480
+of addition, comparison and storage
+
+75
+00:02:23.480 --> 00:02:25.060
+also depends on bit length,
+
+76
+00:02:25.300 --> 00:02:26.600
+which should be included in
+
+77
+00:02:26.600 --> 00:02:28.240
+a full bit-operation analysis.
+
+78
+00:02:28.820 --> 00:02:31.120
+An exact knapsack DP therefore
+
+79
+00:02:31.380 --> 00:02:32.680
+does not establish that the
+
+80
+00:02:32.680 --> 00:02:34.420
+knapsack decision problem has a
+
+81
+00:02:34.420 --> 00:02:36.900
+polynomial-time algorithm in binary input
+
+82
+00:02:36.900 --> 00:02:39.560
+size. It removes repeated subproblems
+
+83
+00:02:39.560 --> 00:02:41.020
+effectively, but the number of
+
+84
+00:02:41.020 --> 00:02:42.800
+capacity states still carries the
+
+85
+00:02:42.800 --> 00:02:44.080
+numeric-magnitude dependence.
+
+86
+00:02:44.620 --> 00:02:46.080
+Things to take note of:
+
+87
+00:02:46.460 --> 00:02:48.400
+separate numeric values from encoding
+
+88
+00:02:48.400 --> 00:02:50.320
+lengths and substitute the bit-length
+
+89
+00:02:50.320 --> 00:02:52.620
+relationship before classifying a bound.
+
+90
+00:02:53.180 --> 00:02:55.180
+LCS is polynomial in its
+
+91
+00:02:55.180 --> 00:02:57.380
+explicit string lengths, whereas the
+
+92
+00:02:57.380 --> 00:02:59.460
+capacity and amount DPs depend
+
+93
+00:02:59.460 --> 00:03:01.800
+on numeric magnitudes; a table
+
+94
+00:03:01.800 --> 00:03:03.480
+can be neatly organised and
+
+95
+00:03:03.480 --> 00:03:05.580
+still be very large, hmph.

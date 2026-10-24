@@ -1,0 +1,405 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.260
+How does the shortest-link TSP
+
+2
+00:00:02.540 --> 00:00:05.420
+heuristic differ from Kruskal? We
+
+3
+00:00:05.420 --> 00:00:07.000
+will scan edges in global
+
+4
+00:00:07.000 --> 00:00:09.380
+weight order, enforce both degree
+
+5
+00:00:09.380 --> 00:00:11.680
+and cycle restrictions, and close
+
+6
+00:00:11.680 --> 00:00:13.340
+a spanning path into a
+
+7
+00:00:13.340 --> 00:00:13.600
+tour.
+
+8
+00:00:14.220 --> 00:00:17.280
+Unlike nearest neighbour, shortest link
+
+9
+00:00:17.280 --> 00:00:19.640
+considers the globally lightest remaining
+
+10
+00:00:19.640 --> 00:00:21.740
+edge rather than only edges
+
+11
+00:00:21.740 --> 00:00:24.280
+from one current vertex. Accept
+
+12
+00:00:24.280 --> 00:00:26.080
+it only if neither endpoint
+
+13
+00:00:26.080 --> 00:00:28.300
+would exceed degree two and
+
+14
+00:00:28.300 --> 00:00:29.420
+it would not create a
+
+15
+00:00:29.420 --> 00:00:30.380
+premature cycle.
+
+16
+00:00:30.980 --> 00:00:32.780
+Use five vertices with the
+
+17
+00:00:32.780 --> 00:00:34.380
+first six sorted edges A
+
+18
+00:00:34.380 --> 00:00:36.020
+B one, B C two,
+
+19
+00:00:36.240 --> 00:00:37.340
+A C three, B D
+
+20
+00:00:37.340 --> 00:00:38.640
+four, C D five and
+
+21
+00:00:38.640 --> 00:00:40.200
+D E six. The remaining
+
+22
+00:00:40.200 --> 00:00:41.800
+edges are A E seven,
+
+23
+00:00:42.260 --> 00:00:43.700
+B E eight, A D
+
+24
+00:00:43.700 --> 00:00:45.080
+nine and C E ten,
+
+25
+00:00:45.340 --> 00:00:46.140
+completing the graph.
+
+26
+00:00:46.620 --> 00:00:48.520
+Accept A B because both
+
+27
+00:00:48.520 --> 00:00:50.660
+endpoints have degree zero and
+
+28
+00:00:50.660 --> 00:00:52.780
+no cycle is possible. Then
+
+29
+00:00:52.780 --> 00:00:55.320
+accept B C, leaving B
+
+30
+00:00:55.320 --> 00:00:57.060
+with degree two and A
+
+31
+00:00:57.060 --> 00:00:58.700
+and C with degree one.
+
+32
+00:00:59.300 --> 00:01:02.160
+Next consider A C, which
+
+33
+00:01:02.160 --> 00:01:04.260
+would close the three-vertex cycle
+
+34
+00:01:04.260 --> 00:01:06.100
+A B C A. Reject
+
+35
+00:01:06.100 --> 00:01:07.620
+it even though the endpoint
+
+36
+00:01:07.620 --> 00:01:09.300
+degrees would remain at most
+
+37
+00:01:09.300 --> 00:01:11.480
+two, because D and E
+
+38
+00:01:11.480 --> 00:01:12.860
+have not yet joined the
+
+39
+00:01:12.860 --> 00:01:13.140
+tour.
+
+40
+00:01:13.740 --> 00:01:16.140
+Next consider B D, which
+
+41
+00:01:16.140 --> 00:01:17.360
+would give B a third
+
+42
+00:01:17.360 --> 00:01:19.800
+incident accepted edge. Reject it
+
+43
+00:01:19.800 --> 00:01:21.520
+for the degree rule, even
+
+44
+00:01:21.520 --> 00:01:22.860
+though connecting D would not
+
+45
+00:01:22.860 --> 00:01:23.780
+create a cycle.
+
+46
+00:01:24.340 --> 00:01:26.380
+C D passes both tests,
+
+47
+00:01:26.740 --> 00:01:27.980
+so accept it and extend
+
+48
+00:01:27.980 --> 00:01:29.960
+the current path. Then D
+
+49
+00:01:29.960 --> 00:01:31.840
+E also passes, giving the
+
+50
+00:01:31.840 --> 00:01:33.940
+spanning path A, B, C,
+
+51
+00:01:34.280 --> 00:01:35.940
+D, E with four accepted
+
+52
+00:01:35.940 --> 00:01:36.360
+edges.
+
+53
+00:01:37.180 --> 00:01:38.880
+A path spanning all five
+
+54
+00:01:38.880 --> 00:01:41.500
+vertices has exactly two degree-one
+
+55
+00:01:41.500 --> 00:01:44.160
+endpoints, A and E. Add
+
+56
+00:01:44.160 --> 00:01:45.880
+their connecting edge A E
+
+57
+00:01:45.880 --> 00:01:47.140
+to form the final tour;
+
+58
+00:01:47.800 --> 00:01:49.300
+this is the permitted final
+
+59
+00:01:49.300 --> 00:01:51.900
+cycle, not a premature subtour.
+
+60
+00:01:52.100 --> 00:01:53.660
+The total tour cost is
+
+61
+00:01:53.660 --> 00:01:55.080
+one plus two plus five
+
+62
+00:01:55.080 --> 00:01:56.920
+plus six plus seven, which
+
+63
+00:01:56.920 --> 00:01:59.780
+equals twenty-one. This trace demonstrates
+
+64
+00:01:59.780 --> 00:02:01.780
+the rules and feasibility; it
+
+65
+00:02:01.780 --> 00:02:03.080
+does not prove shortest link
+
+66
+00:02:03.080 --> 00:02:05.040
+always finds an optimal TSP
+
+67
+00:02:05.040 --> 00:02:05.400
+tour.
+
+68
+00:02:06.060 --> 00:02:08.580
+Kruskal also scans edges globally
+
+69
+00:02:08.580 --> 00:02:10.940
+and rejects cycles, but it
+
+70
+00:02:10.940 --> 00:02:13.000
+permits vertices of degree greater
+
+71
+00:02:13.000 --> 00:02:14.880
+than two. Its goal is
+
+72
+00:02:14.880 --> 00:02:17.200
+a spanning tree, whereas shortest
+
+73
+00:02:17.200 --> 00:02:19.500
+link must maintain path-like pieces
+
+74
+00:02:19.500 --> 00:02:22.060
+and eventually create one Hamiltonian
+
+75
+00:02:22.060 --> 00:02:22.480
+cycle.
+
+76
+00:02:23.060 --> 00:02:25.200
+Sorting E edges costs big
+
+77
+00:02:25.200 --> 00:02:26.800
+O of E log E,
+
+78
+00:02:27.080 --> 00:02:29.340
+and union-find plus degree counters
+
+79
+00:02:29.340 --> 00:02:30.980
+can check the scan efficiently.
+
+80
+00:02:31.680 --> 00:02:34.100
+With suitable union-find operations, the
+
+81
+00:02:34.100 --> 00:02:35.840
+scan contributes big O of
+
+82
+00:02:35.840 --> 00:02:37.720
+E times inverse Ackermann of
+
+83
+00:02:37.720 --> 00:02:39.860
+V, alongside the sorting cost.
+
+84
+00:02:40.220 --> 00:02:42.240
+In a complete V-vertex graph,
+
+85
+00:02:42.820 --> 00:02:44.220
+E is order V squared,
+
+86
+00:02:44.660 --> 00:02:46.240
+so edge storage and sorting
+
+87
+00:02:46.240 --> 00:02:48.500
+can be substantial. State tie
+
+88
+00:02:48.500 --> 00:02:50.180
+rules if equal weights occur,
+
+89
+00:02:50.760 --> 00:02:51.780
+and do not claim this
+
+90
+00:02:51.780 --> 00:02:53.980
+heuristic dominates nearest neighbour on
+
+91
+00:02:53.980 --> 00:02:55.840
+every input just because it
+
+92
+00:02:55.840 --> 00:02:57.200
+does better in one example.
+
+93
+00:02:57.780 --> 00:02:59.600
+Things to take note of:
+
+94
+00:03:00.020 --> 00:03:02.540
+track endpoint degrees and connected
+
+95
+00:03:02.540 --> 00:03:05.420
+components separately, because each rejects
+
+96
+00:03:05.420 --> 00:03:06.840
+a different kind of invalid
+
+97
+00:03:06.840 --> 00:03:09.400
+choice. Stop after the spanning
+
+98
+00:03:09.400 --> 00:03:11.600
+path, include the final closing
+
+99
+00:03:11.600 --> 00:03:13.940
+edge, and distinguish a TSP
+
+100
+00:03:13.940 --> 00:03:15.960
+tour from an MST before
+
+101
+00:03:15.960 --> 00:03:18.900
+borrowing Kruskal's explanation, hmph.

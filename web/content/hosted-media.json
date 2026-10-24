@@ -598,5 +598,315 @@
     "size": 3477120,
     "sha256": "0db39e22f9baab1efd58bde1538291bb8d83a3cf95d4661174e67780a34c6327",
     "sourceSha256": "3dc486d7e129272d74730d4a18abde0b0b146e3dcd859fbfdf1dada422199cfe"
+  },
+  "/media/sc2001-A1-asymptotic-bounds.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A1-asymptotic-bounds.mp3",
+    "size": 1656813,
+    "sha256": "09d138ac7fa1dc838bf8e24dee92e87dfd9f06cdd2a8b3e564f08a7e2594d085"
+  },
+  "/media/sc2001-A2-growth-rates.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A2-growth-rates.mp3",
+    "size": 1455021,
+    "sha256": "cc3bc1d3556cf8fc2e6561602a4f3fe0295dd79ae7d193169fd0fc0f7b285c16"
+  },
+  "/media/sc2001-A2-growth-rates.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A2-growth-rates.mp4",
+    "size": 3937883,
+    "sha256": "78bf3655915318741d983bccf29306ab2ff2698831de46ad05b46a14b3e48c87"
+  },
+  "/media/sc2001-A3-recurrence-expansion.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A3-recurrence-expansion.mp3",
+    "size": 1501101,
+    "sha256": "86ed0303a584d37f86bb86954e1f482a697e19f736eef27dac8d0ade57b96ff9"
+  },
+  "/media/sc2001-A1-asymptotic-bounds.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A1-asymptotic-bounds.mp4",
+    "size": 4467132,
+    "sha256": "28a437b6d05b1627afd3e00257e99dfef9f2bb8a4ae2fa6c80d83d07f0748745"
+  },
+  "/media/sc2001-A4-master-theorem.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A4-master-theorem.mp3",
+    "size": 1584813,
+    "sha256": "e2621cafae80d3635f382417c3542249259c94f1fae82bc96752758ed7611547"
+  },
+  "/media/sc2001-A3-recurrence-expansion.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A3-recurrence-expansion.mp4",
+    "size": 4036057,
+    "sha256": "f721aee4a947cdf2d83c5a0f0816ea4f0aa2b8cace9ce229caf55bef5a878ebe"
+  },
+  "/media/sc2001-A5-master-limitations.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A5-master-limitations.mp3",
+    "size": 1633581,
+    "sha256": "2954d6b9cbaaef04eddbf38c96fb5c0470f3dd5a0861ef10307cb8773b79e1fe"
+  },
+  "/media/sc2001-A4-master-theorem.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A4-master-theorem.mp4",
+    "size": 4153004,
+    "sha256": "3ad895453a44b23a4409d234f92263a154a232df3367057fcd9d13b6ddcdd7a7"
+  },
+  "/media/sc2001-A6-substitution-induction.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A6-substitution-induction.mp3",
+    "size": 1540077,
+    "sha256": "cac087e5c9174db1cbf56c14f730da900b40428626a49f1c56bfc253d570b660"
+  },
+  "/media/sc2001-A5-master-limitations.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A5-master-limitations.mp4",
+    "size": 4332804,
+    "sha256": "c3cf96cc10168f3736a11682a093d26f0a101381b56959ace041630ec824ceb4"
+  },
+  "/media/sc2001-A6-substitution-induction.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A6-substitution-induction.mp4",
+    "size": 4125029,
+    "sha256": "33c9b404febc97cf618b63a8a174c1d72fd06cae35a3c6fc3f941cceb5cac409"
+  },
+  "/media/sc2001-A7-parity-and-rounding.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A7-parity-and-rounding.mp3",
+    "size": 1541997,
+    "sha256": "6baf187b9fdc067eee2aa8935666b51faeade7afe9adea3a693796b5288ad3b6"
+  },
+  "/media/sc2001-G1-greedy-coin-change.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-G1-greedy-coin-change.mp3",
+    "size": 1531053,
+    "sha256": "c2fe5b37067efe1f58ce4a314dbd899c7d1cdbe4f2e8e977ca8c3fe23918d69b"
+  },
+  "/media/sc2001-A7-parity-and-rounding.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-A7-parity-and-rounding.mp4",
+    "size": 4114065,
+    "sha256": "5fbcdbefb8e96914346854fab522f2279236ea364205b455d6d59bab53b48f95"
+  },
+  "/media/sc2001-G2-interval-scheduling.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-G2-interval-scheduling.mp3",
+    "size": 1607853,
+    "sha256": "1ed7ae118dd69d51421a5553fa8aa721b4ee25edd93269f04802a1163d71ff5d"
+  },
+  "/media/sc2001-G1-greedy-coin-change.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-G1-greedy-coin-change.mp4",
+    "size": 4250218,
+    "sha256": "20baade8e9d1b8e4c26f1cc51902a1cd6b019aad963da5d7ce15a24e93858c8c"
+  },
+  "/media/sc2001-G3-fractional-knapsack.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-G3-fractional-knapsack.mp3",
+    "size": 1614573,
+    "sha256": "8dbbd0dcfe0ce4880380e816f9fb2e4c0c2922b0235472a80422a8f861ec89af"
+  },
+  "/media/sc2001-G2-interval-scheduling.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-G2-interval-scheduling.mp4",
+    "size": 4407225,
+    "sha256": "4ed4cf630ba452e3b08536ae9123b1826b1c23e8ea30d04985f1d979a5a26632"
+  },
+  "/media/sc2001-D1-memoisation-tabulation.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D1-memoisation-tabulation.mp3",
+    "size": 1561197,
+    "sha256": "15fb989d7b426efeae2d2cc419ef2cfc64c9f903562f043473766fd19c960061"
+  },
+  "/media/sc2001-G3-fractional-knapsack.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-G3-fractional-knapsack.mp4",
+    "size": 4437993,
+    "sha256": "e4581ec5cd8b2a3c4d32edcb76a547d8cbcd55a18d8a01f8cf5d6c5170a1c697"
+  },
+  "/media/sc2001-D2-virahanka-dp.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D2-virahanka-dp.mp3",
+    "size": 1441197,
+    "sha256": "35f09bd54c26e79da1b9086a98f2cdffc5f3bb7b55651616f988a76b5fce1167"
+  },
+  "/media/sc2001-D1-memoisation-tabulation.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D1-memoisation-tabulation.mp4",
+    "size": 4346932,
+    "sha256": "61ba78503818216dd9287e2b9b5a3f4078c8440d8a275ec02c5b4ecae134126d"
+  },
+  "/media/sc2001-D3-minimum-coin-dp.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D3-minimum-coin-dp.mp3",
+    "size": 1554093,
+    "sha256": "00918ff49e77f86bd1632f7301b3544e964f4813a58424efbe77a827dc6a6c4a"
+  },
+  "/media/sc2001-D2-virahanka-dp.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D2-virahanka-dp.mp4",
+    "size": 3899607,
+    "sha256": "b627bf4a8353ef77f68bc561bbc19d80362f7f1a11b1f2962618e49067bf3d65"
+  },
+  "/media/sc2001-D4-longest-common-subsequence.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D4-longest-common-subsequence.mp3",
+    "size": 1865133,
+    "sha256": "a1e3fbdc886a2b84bcd96fff61e49e5213b74d010fd36095ff738ca9a4cdb9ed"
+  },
+  "/media/sc2001-D3-minimum-coin-dp.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D3-minimum-coin-dp.mp4",
+    "size": 4189662,
+    "sha256": "472381f5454d979eb1fa1bdfa9db2628f50d3ae39b40aeed1ce0a831da4ffd32"
+  },
+  "/media/sc2001-D5-zero-one-knapsack-dp.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D5-zero-one-knapsack-dp.mp3",
+    "size": 1738797,
+    "sha256": "a456c49c24f37f6461c8b5fc8f7805600c71dca305ed866ec521f0893010c134"
+  },
+  "/media/sc2001-D4-longest-common-subsequence.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D4-longest-common-subsequence.mp4",
+    "size": 5135807,
+    "sha256": "9e759bddb8362ca7fe04d7faec2bc13fec7ad9827082c1427bc4c1111a043f7d"
+  },
+  "/media/sc2001-D5-zero-one-knapsack-dp.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D5-zero-one-knapsack-dp.mp4",
+    "size": 4738435,
+    "sha256": "9fb2a7551126a38c2f977776faa8b902d1fe50bfa61fb8ef1ab9791d2b72727f"
+  },
+  "/media/sc2001-D6-pseudo-polynomial-time.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D6-pseudo-polynomial-time.mp3",
+    "size": 1498221,
+    "sha256": "c9ea2c6d8b78d2587aac4755b3508426416d9771d246f6658bcf2d9ef6ba6d46"
+  },
+  "/media/sc2001-D7-dp-state-design.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D7-dp-state-design.mp3",
+    "size": 1628397,
+    "sha256": "a92c83abc7d1bb84bdd047bc006e9d158f2804037f4da879f20845eb642b5b13"
+  },
+  "/media/sc2001-D6-pseudo-polynomial-time.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D6-pseudo-polynomial-time.mp4",
+    "size": 4120638,
+    "sha256": "e64c50622e915a5ed96022c7d752cb1dc234fb7ee7a17f6677bdb5bb94c91d81"
+  },
+  "/media/sc2001-S1-naive-string-matching.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S1-naive-string-matching.mp3",
+    "size": 1373421,
+    "sha256": "fc21936daaa22bbbc43abdf511a0edceb29dc6fadff8734c6f692a4a5595f9fc"
+  },
+  "/media/sc2001-D7-dp-state-design.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-D7-dp-state-design.mp4",
+    "size": 4535621,
+    "sha256": "2999043992514c73ce4320f6259b749f6c937b462aacd3693d1d5c0e03af8928"
+  },
+  "/media/sc2001-S1-naive-string-matching.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S1-naive-string-matching.mp4",
+    "size": 3859963,
+    "sha256": "6363e796633c8028e47561db00d1203bafb023039e3fc40473827b056115e96a"
+  },
+  "/media/sc2001-S2-rabin-karp.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S2-rabin-karp.mp3",
+    "size": 1445613,
+    "sha256": "dca5a4e7697377dc48afd3c85385bfce6ddb6b60267a50568e3db8e373ec0a45"
+  },
+  "/media/sc2001-S3-rabin-karp-runtime.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S3-rabin-karp-runtime.mp3",
+    "size": 1536237,
+    "sha256": "a9299851528e15dfaead96f49bdbf578be5d81f726706cd83a695634473b81e5"
+  },
+  "/media/sc2001-S2-rabin-karp.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S2-rabin-karp.mp4",
+    "size": 3959001,
+    "sha256": "cdab001bb2d7fd27c4596bca20ede8d9b60659af1d22d01a8cbb224a4f56de3f"
+  },
+  "/media/sc2001-S4-boyer-moore-bad-character.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S4-boyer-moore-bad-character.mp3",
+    "size": 1565037,
+    "sha256": "7edc9bb58196d1a91395156fb4d0e9c3c97ea4c500089d251071618941bd95e3"
+  },
+  "/media/sc2001-S3-rabin-karp-runtime.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S3-rabin-karp-runtime.mp4",
+    "size": 4188996,
+    "sha256": "7b8fadc83b229e5e4981728180fa55d14c57209cc85adad9a4a736b6196fe76b"
+  },
+  "/media/sc2001-S5-boyer-moore-good-suffix.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S5-boyer-moore-good-suffix.mp3",
+    "size": 1770861,
+    "sha256": "cb38dc7a027b9b305d4d698b64b07ef888418d59181b787bc67305a9875d9e73"
+  },
+  "/media/sc2001-S4-boyer-moore-bad-character.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S4-boyer-moore-bad-character.mp4",
+    "size": 4239330,
+    "sha256": "64732131b9261fdd1dbeb273eef46ffafbdcbb1ad964ff059f3af8b41a4b2a8f"
+  },
+  "/media/sc2001-S6-boyer-moore-full-scan.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S6-boyer-moore-full-scan.mp3",
+    "size": 1777197,
+    "sha256": "759bb9f892a5f6046e1238c01366f1095f08fa41dce0e079a25bace8fae6513a"
+  },
+  "/media/sc2001-S5-boyer-moore-good-suffix.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S5-boyer-moore-good-suffix.mp4",
+    "size": 4816713,
+    "sha256": "410ce6aaa8ab3723c1090893921a55f09b98227183d780c272629b677627169a"
+  },
+  "/media/sc2001-N1-computational-tasks.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N1-computational-tasks.mp3",
+    "size": 1555053,
+    "sha256": "c19bf30904e2bf4809f998c51beec5a8bb62de74e895d747ef1b2afba9017f8b"
+  },
+  "/media/sc2001-S6-boyer-moore-full-scan.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-S6-boyer-moore-full-scan.mp4",
+    "size": 4909376,
+    "sha256": "d39908b7b5990cbba796e452324f3832b3b292073fd8b98db5b59ce23c9b129d"
+  },
+  "/media/sc2001-N1-computational-tasks.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N1-computational-tasks.mp4",
+    "size": 4245316,
+    "sha256": "7f5c4c4488cbe6541ebbf6359f284864981991d74c91fb377ed155988d1c7f52"
+  },
+  "/media/sc2001-N2-p-and-np.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N2-p-and-np.mp3",
+    "size": 1648173,
+    "sha256": "47ed262ce661cdbebe6f1ab70cae6eebf8ce7c6216c940522d1d156a376fd0e7"
+  },
+  "/media/sc2001-N3-polynomial-reductions.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N3-polynomial-reductions.mp3",
+    "size": 1514733,
+    "sha256": "06309d97be3f70ab7569c10b3d973f26a0a40f5287bc36e35beeaedb0074ca5a"
+  },
+  "/media/sc2001-N2-p-and-np.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N2-p-and-np.mp4",
+    "size": 4573755,
+    "sha256": "add65d8f1e2aca70df8537333037b809a368dbe2d39a35bf9cd48bfa3d08e02d"
+  },
+  "/media/sc2001-N4-hamiltonian-path-to-tsp.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N4-hamiltonian-path-to-tsp.mp3",
+    "size": 1513773,
+    "sha256": "bc9e6d76cabcffb0be93a228b375fcb0968c0c90db2d98a3fa323f295066106f"
+  },
+  "/media/sc2001-N3-polynomial-reductions.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N3-polynomial-reductions.mp4",
+    "size": 4105820,
+    "sha256": "c5d5daea01aaaff85e6f640f1f2a1e145e31699f457ac6085274f997377c8910"
+  },
+  "/media/sc2001-N4-hamiltonian-path-to-tsp.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N4-hamiltonian-path-to-tsp.mp4",
+    "size": 4150201,
+    "sha256": "f0b34a89cbcfd44c9003e5cb5d9e82f24a4fb512c4f8a37e16f37c3c7abc7734"
+  },
+  "/media/sc2001-N5-np-completeness.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N5-np-completeness.mp3",
+    "size": 1631661,
+    "sha256": "ba3522fbcda227998472a6d47695380c3856219d2f9fae6375ebadedcf7ffb35"
+  },
+  "/media/sc2001-N6-nearest-neighbour-tsp.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N6-nearest-neighbour-tsp.mp3",
+    "size": 1451757,
+    "sha256": "202dbf985c14b419a9028c2783bcff18813fb396e99048d8868806f4366c4611"
+  },
+  "/media/sc2001-N5-np-completeness.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N5-np-completeness.mp4",
+    "size": 4314245,
+    "sha256": "887e3f2380a7a1297a1f31b150e1831b465b8a6f1591d6b688380c3e41ca3241"
+  },
+  "/media/sc2001-N7-shortest-link-tsp.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N7-shortest-link-tsp.mp3",
+    "size": 1604781,
+    "sha256": "dbd6cf8d4840aa9190740aa3ea2d1ae3a17c015c37a05997a7b6f18ba60bde8d"
+  },
+  "/media/sc2001-N6-nearest-neighbour-tsp.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N6-nearest-neighbour-tsp.mp4",
+    "size": 4015240,
+    "sha256": "38e1c790359d642ade8fd07c19ae2c724d8cda3b3ab13c1ca3a6c7864c3eb83a"
+  },
+  "/media/sc2001-N8-density-zero-one-heuristic.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N8-density-zero-one-heuristic.mp3",
+    "size": 1563693,
+    "sha256": "a262fa3931d481e42b12fef6c5450ac52307702b70149d9aaec985477e9bb182"
+  },
+  "/media/sc2001-N7-shortest-link-tsp.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N7-shortest-link-tsp.mp4",
+    "size": 4433939,
+    "sha256": "66134283de36fae9d51067af17ce7e444e224eb0b30aee16659e08ec626e922e"
+  },
+  "/media/sc2001-N8-density-zero-one-heuristic.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N8-density-zero-one-heuristic.mp4",
+    "size": 4319701,
+    "sha256": "c0eb7eea51c35e7f5dd2483721f70990cec700c7b40609f9c1e1030c41431168"
   }
 }

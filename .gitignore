@@ -15,3 +15,7 @@ node_modules/
 # Generated website bundles and verification screenshots.
 /web/*.zip
 /web/*.png
+
+# Local Python authoring/import caches
+__pycache__/
+*.pyc

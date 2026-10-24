@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.020
+How do rolling hashes make
+
+2
+00:00:02.020 --> 00:00:04.400
+Rabin–Karp work? We will encode
+
+3
+00:00:04.400 --> 00:00:06.700
+a window, derive its constant-work
+
+4
+00:00:06.700 --> 00:00:08.680
+rolling update, and follow a
+
+5
+00:00:08.680 --> 00:00:10.240
+collision all the way through
+
+6
+00:00:10.240 --> 00:00:12.000
+actual character verification.
+
+7
+00:00:12.700 --> 00:00:15.100
+Map alphabet characters to integer
+
+8
+00:00:15.100 --> 00:00:16.560
+codes and interpret a window
+
+9
+00:00:16.560 --> 00:00:18.280
+of m characters as a
+
+10
+00:00:18.280 --> 00:00:20.740
+base-d number. The leftmost code
+
+11
+00:00:20.740 --> 00:00:22.340
+multiplies d to the m
+
+12
+00:00:22.340 --> 00:00:24.720
+minus one, with successive codes
+
+13
+00:00:24.720 --> 00:00:26.300
+using decreasing powers.
+
+14
+00:00:26.820 --> 00:00:29.060
+Horner evaluation builds this number
+
+15
+00:00:29.060 --> 00:00:30.680
+by multiplying the current value
+
+16
+00:00:30.680 --> 00:00:32.180
+by d and adding the
+
+17
+00:00:32.180 --> 00:00:34.420
+next code. This requires one
+
+18
+00:00:34.420 --> 00:00:36.280
+pass through m symbols instead
+
+19
+00:00:36.280 --> 00:00:37.960
+of separately computing a power
+
+20
+00:00:37.960 --> 00:00:38.740
+for every term.
+
+21
+00:00:39.020 --> 00:00:41.092
+For decimal window three six
+
+22
+00:00:41.092 --> 00:00:42.760
+four one five followed by
+
+23
+00:00:42.760 --> 00:00:44.700
+an incoming two, remove the
+
+24
+00:00:44.700 --> 00:00:47.160
+leading three times ten thousand.
+
+25
+00:00:47.160 --> 00:00:48.920
+Multiply the remainder by ten
+
+26
+00:00:48.920 --> 00:00:51.244
+and append two, obtaining six
+
+27
+00:00:51.244 --> 00:00:52.780
+four one five two.
+
+28
+00:00:52.980 --> 00:00:55.080
+The general update subtracts the
+
+29
+00:00:55.080 --> 00:00:57.060
+outgoing code times d to
+
+30
+00:00:57.060 --> 00:00:58.880
+the m minus one, then
+
+31
+00:00:58.880 --> 00:01:00.600
+multiplies by d and adds
+
+32
+00:01:00.600 --> 00:01:03.300
+the incoming code. Precompute that
+
+33
+00:01:03.300 --> 00:01:05.440
+leading place value, since it
+
+34
+00:01:05.440 --> 00:01:06.580
+is the same at every
+
+35
+00:01:06.580 --> 00:01:07.040
+alignment.
+
+36
+00:01:07.660 --> 00:01:10.200
+Exact encodings become enormous for
+
+37
+00:01:10.200 --> 00:01:12.620
+long patterns, so Rabin–Karp keeps
+
+38
+00:01:12.620 --> 00:01:14.480
+their residues modulo a chosen
+
+39
+00:01:14.480 --> 00:01:17.300
+prime q. Compute both initial
+
+40
+00:01:17.300 --> 00:01:19.580
+hashes with modular Horner evaluation
+
+41
+00:01:19.580 --> 00:01:22.540
+and precompute H modulo q.
+
+42
+00:01:23.060 --> 00:01:25.580
+Now take decimal pattern twenty-five,
+
+43
+00:01:26.040 --> 00:01:27.740
+text one two two five,
+
+44
+00:01:27.920 --> 00:01:29.740
+base ten and modulus thirteen.
+
+45
+00:01:29.880 --> 00:01:31.120
+The pattern hash is twelve,
+
+46
+00:01:31.580 --> 00:01:32.600
+and the first text window
+
+47
+00:01:32.600 --> 00:01:34.200
+twelve also hashes to twelve,
+
+48
+00:01:34.420 --> 00:01:35.520
+even though the strings differ.
+
+49
+00:01:36.140 --> 00:01:38.400
+Equal hashes therefore request a
+
+50
+00:01:38.400 --> 00:01:40.100
+character check rather than proving
+
+51
+00:01:40.100 --> 00:01:42.400
+success. Comparing the first digits
+
+52
+00:01:42.400 --> 00:01:44.700
+rejects window twelve immediately, because
+
+53
+00:01:44.700 --> 00:01:46.440
+pattern two differs from text
+
+54
+00:01:46.440 --> 00:01:46.780
+one.
+
+55
+00:01:47.860 --> 00:01:50.080
+Roll to window twenty-two, whose
+
+56
+00:01:50.080 --> 00:01:51.720
+hash is nine, so its
+
+57
+00:01:51.720 --> 00:01:53.500
+different hash rejects it without
+
+58
+00:01:53.500 --> 00:01:56.040
+character verification. Roll once more
+
+59
+00:01:56.040 --> 00:01:58.080
+to window twenty-five, whose hash
+
+60
+00:01:58.080 --> 00:01:59.640
+is twelve and whose two
+
+61
+00:01:59.640 --> 00:02:02.200
+characters both match, giving zero-based
+
+62
+00:02:02.200 --> 00:02:03.280
+index two.
+
+63
+00:02:03.500 --> 00:02:05.020
+With H equal to ten,
+
+64
+00:02:05.420 --> 00:02:06.740
+the first modular roll is
+
+65
+00:02:06.740 --> 00:02:09.100
+twelve minus one times ten,
+
+66
+00:02:09.100 --> 00:02:11.180
+multiplied by ten, plus two,
+
+67
+00:02:11.640 --> 00:02:13.800
+all modulo thirteen. The result
+
+68
+00:02:13.800 --> 00:02:16.160
+is twenty-two modulo thirteen, or
+
+69
+00:02:16.160 --> 00:02:18.060
+nine; the next roll must
+
+70
+00:02:18.060 --> 00:02:20.360
+normalise its negative intermediate residue
+
+71
+00:02:20.360 --> 00:02:22.120
+if the language uses signed
+
+72
+00:02:22.120 --> 00:02:22.780
+remainders.
+
+73
+00:02:23.140 --> 00:02:25.340
+Initial hashing costs big O
+
+74
+00:02:25.340 --> 00:02:27.100
+of m, and each rolling
+
+75
+00:02:27.100 --> 00:02:29.260
+update uses constant word arithmetic.
+
+76
+00:02:30.000 --> 00:02:32.160
+Verification adds work whenever hashes
+
+77
+00:02:32.160 --> 00:02:33.940
+agree, so a full runtime
+
+78
+00:02:33.940 --> 00:02:35.800
+statement must count those candidate
+
+79
+00:02:35.800 --> 00:02:37.740
+checks rather than declaring every
+
+80
+00:02:37.740 --> 00:02:39.320
+scan unconditionally linear.
+
+81
+00:02:39.900 --> 00:02:41.260
+Things to take note of:
+
+82
+00:02:41.660 --> 00:02:42.880
+use the same encoding and
+
+83
+00:02:42.880 --> 00:02:45.100
+modulus for both hashes, precompute
+
+84
+00:02:45.100 --> 00:02:46.780
+the leading place value, and
+
+85
+00:02:46.780 --> 00:02:49.440
+verify every equal-hash candidate. Roll
+
+86
+00:02:49.440 --> 00:02:51.060
+only when another complete window
+
+87
+00:02:51.060 --> 00:02:53.740
+exists, preserve modulo conventions, and
+
+88
+00:02:53.740 --> 00:02:54.920
+remember that a collision is
+
+89
+00:02:54.920 --> 00:02:56.480
+expected behaviour for a hash,
+
+90
+00:02:56.800 --> 00:02:58.200
+not permission to return the
+
+91
+00:02:58.200 --> 00:02:58.760
+wrong answer.

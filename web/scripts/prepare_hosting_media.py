@@ -5,7 +5,10 @@ ROOT=Path(__file__).resolve().parents[2];WEB=ROOT/'web';OUT=WEB/'.hosting-media/
 OUT.mkdir(parents=True,exist_ok=True)
 manifest=json.loads((WEB/'media-manifest.json').read_text());index_path=OUT.parent/'index.json'
 index=json.loads(index_path.read_text()) if index_path.exists() else {};lock=threading.Lock()
-items=[(route,ROOT/source) for route,source in manifest.items() if Path(source).suffix in ('.mp4','.wav')]
+catalog=json.loads((WEB/'public/data/catalog.json').read_text())
+published=json.loads((WEB/'content/hosting.json').read_text())['publishedCourseIds']
+routes={lesson[key] for lesson in catalog['lessons'] if lesson['courseId'] in published for key in ('video','narration') if lesson.get(key)}
+items=[(route,ROOT/source) for route,source in manifest.items() if route in routes and Path(source).suffix in ('.mp4','.wav')]
 def prepare(item):
  route,source=item;digest=hashlib.sha256(source.read_bytes()).hexdigest();video=source.suffix=='.mp4'
  destination=OUT/(Path(route).stem+('.mp4' if video else '.mp3'))

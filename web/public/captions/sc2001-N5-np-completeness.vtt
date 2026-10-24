@@ -1,0 +1,397 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.380
+How do we prove NP-completeness?
+
+2
+00:00:02.960 --> 00:00:04.620
+We will separate membership from
+
+3
+00:00:04.620 --> 00:00:07.860
+reduction-based hardness, use SAT as
+
+4
+00:00:07.860 --> 00:00:10.080
+a concrete decision example, and
+
+5
+00:00:10.080 --> 00:00:11.460
+derive the consequence of a
+
+6
+00:00:11.460 --> 00:00:13.920
+polynomial solver for any NP-complete
+
+7
+00:00:13.920 --> 00:00:14.400
+problem.
+
+8
+00:00:14.940 --> 00:00:16.760
+A decision problem D is
+
+9
+00:00:16.760 --> 00:00:18.520
+NP-complete when it belongs to
+
+10
+00:00:18.520 --> 00:00:20.540
+NP and every problem in
+
+11
+00:00:20.540 --> 00:00:22.740
+NP has a polynomial-time reduction
+
+12
+00:00:22.740 --> 00:00:24.740
+to D. The first condition
+
+13
+00:00:24.740 --> 00:00:27.760
+provides efficiently checked yes-certificates, while
+
+14
+00:00:27.760 --> 00:00:29.040
+the second makes D at
+
+15
+00:00:29.040 --> 00:00:30.220
+least as hard as all
+
+16
+00:00:30.220 --> 00:00:32.020
+NP problems under these reductions.
+
+17
+00:00:32.580 --> 00:00:33.960
+To prove a new target
+
+18
+00:00:33.960 --> 00:00:36.720
+B NP-complete, normally start by
+
+19
+00:00:36.720 --> 00:00:39.320
+describing a polynomial-length certificate and
+
+20
+00:00:39.320 --> 00:00:41.960
+a polynomial verifier. Then reduce
+
+21
+00:00:41.960 --> 00:00:44.440
+an already known NP-complete problem
+
+22
+00:00:44.440 --> 00:00:46.580
+A to B, preserving yes
+
+23
+00:00:46.580 --> 00:00:48.520
+exactly in both directions.
+
+24
+00:00:49.100 --> 00:00:50.900
+Why does one known source
+
+25
+00:00:50.900 --> 00:00:52.680
+suffice for the second condition?
+
+26
+00:00:53.420 --> 00:00:55.800
+Every NP problem already reduces
+
+27
+00:00:55.800 --> 00:00:58.260
+to A, and transitivity composes
+
+28
+00:00:58.260 --> 00:00:59.680
+that reduction with the new
+
+29
+00:00:59.680 --> 00:01:01.400
+transformation from A to B.
+
+30
+00:01:01.940 --> 00:01:04.080
+For SAT, the input is
+
+31
+00:01:04.080 --> 00:01:05.680
+a Boolean formula and the
+
+32
+00:01:05.680 --> 00:01:07.560
+question is whether some assignment
+
+33
+00:01:07.560 --> 00:01:09.600
+makes it true. A proposed
+
+34
+00:01:09.600 --> 00:01:11.500
+assignment is a short certificate
+
+35
+00:01:11.500 --> 00:01:12.800
+that can be checked by
+
+36
+00:01:12.800 --> 00:01:14.740
+evaluating the formula's operations.
+
+37
+00:01:15.340 --> 00:01:17.800
+Consider A or B, and
+
+38
+00:01:17.800 --> 00:01:19.940
+not A or C, with
+
+39
+00:01:19.940 --> 00:01:21.280
+the two clauses joined by
+
+40
+00:01:21.280 --> 00:01:22.760
+and. Set A true, B
+
+41
+00:01:22.760 --> 00:01:24.620
+false and C true: the
+
+42
+00:01:24.620 --> 00:01:25.900
+first clause is true from
+
+43
+00:01:25.900 --> 00:01:27.500
+A, the second is true
+
+44
+00:01:27.500 --> 00:01:29.320
+from C, and their conjunction
+
+45
+00:01:29.320 --> 00:01:30.160
+is true.
+
+46
+00:01:30.500 --> 00:01:33.060
+One satisfying assignment proves that
+
+47
+00:01:33.060 --> 00:01:34.840
+this formula is a yes-instance,
+
+48
+00:01:34.840 --> 00:01:36.580
+without needing to find the
+
+49
+00:01:36.580 --> 00:01:38.840
+best assignment or test every
+
+50
+00:01:38.840 --> 00:01:41.400
+possibility. An assignment failing one
+
+51
+00:01:41.400 --> 00:01:43.460
+clause only rejects that candidate,
+
+52
+00:01:43.820 --> 00:01:45.140
+just as in our earlier
+
+53
+00:01:45.140 --> 00:01:46.260
+certificate examples.
+
+54
+00:01:46.780 --> 00:01:49.080
+The course takes circuit satisfiability
+
+55
+00:01:49.080 --> 00:01:51.120
+as a known NP-complete problem
+
+56
+00:01:51.120 --> 00:01:53.100
+and discusses its reduction to
+
+57
+00:01:53.100 --> 00:01:55.700
+SAT. Together with SAT membership
+
+58
+00:01:55.700 --> 00:01:57.580
+in NP, that supplies the
+
+59
+00:01:57.580 --> 00:01:59.440
+two obligations needed to classify
+
+60
+00:01:59.440 --> 00:02:01.180
+SAT as NP-complete.
+
+61
+00:02:01.700 --> 00:02:03.420
+The full construction from an
+
+62
+00:02:03.420 --> 00:02:05.720
+arbitrary polynomial verifier to a
+
+63
+00:02:05.720 --> 00:02:08.120
+circuit is explicitly outside this
+
+64
+00:02:08.120 --> 00:02:09.700
+course scope. We use the
+
+65
+00:02:09.700 --> 00:02:11.200
+stated theorem here rather than
+
+66
+00:02:11.200 --> 00:02:12.740
+pretending that a small hand-drawn
+
+67
+00:02:12.740 --> 00:02:14.340
+circuit proves the theorem for
+
+68
+00:02:14.340 --> 00:02:15.300
+all NP problems.
+
+69
+00:02:15.980 --> 00:02:17.580
+A reduction from a known
+
+70
+00:02:17.580 --> 00:02:20.300
+NP-complete source without a target-membership
+
+71
+00:02:20.300 --> 00:02:22.680
+proof establishes the hardness part
+
+72
+00:02:22.680 --> 00:02:25.320
+only. Conversely, a verifier alone
+
+73
+00:02:25.320 --> 00:02:27.720
+establishes membership but says nothing
+
+74
+00:02:27.720 --> 00:02:28.780
+about being as hard as
+
+75
+00:02:28.780 --> 00:02:29.960
+every other NP problem.
+
+76
+00:02:30.500 --> 00:02:33.160
+All NP-complete decision problems reduce
+
+77
+00:02:33.160 --> 00:02:34.660
+to one another through polynomial
+
+78
+00:02:34.660 --> 00:02:37.540
+transformations. This equivalence does not
+
+79
+00:02:37.540 --> 00:02:39.160
+mean their best implementations have
+
+80
+00:02:39.160 --> 00:02:42.260
+identical constants, polynomial exponents, or
+
+81
+00:02:42.260 --> 00:02:44.200
+practical behaviour on typical instances.
+
+82
+00:02:44.700 --> 00:02:46.900
+If even one NP-complete problem
+
+83
+00:02:46.900 --> 00:02:49.620
+has a deterministic polynomial-time algorithm,
+
+84
+00:02:50.140 --> 00:02:52.200
+every NP problem inherits one
+
+85
+00:02:52.200 --> 00:02:54.040
+through its reduction. Since P
+
+86
+00:02:54.040 --> 00:02:55.600
+is already contained in NP,
+
+87
+00:02:56.020 --> 00:02:57.800
+that would establish P equals
+
+88
+00:02:57.800 --> 00:02:59.780
+NP, whose truth is currently
+
+89
+00:02:59.780 --> 00:03:01.260
+unresolved in this framework.
+
+90
+00:03:01.860 --> 00:03:03.400
+Things to take note of:
+
+91
+00:03:03.820 --> 00:03:06.060
+classify the decision version, show
+
+92
+00:03:06.060 --> 00:03:08.700
+membership, choose a known NP-complete
+
+93
+00:03:08.700 --> 00:03:10.720
+source and point the reduction
+
+94
+00:03:10.720 --> 00:03:12.980
+toward your target. State the
+
+95
+00:03:12.980 --> 00:03:15.480
+transformation and both correctness directions,
+
+96
+00:03:15.740 --> 00:03:17.980
+then use transitivity; a prestigious
+
+97
+00:03:17.980 --> 00:03:19.400
+problem name is not a
+
+98
+00:03:19.400 --> 00:03:20.840
+substitute for either half of
+
+99
+00:03:20.840 --> 00:03:22.260
+the proof, hmph.
