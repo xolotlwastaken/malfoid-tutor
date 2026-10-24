@@ -3,12 +3,13 @@
 Production: https://malfoid-study.vercel.app
 Dashboard: https://vercel.com/joel-0a4e/malfoid-study
 
-Published on 23 October 2026 through the authenticated Chrome Vercel dashboard using Vercel Drop.
+Updated on24 October2026 through the existing GitHub main integration. The initial manual Vercel Drop deployment was23 October2026.
 
 - Account: `joel-0a4e`
 - Team: `team_XoPJgPSsrbUZRKK8Yfn1rS1S`
 - Project: `prj_SD9gwT0WjKMRcnKzr51IsM5xAxJI`
-- Deployment: `F4sVGPbrYRD69QsR3SYzLN1xAkdf`
+- SC2001 content release: `4daa38e`, deployment `su6Mc21uPmhNxsW2HH6mhK938hLk`
+- Initial manual deployment: `F4sVGPbrYRD69QsR3SYzLN1xAkdf`
 - Blob store: `malfoid-lessons` (`store_gjrst1uDONedkhjT`)
 - Public media origin: `https://gjrst1udonedkhjt.public.blob.vercel-storage.com`
 
@@ -36,6 +37,6 @@ The local project link now identifies the correct project. Existing CLI authenti
 
 ## Verification
 
-All 100 media URLs returned HTTP 200 with the expected sizes. All 164 checked website resources returned HTTP 200. Media range requests returned HTTP 206. The live browser verified both libraries, video playback and chapter seeking, caption loading, the SC2001 quiz interface and the Malfoid home interaction. Four cloud-build tests passed after the final hosting configuration change.
+The62 new media files were downloaded for SHA256 verification against the local streaming copies;all matched,and all31 new video range requests returned HTTP206. The live catalog exactly matched the reviewed build:90 public lessons and953 questions. All263 served static resources matched their local bytes. All16 website checks passed. The production browser verified the expanded SC2001 library,new hosted playback and chapter seeking,and the reviewed Baka challenge. Local browser checks also covered answer locking,worked feedback,refresh restoration and390px layout.
 
 Browser progress is stored per origin; localhost progress does not automatically transfer to the production domain.

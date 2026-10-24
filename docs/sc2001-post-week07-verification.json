@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-24",
+  "content_commit": "4daa38ece4dfcc919b4d5c88e289147afe029b6e",
+  "deployment": "su6Mc21uPmhNxsW2HH6mhK938hLk",
+  "production": {
+    "status": "passed",
+    "site": "https://malfoid-study.vercel.app",
+    "catalog_matches_reviewed_build": true,
+    "public_lessons": 90,
+    "questions": 953,
+    "static_resources_verified": 263,
+    "all_static_resource_bytes_match": true
+  },
+  "new_media": {
+    "status": "passed",
+    "files": 62,
+    "total_bytes": 182265615,
+    "remote_sha256_verified": true,
+    "video_ranges_verified": true,
+    "origin": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com"
+  },
+  "new_questions": 403,
+  "independently_derived_numeric_answers": 93,
+  "bank_sha256": "f40953be915705024084c0174d0370e2dba5c22281057cca4f17f1e357a33e81",
+  "website_checks_passed": 16,
+  "review": {
+    "standards": 0,
+    "spec_remaining": 0,
+    "resolved": "Replaced31 short Baka items with longer transfer/trace challenges;IDs unchanged"
+  },
+  "recording_gap": "Later SC2001 recordings unavailable;slides-and-notes grounding explicitly approved"
+}

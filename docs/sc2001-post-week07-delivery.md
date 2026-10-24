@@ -1,6 +1,10 @@
 # SC2001 Weeks 8–13 delivery
 
-Status: release candidate; production push and live verification pending.
+Status: published and live-verified on24 October2026.
+
+Website:https://malfoid-study.vercel.app/#/course/sc2001
+
+Content release:`4daa38ece4dfcc919b4d5c88e289147afe029b6e` on GitHub main. Vercel deployment:`su6Mc21uPmhNxsW2HH6mhK938hLk`.
 
 The user approved the detailed plan and the subsequent video → questions → website → GitHub stages. The approved source basis is supplied slides and study notes; matching later recordings were unavailable. Every new lesson source map records that limitation.
 
@@ -38,3 +42,5 @@ Installed skill: `/Users/joelloh/.codex/skills/malfoid-course-pipeline/`. A vers
 The repository engineering-skill setup uses the user-approved GitHub Issues tracker, default triage labels, single-context domain-document rules and root AGENTS.md.
 
 All31 Baka items were strengthened to longer transfer/trace challenges after independent spec review; their IDs are unchanged. Both review axes have no remaining findings. See `docs/sc2001-post-week07-review.md`.
+
+Live verification confirmed90 public lessons,953 questions and byte-for-byte matches for all263 served static resources. The production browser confirmed49 SC2001 lessons/793 questions,new hosted playback/chapter seeking,and the final longer Baka challenge.
