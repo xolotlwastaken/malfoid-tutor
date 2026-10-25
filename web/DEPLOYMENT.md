@@ -9,6 +9,7 @@ Updated on 25 October 2026 through the existing GitHub main integration. The ini
 - Team: `team_XoPJgPSsrbUZRKK8Yfn1rS1S`
 - Project: `prj_SD9gwT0WjKMRcnKzr51IsM5xAxJI`
 - SC2001 content release: `4daa38e`, deployment `su6Mc21uPmhNxsW2HH6mhK938hLk`
+- SC2203 content release: `5f79641`, deployment `7kH2cuhH2F1ykVYbvckmpRfMMstp`
 - Initial manual deployment: `F4sVGPbrYRD69QsR3SYzLN1xAkdf`
 - Blob store: `malfoid-lessons` (`store_gjrst1uDONedkhjT`)
 - Public media origin: `https://gjrst1udonedkhjt.public.blob.vercel-storage.com`
@@ -38,6 +39,8 @@ The local project link now identifies the correct project. Existing CLI authenti
 ## Verification
 
 The SC2203 upload verification covers all 96 remote file hashes, content lengths and all 48 video range responses. Evidence is saved locally in `.hosting-media/sc2203-upload-verification.json`. All 16 website checks pass, including a regression check that the build includes the repository-root SC2203 exam-bank file at `/sc2203-exam-question-bank.md`. The production build includes 138 lessons and 953 interactive questions.
+
+The live production catalog exactly matches the reviewed build, preserves the earlier SC2001/SC2005 lesson and question records, and includes all 48 SC2203 lessons. All 408 served static files match their local build bytes, including the exam-bank download. Production browser verification confirms the SC2203 library, hosted video decoding/playback, English caption track and chapter seeking. Local evidence is in `.hosting-media/sc2203-site-verification.json` and `sc2203-live-library.jpg` / `sc2203-live-lesson.jpg`. Independent Standards and Spec reviews reported zero findings.
 
 The earlier SC2001 release verified all 62 new media files, all 31 video range responses, the 90-lesson live catalog and all 263 static resources. Its production browser checks covered hosted playback, chapter seeking and the Baka challenge; local browser checks also covered answer locking, worked feedback, refresh restoration and 390px layout.
 
