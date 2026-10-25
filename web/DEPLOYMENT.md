@@ -3,7 +3,7 @@
 Production: https://malfoid-study.vercel.app
 Dashboard: https://vercel.com/joel-0a4e/malfoid-study
 
-Updated on24 October2026 through the existing GitHub main integration. The initial manual Vercel Drop deployment was23 October2026.
+Updated on 25 October 2026 through the existing GitHub main integration. The initial manual Vercel Drop deployment was 23 October 2026.
 
 - Account: `joel-0a4e`
 - Team: `team_XoPJgPSsrbUZRKK8Yfn1rS1S`
@@ -15,9 +15,9 @@ Updated on24 October2026 through the existing GitHub main integration. The initi
 
 ## Published scope
 
-The published courses are SC2001 and SC2005. The October 24 expansion adds SC2001 Weeks 8–13: 31 verified lessons and 403 questions. The resulting catalog contains 90 videos, 72 narration downloads, 90 captions/transcripts, 72 source notes and 953 interactive questions (793 SC2001,160 SC2005). The linked original SC2001 PDF remains the 90-question Weeks 1–7 edition. SC2203 remains local and is excluded through `content/hosting.json`.
+The published courses are SC2001, SC2005 and SC2203. The October 25 release adds all 48 existing SC2203 Automata lessons through Week 11, narration, captions/transcripts, source notes and the existing exam-bank download. The resulting catalog contains 138 videos, 120 narration downloads, 138 captions/transcripts, 120 source notes and the existing 953 interactive questions (793 SC2001, 160 SC2005). SC2203 has an exam-style bank with 176 MCQs and 44 open-ended questions, but no scored interactive bank. The linked original SC2001 PDF remains the 90-question Weeks 1–7 edition. `content/hosting.json` includes all three courses.
 
-The existing public Blob store contains 162 streaming files, approximately 508.6 MB. The 62 new files were read back and SHA256-checked against the local streaming copies; all 31 video range requests returned HTTP 206. Videos use 720×1280 H.264 and narration uses MP3. Original 1080×1920 masters remain local.
+The existing public Blob store contains 258 streaming files, approximately 798.3 MB. The 96 SC2203 files (289,702,837 bytes) were read back and SHA256-checked against the local streaming copies; all 48 SC2203 video range requests returned HTTP 206. Videos use 720×1280 H.264 and narration uses MP3. Original 1080×1920 masters remain local.
 
 Later SC2001 lessons use approved slides-and-notes grounding because matching Weeks 8–13 recordings were unavailable. Each source map states that gap. The analysis, question audit and delivery evidence are versioned in the repository.
 
@@ -37,6 +37,8 @@ The local project link now identifies the correct project. Existing CLI authenti
 
 ## Verification
 
-The62 new media files were downloaded for SHA256 verification against the local streaming copies;all matched,and all31 new video range requests returned HTTP206. The live catalog exactly matched the reviewed build:90 public lessons and953 questions. All263 served static resources matched their local bytes. All16 website checks passed. The production browser verified the expanded SC2001 library,new hosted playback and chapter seeking,and the reviewed Baka challenge. Local browser checks also covered answer locking,worked feedback,refresh restoration and390px layout.
+The SC2203 upload verification covers all 96 remote file hashes, content lengths and all 48 video range responses. Evidence is saved locally in `.hosting-media/sc2203-upload-verification.json`. All 16 website checks pass, including a regression check that the build includes the repository-root SC2203 exam-bank file at `/sc2203-exam-question-bank.md`. The production build includes 138 lessons and 953 interactive questions.
+
+The earlier SC2001 release verified all 62 new media files, all 31 video range responses, the 90-lesson live catalog and all 263 static resources. Its production browser checks covered hosted playback, chapter seeking and the Baka challenge; local browser checks also covered answer locking, worked feedback, refresh restoration and 390px layout.
 
 Browser progress is stored per origin; localhost progress does not automatically transfer to the production domain.

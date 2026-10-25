@@ -908,5 +908,485 @@
     "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2001-N8-density-zero-one-heuristic.mp4",
     "size": 4319701,
     "sha256": "c0eb7eea51c35e7f5dd2483721f70990cec700c7b40609f9c1e1030c41431168"
+  },
+  "/media/sc2203-E01-strings-languages.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E01-strings-languages.mp4",
+    "size": 7960305,
+    "sha256": "199fb06f4e84cac0dc0ad121c693925596efa57066affbf9c46a6d29bf3df91f"
+  },
+  "/media/sc2203-E01-strings-languages.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E01-strings-languages.mp3",
+    "size": 2595117,
+    "sha256": "ad1d63d12de793aa8867c59d284a9becae7e44c49a14fcd7afb60a9016588de8"
+  },
+  "/media/sc2203-E02-proof-toolkit.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E02-proof-toolkit.mp4",
+    "size": 3938687,
+    "sha256": "041e70af5bc21e517c47c261ae38d5fc457d49c2778166a5593df6a5345f6a95"
+  },
+  "/media/sc2203-E02-proof-toolkit.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E02-proof-toolkit.mp3",
+    "size": 1383021,
+    "sha256": "042337392aa9eefee68b43ba732ef4479ad336282d422764378ffd076edf22a0"
+  },
+  "/media/sc2203-E03-dfa-semantics.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E03-dfa-semantics.mp4",
+    "size": 3702883,
+    "sha256": "d2c086b9233dedda1d2884e222889a1cd8d0074678455aa5c0b26d179dab20dc"
+  },
+  "/media/sc2203-E03-dfa-semantics.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E03-dfa-semantics.mp3",
+    "size": 1336173,
+    "sha256": "4222f107943908b297a19c4ec1fbb0ae22dd29bd7b612594ec6c0fb23d87612e"
+  },
+  "/media/sc2203-E04-dfa-design.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E04-dfa-design.mp4",
+    "size": 3790873,
+    "sha256": "31cc0050528187deb1144c7c9c0fe06aeabd2334804cd7662ad61aab0d3120cc"
+  },
+  "/media/sc2203-E04-dfa-design.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E04-dfa-design.mp3",
+    "size": 1364397,
+    "sha256": "9a4508f6b88acea5787ed779c5607acfcd2aa83755e2dc52dd37550abd51ab4b"
+  },
+  "/media/sc2203-E05-regular-closure.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E05-regular-closure.mp4",
+    "size": 3974852,
+    "sha256": "fafeb43979f66af2a7ead40d61d7391b87fbae23690c344c3b6657bec533f40d"
+  },
+  "/media/sc2203-E05-regular-closure.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E05-regular-closure.mp3",
+    "size": 1445613,
+    "sha256": "d850b5858ccbe7d171353afb0a13db45c0d57bc6a6fae3df9f5b734e5abf86a9"
+  },
+  "/media/sc2203-E06-nfa-acceptance.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E06-nfa-acceptance.mp4",
+    "size": 3735523,
+    "sha256": "c350a00f6d70e9cd77fd509df19d8d5cc59915e61fde2e36b832a6de1163d079"
+  },
+  "/media/sc2203-E06-nfa-acceptance.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E06-nfa-acceptance.mp3",
+    "size": 1347693,
+    "sha256": "21e18d442fd31d9b5d3beae9277cc0d35e7de216032bc9889bd14a7cfce5b873"
+  },
+  "/media/sc2203-E07-subset-construction.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E07-subset-construction.mp4",
+    "size": 3744222,
+    "sha256": "2610da28cf955a5a64d34d6d0de5d8a8e3b0bffcbe5f486f62643be24cee9bd3"
+  },
+  "/media/sc2203-E07-subset-construction.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E07-subset-construction.mp3",
+    "size": 1402221,
+    "sha256": "25579b44eb7faa067653e8a264129aa401cdfd63713e6a513a5394c75d1c7ca0"
+  },
+  "/media/sc2203-E08-nfa-concat-star.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E08-nfa-concat-star.mp4",
+    "size": 4364375,
+    "sha256": "05e02f94c777b5a622a79f43941aae662d05ea4cab62fa1b3338a66fb61f7575"
+  },
+  "/media/sc2203-E08-nfa-concat-star.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E08-nfa-concat-star.mp3",
+    "size": 1551213,
+    "sha256": "bc6e78359ca6d0cfa60169b8aa438eb5918c6c8e736316dd1322e02a4353ea4c"
+  },
+  "/media/sc2203-E09-regular-expressions.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E09-regular-expressions.mp4",
+    "size": 4267443,
+    "sha256": "b96ebb8a45e7a5d4c825518990806c353aa33a6a3db34aac334c59535a92a7cd"
+  },
+  "/media/sc2203-E09-regular-expressions.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E09-regular-expressions.mp3",
+    "size": 1553901,
+    "sha256": "2bc1b1f18947d75df447534bd3f69b5d5f0151cc350d2172038d84376d0e4292"
+  },
+  "/media/sc2203-E10-regex-to-nfa.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E10-regex-to-nfa.mp4",
+    "size": 3858399,
+    "sha256": "8019b23f1b2d49883ecf04bb94f0a0411018a46ead71863ef6de26551ed12814"
+  },
+  "/media/sc2203-E10-regex-to-nfa.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E10-regex-to-nfa.mp3",
+    "size": 1406637,
+    "sha256": "7264791a7b6283a1a7a1b985fc7fc0217985d6953c6d1d4856ecab20262270ba"
+  },
+  "/media/sc2203-E11-gnfa-elimination.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E11-gnfa-elimination.mp4",
+    "size": 4409760,
+    "sha256": "1bee009b2130aad48f78840df9bcb99439d86120caf3a1ab764d84f19a552959"
+  },
+  "/media/sc2203-E11-gnfa-elimination.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E11-gnfa-elimination.mp3",
+    "size": 1618413,
+    "sha256": "bfa3aadc7fff8f28693f30c7481fa073243ca8d5de9d09b69a12f5abd2570a6c"
+  },
+  "/media/sc2203-E12-regular-pumping.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E12-regular-pumping.mp4",
+    "size": 4094224,
+    "sha256": "9e36a00f77b66116dbc8655502df95e4fb458c65c6ed466609216f5ae3e61c9d"
+  },
+  "/media/sc2203-E12-regular-pumping.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E12-regular-pumping.mp3",
+    "size": 1502637,
+    "sha256": "8dc46fb3858a759de3e7a722ac857f0c4fc9cab1aa2576f67c9f054ea0d0bb7a"
+  },
+  "/media/sc2203-E13-pumping-and-closure.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E13-pumping-and-closure.mp4",
+    "size": 4079614,
+    "sha256": "fe6fb9c29d7bfbd9499e86c1e15fe10801ea916ce696f07cbb82cf3653e4e014"
+  },
+  "/media/sc2203-E13-pumping-and-closure.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E13-pumping-and-closure.mp3",
+    "size": 1525101,
+    "sha256": "c4139ee81ef5603b610a6fa062e9a6c0415cdf34b9c6c4f75b064ed025316966"
+  },
+  "/media/sc2203-E14-myhill-nerode.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E14-myhill-nerode.mp4",
+    "size": 4214297,
+    "sha256": "54d416496cb968ae1ecbe74ea75fad93ec3a73b04db4d97d96a1654e67466817"
+  },
+  "/media/sc2203-E14-myhill-nerode.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E14-myhill-nerode.mp3",
+    "size": 1493037,
+    "sha256": "5d227e5482267c492856bb0a531f2f25c7aaf94d51cc02b4a64073c1a5071f07"
+  },
+  "/media/sc2203-E15-prime-length-companion.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E15-prime-length-companion.mp4",
+    "size": 3834634,
+    "sha256": "947a548dde9900652631fa65911abf350acf909df2896429280488775f4fd195"
+  },
+  "/media/sc2203-E15-prime-length-companion.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E15-prime-length-companion.mp3",
+    "size": 1393197,
+    "sha256": "881dd707717263da19271aaf5cbc0664756ab88b63077b1b8ff2a206fc096d50"
+  },
+  "/media/sc2203-E16-context-free-grammars.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E16-context-free-grammars.mp4",
+    "size": 4270304,
+    "sha256": "53dea1ac49d5e63b44f6313780844a7ff74807c764f3e470fab9a9e333c386d6"
+  },
+  "/media/sc2203-E16-context-free-grammars.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E16-context-free-grammars.mp3",
+    "size": 1549293,
+    "sha256": "c6f315bba6b1f332274dffbc36ff360ff7f72e87ab5e4e23f325c55df04e75d9"
+  },
+  "/media/sc2203-E17-grammar-ambiguity.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E17-grammar-ambiguity.mp4",
+    "size": 4147508,
+    "sha256": "8a274ca4033625b545998b93e27fc587e45a4c591da75d824a64cea04740e4cf"
+  },
+  "/media/sc2203-E17-grammar-ambiguity.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E17-grammar-ambiguity.mp3",
+    "size": 1517997,
+    "sha256": "40497d585f3bb12b657c1348f1fa05dc5cb708faa4c51632f43f88d1195448ae"
+  },
+  "/media/sc2203-E18-chomsky-normal-form.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E18-chomsky-normal-form.mp4",
+    "size": 4448856,
+    "sha256": "0bc846bb6f2a9c65b9752b199b228b9a970066aabfcb9cf01d6b0058ddf713a1"
+  },
+  "/media/sc2203-E18-chomsky-normal-form.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E18-chomsky-normal-form.mp3",
+    "size": 1656813,
+    "sha256": "ff76bde1d0f2fffa5f09bdc63c58e3944e57fbc43f198479980932df5c4014a9"
+  },
+  "/media/sc2203-E19-pushdown-automata.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E19-pushdown-automata.mp4",
+    "size": 3979756,
+    "sha256": "9acc6d9f84503d6671fccae4773c7e9abef493ab96b9d1b3d60f0c4d2cb9c502"
+  },
+  "/media/sc2203-E19-pushdown-automata.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E19-pushdown-automata.mp3",
+    "size": 1425261,
+    "sha256": "84fb14662dac2952be9de5b2ca18652d773c5cd662d5ea3fdf3c78cb0ae9f4b3"
+  },
+  "/media/sc2203-E20-pda-palindromes.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E20-pda-palindromes.mp4",
+    "size": 3951353,
+    "sha256": "0892f988bb66cd5fb7f5cdeb2635989da9715214f7b18a16a69308754b27e9ce"
+  },
+  "/media/sc2203-E20-pda-palindromes.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E20-pda-palindromes.mp3",
+    "size": 1404141,
+    "sha256": "5438d69a359d8777933f972f71cab5047d3f8ab8e57c30bee9becc1f72f3cf23"
+  },
+  "/media/sc2203-E21-cfg-to-pda.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E21-cfg-to-pda.mp4",
+    "size": 4008552,
+    "sha256": "6c27e846b86d0f8fbbcc9914907fda95ee962234200efa60efca3c3294ae1288"
+  },
+  "/media/sc2203-E21-cfg-to-pda.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E21-cfg-to-pda.mp3",
+    "size": 1437357,
+    "sha256": "d7eae765b3fcbc529ef7027013e17e72e98ae26445f7ac7ee5eea9221c338cc3"
+  },
+  "/media/sc2203-E22-pda-to-cfg.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E22-pda-to-cfg.mp4",
+    "size": 4379048,
+    "sha256": "e75bd5683af0439cb1e50e670344c352ef52b00d2e13021032e108f20f66246c"
+  },
+  "/media/sc2203-E22-pda-to-cfg.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E22-pda-to-cfg.mp3",
+    "size": 1637613,
+    "sha256": "bab5499f25a2d8dbdfea6f599a8226ee089fac48ebc72ea5b52a8a2a44e06dc2"
+  },
+  "/media/sc2203-E23-pda-cfg-proof.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E23-pda-cfg-proof.mp4",
+    "size": 5012778,
+    "sha256": "49c145d53c77f9d6bef4fb6fe682cdf07aa39cbd0f674d64bebfc03d7608cceb"
+  },
+  "/media/sc2203-E23-pda-cfg-proof.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E23-pda-cfg-proof.mp3",
+    "size": 1863021,
+    "sha256": "9431dca0e11325640360a157e60555320cb2350d74464c8481703f613e006aa0"
+  },
+  "/media/sc2203-E24-cfl-pumping.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E24-cfl-pumping.mp4",
+    "size": 4399913,
+    "sha256": "b68a64f54495567874dcb65eaad12d5939746b185d2a7625a7a50b5f212aa32d"
+  },
+  "/media/sc2203-E24-cfl-pumping.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E24-cfl-pumping.mp3",
+    "size": 1578093,
+    "sha256": "4cbaf625281cfd3563a5ae1261ad0789ad659d97fff4697db43dd9bffae5a6d2"
+  },
+  "/media/sc2203-E25-hard-cfl-pumping.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E25-hard-cfl-pumping.mp4",
+    "size": 4563367,
+    "sha256": "d44ea561a4f847e2699d5840d5e1f0234c2df491713ea42b1df3ba028134c543"
+  },
+  "/media/sc2203-E25-hard-cfl-pumping.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E25-hard-cfl-pumping.mp3",
+    "size": 1669293,
+    "sha256": "130a42e09c0cdfa0148e8b5edf808e056344e9359598d193fedb521ae7bd25f9"
+  },
+  "/media/sc2203-E26-cfl-closure.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E26-cfl-closure.mp4",
+    "size": 4824725,
+    "sha256": "d3aabf3284cfd0f097003e68f131075f8aabbcd018f97454db06dd57b3c2482f"
+  },
+  "/media/sc2203-E26-cfl-closure.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E26-cfl-closure.mp3",
+    "size": 1732653,
+    "sha256": "deb7c6783b125fd526f261ebd511d4e1f1f2698c791744f316eaa00da690f5ad"
+  },
+  "/media/sc2203-E27-turing-machine-traces.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E27-turing-machine-traces.mp4",
+    "size": 3917807,
+    "sha256": "7d9ab28ac53e8c43af2d54999197f24f5bedfb7c8f6b0da2293e764db23a47d1"
+  },
+  "/media/sc2203-E27-turing-machine-traces.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E27-turing-machine-traces.mp3",
+    "size": 1446381,
+    "sha256": "6ae3bb7293e7cc13a40a680c13814fcc66f517f297863b44c9e53d2f6b6a8c52"
+  },
+  "/media/sc2203-E28-tm-power-of-two.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E28-tm-power-of-two.mp4",
+    "size": 4144838,
+    "sha256": "c0fecf576c749ba686394488e537811c62f96bfedbaa16086d68bb199125e86d"
+  },
+  "/media/sc2203-E28-tm-power-of-two.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E28-tm-power-of-two.mp3",
+    "size": 1529517,
+    "sha256": "b7b3b9c546bf15e8ee12eb56cf761b9d374bbd23dbb1257dccda9449c97d6638"
+  },
+  "/media/sc2203-E29-tm-marking-zigzag.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E29-tm-marking-zigzag.mp4",
+    "size": 4304007,
+    "sha256": "2abfd06f165d5173cd536cb7cd05a545e46be5a839c2cdeaf3ac4607b78dfcf6"
+  },
+  "/media/sc2203-E29-tm-marking-zigzag.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E29-tm-marking-zigzag.mp3",
+    "size": 1535277,
+    "sha256": "83c1cbcd1c235033d1956b7a25616764ab8c230e0cb02d9565066b88c45bd44a"
+  },
+  "/media/sc2203-E30-tm-arithmetic-lists.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E30-tm-arithmetic-lists.mp4",
+    "size": 4509628,
+    "sha256": "7dbff870434261906827c4049e54933294149cafdc2de59a72ab0e5ec80615b8"
+  },
+  "/media/sc2203-E30-tm-arithmetic-lists.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E30-tm-arithmetic-lists.mp3",
+    "size": 1626093,
+    "sha256": "5073b1fdf1b6f330b4b503b8281b135b802ab1aacbaeb4acf95ed7db0bb663a9"
+  },
+  "/media/sc2203-E31-tm-variants.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E31-tm-variants.mp4",
+    "size": 4436669,
+    "sha256": "a6c2b062680dce8ed8bb75d1166c756f7e31ae6a30947940a8574115d346de5a"
+  },
+  "/media/sc2203-E31-tm-variants.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E31-tm-variants.mp3",
+    "size": 1554477,
+    "sha256": "20646271c49fa48dbae7996457f49b5142b1ba9e55b8abd08fa6f163ccce2a86"
+  },
+  "/media/sc2203-E32-enumerators.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E32-enumerators.mp4",
+    "size": 4334683,
+    "sha256": "5e1b73437e70e9d70007678b03d475d82984f2e194eda37f500a09675e24a755"
+  },
+  "/media/sc2203-E32-enumerators.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E32-enumerators.mp3",
+    "size": 1550637,
+    "sha256": "61a1b8d05eb03e9f6bc170b132034c85ec8242bfa46650f1aba785c2d58cd9cf"
+  },
+  "/media/sc2203-E33-decision-recognition-closure.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E33-decision-recognition-closure.mp4",
+    "size": 4954075,
+    "sha256": "088c37526c62b8d1d3ee50198dc331fcbecf0d77a12438fc3dd8fbe1104c6c0a"
+  },
+  "/media/sc2203-E33-decision-recognition-closure.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E33-decision-recognition-closure.mp3",
+    "size": 1797357,
+    "sha256": "88ba6b0b95743468e2f9c902df5f0eb356d5b796a5852ff7e6f9499a9af83aa8"
+  },
+  "/media/sc2203-E34-measuring-complexity.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E34-measuring-complexity.mp4",
+    "size": 4559771,
+    "sha256": "e99ac5e6f6b43d9a6167babe86aeabb66f1445456b1c79b65f524c7e42127cfe"
+  },
+  "/media/sc2203-E34-measuring-complexity.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E34-measuring-complexity.mp3",
+    "size": 1608813,
+    "sha256": "aaa0bd9e9251366f56195bb1b1c9bcbe11595b0c9c78673836bf341629aa5bb2"
+  },
+  "/media/sc2203-E35-polynomial-time-bits.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E35-polynomial-time-bits.mp4",
+    "size": 4507630,
+    "sha256": "3d81d9d3a58013a999c77c95552491dcdc465e13813f088e2623860809fc1550"
+  },
+  "/media/sc2203-E35-polynomial-time-bits.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E35-polynomial-time-bits.mp3",
+    "size": 1663341,
+    "sha256": "3264b622c75cce4c419b6e64996567ff36081d6edd2d2f6cb9db3c0e66a0fdec"
+  },
+  "/media/sc2203-E36-repeated-squaring.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E36-repeated-squaring.mp4",
+    "size": 4395396,
+    "sha256": "33313c05e0abdf00da6a97cd41e8bf19a62084620fa19bd4179b267a8ebc79e1"
+  },
+  "/media/sc2203-E36-repeated-squaring.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E36-repeated-squaring.mp3",
+    "size": 1663341,
+    "sha256": "8d5de5f21a740ca9f543b1b30ac53c6f61774ebff0d94ea5a3a0353b06861c38"
+  },
+  "/media/sc2203-E37-graph-and-dfa-algorithms.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E37-graph-and-dfa-algorithms.mp4",
+    "size": 4721380,
+    "sha256": "91154c7953d354a489b4f0886499e0b194de6b1a8ac348b7010199084c7745e3"
+  },
+  "/media/sc2203-E37-graph-and-dfa-algorithms.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E37-graph-and-dfa-algorithms.mp3",
+    "size": 1658157,
+    "sha256": "4f531a2990ca46febdfd0d46860b808eff4b498422f51ede820652e80ecd7c0b"
+  },
+  "/media/sc2203-E38-p-kleene-star.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E38-p-kleene-star.mp4",
+    "size": 4161239,
+    "sha256": "0a13e70cab884f730d68e3aa86f1ec50c2122f4b0e6a27ba992e59207a41eb6d"
+  },
+  "/media/sc2203-E38-p-kleene-star.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E38-p-kleene-star.mp3",
+    "size": 1564077,
+    "sha256": "c20c23b15a923f411c40162b4dfaed63211e31b7e37811613b19706dcd44ab63"
+  },
+  "/media/sc2203-E39-decision-to-search.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E39-decision-to-search.mp4",
+    "size": 4628776,
+    "sha256": "504aab130926c006838eb668c9dd7f1b1b5b772d7cbb2b161ed12dbe415e3a39"
+  },
+  "/media/sc2203-E39-decision-to-search.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E39-decision-to-search.mp3",
+    "size": 1708653,
+    "sha256": "d3fc732b358ee3bc43844a7ea7ed6dbca0491dc947b3f2678a0044c3f03d2e01"
+  },
+  "/media/sc2203-E40-np-verifiers.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E40-np-verifiers.mp4",
+    "size": 4379722,
+    "sha256": "efd60005c5d258fb78a7c3cd86a127775d69bcc6fc7dfe91462717761e08ccb7"
+  },
+  "/media/sc2203-E40-np-verifiers.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E40-np-verifiers.mp3",
+    "size": 1635117,
+    "sha256": "a09a78fa2fd77055b82c8c7d41d2e3a562a6ffe772d343d894bb173789405f6b"
+  },
+  "/media/sc2203-E41-np-certificate-traps.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E41-np-certificate-traps.mp4",
+    "size": 4423253,
+    "sha256": "5672ac065955877ce371ae5a151bb858b0706d7225406933a023a570a04edec4"
+  },
+  "/media/sc2203-E41-np-certificate-traps.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E41-np-certificate-traps.mp3",
+    "size": 1613421,
+    "sha256": "422c35baadb3fb32a5108a3747a2aca54ef88b778808a9a3aabf175db3a2fd5f"
+  },
+  "/media/sc2203-E42-np-closure.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E42-np-closure.mp4",
+    "size": 4203243,
+    "sha256": "8e12de6458b8a59de996b22de6c28710cf47dfb7436be13f4ef9d5d50b8fef86"
+  },
+  "/media/sc2203-E42-np-closure.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E42-np-closure.mp3",
+    "size": 1525101,
+    "sha256": "49b356c4df691981586547ffb67342973bf10c4f968c740fad2bc24744e1a83a"
+  },
+  "/media/sc2203-E43-polynomial-reductions.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E43-polynomial-reductions.mp4",
+    "size": 4393998,
+    "sha256": "e0365650844cee815e271012d692faba19fbf70feec368925c0d8778fb0292e5"
+  },
+  "/media/sc2203-E43-polynomial-reductions.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E43-polynomial-reductions.mp3",
+    "size": 1588461,
+    "sha256": "dbce761d72e210a262f65a04f74a6cd28537126f77e63db7141c52aadfc71737"
+  },
+  "/media/sc2203-E44-balanced-partition.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E44-balanced-partition.mp4",
+    "size": 4813511,
+    "sha256": "5b8bbc084d3f6c582c936889df2dc002fbd168aa7eb5cbe7e4090ffde2107ce3"
+  },
+  "/media/sc2203-E44-balanced-partition.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E44-balanced-partition.mp3",
+    "size": 1733997,
+    "sha256": "6d9aa523edf9dab06257ec040ca88a9c6bc440be9b1d3085d6bfb87e8955af0b"
+  },
+  "/media/sc2203-E45-sat-to-three-sat.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E45-sat-to-three-sat.mp4",
+    "size": 5049815,
+    "sha256": "bb15f60cb7e8f64c58989bb39c9e6224bb32e15b6f5a801cdce954368600538c"
+  },
+  "/media/sc2203-E45-sat-to-three-sat.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E45-sat-to-three-sat.mp3",
+    "size": 1876077,
+    "sha256": "0000e6276c280158870d957808df1c4003795012af7f4f76d957f6922b90d34b"
+  },
+  "/media/sc2203-E46-np-completeness.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E46-np-completeness.mp4",
+    "size": 4860272,
+    "sha256": "531ceba3403fb42b00e416c139fb9d64145178337b6a938409faa1017f6a9b8c"
+  },
+  "/media/sc2203-E46-np-completeness.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E46-np-completeness.mp3",
+    "size": 1780653,
+    "sha256": "5c15f6d262ac905d54522666f8b8f5384a0f1c3c70b562425b82ef342bb8ad0f"
+  },
+  "/media/sc2203-E47-cook-levin-overview.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E47-cook-levin-overview.mp4",
+    "size": 5339048,
+    "sha256": "e64af4b87c979613675c9d5ca0cf7638484c2b60ab8fbbfa251947eb2461a92e"
+  },
+  "/media/sc2203-E47-cook-levin-overview.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E47-cook-levin-overview.mp3",
+    "size": 1897773,
+    "sha256": "fb83075bba30daa9550a10213ed26a389dc1edbb05cecb9e41d1d101320e7d6f"
+  },
+  "/media/sc2203-E48-cook-levin-constraints.mp4": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E48-cook-levin-constraints.mp4",
+    "size": 5696001,
+    "sha256": "f380ebc7f269173861e57a792d3d390b59e3d7f84d31a77ac2042985134e3c58"
+  },
+  "/media/sc2203-E48-cook-levin-constraints.wav": {
+    "url": "https://gjrst1udonedkhjt.public.blob.vercel-storage.com/sc2203-E48-cook-levin-constraints.mp3",
+    "size": 2065197,
+    "sha256": "3546fd58e3f85ef0886cd6a1623af6c54f0ffa71f04dc77479d037e2eca43a86"
   }
 }

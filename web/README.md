@@ -1,6 +1,6 @@
 # Malfoid Study
 
-A quiet local home for SC2001 and SC2005 through Week 7, SC2203 Automata through Week 11, and the SC2001 question bank.
+A quiet home for SC2001 through Week 13, SC2005 through Week 7, SC2203 Automata through Week 11, and interactive practice.
 
 ## Run
 
@@ -14,12 +14,12 @@ Open http://localhost:4173. No package installation is needed. To use another po
 
 ## Included
 
-- 107 complete video lessons: 18 for SC2001, 41 for SC2005 and 48 for SC2203, with a subject home page, contextual course navigation, search and topic filters.
+- 138 complete video lessons: 49 for SC2001, 41 for SC2005 and 48 for SC2203, with a subject home page, contextual course navigation, search and topic filters.
 - SC2005 includes the 34 core explanations, three worked clinics and four lab companions, with narration downloads and source notes. Open `http://localhost:4173/#/course/sc2005` directly.
 - SC2203 includes all 48 reviewed Automata episodes, grouped by topic, with the original chapter timestamps, captions, transcripts, narration downloads and source notes. Open `http://localhost:4173/#/course/sc2203` directly. Coverage follows the supplied Weeks 1–11 materials; Weeks 12–13 materials were not supplied.
-- SC2005 and SC2203 have no question banks yet; their practice pages make this clear.
+- SC2005 includes 160 interactive questions. SC2203 provides the existing exam-style bank with 176 MCQs and 44 open-ended questions; it has no scored interactive bank yet.
 - Chapter seeking, full timestamped narration and English captions.
-- 390 MCQs across all 30 topics: four Easy, four Medium, four Hard and one Baka per topic. The original 90 questions and IDs are retained.
+- 953 interactive questions: 793 for SC2001 and 160 for SC2005. The original 90 questions and IDs are retained.
 - Per-topic and per-lesson quizzes with difficulty filters, answer feedback, scoring and missed-question retries.
 - Playback resume, watched lessons and question progress saved in browser local storage.
 - Question-specific input arrays/graphs, explicit trace conventions, worked feedback and course references. Baka combines longer traces and interacting operations.
@@ -53,7 +53,7 @@ The importer uses Pillow and FFmpeg/FFprobe, finds the latest complete local les
 
 ## Vercel deployment
 
-Production is [Malfoid Study](https://malfoid-study.vercel.app), in the `joel-0a4e` account. The published SC2001/SC2005 app contains 59 lessons and 390 practice questions. SC2203 remains local.
+Production is [Malfoid Study](https://malfoid-study.vercel.app), in the `joel-0a4e` account. The published catalog includes SC2001, SC2005 and SC2203: 138 lessons and 953 interactive questions, plus the SC2203 exam-bank download. Open [SC2203 Automata](https://malfoid-study.vercel.app/#/course/sc2203) directly.
 
 Vercel serves the static `dist/` build; videos and narration use the public `malfoid-lessons` Blob store. `content/hosting.json` selects the published courses and Blob origin. `npm run build` validates all media URLs and includes staged source notes and the question-bank PDF from `content/cloud-support/`. Environment files and credentials are excluded from the public output.
 

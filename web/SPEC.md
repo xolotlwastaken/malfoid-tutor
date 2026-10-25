@@ -43,3 +43,7 @@ User asks to feature Malfoid on the subject home with her normal smug expression
 ## Approved production publication — 23 October 2026
 
 The user subsequently approved publishing the complete SC2001/SC2005 app, including 59 videos, 41 narration files, captions, transcripts, source notes, quizzes and the question-bank PDF, to `joel-0a4e`. Production is https://malfoid-study.vercel.app. SC2203 additions remain local; original media masters remain untouched. This authorization supersedes earlier local-only deployment constraints for the listed materials.
+
+## SC2203 production publication — 25 October 2026
+
+The user approved uploading and registering the existing SC2203 media, enabling SC2203 in the published catalog, and redeploying the existing production site. Publish all 48 Automata lessons through Week 11, with narration, captions, transcripts, source notes and the existing exam-bank download. Preserve the existing SC2001/SC2005 catalog, question identities and browser progress. Original media masters remain unchanged. This supersedes the earlier local-only restriction for SC2203.

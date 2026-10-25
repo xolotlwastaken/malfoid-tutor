@@ -51,7 +51,7 @@ export async function buildSite(root=webRoot){
       await cp(path.join(root,'content/cloud-support',route.slice(1)),destination);
     }
     await cp(path.join(root,'content/cloud-support/question-bank.pdf'),path.join(staged,'question-bank.pdf'));
-    const examBankSource=path.join(root,'SC2203_exam_question_bank.md');
+    const examBankSource=path.join(root,'..','SC2203_exam_question_bank.md');
     try{await cp(examBankSource,path.join(staged,'sc2203-exam-question-bank.md'));}
     catch(error){if(error.code!=='ENOENT')throw error;}
     await writeFile(path.join(staged,'data/catalog.json'),JSON.stringify(cloud));

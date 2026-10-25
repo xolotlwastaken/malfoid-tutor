@@ -23,7 +23,8 @@ test('the deployment output contains supporting files but excludes local secrets
  const {mkdtemp,mkdir,writeFile,readFile,access,rm}=await import('node:fs/promises');
  const {tmpdir}=await import('node:os');const path=await import('node:path');
  const {buildSite}=await import('../scripts/build_site.mjs');
- const root=await mkdtemp(path.join(tmpdir(),'malfoid-cloud-'));t.after(()=>rm(root,{recursive:true,force:true}));
+ const project=await mkdtemp(path.join(tmpdir(),'malfoid-cloud-'));t.after(()=>rm(project,{recursive:true,force:true}));
+ const root=path.join(project,'web');
  for(const dir of ['public/data','content/cloud-support/sources'])await mkdir(path.join(root,dir),{recursive:true});
  await writeFile(path.join(root,'public/data/catalog.json'),JSON.stringify(catalog));
  await writeFile(path.join(root,'public/index.html'),'<main>Subjects</main>');
@@ -32,11 +33,13 @@ test('the deployment output contains supporting files but excludes local secrets
  await writeFile(path.join(root,'content/cloud-support/question-bank.pdf'),'%PDF-test');
  await writeFile(path.join(root,'media-manifest.json'),JSON.stringify({'/sources/lesson.md':'original-outside-web/notes.md'}));
  await writeFile(path.join(root,'.env.local'),'SECRET=not-public');
+ await writeFile(path.join(project,'SC2203_exam_question_bank.md'),'# SC2203 exam question bank');
  await buildSite(root);
  const built=JSON.parse(await readFile(path.join(root,'dist/data/catalog.json'),'utf8'));
  assert.equal(built.lessons[0].video,entry('mp4').url);
  assert.equal(await readFile(path.join(root,'dist/sources/lesson.md'),'utf8'),'Lesson source notes');
  assert.equal(await readFile(path.join(root,'dist/question-bank.pdf'),'utf8'),'%PDF-test');
+ assert.equal(await readFile(path.join(root,'dist/sc2203-exam-question-bank.md'),'utf8'),'# SC2203 exam question bank');
  await assert.rejects(access(path.join(root,'dist/.env.local')));
  assert.equal(JSON.parse(await readFile(path.join(root,'public/data/catalog.json'),'utf8')).lessons[0].video,'/media/lesson.mp4');
 });
