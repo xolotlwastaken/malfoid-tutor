@@ -17,9 +17,9 @@ Open http://localhost:4173. No package installation is needed. To use another po
 - 138 complete video lessons: 49 for SC2001, 41 for SC2005 and 48 for SC2203, with a subject home page, contextual course navigation, search and topic filters.
 - SC2005 includes the 34 core explanations, three worked clinics and four lab companions, with narration downloads and source notes. Open `http://localhost:4173/#/course/sc2005` directly.
 - SC2203 includes all 48 reviewed Automata episodes, grouped by topic, with the original chapter timestamps, captions, transcripts, narration downloads and source notes. Open `http://localhost:4173/#/course/sc2203` directly. Coverage follows the supplied Weeks 1–11 materials; Weeks 12–13 materials were not supplied.
-- SC2203 Practice includes 176 interactive MCQs across 11 topics and 44 written prompts with marking points. All 48 lessons link to relevant practice; the former exam-bank route redirects to Practice.
+- SC2203 Practice includes 176 interactive MCQs and 44 interactive written questions across 11 topics. Written quizzes show one question at a time with an answer box, marking-point reveal, explicit self-marking, results and retry. Drafts and results save separately from MCQ sessions. All 48 lessons link to relevant practice; the former exam-bank route redirects to Practice.
 - Chapter seeking, full timestamped narration and English captions.
-- 1,129 interactive questions: 793 for SC2001, 160 for SC2005 and 176 for SC2203. The original 90 questions and IDs are retained.
+- 1,173 interactive practice questions: 793 MCQs for SC2001, 160 MCQs for SC2005, and 176 MCQs plus 44 written questions for SC2203. The original 90 questions and IDs are retained.
 - Per-topic and per-lesson quizzes with difficulty filters, answer feedback, scoring and missed-question retries.
 - Playback resume, watched lessons and question progress saved in browser local storage.
 - Question-specific input arrays/graphs, explicit trace conventions, worked feedback and course references. Baka combines longer traces and interacting operations.
@@ -53,7 +53,7 @@ The importer uses Pillow and FFmpeg/FFprobe, finds the latest complete local les
 
 ## Vercel deployment
 
-Production is [Malfoid Study](https://malfoid-study.vercel.app), in the `joel-0a4e` account. The current build includes SC2001, SC2005 and SC2203: 138 lessons and 1,129 interactive questions. See DEPLOYMENT.md for the last verified production release. Open [SC2203 Automata](https://malfoid-study.vercel.app/#/course/sc2203) directly.
+Production is [Malfoid Study](https://malfoid-study.vercel.app), in the `joel-0a4e` account. The current build includes SC2001, SC2005 and SC2203: 138 lessons and 1,173 interactive practice questions (1,129 MCQs and 44 written questions). See DEPLOYMENT.md for the last verified production release. Open [SC2203 Automata](https://malfoid-study.vercel.app/#/course/sc2203) directly.
 
 Vercel serves the static `dist/` build; videos and narration use the public `malfoid-lessons` Blob store. `content/hosting.json` selects the published courses and Blob origin. `npm run build` validates all media URLs and includes staged source notes and the question-bank PDF from `content/cloud-support/`. Environment files and credentials are excluded from the public output.
 

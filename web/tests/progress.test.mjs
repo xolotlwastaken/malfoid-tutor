@@ -23,6 +23,15 @@ test('unavailable or corrupt storage leaves study usable without claiming to sav
   const damaged=createProgress({getItem:()=>'{bad',setItem(){}});
   assert.deepEqual(damaged.read().answers,{});
 });
+test('written quiz drafts and self-marked progress persist independently of MCQ answers',()=>{
+ const disk=storage(),progress=createProgress(disk),id='sc2203-written-1-easy';
+ progress.answer(1001,true);progress.answer(id,false);
+ progress.saveQuiz('topic-501:All:written-v1',{selected:'My DFA construction',answers:{[id]:{text:'My DFA construction',correct:false}}});
+ const saved=createProgress(disk).read();
+ assert.equal(saved.answers[1001].correct,true);
+ assert.equal(saved.answers[id].correct,false);
+ assert.equal(saved.sessions['topic-501:All:written-v1'].selected,'My DFA construction');
+});
 test('replaying a lesson does not clear completion, and invalid saved shapes are recovered', () => {
   const disk=storage();const progress=createProgress(disk);
   progress.video('prim',480,481,true);progress.video('prim',10,481);

@@ -62,6 +62,6 @@ export async function buildSite(root=webRoot){
     await writeFile(path.join(staged,'vercel.json'),JSON.stringify(hostedConfig,null,2));
     await rm(output,{recursive:true,force:true});await rename(staged,output);
   }catch(error){await rm(staged,{recursive:true,force:true});throw error;}
-  console.log(`Built ${cloud.lessons.length} lessons and ${cloud.topics.reduce((n,t)=>n+t.qs.length,0)} questions into dist.`);
+  console.log(`Built ${cloud.lessons.length} lessons and ${cloud.topics.reduce((n,t)=>n+t.qs.length+(t.openEnded||[]).filter(q=>q.type==='written').length,0)} questions into dist.`);
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))await buildSite();

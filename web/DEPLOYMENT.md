@@ -14,9 +14,9 @@ Updated on 25 October 2026 through the existing GitHub main integration. The ini
 - Blob store: `malfoid-lessons` (`store_gjrst1uDONedkhjT`)
 - Public media origin: `https://gjrst1udonedkhjt.public.blob.vercel-storage.com`
 
-## Pending local update
+## Current source update awaiting production verification
 
-The current source/build adds the SC2203 bank to Practice: 176 interactive MCQs and 44 written prompts across 11 topics, linked from all 48 lessons. The separate exam-bank page is removed; its former route redirects to SC2203 Practice. The build contains 1,129 interactive questions. All 19 automated checks and the SC2203 desktop/mobile browser checks pass. This update has not been deployed; the production verification below describes the previous release.
+The current source/build presents SC2203 Practice as 176 interactive MCQs and 44 interactive written questions across 11 topics, linked from all 48 lessons. Both formats use the shared one-question-at-a-time quiz flow. Written mode saves typed drafts, reveals marking points, requires explicit self-assessment, and provides results and retry. Written progress and difficulty-filtered sessions are separate from existing MCQ sessions. The separate exam-bank page is removed; its former route redirects to SC2203 Practice. The build contains 1,173 practice questions (1,129 MCQs and 44 written questions). All 24 automated checks and the SC2203 desktop/mobile browser checks pass. The production verification below describes the previous release; it does not verify the latest GitHub-triggered deployments.
 
 ## Last verified published scope
 

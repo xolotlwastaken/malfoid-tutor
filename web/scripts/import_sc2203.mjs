@@ -35,7 +35,7 @@ export function importSc2203(catalog,markdown){
       const rotated=options.slice(shift).concat(options.slice(0,shift));
       return {id:1000+(topicNumber-1)*16+localId,difficulty:localId<=5?'Easy':localId<=10?'Medium':localId<=15?'Hard':'Baka',stem,options:rotated,answer:'ABCD'[rotated.indexOf(correct)],correct,why:correct,context,graph:null,source};
     });
-    const openEnded=[...body.matchAll(/^- \*\*(Easy|Medium|Hard|Baka):\*\* (.+) \*\(Mark: (.+)\)\*$/gm)].map(([,difficulty,prompt,key])=>({difficulty,prompt:`${difficulty}: ${plain(prompt)}`,key:plain(key)}));
+    const openEnded=[...body.matchAll(/^- \*\*(Easy|Medium|Hard|Baka):\*\* (.+) \*\(Mark: (.+)\)\*$/gm)].map(([,difficulty,prompt,key])=>({id:`sc2203-written-${topicNumber}-${difficulty.toLowerCase()}`,type:'written',difficulty,stem:plain(prompt),prompt:`${difficulty}: ${plain(prompt)}`,key:plain(key)}));
     if(qs.length!==16||key.size!==16||openEnded.length!==4)throw Error(`Incomplete SC2203 topic ${number}`);
     if(result.topics.some(t=>t.id===id)||result.topics.some(t=>t.qs.some(q=>qs.some(added=>added.id===q.id))))throw Error(`SC2203 IDs collide for topic ${number}`);
     result.topics.push({id,courseId:'sc2203',title:plain(title),group:linked[0].group,lessonSlug:linked[0].slug,context,graph:null,source,qs,openEnded});

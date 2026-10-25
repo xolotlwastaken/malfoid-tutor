@@ -16,6 +16,11 @@ test('SC2203 practice includes the complete exam bank linked to relevant lessons
     assert.equal(catalog.lessons.find(l=>l.slug===topic.lessonSlug).courseId,'sc2203');
     assert.deepEqual(['Easy','Medium','Hard','Baka'].map(level=>topic.qs.filter(q=>q.difficulty===level).length),[5,5,5,1]);
     assert.equal(topic.openEnded.length,4);
+    for(const q of topic.openEnded){
+      assert.equal(q.type,'written');
+      assert.ok(q.id.startsWith('sc2203-written-'));
+      assert.ok(q.stem.trim()&&q.key.trim());
+    }
     for(const q of topic.qs){
       assert.ok([2,4].includes(q.options.length));
       assert.equal(q.options['ABCD'.indexOf(q.answer)],q.correct);
@@ -26,6 +31,82 @@ test('SC2203 practice includes the complete exam bank linked to relevant lessons
     assert.ok(topics.some(t=>t.id===lesson.topicIds[0]));
   }
   assert.equal(topics[0].qs[10].correct,'have the same number of reachable states');
+});
+
+test('written answers require a response and self-assessment before advancing',()=>{
+  const quiz=createQuiz(topics[0].openEnded);
+  assert.equal(quiz.submit(),false);
+  quiz.select('  \n ');
+  assert.equal(quiz.submit(),false);
+  assert.equal(quiz.assess(true),false);
+  quiz.select('Q={q0,q1}; track whether the last symbol is 1.');
+  assert.equal(quiz.submit(),true);
+  assert.equal(quiz.state().checked,true);
+  assert.equal(quiz.state().completed,0);
+  assert.equal(quiz.next(),false);
+  quiz.select('A replacement answer');
+  assert.match(quiz.state().selected,/Q=/);
+  assert.equal(quiz.assess(true),true);
+  assert.equal(quiz.assess(false),false);
+  assert.equal(quiz.state().score,1);
+  assert.equal(quiz.state().completed,1);
+  assert.equal(quiz.next(),true);
+});
+
+test('written drafts, revealed marking and self-assessment survive refresh',()=>{
+  const questions=topics[0].openEnded;
+  let quiz=createQuiz(questions);
+  const text='States: q0, q1\nAccept iff the last symbol is 1.';
+  quiz.select(text);
+  quiz=createQuiz(questions,JSON.parse(JSON.stringify(quiz.snapshot())));
+  assert.equal(quiz.state().selected,text);
+  assert.equal(quiz.state().checked,false);
+  quiz.submit();
+  quiz=createQuiz(questions,quiz.snapshot());
+  assert.equal(quiz.state().checked,true);
+  assert.equal(quiz.state().graded,false);
+  assert.equal(quiz.next(),false);
+  quiz.assess(false);
+  quiz=createQuiz(questions,quiz.snapshot());
+  assert.equal(quiz.state().graded,true);
+  assert.equal(quiz.state().score,0);
+  assert.equal(quiz.next(),true);
+  assert.equal(quiz.state().selected,null);
+});
+
+test('written results and retry include only self-marked questions needing practice',()=>{
+  const questions=topics[0].openEnded;
+  const quiz=createQuiz(questions);
+  for(let index=0;index<questions.length;index++){
+    quiz.select(`My answer to question ${index+1}`);quiz.submit();quiz.assess(index!==1);quiz.next();
+  }
+  assert.equal(quiz.state().finished,true);
+  assert.equal(quiz.state().score,3);
+  assert.deepEqual(quiz.state().missedIds,[questions[1].id]);
+  const resumed=createQuiz(questions,quiz.snapshot());
+  assert.equal(resumed.state().finished,true);
+  assert.equal(resumed.state().answers[questions[1].id].text,'My answer to question 2');
+  const retry=resumed.retryMissed();
+  assert.equal(retry.state().total,1);
+  assert.equal(retry.state().selected,null);
+  assert.equal(retry.state().checked,false);
+  retry.select('Revised proof');retry.submit();retry.assess(true);retry.next();
+  assert.equal(retry.state().score,1);
+});
+
+test('invalid written saves cannot finish or score a quiz, and snapshots cannot alter a grade',()=>{
+  const question=topics[0].openEnded[0];
+  for(const answer of [1,{text:'',correct:true},{text:'Answer',correct:'true'}]){
+    const quiz=createQuiz([question],{answers:{[question.id]:answer},finished:true,selected:4});
+    assert.equal(quiz.state().finished,false);
+    assert.equal(quiz.state().score,0);
+    assert.equal(quiz.state().checked,false);
+    assert.equal(quiz.state().selected,null);
+  }
+  const quiz=createQuiz([question]);quiz.select('Answer');quiz.submit();
+  quiz.snapshot().answers[question.id].correct=true;
+  quiz.state().answers[question.id].correct=true;
+  assert.equal(quiz.state().graded,false);
 });
 
 test('the authored bank can be imported repeatedly without changing existing progress IDs or other courses',()=>{
