@@ -214,19 +214,6 @@ to{clip-path:inset(0)}
 .progress-section{margin:28px 0 50px}
 .progress-section>h2{font-size:22px;letter-spacing:-.5px;font-weight:600}
 .progress-section .topic-row{padding:17px 0}
-.exam-bank-page{padding-bottom:80px}
-.exam-bank-copy{max-width:860px;margin:0 auto 60px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 12px 40px #223a2308}
-.exam-bank-copy h1,.exam-bank-copy h2,.exam-bank-copy h3{letter-spacing:-.5px;line-height:1.2;margin:2.1em 0 .65em}
-.exam-bank-copy h1{font-size:30px;margin-top:0;color:var(--green)}
-.exam-bank-copy h2{font-size:24px;padding-top:18px;border-top:1px solid var(--line)}
-.exam-bank-copy h3{font-size:18px}
-.exam-bank-copy p,.exam-bank-copy li{font-size:14px;line-height:1.72;color:#4f5750}
-.exam-bank-copy p{margin:.55em 0}
-.exam-bank-copy ol,.exam-bank-copy ul{padding-left:25px;margin:.65em 0 1.2em}
-.exam-bank-copy li{padding:3px 0}
-.exam-bank-copy strong{color:var(--ink);font-weight:600}
-.exam-bank-copy code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:#f0f3ef;border-radius:4px;padding:2px 4px;color:var(--green)}
-.exam-bank-copy hr{border:0;border-top:1px solid var(--line);margin:35px 0}
 .site-footer{max-width:1152px;margin:auto;padding:25px 0 35px;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);font-size:11px;line-height:1.8;color:var(--muted)}
 .site-footer a:hover{text-decoration:underline;text-underline-offset:4px}
 .loading{padding:110px 30px;text-align:center;color:var(--muted);min-height:60vh}
@@ -345,10 +332,6 @@ nav a{font-size:13px}
 .setup-link{margin-top:17px}
 .player-tools{padding:12px 0}
 .hero .actions{gap:18px}
-.exam-bank-copy{padding:24px 20px;border-radius:12px}
-.exam-bank-copy h2{font-size:21px}
-.exam-bank-copy h3{font-size:17px}
-.exam-bank-copy p,.exam-bank-copy li{font-size:13px}
 }
 
 @media(max-width:375px){.header-inner{gap:18px}

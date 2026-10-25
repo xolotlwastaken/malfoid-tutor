@@ -18,7 +18,7 @@ test('SC2001 offers the complete approved later sequence with linked practice an
   assert.ok(lesson.chapters.length>=10&&lesson.transcript.length>=10);
   assert.ok(lesson.chapters.every(c=>c.time>=0&&c.time<lesson.duration));
  }
- assert.equal(catalog.topics.flatMap(t=>t.qs).length,953);
+ assert.equal(catalog.topics.filter(t=>t.courseId!=='sc2203').flatMap(t=>t.qs).length,953);
 });
 
 test('the expansion preserves every existing topic, question body and progress identifier',async()=>{

@@ -45,7 +45,7 @@ Prepared from the SC2203 lecture slide decks/recordings and tutorial materials i
 16. Let a complete DFA have `n` states. Which is the strongest universally valid statement about the sequence of states reached while reading any string?  
    A. It visits each state at most once. B. After `n+1` visited states, some state repeats. C. It must end in an accepting state. D. It can branch into at most `n` runs.
 
-**Answer key:** 1C, 2B, 3B, 4B, 5C, 6C, 7B, 8A, 9B, 10B, 11B, 12B, 13A, 14B, 15B, 16B.
+**Answer key:** 1C, 2B, 3B, 4B, 5C, 6C, 7B, 8A, 9B, 10B, 11C, 12B, 13A, 14B, 15B, 16B.
 
 ### Open-ended questions
 

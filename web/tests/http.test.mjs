@@ -23,7 +23,7 @@ test('the app serves lessons and seekable video without exposing source files', 
   assert.match(automata.at(-1).slug,/sc2203-E48/);
   assert.equal(catalog.courses.find(c=>c.id==='sc2203').periodLabel,'Weeks 1–11');
   for(const lesson of automata){
-    assert.equal(lesson.topicIds.length,0);
+    assert.equal(lesson.topicIds.length,1);
     assert.ok(lesson.transcript.length>=10);
     assert.ok(lesson.chapters.length>=3);
     assert.ok(lesson.chapters.every((c,i)=>c.time>=0&&c.time<lesson.duration&&(!i||c.time>lesson.chapters[i-1].time)));
@@ -46,8 +46,8 @@ test('the app serves lessons and seekable video without exposing source files', 
     assert.equal(sourceMap.status,200);assert.ok((await sourceMap.text()).length>100);
     const poster=await fetch(base+lesson.poster,{method:'HEAD'});assert.equal(poster.status,200);
   }
-  assert.equal(catalog.topics.flatMap(t=>t.qs).length,953);
-  assert.equal(new Set(catalog.lessons.flatMap(l=>l.topicIds)).size,71);
+  assert.equal(catalog.topics.flatMap(t=>t.qs).length,1129);
+  assert.equal(new Set(catalog.lessons.flatMap(l=>l.topicIds)).size,82);
   const range=await fetch(base+catalog.lessons[0].video,{headers:{Range:'bytes=0-1023'}});
   assert.equal(range.status,206);assert.equal((await range.arrayBuffer()).byteLength,1024);
   assert.match(range.headers.get('content-range'),/^bytes 0-1023\//);

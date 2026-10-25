@@ -17,9 +17,9 @@ Open http://localhost:4173. No package installation is needed. To use another po
 - 138 complete video lessons: 49 for SC2001, 41 for SC2005 and 48 for SC2203, with a subject home page, contextual course navigation, search and topic filters.
 - SC2005 includes the 34 core explanations, three worked clinics and four lab companions, with narration downloads and source notes. Open `http://localhost:4173/#/course/sc2005` directly.
 - SC2203 includes all 48 reviewed Automata episodes, grouped by topic, with the original chapter timestamps, captions, transcripts, narration downloads and source notes. Open `http://localhost:4173/#/course/sc2203` directly. Coverage follows the supplied Weeks 1–11 materials; Weeks 12–13 materials were not supplied.
-- SC2005 includes 160 interactive questions. SC2203 provides the existing exam-style bank with 176 MCQs and 44 open-ended questions; it has no scored interactive bank yet.
+- SC2203 Practice includes 176 interactive MCQs across 11 topics and 44 written prompts with marking points. All 48 lessons link to relevant practice; the former exam-bank route redirects to Practice.
 - Chapter seeking, full timestamped narration and English captions.
-- 953 interactive questions: 793 for SC2001 and 160 for SC2005. The original 90 questions and IDs are retained.
+- 1,129 interactive questions: 793 for SC2001, 160 for SC2005 and 176 for SC2203. The original 90 questions and IDs are retained.
 - Per-topic and per-lesson quizzes with difficulty filters, answer feedback, scoring and missed-question retries.
 - Playback resume, watched lessons and question progress saved in browser local storage.
 - Question-specific input arrays/graphs, explicit trace conventions, worked feedback and course references. Baka combines longer traces and interacting operations.
@@ -47,13 +47,13 @@ Content regeneration (only needed when source lessons/questions change):
 python3 scripts/prepare_content.py
 ```
 
-The importer uses Pillow and FFmpeg/FFprobe, finds the latest complete local lesson masters, produces WebP previews and VTT captions, and imports the durable question bank from `content/question-bank.json`. The PDF link remains the original 90-question edition. Existing video/audio masters are never rewritten. Content import is separate from normal app startup.
+The importer uses Pillow and FFmpeg/FFprobe, finds the latest complete local lesson masters, produces WebP previews and VTT captions, and imports the durable question bank from `content/question-bank.json`. The PDF link remains the original 90-question edition. Existing video/audio masters are never rewritten. Content import is separate from normal app startup. To refresh only SC2203 practice from the authored root `SC2203_exam_question_bank.md`, run `node scripts/import_sc2203.mjs`; this preserves other subjects and existing progress IDs.
 
 `python3 scripts/expand_questions.py` reproduces the 300 added questions from frozen deterministic inputs, preserving the original 90 in `content/catalog-before-expansion.json`. It also writes calculation evidence to `content/answer-audit.json`. Review generated content before changing the published bank; retain IDs for progress compatibility. Quiz sessions are versioned so old three-question runs do not hide new questions.
 
 ## Vercel deployment
 
-Production is [Malfoid Study](https://malfoid-study.vercel.app), in the `joel-0a4e` account. The published catalog includes SC2001, SC2005 and SC2203: 138 lessons and 953 interactive questions, plus the SC2203 exam-bank download. Open [SC2203 Automata](https://malfoid-study.vercel.app/#/course/sc2203) directly.
+Production is [Malfoid Study](https://malfoid-study.vercel.app), in the `joel-0a4e` account. The current build includes SC2001, SC2005 and SC2203: 138 lessons and 1,129 interactive questions. See DEPLOYMENT.md for the last verified production release. Open [SC2203 Automata](https://malfoid-study.vercel.app/#/course/sc2203) directly.
 
 Vercel serves the static `dist/` build; videos and narration use the public `malfoid-lessons` Blob store. `content/hosting.json` selects the published courses and Blob origin. `npm run build` validates all media URLs and includes staged source notes and the question-bank PDF from `content/cloud-support/`. Environment files and credentials are excluded from the public output.
 

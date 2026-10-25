@@ -153,3 +153,6 @@ Image.open(ROOT/'edit/v2/assets/malfoid-encouraging.png').save(PUBLIC/'assets/ma
 (DATA/'catalog.json').write_text(json.dumps(dict(courses=courses,lessons=lessons,topics=bank,bankVersion='sc2001-complete-2026-10-24' if bank_path.exists() else 'original'),ensure_ascii=False,separators=(',',':')))
 (WEB/'media-manifest.json').write_text(json.dumps(mounts,indent=2))
 print(f'Prepared {len(lessons)} full lessons, {len(bank)} topics, {sum(len(t["qs"]) for t in bank)} questions, captions and chapter links.')
+
+# Reuse the website catalog importer without re-encoding any Automata media.
+subprocess.run(['node',str(WEB/'scripts/import_sc2203.mjs')],check=True)

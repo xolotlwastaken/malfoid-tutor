@@ -14,7 +14,11 @@ Updated on 25 October 2026 through the existing GitHub main integration. The ini
 - Blob store: `malfoid-lessons` (`store_gjrst1uDONedkhjT`)
 - Public media origin: `https://gjrst1udonedkhjt.public.blob.vercel-storage.com`
 
-## Published scope
+## Pending local update
+
+The current source/build adds the SC2203 bank to Practice: 176 interactive MCQs and 44 written prompts across 11 topics, linked from all 48 lessons. The separate exam-bank page is removed; its former route redirects to SC2203 Practice. The build contains 1,129 interactive questions. All 19 automated checks and the SC2203 desktop/mobile browser checks pass. This update has not been deployed; the production verification below describes the previous release.
+
+## Last verified published scope
 
 The published courses are SC2001, SC2005 and SC2203. The October 25 release adds all 48 existing SC2203 Automata lessons through Week 11, narration, captions/transcripts, source notes and the existing exam-bank download. The resulting catalog contains 138 videos, 120 narration downloads, 138 captions/transcripts, 120 source notes and the existing 953 interactive questions (793 SC2001, 160 SC2005). SC2203 has an exam-style bank with 176 MCQs and 44 open-ended questions, but no scored interactive bank. The linked original SC2001 PDF remains the 90-question Weeks 1–7 edition. `content/hosting.json` includes all three courses.
 
